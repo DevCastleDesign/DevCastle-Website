@@ -26,7 +26,51 @@
         </ul>
         <div id="selector"></div>
     </div>
-    <div class="content"></div>
+    <div class="content">
+        <div class="account">
+            <h1>Mon compte</h1>
+            <h2>Informations</h2>
+            <table>
+                <tr>
+                    <td>Icône</td>
+                    <td></td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Nom</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Prenom</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Mot de passe</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Budget</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+            </table>
+            <p>actif depuis le ---</p>
+            <h2>Facturation</h2>
+        </div>
+    </div>
 
     <script>
         var height = document.getElementById("panellist").children[0].clientHeight;
@@ -35,7 +79,7 @@
                 document.getElementById("panellist").children[i].children[0].classList.remove("active");
             }
             document.getElementById("panellist").children[index].children[0].classList.add("active");
-            document.getElementById("selector").style.transform = "translateY(" + (10 * (index + 1) + height * index) + "px)";
+            document.getElementById("selector").style.transform = "translateY(" + (20 * (index + 1) + height * index) + "px)";
         }
         document.getElementById("selector").style.height = height + "px";
     </script>
