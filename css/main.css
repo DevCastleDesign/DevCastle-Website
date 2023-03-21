@@ -88,6 +88,13 @@ img {
     margin: 0 10px;
 }
 
+.pDashboard .panels .commandlist {
+    width: 20vw;
+    border-top: var(--dashboardseparator) solid 2px;
+    position: absolute;
+    bottom: 0;
+}
+
 .pDashboard .panels #selector {
     width: 5px;
     background-color: var(--white);
