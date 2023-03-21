@@ -24,9 +24,45 @@ a {
 
 img {
     max-width: 100%;
-    float: right;
 }
 
+h1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 32px;
+    margin-bottom: 29px;
+}
+
+.email {
+    margin-bottom: 20px;
+    background-color: #D9D9D9;
+    border: none;
+}
+
+.password {
+    margin-bottom: 10px;
+    background-color: #D9D9D9;
+    border: none;
+}
+
+header  {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 62px;
+}
+
+input {
+    width: 100%;
+    height: 33px;
+}
+
+.loginButton {
+    width: 190px;
+    height: 42px;
+    background-color: #D9D9D9;
+    border: none;
+    margin-top: 57px;
+    margin-bottom: 100px;
+}
 
 div {
     height: 504px;
@@ -35,5 +71,11 @@ div {
     background-color: white;
     margin: 0 auto;
     padding: 53px 44px 0 44px;
+}
 
+.devCastleImage {
+    float: right;
+    bottom: 0;
+    right: 0;
+    position: absolute;
 }
