@@ -73,6 +73,7 @@ img {
     background-color: var(--white);
     transform: translateY(10px);
     transition: 200ms;
+    border-radius: 5px 0 0 5px;
 }
 
 /* content */
@@ -83,43 +84,64 @@ img {
     padding: 30px;
 }
 
-.pDashboard .content h1 {
-    margin-bottom: 30px;
-}
-
 .pDashboard .content h2 {
     margin-top: 30px;
 }
 
-.pDashboard .content p {
-    opacity: 0.3;
-}
-
-/* Account */
-.pDashboard .content .account table {
+.pDashboard .content table {
     border-collapse: collapse;
     width: 100%;
     margin: 10px 0;
 }
 
-.pDashboard .content .account table tr {
+.pDashboard .content table tr {
     border-top: 2px solid var(--dashboardseparator);
     border-bottom: 2px solid var(--dashboardseparator);
     height: 2.5rem;
 }
 
-.pDashboard .content .account table tr td:first-child {
+.pDashboard .content table tr td:first-child {
     width: 20rem;
     opacity: 0.5;
 }
 
-.pDashboard .content .account table tr td:last-child {
+.pDashboard .content table tr td:last-child {
     margin-right: 20%;
     opacity: 0.5;
     cursor: pointer;
 }
 
-.pDashboard .content .account table tr img {
+.pDashboard .content table tr img {
     height: 15px;
+}
+
+/* Compte */
+
+.pDashboard .content .account p {
+    opacity: 0.3;
+}
+
+/* Site */
+.pDashboard .content .site a {
+    background-color: var(--dashboardseparator);
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.pDashboard .content .site p {
+    border-bottom: 2px solid var(--dashboardseparator);
+    display: block;
+    width: fit-content;
+    margin: 50px 0 5px;
+}
+
+.pDashboard .content .site a img {
+    height: 30px;
+    margin-right: 5px;
 }
 /* #endregion */

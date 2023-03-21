@@ -26,8 +26,8 @@
         </ul>
         <div id="selector"></div>
     </div>
-    <div class="content">
-        <div class="account">
+    <div class="content" id="pagecontainer">
+        <div class="account" style="display: none;">
             <h1>Mon compte</h1>
             <h2>Informations</h2>
             <table>
@@ -68,7 +68,35 @@
                 </tr>
             </table>
             <p>actif depuis le ---</p>
-            <h2>Facturation</h2>
+        </div>
+        <div class="site" style="display: block;">
+            <h1>Mon site</h1>
+            <h2>Informations</h2>
+            <table>
+                <tr>
+                    <td>Nom du site</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td>---</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Icone</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+            </table>
+            <p>Récuperer le code source</p>
+            <a href=""><img src="./src/Icons/AddIcon.png" alt="">Télécharger</a>
+        </div>
+        <div class="hosting" style="display: none;">
+            <h1>Hebergement</h1>
+        </div>
+        <div class="support" style="display: none;">
+            <h1>Support</h1>
         </div>
     </div>
 
@@ -77,8 +105,10 @@
         function OpenDashboard(index) {
             for (var i = 0; i < document.getElementById("panellist").childElementCount; i++) {
                 document.getElementById("panellist").children[i].children[0].classList.remove("active");
+                document.getElementById("pagecontainer").children[i].style.display = "none";
             }
             document.getElementById("panellist").children[index].children[0].classList.add("active");
+            document.getElementById("pagecontainer").children[index].style.display = "block";
             document.getElementById("selector").style.transform = "translateY(" + (20 * (index + 1) + height * index) + "px)";
         }
         document.getElementById("selector").style.height = height + "px";
