@@ -14,16 +14,30 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/fonts/fonts.css">
-    <link rel="stylesheet" href="../css/fonts/main.css">
-
-    <img src="src/Icons/1157725.svg" alt="">
-    <style>
-        img {
-            fill:red;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/main.css">
 </head>
-<body>
-    
+<body class="pDashboard">
+    <div class="panels">
+        <ul id="panellist">
+            <li><button onclick="OpenDashboard(0)" class="active"><img src="./src/Icons/ParamIcon.png"><span>Compte</span></button></li>
+            <li><button onclick="OpenDashboard(1)"><img src="./src/Icons/HomeIcon.png"><span>Mon site</span></button></li>
+            <li><button onclick="OpenDashboard(2)"><img src="./src/Icons/CloudIcon.png"><span>Hebergement</span></button></li>
+            <li><button onclick="OpenDashboard(3)"><img src="./src/Icons/InterogationIcon.png"><span>Support</span></button></li>
+        </ul>
+        <div id="selector"></div>
+    </div>
+    <div class="content"></div>
+
+    <script>
+        var height = document.getElementById("panellist").children[0].clientHeight;
+        function OpenDashboard(index) {
+            for (var i = 0; i < document.getElementById("panellist").childElementCount; i++) {
+                document.getElementById("panellist").children[i].children[0].classList.remove("active");
+            }
+            document.getElementById("panellist").children[index].children[0].classList.add("active");
+            document.getElementById("selector").style.transform = "translateY(" + (10 * (index + 1) + height * index) + "px)";
+        }
+        document.getElementById("selector").style.height = height + "px";
+    </script>
 </body>
 </html>
