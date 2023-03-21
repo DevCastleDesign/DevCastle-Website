@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-size: Montserrat, sans-serif;
+    font-family: Montserrat, sans-serif;
     margin: 0;
     padding: 0;
 
@@ -11,6 +11,7 @@
     --bluelink: #006DF0;
     --black: #000000;
     --white: #ffffff;
+    color: white;
 }
 
 a {
@@ -20,4 +21,14 @@ a {
 
 img {
     max-width: 100%;
+}
+
+body {
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%);
+}
+
+.grandEcran {
+    height: 453px;
+    width: 798px;
+    background-color: #0E153D;
 }
