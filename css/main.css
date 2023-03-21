@@ -39,6 +39,38 @@ a {
     font-style: normal;
     font-weight: bold;
 }
+.offreDiv {
+    width: 408px;
+    height: 478px;
+    background-color: #294876;
+    color: #81B9FF;
+    padding-left: 30px;
+
+}
+
+.titre {
+    font-size: 31px;
+}
+
+.separateur {
+    border: none;
+    width: 302px;
+    height: 3px;
+    background-color: #81B9FF;
+    border-radius: 3px;
+}
+
+
+.commandButton {
+    height: 60px;
+    width: 302px;
+    background-color: #81B9FF;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    display: block;
+}
 
 
 
