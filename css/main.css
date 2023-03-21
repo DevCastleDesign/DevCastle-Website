@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-size: Montserrat, sans-serif;
+    font-family: Montserrat, sans-serif;
     margin: 0;
     padding: 0;
 
@@ -13,6 +13,10 @@
     --white: #ffffff;
 }
 
+body {
+    background:  linear-gradient(180deg, #81B9FF 0%, #A0CFFF 100%);
+}
+
 a {
     text-decoration: none;
     color: var(--bluelink);
@@ -20,4 +24,16 @@ a {
 
 img {
     max-width: 100%;
+    float: right;
+}
+
+
+div {
+    height: 504px;
+    width: 373px;
+    border-radius: 12px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 53px 44px 0 44px;
+
 }
