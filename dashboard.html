@@ -18,13 +18,16 @@
 </head>
 <body class="pDashboard">
     <div class="panels">
-        <ul id="panellist">
-            <li><button onclick="OpenDashboard(0)" class="active"><img src="./src/Icons/ParamIcon.png"><span>Compte</span></button></li>
-            <li><button onclick="OpenDashboard(1)"><img src="./src/Icons/HomeIcon.png"><span>Mon site</span></button></li>
-            <li><button onclick="OpenDashboard(2)"><img src="./src/Icons/CloudIcon.png"><span>Hebergement</span></button></li>
-            <li><button onclick="OpenDashboard(3)"><img src="./src/Icons/InterogationIcon.png"><span>Support</span></button></li>
-        </ul>
-        <div id="selector"></div>
+        <a href="./"><img src="./src/Images/DevCastleImage.png">Devcastle</a>
+        <div class="list">
+            <ul id="panellist">
+                <li><button onclick="OpenDashboard(0)" class="active"><img src="./src/Icons/ParamIcon.png"><span>Compte</span></button></li>
+                <li><button onclick="OpenDashboard(1)"><img src="./src/Icons/HomeIcon.png"><span>Mon site</span></button></li>
+                <li><button onclick="OpenDashboard(2)"><img src="./src/Icons/CloudIcon.png"><span>Hebergement</span></button></li>
+                <li><button onclick="OpenDashboard(3)"><img src="./src/Icons/InterogationIcon.png"><span>Support</span></button></li>
+            </ul>
+            <div id="selector"></div>
+        </div>
     </div>
     <div class="content" id="pagecontainer">
         <div class="account" style="display: block;">

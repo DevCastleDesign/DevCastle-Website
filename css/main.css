@@ -37,9 +37,29 @@ img {
     height: 100vh;
     width: 20vw;
     border-right: var(--dashboardseparator) solid 2px;
+}
+
+.pDashboard .panels a {
+    background-color: var(--dashboardseparator);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px;
+    line-height: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--blue1);
+}
+
+.pDashboard .panels a img {
+    height: 75px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.pDashboard .panels .list {
     display: flex;
     justify-content: space-between;
-    padding-top: 50px;
 }
 
 .pDashboard .panels ul li button {
