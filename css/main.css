@@ -195,4 +195,97 @@ img {
 .pDashboard .content .hosting .infos a {
     font-size: 0.9rem;
 }
+
+/* Support */
+.pDashboard .content .support .banner {
+    background-color: var(--dashboardseparator);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.pDashboard .content .support .banner img {
+    width: 20%;
+}
+
+.pDashboard .content .support .h2p {
+    display: flex;
+    align-items: end;
+    margin: 50px 0 20px;
+}
+
+.pDashboard .content .support .h2p h2 {
+    margin: 0;
+}
+
+.pDashboard .content .support .h2p p {
+    margin-left: 15px;
+    display: block;
+    width: fit-content;
+    opacity: 0.5;
+    font-size: 0.7rem;
+}
+
+.pDashboard .content .support .columns {
+    display: flex;
+    align-items: center;
+}
+
+.pDashboard .content .support a {
+    color: var(--blue1);
+    background-color: var(--dashboardseparator);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 25%;
+    transform: translateX(-50%);
+}
+
+.pDashboard .content .support .tickets {
+    display: flex;
+    height: 20vh;
+    width: 50%;
+}
+
+.pDashboard .content .support .tickets .scrollbar {
+    width: 10px;
+    height: calc(100% - 5px);
+    background-color: var(--dashboardseparator);
+}
+
+.pDashboard .content .support .tickets .scrollbar .handler {
+    width: 100%;
+    height: 20px;
+    background-color: var(--white);
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.pDashboard .content .support .tickets .list button {
+    background-color: var(--dashboardseparator);
+    border: 0;
+    color: var(--white);
+    padding: 10px 30px;
+    text-align: left;
+    width: calc(100% - 30px);
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.pDashboard .content .support .tickets .list button .reddot {
+    background-color: #DB6262;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
 /* #endregion */
