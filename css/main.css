@@ -21,14 +21,126 @@ a {
 
 img {
     max-width: 100%;
+    margin-top: 50px;
 }
 
 body {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%);
+    padding: 0 116px 0 116px;
 }
 
 .grandEcran {
     height: 453px;
     width: 798px;
     background-color: #0E153D;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.maquetteselect {
+    background-color: #2C3973;
+    width: 318px;
+    height: 485px;
+    padding: 22px 22px 0 22px;
+    border-radius: 10px;
+}
+
+.maquette {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectMaq {
+    background-color: #0E153D;
+    height: 124px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    position: relative;
+    padding: 12px;
+    user-select: none;
+}
+
+hr {
+    margin-top: 30px;
+    opacity: 50%;
+}
+
+.grandEcran .componant {
+    position: absolute;
+    bottom: 24px;
+    left: 22px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+}
+.grandEcran .componant .titre {
+    font-size: 24px;
+}
+
+.dateFin {
+    position: absolute;
+    right: 22px;
+    bottom: 24px;
+}
+
+.selectMaqContent {
+    position: absolute;
+    bottom: 12px;
+}
+
+.selectMaqContent .titre {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.selectMaq:hover {
+    scale: 102%;
+    transition: 100ms;
+}
+
+.selection {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    opacity: 50%;
+}
+
+
+.exportButton {
+    background-color: #2C3973;
+    height: 52px;
+    margin-top: 16px;
+}
+
+.demandeButton {
+    background-color: #2C3973;
+    height: 43px;
+    width: 258px;
+    border-radius: 6px;
+    margin-top: 16px;
+}
+
+.commentaire {
+    width: 798px;
+    height: 198px;
+    background-color: transparent;
+}
+
+.valideButton {
+    margin-top: 150px;
+    width: 242px;
+    height: 58px;
+    background-color: #2C3973;
+}
+
+.paragraphe {
+    width: 500px;
+    margin: 30px 0 30px 0;
+}
+
+footer {
+    height: 150px;
 }
