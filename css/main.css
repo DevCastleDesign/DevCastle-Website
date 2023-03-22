@@ -271,14 +271,14 @@ main nav ul li a {
 
 footer {
     height: 330px;
-    background-color: #81B9FF;
+    background-color: #222429;
     font-size: 20px;
     padding: 70px 250px 0 250px;
 }
 
 footer a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .email {
@@ -308,7 +308,6 @@ footer a {
 
 .copyrightEtTermes {
     display: flex;
-    color: black;
     margin-top: 100px;
     justify-content: space-between;
 }
@@ -316,12 +315,12 @@ footer a {
 .foot {
     display: flex;
     justify-content: space-between;
-    color: black;
+    color: white;
 }
 
 .foot a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .foot nav ul li {
