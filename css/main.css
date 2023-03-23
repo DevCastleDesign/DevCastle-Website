@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-size: Montserrat, sans-serif;
+    font-family: Montserrat, sans-serif;
     margin: 0;
     padding: 0;
 
@@ -20,4 +20,8 @@ a {
 
 img {
     max-width: 100%;
+}
+
+body {
+    background: linear-gradient(180deg, #81B9FF 0%, #A0CFFF 100%);
 }
