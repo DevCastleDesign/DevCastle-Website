@@ -225,7 +225,7 @@ img {
 
 /* Support */
 .pDashboard .content .support .banner {
-    background-color: var(--dashboardseparator);
+    background-color: #1D1C21;
     padding: 20px;
     border-radius: 10px;
     display: flex;
