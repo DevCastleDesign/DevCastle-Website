@@ -70,12 +70,40 @@
             </div>
 
         </section>
-        <div>
-            <img class="castle" height="530" src="src/Images/DevCastleImage.png" width="330"/>
-            <img class="terrain" height="109" src="src/Images/Mask group.png" width="1440"/>
+
+        <img id="castle" class="castle" height="530" src="src/Images/DevCastleImage.png" width="330"/>
+
+        <div class="fond">
+
+            <img id="moutain2" class="submountain" src="src/Images/submountain.png" height="399" width="1440"/>
+
+            <img id="moutain" class="moutain" src="src/Images/Mountain.png" height="325" width="1440"/>
+
+            <img id="lac" class="lac" src="src/Images/lac.png" height="381" width="1440"/>
+
+            <img id="border" class="border" src="src/Images/border.png" height="553" width="1440"/>
+
         </div>
 
     </section>
+
+    <script>
+        let mountain1 = document.getElementById('moutain');
+        let mountain2 = document.getElementById('moutain2');
+        let border = document.getElementById('border');
+        let lac = document.getElementById('lac');
+        let castle = document.getElementById('castle');
+
+        window.addEventListener('scroll', () => {
+            let value = window.scrollY;
+
+            mountain2.style.marginTop = value / -4 +"px";
+            mountain1.style.marginTop = value / -4 +"px";
+            lac.style.marginTop = value / -3.8 +"px";
+            castle.style.marginTop = value / 10 +"px";
+            border.style.marginTop = value * -0.8 + "px";
+        })
+    </script>
 
 
 <div class="fonctionnement">
