@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-size: Montserrat, sans-serif;
     margin: 0;
     padding: 0;
 
@@ -13,6 +12,11 @@
     --white: #ffffff;
 }
 
+body {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
 a {
     text-decoration: none;
     color: var(--bluelink);
@@ -20,4 +24,67 @@ a {
 
 img {
     max-width: 100%;
+}
+
+.achatList {
+    width: 385px;
+    font-size: 20px;
+    font-family: inter, sans-serif;
+}
+
+.paiementSiteWeb, .paiementHebergeur, .remisePremiere, .remiseSuisse, .total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.total {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+hr {
+    border: 1px solid #CCCCCC;
+    margin-bottom: 30px;
+}
+
+.chf {
+    font-size: 15px;
+}
+
+.paypal, .mastercard, .visa {
+    height: 170px;
+    width: 142px;
+    border-radius: 15px;
+    border: 3px solid #cccccc;
+}
+
+.Paiement {
+    display: flex;
+    justify-content: space-between;
+}
+
+.moyenPaiement {
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+
+.infoPers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.numCarte {
+    width: 100%;
+}
+
+.expirationCVV {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartePaiement {
+    width: 350px;
 }
