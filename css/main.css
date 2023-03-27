@@ -52,7 +52,8 @@ img {
     font-weight: bold;
     font-size: 24px;
     z-index: 3;
-
+    position: absolute;
+    right: 30px;
 }
 
 h1  {
@@ -73,7 +74,8 @@ h2 {
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    position: relative;
 }
 
 .pitch {

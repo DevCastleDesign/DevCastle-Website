@@ -60,7 +60,7 @@
 
             </div>
 
-            <div class="offreDiv">
+            <div id="offre" class="offreDiv">
                 <p class="titre">Moins de 499 CHF.-</p>
                 <p class="p1">Peut diminuer ou augmenter en fonction de la demande</p>
                 <hr class="separateur"></hr>
@@ -81,7 +81,7 @@
 
             <img id="lac" class="lac" src="src/Images/lac.png" height="381" width="1440"/>
 
-            <img id="border" class="border" src="src/Images/border.png" height="553" width="1440"/>
+            <img id="border" class="border" src="src/Images/border.png" height="799" width="1440"/>
 
         </div>
 
@@ -93,6 +93,7 @@
         let border = document.getElementById('border');
         let lac = document.getElementById('lac');
         let castle = document.getElementById('castle');
+        let offre = document.getElementById('offre');
 
         window.addEventListener('scroll', () => {
             let value = window.scrollY;
@@ -102,6 +103,7 @@
             lac.style.marginTop = value / -3.8 +"px";
             castle.style.marginTop = value / 10 +"px";
             border.style.marginTop = value * -0.8 + "px";
+            offre.style.marginTop = value * 0.2 + "px";
         })
     </script>
 
