@@ -37,18 +37,7 @@ img {
     height: 100vh;
     width: 20vw;
     border-right: var(--dashboardseparator) solid 2px;
-}
-
-.pDashboard .panels a {
-    background-color: var(--dashboardseparator);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 10px;
-    line-height: 30px;
-    font-size: 40px;
-    font-weight: bold;
-    color: var(--blue1);
+    padding: 10px 0;
 }
 
 .pDashboard .panels a img {
@@ -293,6 +282,7 @@ img {
 
 .pDashboard .content .support .tickets .list {
     width: calc(100% - 30px);
+    overflow: hidden;
 }
 
 .pDashboard .content .support .tickets .list button {

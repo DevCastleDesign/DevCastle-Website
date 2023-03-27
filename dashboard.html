@@ -13,12 +13,11 @@
     <title>Devcastle - Création de site webs a mini-prix</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/fonts/fonts.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="./css/fonts/fonts.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body class="pDashboard">
     <div class="panels">
-        <a href="./"><img src="./src/Images/DevCastleImage.png">Devcastle</a>
         <div class="list">
             <ul id="panellist">
                 <li><button onclick="OpenDashboard(0)" class="active"><img src="./src/Icons/ParamIcon.png"><span>Compte</span></button></li>
@@ -30,12 +29,12 @@
         </div>
         <ul class="commandlist">
             <li><button onclick=""><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
-            <li><button onclick=""><img src="./src/Icons/HomeIcon.png"><span>Mode clair</span></button></li>
+            <li><button onclick="switchTheme()"><img src="./src/Icons/HomeIcon.png"><span>Mode clair</span></button></li>
             <li><button onclick=""><img src="./src/Icons/CloudIcon.png"><span>Se deconnecter</span></button></li>
         </ul>
     </div>
     <div class="content" id="pagecontainer">
-        <div class="account" style="display: block;">
+        <div class="account" style="display: none;">
             <h1>Mon compte</h1>
             <h2>Informations</h2>
             <table>
@@ -116,7 +115,7 @@
                 </div>
             </div>
         </div>
-        <div class="support" style="display: none;">
+        <div class="support" style="display: block;">
             <div class="banner">
                 <div>
                     <h1>Support et aide</h1>
@@ -130,9 +129,9 @@
             <div class="columns">
                 <div class="tickets">
                     <div class="list">
-                        <button>Comment changer mon url<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
                     </div>
-                    <div class="scrollbar">
+                    <div class="scrollbar" style="display: none;">
                         <div class="handler"></div>
                     </div>
                 </div>
@@ -154,5 +153,7 @@
         }
         document.getElementById("selector").style.height = height + "px";
     </script>
+    <script src="./js/support-scrollbar.js"></script>
+    <script src="./js/theme.js"></script>
 </body>
 </html>
