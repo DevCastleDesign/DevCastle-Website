@@ -70,13 +70,6 @@ h2 {
     margin-bottom: 50px;
 }
 
-.presentation {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    margin-bottom: 100px;
-    position: relative;
-}
 
 .pitch {
     font-family: 'Inter', sans-serif;
@@ -163,6 +156,7 @@ main nav ul li a {
     font-size: 20px;
     max-width: 490px;
     position: relative;
+    margin-bottom: 100px;
     z-index: 2;
 }
 .castle {
