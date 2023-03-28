@@ -533,3 +533,31 @@ img {
     border-radius: 5px;
 }
 /* #endregion */
+
+/* #region HEBERGEMENT */
+.pHebergement {
+    background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
+    height: 100vh;
+    color: var(--white);
+    text-align: center;
+}
+
+.pHebergement .content {
+    display: flex;
+    flex-direction: row;
+}
+
+.pHebergement>button {
+    background-color: #2C3973;
+    position: absolute;
+    bottom: 2vw;
+    right: 2vw;
+    outline: none;
+    border: none;
+    color: var(--white);
+    padding: 5px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* #endregion */
