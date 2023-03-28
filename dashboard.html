@@ -28,13 +28,12 @@
             <div id="selector"></div>
         </div>
         <ul class="commandlist">
-            <li><button onclick=""><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
-            <li><button onclick="switchTheme()"><img src="./src/Icons/HomeIcon.png"><span>Mode clair</span></button></li>
-            <li><button onclick=""><img src="./src/Icons/CloudIcon.png"><span>Se deconnecter</span></button></li>
+            <li><button onclick="window.location.href='./';"><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
+            <li><button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button></li>
         </ul>
     </div>
     <div class="content" id="pagecontainer">
-        <div class="account" style="display: none;">
+        <div class="account" style="display: block;">
             <h1>Mon compte</h1>
             <h2>Informations</h2>
             <table>
@@ -115,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <div class="support" style="display: block;">
+        <div class="support" style="display: none;">
             <div class="banner">
                 <div>
                     <h1>Support et aide</h1>
@@ -130,9 +129,13 @@
                 <div class="tickets">
                     <div class="list">
                         <button>Question test<div class="reddot"></div></button>
-                    </div>
-                    <div class="scrollbar" style="display: none;">
-                        <div class="handler"></div>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
                     </div>
                 </div>
                 <a>Nouvelle question</a>
@@ -153,7 +156,6 @@
         }
         document.getElementById("selector").style.height = height + "px";
     </script>
-    <script src="./js/support-scrollbar.js"></script>
     <script src="./js/theme.js"></script>
 </body>
 </html>

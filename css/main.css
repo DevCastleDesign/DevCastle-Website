@@ -24,6 +24,21 @@ a {
 img {
     max-width: 100%;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--dashboardseparator);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--white);
+  }
 /* #endregion */
 
 /* #region DASHBOARD */
@@ -282,7 +297,8 @@ img {
 
 .pDashboard .content .support .tickets .list {
     width: calc(100% - 30px);
-    overflow: hidden;
+    overflow: auto;
+    padding-right: 20px;
 }
 
 .pDashboard .content .support .tickets .list button {
