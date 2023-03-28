@@ -543,8 +543,46 @@ img {
 }
 
 .pHebergement .content {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 750px;
+}
+
+.pHebergement .content>div {
+    padding: 15px;
+    background-color: #294876;
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pHebergement .content>div img {
+    width: 25%;
+}
+
+.pHebergement .content>div .price {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.pHebergement .content>div button {
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 5px 25px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .pHebergement>button {
