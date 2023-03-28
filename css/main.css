@@ -10,6 +10,8 @@
     --blue2: #A0CFFF;
     --blue3: #294876;
     --bluelink: #006DF0;
+    --gradient1: #051E41;
+    --gradient2: #010914;
     --black: #000000;
     --white: #ffffff;
     --dashboarddark: #0C0C0C;
@@ -327,14 +329,14 @@ img {
 }
 
 /* Popups */
-#popup-blur {
+.pDashboard #popup-blur {
     width: 100vw;
     height: 100vh;
     position: absolute;
     backdrop-filter: blur(4px);
 }
 
-.popup {
+.pDashboard .popup {
     background-color: var(--dashboardseparator);
     height: 70vh;
     aspect-ratio: 3/2;
@@ -346,7 +348,7 @@ img {
     padding: 1vw;
 }
 
-.popup .close {
+.pDashboard .popup .close {
     border: none;
     background-color: transparent;
     width: 1.5vw;
@@ -357,17 +359,17 @@ img {
     cursor: pointer;
 }
 
-.popup h1 {
+.pDashboard .popup h1 {
     text-align: center;
 }
 
-.popup h2 {
+.pDashboard .popup h2 {
     font-size: 1.3vw;
     margin-top: 3vw;
     margin-bottom: 0.5vw;
 }
 
-.popup input {
+.pDashboard .popup input {
     background-color: transparent;
     outline: none;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -378,7 +380,7 @@ img {
     resize: both;
 }
 
-.popup textarea {
+.pDashboard .popup textarea {
     background-color: transparent;
     outline: none;
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -390,7 +392,7 @@ img {
     height: 10vw;
 }
 
-.popup button:last-child {
+.pDashboard .popup button:last-child {
     position: absolute;
     left: 50%;
     bottom: 1vw;
@@ -403,4 +405,117 @@ img {
     outline: none;
 }
 
+/* #endregion */
+
+/* #region PROGRESSBAR */
+#progress-bar {
+    width: 80vw;
+    margin: 0 10vw;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+#progress-bar div {
+    background-color: #68FF5B;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+
+#progress-bar div:nth-child(3) {
+    background-color: #A3A3A3;
+}
+
+#progress-bar div:nth-child(4) {
+    background-color: #A3A3A3;
+}
+
+#progress-bar div:not(:last-child)::before {
+    content: "";
+    width: calc(80vw/3);
+    background-color: #A3A3A3;
+    height: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: block;
+    z-index: -1;
+    position: absolute;
+}
+
+#progress-bar div:not(:last-child)::after {
+    content: "";
+    width: calc(80vw/3);
+    background-color: #68FF5B;
+    height: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: block;
+    z-index: -1;
+    position: absolute;
+}
+
+#progress-bar div:nth-child(2)::after {
+    width: calc(80vw/3*0.7);
+}
+
+#progress-bar div:nth-child(3)::after {
+    width: 0;
+}
+
+#progress-bar div p {
+    position: absolute;
+    color: var(--white);
+    top: 30px;
+    left: 50%;
+    width: 150px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+/* #endregion */
+
+/* #region DEVELOPPEMENT */
+.pDeveloppement {
+    background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
+    height: 100vh;
+    color: var(--white);
+    text-align: center;
+}
+
+.pDeveloppement .content {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pDeveloppement .content * {
+    margin: 20px 0;
+}
+
+.pDeveloppement .content #statut {
+    background-color: green;
+    padding: 5px 25px;
+    display: block;
+    width: fit-content;
+}
+
+.pDeveloppement .content #date {
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.pDeveloppement .content button {
+    background-color: #2C3973;
+    outline: none;
+    border: none;
+    color: var(--white);
+    padding: 10px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+}
 /* #endregion */
