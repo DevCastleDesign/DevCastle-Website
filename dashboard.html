@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Arsène Brosy & Maltered">
+    <meta name="keywords" content="Création, site, internet, web, design">
+    <meta name="description" content="Creez vos sites web avec des pros a mini-prix">
+
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/fonts/fonts.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body class="pDashboard">
+    <div class="panels">
+        <div class="list">
+            <ul id="panellist">
+                <li><button onclick="OpenDashboard(0)" class="active"><img src="./src/Icons/ParamIcon.png"><span>Compte</span></button></li>
+                <li><button onclick="OpenDashboard(1)"><img src="./src/Icons/HomeIcon.png"><span>Mon site</span></button></li>
+                <li><button onclick="OpenDashboard(2)"><img src="./src/Icons/CloudIcon.png"><span>Hebergement</span></button></li>
+                <li><button onclick="OpenDashboard(3)"><img src="./src/Icons/InterogationIcon.png"><span>Support</span></button></li>
+            </ul>
+            <div id="selector"></div>
+        </div>
+        <ul class="commandlist">
+            <li><button onclick="window.location.href='./';"><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
+            <li><button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button></li>
+        </ul>
+    </div>
+    <div class="content" id="pagecontainer">
+        <div class="account" style="display: block;">
+            <h1>Mon compte</h1>
+            <h2>Informations</h2>
+            <table>
+                <tr>
+                    <td>Nom</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Prenom</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Mot de passe</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>Budget</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+            </table>
+            <p>actif depuis le ---</p>
+        </div>
+        <div class="site" style="display: none;">
+            <h1>Mon site</h1>
+            <h2>Informations</h2>
+            <table>
+                <tr>
+                    <td>Nom du site</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td>---</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Icone</td>
+                    <td>---</td>
+                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                </tr>
+            </table>
+            <p>Récuperer le code source</p>
+            <a href=""><img src="./src/Icons/AddIcon.png" alt="">Télécharger</a>
+        </div>
+        <div class="hosting" style="display: none;">
+            <h1>Hebergement</h1>
+            <div class="columns">
+                <div class="card">
+                    <p>Hebergement</p>
+                    <img src="./src/Images/HebergementImage.png" alt="">
+                    <p class="price">50 CHF/an</p>
+                    <p>actif depuis le ---</p>
+                </div>
+                <div class="infos">
+                    <h1>Informations</h1>
+                    <p class="name">Statut</p>
+                    <p class="value">---</p>
+                    <p class="name">Adresse</p>
+                    <p class="value">---</p>
+                    <p class="name">Moyen de paiement</p>
+                    <p class="value">---</p>
+                    <a href="">Modifier</a>
+                </div>
+            </div>
+        </div>
+        <div class="support" style="display: none;">
+            <div class="banner">
+                <div>
+                    <h1>Support et aide</h1>
+                    <p>Nous sommes à l'ecoute de toutes vos questions cela fait partie de nos valeurs</p>
+                </div>
+                <img src="./src/Images/SupportImage.png" alt="">
+            </div>
+            <p>N'hésitez pas a nous demander de l'aide si vous avez le moindre doute et nous vous réponderons au plus vite.
+            <br><br>Vous verrez nos réponses ici ainsi via un mail qui vous sera envoyé</p>
+            <div class="h2p"><h2>Vos questions</h2><p>Vous avez - réponse en attente</p></div>
+            <div class="columns">
+                <div class="tickets">
+                    <div class="list">
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                        <button>Question test<div class="reddot"></div></button>
+                    </div>
+                </div>
+                <a>Nouvelle question</a>
+            </div>
+        </div>
+    </div>
+    <div id="popup-blur" style="display: none;">
+        <div class="popup ticket">
+            <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+            <h1>Titre de la question</h1>
+
+            <h2>Votre question</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, alias sunt! Rem perferendis temporibus eligendi, iure magnam sunt nemo aspernatur assumenda provident facilis nam, vero odit, unde maiores. Magnam, quis?</p>
+
+            <h2>Notre réponse</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum? Odit similique autem, molestiae fugit optio vel dicta, assumenda placeat error blanditiis quis eos eum fugiat totam quo eveniet quas.</p>
+
+            <button>Fermer la question</button>
+        </div>
+        <div class="popup new-ticket">
+            <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+            <h1>Nouvelle question</h1>
+
+            <h2>Titre de la question</h2>
+            <input type="text" placeholder="Titre">
+
+            <h2>Expliquez nous tout</h2>
+            <textarea placeholder="Description"></textarea>
+
+            <button>Envoyer</button>
+        </div>
+    </div>
+
+    <script>
+        var height = document.getElementById("panellist").children[0].clientHeight;
+        function OpenDashboard(index) {
+            for (var i = 0; i < document.getElementById("panellist").childElementCount; i++) {
+                document.getElementById("panellist").children[i].children[0].classList.remove("active");
+                document.getElementById("pagecontainer").children[i].style.display = "none";
+            }
+            document.getElementById("panellist").children[index].children[0].classList.add("active");
+            document.getElementById("pagecontainer").children[index].style.display = "block";
+            document.getElementById("selector").style.transform = "translateY(" + (20 * (index + 1) + height * index) + "px)";
+        }
+        document.getElementById("selector").style.height = height + "px";
+    </script>
+    <script src="./js/theme.js"></script>
+</body>
+</html>
