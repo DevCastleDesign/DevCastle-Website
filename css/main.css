@@ -326,4 +326,81 @@ img {
     right: 5px;
 }
 
+/* Popups */
+#popup-blur {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    backdrop-filter: blur(4px);
+}
+
+.popup {
+    background-color: var(--dashboardseparator);
+    height: 70vh;
+    aspect-ratio: 3/2;
+    position: absolute;
+    margin: 50vh 0 0 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    color: var(--white);
+    padding: 1vw;
+}
+
+.popup .close {
+    border: none;
+    background-color: transparent;
+    width: 1.5vw;
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.popup h1 {
+    text-align: center;
+}
+
+.popup h2 {
+    font-size: 1.3vw;
+    margin-top: 3vw;
+    margin-bottom: 0.5vw;
+}
+
+.popup input {
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+    border-radius: 0.25vw;
+    color: var(--white);
+    padding: 0.5vw 1vw;
+    resize: both;
+}
+
+.popup textarea {
+    background-color: transparent;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+    border-radius: 0.25vw;
+    color: var(--white);
+    padding: 0.5vw 1vw;
+    resize: vertical;
+    height: 10vw;
+}
+
+.popup button:last-child {
+    position: absolute;
+    left: 50%;
+    bottom: 1vw;
+    transform: translateX(-50%);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5vw 2vw;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    outline: none;
+}
+
 /* #endregion */
