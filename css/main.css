@@ -446,7 +446,6 @@ img {
 
 #progress-bar div:not(:last-child)::after {
     content: "";
-    width: calc(80vw/3);
     background-color: #68FF5B;
     height: 10px;
     margin-top: 10px;
@@ -456,8 +455,12 @@ img {
     position: absolute;
 }
 
+#progress-bar div:nth-child(1)::after {
+    width: 0;
+}
+
 #progress-bar div:nth-child(2)::after {
-    width: calc(80vw/3*0.7);
+    width: 0;
 }
 
 #progress-bar div:nth-child(3)::after {
