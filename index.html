@@ -17,9 +17,7 @@
     <link href="../css/main.css" rel="stylesheet">
 </head>
 
-<body class="pAccueil">
-
-
+<body id="body" class="pAccueil">
 
 <main>
     <section class="blueBackground">
@@ -41,11 +39,11 @@
 
                     <div class="etoiles">
                         <p>Noté</p>
-                        <img src="src/Icons/EtoileIcon.png" height="25" width="25"/>
-                        <img src="src/Icons/EtoileIcon.png" height="25" width="25"/>
-                        <img src="src/Icons/EtoileIcon.png" height="25" width="25"/>
-                        <img src="src/Icons/EtoileIcon.png" height="25" width="25"/>
-                        <img src="src/Icons/EtoileIcon.png" height="25" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
                     </div>
                 </div>
                 <h1>DEVCASTLE</h1>
@@ -60,7 +58,7 @@
 
             </div>
 
-            <div id="offre" class="offreDiv">
+            <div class="offreDiv" id="offre">
                 <p class="titre">Moins de 499 CHF.-</p>
                 <p class="p1">Peut diminuer ou augmenter en fonction de la demande</p>
                 <hr class="separateur"></hr>
@@ -71,23 +69,20 @@
 
         </section>
 
-        <img id="castle" class="castle" height="530" src="src/Images/DevCastleImage.png" width="330"/>
+        <img class="castle" height="530" id="castle" src="src/Images/DevCastleImage.png" width="330"/>
 
         <div class="fond">
-
-            <img id="moutain2" class="submountain" src="src/Images/submountain.png" height="399" width="1440"/>
-
-            <img id="moutain" class="moutain" src="src/Images/Mountain.png" height="325" width="1440"/>
-
-            <img id="lac" class="lac" src="src/Images/lac.png" height="381" width="1440"/>
-
-            <img id="border" class="border" src="src/Images/border.png" height="799" width="1440"/>
-
+            <img class="submountain" height="399" id="moutain2" src="src/Images/submountain.png" width="1440"/>
+            <img class="moutain" height="325" id="moutain" src="src/Images/Mountain.png" width="1440"/>
+            <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
+            <img class="border" height="799" id="border" src="src/Images/border.png" width="1440"/>
         </div>
 
     </section>
 
     <script>
+
+
         let mountain1 = document.getElementById('moutain');
         let mountain2 = document.getElementById('moutain2');
         let border = document.getElementById('border');
@@ -98,21 +93,21 @@
         window.addEventListener('scroll', () => {
             let value = window.scrollY;
 
-            mountain2.style.marginTop = value / -4 +"px";
-            mountain1.style.marginTop = value / -4 +"px";
-            lac.style.marginTop = value / -4 +"px";
-            castle.style.marginTop = value / 10 +"px";
+            mountain2.style.marginTop = value / -4 + "px";
+            mountain1.style.marginTop = value / -4 + "px";
+            lac.style.marginTop = value / -4 + "px";
+            castle.style.marginTop = value / 10 + "px";
             border.style.marginTop = value * -0.8 + "px";
             offre.style.marginTop = value * 0.2 + "px";
         })
     </script>
 
 
-<div class="fonctionnement">
-    <p class="titre">Comment sa fonctionne</p>
-    <p class="para">Une barre de progression vous montrera ou en est le projet</p>
-    <img src="src/Images/ProgressBarImage.png" height="66" width="1066"/>
-</div>
+    <div class="fonctionnement">
+        <p class="titre">Comment sa fonctionne</p>
+        <p class="para">Une barre de progression vous montrera ou en est le projet</p>
+        <img height="66" src="src/Images/ProgressBarImage.png" width="1066"/>
+    </div>
 
     <div class="rectanglesection">
         <div class="r1">
@@ -168,7 +163,7 @@
         <div class="securePaiementText">
             <h1>PAIEMENTS SÉCURISÉS</h1>
             <p>Propulsé par <a href="https://stripe.com/fr-ch"><strong>Stripe</strong></a></p>
-            <img src="src/Images/GroupementPaiementIconsImage.png" height="71" width="173"/>
+            <img height="71" src="src/Images/GroupementPaiementIconsImage.png" width="173"/>
         </div>
     </div>
 
@@ -205,7 +200,6 @@
     <div class="copyrightEtTermes">
         <p>Copyright © 2023</p>
         <a href="#"><p>Termes d’utilisation</p></a>
-
     </div>
 </footer>
 

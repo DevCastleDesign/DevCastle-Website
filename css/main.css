@@ -18,7 +18,6 @@ img {
     -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
-    user-drag: none;
     -webkit-touch-callout: none;
 }
 
@@ -39,8 +38,25 @@ img {
     margin-bottom: 40px;
 }
 
-
-
+/*
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin-right: 40px;
+    width: 408px;
+    height: 478px;
+    color: white;
+    padding: 60px 44px 0 44px;
+    border-radius: 11px;
+    font-weight: bold;
+    font-size: 24px;
+    z-index: 3;
+    position: absolute;
+    right: 30px;
+}
+ */
 
 .offreDiv {
     width: 408px;
@@ -69,7 +85,6 @@ h2 {
     line-height: 39px;
     margin-bottom: 50px;
 }
-
 
 .pitch {
     font-family: 'Inter', sans-serif;
@@ -108,6 +123,12 @@ h2 {
     padding: 20px;
     text-align: center;
     margin-top: 65px;
+    user-select: none;
+    transition: 0.2s;
+}
+
+.commandButton:hover {
+    background-color: #DBEBFF;
 }
 
 main nav {
@@ -124,8 +145,8 @@ main nav ul {
     align-items: center;
     justify-content: space-between;
     width: 600px;
-
 }
+
 main nav ul li {
     list-style: none;
 }
@@ -246,7 +267,6 @@ main nav ul li a {
     transition: 0.2s;
 }
 
-
 .r1:hover {
     scale: 105%;
 }
@@ -359,6 +379,11 @@ footer a {
     width: 220px;
     display: flex;
     justify-content: space-between;
+    transition: 0.1s;
+}
+
+.etoiles:hover {
+    filter: contrast(150%);
 }
 
 .etoiles p {
@@ -368,7 +393,6 @@ footer a {
     font-size: 20px;
     transform: translateY(20%);
 }
-
 
 .fond {
     position: relative;
@@ -400,13 +424,6 @@ footer a {
     position: absolute;
     z-index: 4;
 }
-
-
-
-
-
-
-
 
 
 
