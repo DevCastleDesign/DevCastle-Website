@@ -475,6 +475,25 @@ img {
 }
 /* #endregion */
 
+/* #region MAQUETTE */
+.pMaquette {
+    background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
+    height: 100vh;
+    color: var(--white);
+    text-align: center;
+}
+
+.pMaquette .content {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pMaquette .content>* {
+    margin: 20px 0;
+}
+/* #endregion */
+
 /* #region DEVELOPPEMENT */
 .pDeveloppement {
     background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
@@ -484,10 +503,7 @@ img {
 }
 
 .pDeveloppement .content {
-    position: absolute;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
