@@ -629,6 +629,16 @@ img {
     align-items: center;
 }
 
+.pRemerciements .content div #imdb {
+    flex-direction: row;
+    align-self: flex-start;
+}
+
+.pRemerciements .content div #imdb img {
+    width: 25px;
+    margin: 5px;
+}
+
 .pRemerciements .content textarea {
     border: 2px solid #2C3973;
     border-radius: 10px;
