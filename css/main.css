@@ -157,6 +157,27 @@ img {
 }
 
 /* Site */
+
+.siteImage {
+    background-image: url('/src/Images/PaupeSarl.png');
+    height: 291px;
+    width: 554px;
+    border-radius: 20px;
+}
+
+.attenteDiv {
+    height: 291px;
+    width: 291px;
+    background-color: #171717;
+}
+
+.hautPageSite {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
 .pDashboard .content .site a {
     background-color: var(--dashboardseparator);
     height: fit-content;
