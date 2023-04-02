@@ -13,23 +13,23 @@
     <title>Devcastle - Création de site webs a mini-prix</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/fonts/fonts.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/fonts/fonts.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 <body class="pDashboard">
     <div class="panels">
         <div class="list">
             <ul id="panellist">
-                <li><button onclick="OpenDashboard(0)" class="active"><img src="./src/Icons/ParamIcon.png"><span>Compte</span></button></li>
-                <li><button onclick="OpenDashboard(1)"><img src="./src/Icons/HomeIcon.png"><span>Mon site</span></button></li>
-                <li><button onclick="OpenDashboard(2)"><img src="./src/Icons/CloudIcon.png"><span>Hebergement</span></button></li>
-                <li><button onclick="OpenDashboard(3)"><img src="./src/Icons/InterogationIcon.png"><span>Support</span></button></li>
+                <li><button onclick="OpenDashboard(0)" class="active"><img src="../src/Icons/ParamIcon.png"><span>Compte</span></button></li>
+                <li><button onclick="OpenDashboard(1)"><img src="../src/Icons/HomeIcon.png"><span>Mon site</span></button></li>
+                <li><button onclick="OpenDashboard(2)"><img src="../src/Icons/CloudIcon.png"><span>Hebergement</span></button></li>
+                <li><button onclick="OpenDashboard(3)"><img src="../src/Icons/InterogationIcon.png"><span>Support</span></button></li>
             </ul>
             <div id="selector"></div>
         </div>
         <ul class="commandlist">
-            <li><button onclick="window.location.href='./';"><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
-            <li><button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button></li>
+            <li><button onclick="window.location.href='../';"><img src="../src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
+            <li><button onclick=""><img src="../src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button></li>
         </ul>
     </div>
     <div class="content" id="pagecontainer">
@@ -40,55 +40,44 @@
                 <tr>
                     <td>Nom</td>
                     <td>---</td>
-                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                    <td><img src="../src/Icons/CrayonIcon.png"></td>
                 </tr>
                 <tr>
                     <td>Prenom</td>
                     <td>---</td>
-                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                    <td><img src="../src/Icons/CrayonIcon.png"></td>
                 </tr>
                 <tr>
                     <td>Email</td>
                     <td>---</td>
-                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                    <td><img src="../src/Icons/CrayonIcon.png"></td>
                 </tr>
                 <tr>
                     <td>Telephone</td>
                     <td>---</td>
-                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                    <td><img src="../src/Icons/CrayonIcon.png"></td>
                 </tr>
                 <tr>
                     <td>Mot de passe</td>
                     <td>---</td>
-                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                    <td><img src="../src/Icons/CrayonIcon.png"></td>
                 </tr>
                 <tr>
                     <td>Budget</td>
                     <td>---</td>
-                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                    <td><img src="../src/Icons/CrayonIcon.png"></td>
                 </tr>
             </table>
             <p>actif depuis le ---</p>
         </div>
         <div class="site" style="display: none;">
             <h1>Mon site</h1>
-
-            <div class="hautPageSite">
-                <div class="siteImage">
-                    <p>Paupe sarl</p>
-                    <p>www.paupesarl.ch</p>
-                </div>
-                <div class="attenteDiv">
-                    <p>Rien en attente</p>
-                </div>
-            </div>
-
             <h2>Informations</h2>
             <table>
                 <tr>
                     <td>Nom du site</td>
                     <td>---</td>
-                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                    <td><img src="../src/Icons/CrayonIcon.png"></td>
                 </tr>
                 <tr>
                     <td>URL</td>
@@ -98,18 +87,18 @@
                 <tr>
                     <td>Icone</td>
                     <td>---</td>
-                    <td><img src="./src/Icons/CrayonIcon.png"></td>
+                    <td><img src="../src/Icons/CrayonIcon.png"></td>
                 </tr>
             </table>
             <p>Récuperer le code source</p>
-            <a href=""><img src="./src/Icons/AddIcon.png" alt="">Télécharger</a>
+            <a href=""><img src="../src/Icons/AddIcon.png" alt="">Télécharger</a>
         </div>
         <div class="hosting" style="display: none;">
             <h1>Hebergement</h1>
             <div class="columns">
                 <div class="card">
                     <p>Hebergement</p>
-                    <img src="./src/Images/HebergementImage.png" alt="">
+                    <img src="../src/Images/HebergementImage.png" alt="">
                     <p class="price">50 CHF/an</p>
                     <p>actif depuis le ---</p>
                 </div>
@@ -131,7 +120,7 @@
                     <h1>Support et aide</h1>
                     <p>Nous sommes à l'ecoute de toutes vos questions cela fait partie de nos valeurs</p>
                 </div>
-                <img src="./src/Images/SupportImage.png" alt="">
+                <img src="../src/Images/SupportImage.png" alt="">
             </div>
             <p>N'hésitez pas a nous demander de l'aide si vous avez le moindre doute et nous vous réponderons au plus vite.
             <br><br>Vous verrez nos réponses ici ainsi via un mail qui vous sera envoyé</p>
@@ -155,7 +144,7 @@
     </div>
     <div id="popup-blur" style="display: none;">
         <div class="popup ticket">
-            <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+            <button class="close"><img src="../src/Icons/CloseIcon.png"></button>
             <h1>Titre de la question</h1>
 
             <h2>Votre question</h2>
@@ -167,7 +156,7 @@
             <button>Fermer la question</button>
         </div>
         <div class="popup new-ticket">
-            <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+            <button class="close"><img src="../src/Icons/CloseIcon.png"></button>
             <h1>Nouvelle question</h1>
 
             <h2>Titre de la question</h2>
@@ -193,6 +182,6 @@
         }
         document.getElementById("selector").style.height = height + "px";
     </script>
-    <script src="./js/theme.js"></script>
+    <script src="../js/theme.js"></script>
 </body>
 </html>
