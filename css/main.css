@@ -27,6 +27,18 @@ img {
     max-width: 100%;
 }
 
+input[type="color"] {
+    border-radius: 5px;
+    border: none;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 5px;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -884,22 +896,144 @@ footer .foot strong {
 }
 /* #endregion */
 
-/* #region MAQUETTE */
-.pMaquette {
+/* #region DEPART */
+.pDepart {
     background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
-    height: 100vh;
     color: var(--white);
     text-align: center;
 }
 
-.pMaquette .content {
+.pDepart .content {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.pMaquette .content>* {
-    margin: 20px 0;
+.pDepart .infos {
+    background-color: var(--blue3);
+    width: 80vw;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 5vw;
+}
+
+.pDepart .infos div {
+    width: 100%;
+}
+
+.pDepart .infos h1::after {
+    content: "";
+    background-color: var(--white);
+    height: 1px;
+    width: 100%;
+    display: block;
+    margin-top: 20px;
+}
+
+.pDepart .infos p {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.pDepart .infos input[type="text"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    padding: 5px 0;
+    color: var(--white);
+    outline: none;
+    font-size: 1rem;
+    width: 20rem;
+}
+
+.pDepart .infos input[type="text"]:focus {
+    border-bottom: 1px solid var(--blue1);
+}
+
+.pDepart .infos textarea {
+    resize: vertical;
+    background-color: transparent;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--white);
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    min-height: 5rem;
+}
+
+.pDepart .infos textarea:focus {
+    border: 1px solid var(--blue1);
+}
+
+.pDepart .infos .design #site-icon {
+    border: none;
+    width: 5vw;
+    aspect-ratio: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.pDepart .infos .design #site-icon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: url("../src/Images/SuisseDrapeauImage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.pDepart .infos .design #site-icon:hover:before {
+    filter: brightness(0.4);
+}
+
+.pDepart .infos .design #site-icon img {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.pDepart .infos .design #site-icon:hover img  {
+    opacity: 1;
+}
+
+.pDepart .infos .design input[type="color"] {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 2.5px;
+}
+
+.pDepart .infos .design .addColor {
+    width: 5vw;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    border: 2px solid white;
+    background: url("../src/Icons/AddIcon.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    cursor: pointer;
+    margin: 2.5px;
+}
+
+.pDepart .infos>p {
+    font-weight: normal;
+    opacity: 0.5;
 }
 /* #endregion */
 
