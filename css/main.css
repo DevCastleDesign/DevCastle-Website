@@ -39,6 +39,10 @@ input[type="color"]::-webkit-color-swatch {
     border-radius: 5px;
 }
 
+body {
+    min-height: 100vh;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -910,6 +914,23 @@ footer .foot strong {
     align-items: center;
 }
 
+.pDepart .content #tabs button {
+    border: 0;
+    background-color: var(--blue3);
+    padding: 10px 0;
+    width: 20vw;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--white);
+    cursor: pointer;
+    border-top: 5px solid var(--blue3);
+    border-bottom: 5px solid var(--blue3);
+}
+
+.pDepart .content #tabs button.active {
+    border-bottom: 5px solid var(--white);
+}
+
 .pDepart .infos {
     background-color: var(--blue3);
     width: 80vw;
@@ -919,7 +940,7 @@ footer .foot strong {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    margin-bottom: 5vw;
+    margin: 50px 0;
 }
 
 .pDepart .infos div {
@@ -972,7 +993,7 @@ footer .foot strong {
     border: 1px solid var(--blue1);
 }
 
-.pDepart .infos .design #site-icon {
+.pDepart .infos #design #site-icon {
     border: none;
     width: 5vw;
     aspect-ratio: 1;
@@ -980,7 +1001,7 @@ footer .foot strong {
     cursor: pointer;
 }
 
-.pDepart .infos .design #site-icon::before {
+.pDepart .infos #design #site-icon::before {
     content: "";
     display: block;
     width: 100%;
@@ -992,11 +1013,11 @@ footer .foot strong {
     background-size: 100%;
 }
 
-.pDepart .infos .design #site-icon:hover:before {
+.pDepart .infos #design #site-icon:hover:before {
     filter: brightness(0.4);
 }
 
-.pDepart .infos .design #site-icon img {
+.pDepart .infos #design #site-icon img {
     width: 50%;
     position: absolute;
     left: 50%;
@@ -1005,11 +1026,11 @@ footer .foot strong {
     opacity: 0;
 }
 
-.pDepart .infos .design #site-icon:hover img  {
+.pDepart .infos #design #site-icon:hover img  {
     opacity: 1;
 }
 
-.pDepart .infos .design input[type="color"] {
+.pDepart .infos #design input[type="color"] {
     width: 5vw;
     height: 5vw;
     border-radius: 10px;
@@ -1017,7 +1038,7 @@ footer .foot strong {
     margin: 2.5px;
 }
 
-.pDepart .infos .design .addColor {
+.pDepart .infos #design .addColor {
     width: 5vw;
     aspect-ratio: 1;
     border-radius: 10px;
@@ -1031,7 +1052,7 @@ footer .foot strong {
     margin: 2.5px;
 }
 
-.pDepart .infos>p {
+.pDepart .infos * p:last-child {
     font-weight: normal;
     opacity: 0.5;
 }
@@ -1040,7 +1061,6 @@ footer .foot strong {
 /* #region DEVELOPPEMENT */
 .pDeveloppement {
     background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
-    height: 100vh;
     color: var(--white);
     text-align: center;
 }
@@ -1097,7 +1117,6 @@ footer .foot strong {
 /* #region HEBERGEMENT */
 .pHebergement {
     background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
-    height: 100vh;
     color: var(--white);
     text-align: center;
 }
@@ -1163,7 +1182,6 @@ footer .foot strong {
 /* #region REMERCIEMENTS */
 .pRemerciements {
     background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
-    height: 100vh;
     color: var(--white);
     text-align: center;
 }
