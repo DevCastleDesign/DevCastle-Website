@@ -112,6 +112,44 @@ footer .foot {
 footer .foot a {
     text-decoration: none;
     color: white;
+    margin-bottom: 5px;
+    display: block;
+    width: fit-content;
+}
+
+footer .foot a:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    animation: underline-exit 200ms forwards;
+}
+
+footer .foot a:hover::after {
+    animation: underline-enter 200ms forwards;
+}
+
+@keyframes underline-enter {
+    from {
+        margin-left: 0;
+        width: 0;
+    }
+    to {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@keyframes underline-exit {
+    from {
+        margin-left: 0;
+        width: 100%;
+    }
+    to {
+        margin-left: 100%;
+        width: 0;
+    }
 }
 
 footer .foot nav ul li {
@@ -914,6 +952,16 @@ footer .foot strong {
     align-items: center;
 }
 
+.pDepart .content button {
+    border: 0;
+    background-color: var(--blue3);
+    color: var(--white);
+    font-size: 1rem;
+    padding: 10px 30px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
 .pDepart .content #tabs button {
     border: 0;
     background-color: var(--blue3);
@@ -922,7 +970,6 @@ footer .foot strong {
     font-size: 1rem;
     font-weight: bold;
     color: var(--white);
-    cursor: pointer;
     border-top: 5px solid var(--blue3);
     border-bottom: 5px solid var(--blue3);
 }
