@@ -21,11 +21,11 @@
 
 a {
     text-decoration: none;
-    color: var(--bluelink);
 }
 
 img {
     max-width: 100%;
+    cursor: default;
 }
 
 input[type="color"] {
@@ -303,6 +303,7 @@ footer .foot strong {
 .pAccueil main nav ul li a {
     text-decoration: none;
     color: white;
+    cursor: default;
 }
 
 .pAccueil .sectionHaut {
