@@ -1,6 +1,5 @@
 /* #region Regles generales*/
 *{
-    cursor: url("../src/shrek.png"), auto;
     box-sizing: border-box;
     font-family: Montserrat, sans-serif;
     margin: 0;
@@ -25,7 +24,6 @@ a {
 
 img {
     max-width: 100%;
-    cursor: default;
 }
 
 input[type="color"] {
@@ -303,7 +301,6 @@ footer .foot strong {
 .pAccueil main nav ul li a {
     text-decoration: none;
     color: white;
-    cursor: default;
 }
 
 .pAccueil .sectionHaut {
