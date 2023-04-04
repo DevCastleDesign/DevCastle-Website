@@ -1042,9 +1042,10 @@ footer .foot strong {
 .pDepart .infos #design #site-icon {
     border: none;
     width: 5vw;
-    aspect-ratio: 1;
+    height: 5vw;
     position: relative;
     cursor: pointer;
+    padding: 0;
 }
 
 .pDepart .infos #design #site-icon::before {
@@ -1054,6 +1055,7 @@ footer .foot strong {
     height: 100%;
     position: absolute;
     top: 0;
+    left: 0;
     background: url("../src/Images/SuisseDrapeauImage.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -1085,8 +1087,8 @@ footer .foot strong {
 }
 
 .pDepart .infos #design .addColor {
+    height: 5vw;
     width: 5vw;
-    aspect-ratio: 1;
     border-radius: 10px;
     border: 2px solid white;
     background: url("../src/Icons/AddIcon.png");
@@ -1095,7 +1097,8 @@ footer .foot strong {
     background-position-x: 50%;
     background-position-y: 50%;
     cursor: pointer;
-    margin: 2.5px;
+    margin: 2.5px 0;
+    padding: 0;
 }
 
 .pDepart .infos * p:last-child {
