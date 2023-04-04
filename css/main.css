@@ -1,5 +1,6 @@
 /* #region Regles generales*/
 *{
+    cursor: url("../src/shrek.png"), auto;
     box-sizing: border-box;
     font-family: Montserrat, sans-serif;
     margin: 0;
