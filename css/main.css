@@ -134,6 +134,11 @@ footer .copyrightEtTermes {
     background-color: #DBEBFF;
 }
 
+.pAccueil .bottomtext {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
 .pAccueil main nav {
     display: flex;
     justify-content: space-between;
