@@ -41,124 +41,18 @@ input[type="color"]::-webkit-color-swatch {
 body {
     min-height: 100vh;
 }
-
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: var(--dashboardseparator);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: var(--white);
-  }
 /* #endregion */
 
 /* #region Footer */
 footer {
-    height: 330px;
     background-color: #222429;
     font-size: 20px;
-    padding: 70px 250px 0 250px;
-}
-
-footer a {
-    text-decoration: none;
-    color: white;
-}
-
-footer .email {
-    width: 410px;
-    height: 47px;
-    border: none;
-    font-size: 20px;
-    padding-left: 10px;
-}
-
-footer .email input::placeholder {
-    font-size: 40px;
-}
-
-footer .newsletterButton {
-    background-color: transparent;
-    font-size: 20px;
-    height: 47px;
-    width: 155px;
-    color: white;
-    border: 2px solid white;
-}
-
-footer .newsletter {
-    display: flex;
+    padding: 20px 100px;
 }
 
 footer .copyrightEtTermes {
     display: flex;
-    margin-top: 100px;
     justify-content: space-between;
-}
-
-footer .foot {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-}
-
-footer .foot a {
-    text-decoration: none;
-    color: white;
-    margin-bottom: 5px;
-    display: block;
-    width: fit-content;
-}
-
-footer .foot a:after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 1px;
-    background-color: white;
-    animation: underline-exit 200ms forwards;
-}
-
-footer .foot a:hover::after {
-    animation: underline-enter 200ms forwards;
-}
-
-@keyframes underline-enter {
-    from {
-        margin-left: 0;
-        width: 0;
-    }
-    to {
-        margin-left: 0;
-        width: 100%;
-    }
-}
-
-@keyframes underline-exit {
-    from {
-        margin-left: 0;
-        width: 100%;
-    }
-    to {
-        margin-left: 100%;
-        width: 0;
-    }
-}
-
-footer .foot nav ul li {
-    list-style: none;
-    text-decoration: none;
-}
-
-footer .foot strong {
-    font-size: 24px;
-    padding-bottom: 40px;
 }
 /* #endregion */
 
@@ -169,34 +63,12 @@ footer .foot strong {
 }
 .blueBackground {
     background: linear-gradient(180deg, #79C3FF 0%, #0B4E95 100%);
-    height: 600px;
+    height: 100vh;
 }
 
-.header {
-    margin-left: 70px;
-    margin-right: 70px;
-    margin-bottom: 40px;
+.pAccueil .texte {
+    z-index: 2;
 }
-
-/*
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border:1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    margin-right: 40px;
-    width: 408px;
-    height: 478px;
-    color: white;
-    padding: 60px 44px 0 44px;
-    border-radius: 11px;
-    font-weight: bold;
-    font-size: 24px;
-    z-index: 3;
-    position: absolute;
-    right: 30px;
-}
- */
 
 .pAccueil .offreDiv {
     width: 408px;
@@ -224,16 +96,6 @@ footer .foot strong {
     font-size: 32px;
     line-height: 39px;
     margin-bottom: 50px;
-}
-
-.pAccueil .pitch {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    text-transform: uppercase;
-    width: 380px;
 }
 
 .pAccueil .titre {
@@ -306,8 +168,9 @@ footer .foot strong {
 .pAccueil .sectionHaut {
     display: flex;
     justify-content: space-between;
-    margin-right: 70px;
-    margin-left: 70px;
+    align-items: center;
+    margin: 0 70px;
+    height: 75vh;
 }
 
 .pAccueil .presentation {
@@ -423,55 +286,9 @@ footer .foot strong {
     scale: 105%;
 }
 
-.pAccueil .securePaiement {
-    width: 861px;
-    height: 296px;
-    background-color: #222429;
-    border-radius: 19px;
-    display: flex;
-    padding-left: 97px;
-    padding-top: 50px;
-    margin: 90px auto 200px auto;
-}
-
-.pAccueil .securePaiementText {
-    margin-left: 40px;
-}
-
-.pAccueil .securePaiementText img {
-    margin-top: 25px;
-}
-
-.pAccueil .securePaiementText a {
-    text-decoration: none;
-    color: white;
-}
-
-.pAccueil .securePaiement h1 {
-    font-size: 32px;
-}
-
-.pAccueil .etoiles {
-    width: 220px;
-    display: flex;
-    justify-content: space-between;
-    transition: 0.1s;
-}
-
-.pAccueil .etoiles:hover {
-    filter: contrast(150%);
-}
-
-.pAccueil .etoiles p {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    transform: translateY(20%);
-}
-
 .pAccueil .fond {
     position: relative;
+    bottom: 0;
 }
 
 .pAccueil .submountain {
