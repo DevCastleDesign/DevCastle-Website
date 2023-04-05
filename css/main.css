@@ -74,7 +74,7 @@ footer .copyrightEtTermes {
     width: 408px;
     height: 478px;
     background-color: #294876;
-    color: #81B9FF;
+    color: white;
     padding: 60px 44px 0 44px;
     border-radius: 11px;
     font-weight: bold;
@@ -127,6 +127,7 @@ footer .copyrightEtTermes {
     margin-top: 65px;
     user-select: none;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .pAccueil .commandButton:hover {
@@ -198,7 +199,7 @@ footer .copyrightEtTermes {
 
 .pAccueil .fonctionnement {
     position: relative;
-    margin-top: 400px;
+    margin-top: 100px;
     margin-bottom: 100px;
     text-align: center;
     z-index: 4;
@@ -220,9 +221,9 @@ footer .copyrightEtTermes {
     padding: 77px 22px 0 22px;
     border-radius: 19px;
     background-color: #222429;
-    height: 296px;
+    height: 330px;
     width: 247px;
-
+    position: relative;
 }
 
 .pAccueil .rectangle .titre {
@@ -231,10 +232,19 @@ footer .copyrightEtTermes {
 
 .pAccueil .rectanglesection {
     margin: 0 auto;
-    width: 1100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
+}
+
+.pAccueil .rectanglesection>* {
+    margin: 0 10px;
+    z-index: 5;
+}
+
+.pAccueil .rectanglesection>* img {
+    position: relative;
+    z-index: 6;
 }
 
 .pAccueil .rectanglesection p {
