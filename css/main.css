@@ -64,7 +64,17 @@ input {
     margin-bottom: 100px;
 }
 
-div {
+.login {
+    height: 504px;
+    width: 373px;
+    border-radius: 12px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 53px 44px 0 44px;
+    display: none;
+}
+
+.SignIn {
     height: 504px;
     width: 373px;
     border-radius: 12px;

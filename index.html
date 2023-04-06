@@ -3,39 +3,123 @@
 <head>
     <!-- Metadonnées -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="Arsène Brosy & Maltered">
-    <meta name="keywords" content="Création, site, internet, web, design">
-    <meta name="description" content="Creez vos sites web avec des pros a mini-prix">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Arsène Brosy & Maltered" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
 
     <!-- Titre -->
     <title>Devcastle - Création de site webs a mini-prix</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/fonts/fonts.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <img class="devCastleIcon" src="src/Icons/DevCastleIcon.png" height="83" width="148"/>
+    <img class="devCastleIcon" height="83" src="src/Icons/DevCastleIcon.png" width="148"/>
 </header>
-    <div>
+<div id="logInDiv" class="login">
     <h1>Connexion</h1>
     <p>Email</p>
-    <input class="email" type="email">
-    
-    <p>Password</p>
-    <input class="password" type="password">
-        <a href=""><p>Mot de passe oublié</p></a>
+    <input class="email" id="emailLogin" type="text">
 
-    <button class="loginButton">Se connecter</button>
+    <p>Password</p>
+    <input class="password" id="passwordLogin" type="text">
+    <a href="" ><p>Mot de passe oublié</p></a>
+
+    <button id="logIn" class="loginButton" >Se connecter</button>
 
     <p>pas encore de compte ? <a href="">S'inscrire</a></p>
 </div>
 
-<img class="devCastleImage" src="src/Images/DevCastleImage.png" height="530" width="330"/>
+<div id="SignInDiv" class="SignIn">
+    <input type="text" id="nomSignIn" name="nom" placeholder="nom">
+    <input type="text" id="prenomSignIn" name="nom" placeholder="prenom">
+    <input type="text" id="telSignIn" name="nom" placeholder="tel">
+    <input type="email" id="emailSignIn" name="nom" placeholder="email">
+    <input type="password" id="passwordSignIn" name="nom" placeholder="mdp">
+    <button id="signUp">clique</button>
+</div>
 
+<img class="devCastleImage" height="530" src="src/Images/DevCastleImage.png" width="330"/>
+
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+
+
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+
+    signUp.addEventListener('click', (e) => {
+        var nom = document.getElementById("nomSignIn").value
+        var prenom = document.getElementById('prenomSignIn').value
+        var tel = document.getElementById('telSignIn').value
+        var email = document.getElementById('emailSignIn').value
+        var password = document.getElementById('passwordSignIn').value
+
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                set(ref(database, 'users/' + user.uid), {
+                    nom: nom,
+                    prenom: prenom,
+                    tel: tel,
+                })
+
+                document.getElementById('SignInDiv').remove()
+                document.getElementById('logInDiv').style.display="block";
+                alert("user created");
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorCode);
+            });
+    });
+
+    logIn.addEventListener('click', (e) => {
+        var email = document.getElementById('emailLogin').value
+        var password = document.getElementById('passwordLogin').value
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                alert("Login Reussi")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorCode)
+            });
+    });
+</script>
 </body>
 </html>
