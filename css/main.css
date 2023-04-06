@@ -336,12 +336,17 @@ footer .copyrightEtTermes {
 
 /* #region RENDEZ VOUS */
 .pRDV #calendar {
+    border: 2px solid black;
+    border-radius: 5px;
     width: fit-content;
-    padding: 5px;
 }
 
 .pRDV #calendar .header {
     display: flex;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
 }
 
 .pRDV #calendar .header *:not(:first-child) {
@@ -390,6 +395,7 @@ footer .copyrightEtTermes {
     transform: scale(0.75);
     font-size: 1rem;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .pRDV #calendar .days button.selected {
