@@ -3,6 +3,9 @@ var days = calandar.children[2];
 var today = new Date();
 var selectedMonth = today.getMonth();
 var selectedYear = today.getFullYear();
+var selectedDay = -1;
+var selectedDayMonth = -1;
+var selectedDayYear = -1;
 
 function monthToString(month) {
     switch (month) {
@@ -34,6 +37,11 @@ function createCalendar() {
     for (var i = 0; i < monthLenght; i++) {
         var newDay = document.createElement("button");
         newDay.innerHTML = (i + 1);
+        // met le jour en couleur si il est selectionné
+        if (i === selectedDay && selectedDayMonth === selectedMonth && selectedDayYear === selectedYear) {
+            newDay.classList.add("selected");
+        }
+        newDay.setAttribute("onclick", "selectDay(" + i + ")");
         days.append(newDay);
     }
     // offset the child to match the start day of the month
@@ -55,6 +63,13 @@ function calendarBackward() {
         selectedMonth = 11;
         selectedYear --;
     }
+    createCalendar();
+}
+
+function selectDay(day) {
+    selectedDay = day;
+    selectedDayMonth = selectedMonth;
+    selectedDayYear = selectedYear;
     createCalendar();
 }
 
