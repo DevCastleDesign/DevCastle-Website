@@ -334,6 +334,59 @@ footer .copyrightEtTermes {
 }
 /* #endregion */
 
+/* #region RENDEZ VOUS */
+.pRDV #calendar {
+    width: fit-content;
+    padding: 5px;
+}
+
+.pRDV #calendar .header {
+    display: flex;
+}
+
+.pRDV #calendar .header *:not(:first-child) {
+    margin: 0 5px;
+}
+
+.pRDV #calendar .header p {
+    font-size: 1.2rem;
+}
+
+.pRDV #calendar .header button {
+    background-color: red;
+    border: 0;
+    outline: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.pRDV #calendar .daynames {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pRDV #calendar .daynames * {
+    text-align: center;
+    width: 50px;
+}
+
+.pRDV #calendar .days {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.pRDV #calendar .days button {
+    border: 0;
+    outline: none;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    transform: scale(0.75);
+    font-size: 1rem;
+    cursor: pointer;
+}
+/* #endregion */
+
 /* #region DASHBOARD */
 .pDashboard {
     background-color: var(--dashboarddark);
