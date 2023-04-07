@@ -352,6 +352,29 @@ footer .copyrightEtTermes {
     justify-content: space-between;
 }
 
+.pRDV .adress input, .pRDV .adress textarea {
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.pRDV .adress input {
+    width: calc(100% - 125px);
+}
+
+.pRDV .adress textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.pRDV .adress input:first-of-type {
+    width: 100px;
+    margin-right: 20px;
+}
+
 .pRDV .methods button {
     border: 0;
     font-size: 1rem;
