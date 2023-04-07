@@ -67,14 +67,22 @@
         appId: "1:274339465548:web:927dd550601c84dffce7e9"
     };
 
-
-
-
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth();
 
+    var email = document.getElementById('emailLogin').value
+    var password = document.getElementById('passwordLogin').value
+
+    setPersistence('local').then(() => {
+        // Existing and future Auth states are now persisted in the current
+        // session only. Closing the window would clear any existing state even
+        // if a user forgets to sign out.
+        // ...
+        // New sign-in will be persisted with session persistence.
+        return signInWithEmailAndPassword(auth, email, password);
+    })
 
     signUp.addEventListener('click', (e) => {
         var nom = document.getElementById("nomSignIn").value
@@ -82,7 +90,6 @@
         var tel = document.getElementById('telSignIn').value
         var email = document.getElementById('emailSignIn').value
         var password = document.getElementById('passwordSignIn').value
-
 
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -109,6 +116,7 @@
         var email = document.getElementById('emailLogin').value
         var password = document.getElementById('passwordLogin').value
 
+        setPersistence('local').then(() => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
@@ -119,6 +127,7 @@
                 const errorMessage = error.message;
                 alert(errorCode)
             });
+        })
     });
 </script>
 </body>
