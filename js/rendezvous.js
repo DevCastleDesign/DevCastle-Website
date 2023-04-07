@@ -1,6 +1,10 @@
 var calandar = document.getElementById("calendar");
 var time = document.getElementById("time");
 var dname = document.getElementById("datetime-name");
+var methods = document.getElementById("methods");
+var adressFields = document.getElementById("adress");
+var videoFields = document.getElementById("video");
+var mode = 0;
 var days = calandar.children[2];
 var today = new Date();
 var selectedMonth = today.getMonth();
@@ -94,5 +98,24 @@ function selectHour(hour) {
     setName();
 }
 
+function setMode(newmode) {
+    mode = newmode;
+    if (newmode === 0) {
+        methods.children[0].classList.add("selected");
+        methods.children[1].classList.remove("selected");
+        document.getElementById("method-title").innerHTML = "Ou pouvons-nous se rencontrer ?";
+        adressFields.style.display = "block";
+        videoFields.style.display = "none";
+    }
+    if (newmode === 1) {
+        methods.children[0].classList.remove("selected");
+        methods.children[1].classList.add("selected");
+        document.getElementById("method-title").innerHTML = "Quelle plateforme prefereriez-vous ?";
+        adressFields.style.display = "none";
+        videoFields.style.display = "block";
+    }
+}
+
+setMode(0);
 createCalendar();
 setName();

@@ -336,8 +336,9 @@ footer .copyrightEtTermes {
 
 /* #region RENDEZ VOUS */
 .pRDV .content {
-    width: 50vw;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
 }
@@ -347,35 +348,12 @@ footer .copyrightEtTermes {
     margin-bottom: 25px;
 }
 
-.pRDV .methods {
+.pRDV #methods {
     display: flex;
     justify-content: space-between;
 }
 
-.pRDV .adress input, .pRDV .adress textarea {
-    padding: 5px 10px;
-    width: 100%;
-    border: 0;
-    background-color: #eeeeee;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.pRDV .adress input {
-    width: calc(100% - 125px);
-}
-
-.pRDV .adress textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.pRDV .adress input:first-of-type {
-    width: 100px;
-    margin-right: 20px;
-}
-
-.pRDV .methods button {
+.pRDV #methods button {
     border: 0;
     font-size: 1rem;
     padding: 10px 30px;
@@ -387,10 +365,65 @@ footer .copyrightEtTermes {
     cursor: pointer;
 }
 
-.pRDV .methods button.selected {
+.pRDV #methods button.selected {
     background-color: #2C3973;
     color: white;
     border: 0;
+}
+
+.pRDV #adress input, .pRDV #adress textarea {
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.pRDV #adress input {
+    width: calc(100% - 125px);
+}
+
+.pRDV #adress textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.pRDV #adress input:first-of-type {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.pRDV #video .plateforms {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pRDV #video button {
+    border: 0;
+    font-size: 1rem;
+    padding: 10px 30px;
+    border-radius: 5px;
+    width: 30%;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.pRDV #video button.selected {
+    background-color: #2C3973;
+    color: white;
+    border: 0;
+}
+
+.pRDV #video input {
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    background-color: #eeeeee;
+    border-radius: 5px;
 }
 
 .pRDV .datetime {
@@ -540,6 +573,7 @@ footer .copyrightEtTermes {
 
 .pRDV .infos div textarea {
     resize: vertical;
+    min-height: 75px;
 }
 
 .pRDV .infos div:first-child p::after {
