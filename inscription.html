@@ -25,55 +25,38 @@
 <div class="SignIn" id="SignInDiv">
     <input id="nomSignIn" name="nom" placeholder="nom" type="text">
 
-    <p class="errorNom" id="errorNom">nom invalide</p>
+    <p class="error" id="errorNom">nom invalide</p>
 
     <input id="prenomSignIn" placeholder="prenom" type="text">
 
-    <p class="errorPrenom" id="errorPrenom">prénom invalide</p>
+    <p class="error" id="errorPrenom">prénom invalide</p>
 
-    <input id="telSignIn"  placeholder="tel" type="tel">
+    <input id="telSignIn" placeholder="tel" type="tel">
 
-    <p class="errorTel" id="errorTel">numéro de téléphone invalide</p>
+    <p class="error" id="errorTel">numéro de téléphone invalide</p>
 
     <input id="emailSignIn" name="nom" placeholder="email" type="email">
 
-    <p class="errorEmail" id="errorEmail">email invalide</p>
+    <p class="error" id="errorEmail">email invalide</p>
 
     <div class="passwordDiv">
         <input id="passwordSignIn" placeholder="mdp" type="password">
-        <img height="29" id="eyeicon" src="src/Icons/PDGIcon.png" width="27"/>
     </div>
-    <p class="errorPassword" id="errorPassword">mot de passe invalide</p>
-
+    <p class="error" id="errorPassword">mot de passe invalide</p>
 
     <input id="confirmPasswordSignIn" placeholder="confirme mdp" type="password">
 
-    <p class="errorconfPassword" id="errorconfPassword">le mot de passe de confirmation ne correspond pas</p>
+    <p class="error" id="errorconfPassword">le mot de passe de confirmation ne correspond pas</p>
 
     <input id="signUp" type="submit" value="S'inscrire">
 
     <p>Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
 
-
 </div>
-
-<script>
-    let eyeicon = document.getElementById('eyeicon');
-    let password = document.getElementById('passwordSignIn');
-
-    eyeicon.onclick = function () {
-        if (password.type == "password") {
-            password.type = "text";
-        } else {
-            password.type = "password";
-        }
-    }
-</script>
 
 <script src="LogInSignIn.js"></script>
 
 <img class="devCastleImage" height="530" src="src/Images/DevCastleImage.png" width="330"/>
-
 
 <script type="module">
     // Import the functions you need from the SDKs you need
@@ -81,11 +64,8 @@
     import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
     import {
         getAuth,
-        createUserWithEmailAndPassword,
-        signInWithEmailAndPassword,
-        setPersistence,
-        browserSessionPersistence,
-        onAuthStateChanged
+        createUserWithEmailAndPassword
+
     } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -132,11 +112,10 @@
                         nom: nom,
                         prenom: prenom,
                         tel: tel,
-                        email: email
+                        email: email,
+                        mdp: password
                     })
-                    window.location.href = 'inscription.html';
-                    document.getElementById('SignInDiv').remove()
-                    document.getElementById('logInDiv').style.display = "block";
+
                     alert("user created");
                 })
                 .catch((error) => {
@@ -147,23 +126,6 @@
         }
     });
 
-    logIn.addEventListener('click', (e) => {
-        var email = document.getElementById('emailLogin').value
-        var password = document.getElementById('passwordLogin').value
-
-        setPersistence('local').then(() => {
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    alert("Login Reussi")
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    alert(errorCode)
-                });
-        })
-    });
 </script>
 </body>
 </html>

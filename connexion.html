@@ -26,9 +26,11 @@
     <h1>Connexion</h1>
     <p>Email</p>
     <input class="email" id="emailLogin" type="text">
+    <p class="error" id="errorEmailLogin">email invalide</p>
 
     <p>Password</p>
     <input class="password" id="passwordLogin" type="text">
+    <p class="error" id="errorLogin">email ou mot de passe incorrect</p>
     <a href="" ><p>Mot de passe oublié</p></a>
 
     <input type="submit" value="Se connecter" id="logIn">
@@ -79,23 +81,28 @@
     const database = getDatabase(app);
     const auth = getAuth();
 
-
     logIn.addEventListener('click', (e) => {
-
 
         var email = document.getElementById('emailLogin').value
         var password = document.getElementById('passwordLogin').value
 
+        checkEmailLogin()
+
+        if (checkEmailLogin() == true) {
+
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
+                document.getElementById('errorLogin').style.display = "none";
                 alert("Login Reussi")
             })
+
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                alert(errorCode)
+                    document.getElementById('errorLogin').style.display = "block";
             });
+        }
     });
 </script>
 </body>

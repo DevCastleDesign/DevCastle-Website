@@ -73,18 +73,24 @@ input {
     padding: 53px 44px 0 44px;
 }
 
-.errorNom, .errorPrenom, .errorTel, .errorEmail, .errorPassword, .errorconfPassword {
+.error{
     display: none;
+    color: red;
 }
 
 .SignIn {
-    height: 504px;
+    height: 100%;
     width: 373px;
     border-radius: 12px;
     background-color: white;
     margin: 0 auto;
-    padding: 53px 44px 0 44px;
+    padding: 53px 44px 50px 44px;
 }
+
+.SignIn input {
+    margin-top: 10px;
+}
+
 
 .devCastleImage {
     float: right;

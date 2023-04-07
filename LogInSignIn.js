@@ -20,7 +20,7 @@ function checkPrenom() {
 };
 
 function checkTel() {
-    if (document.getElementById('telSignIn').value != "") {
+    if (document.getElementById('telSignIn').value.length >= 10) {
         document.getElementById('errorTel').style.display = "none";
         return true;
     } else {
@@ -41,9 +41,9 @@ function checkEmail() {
     }
 };
 
-var passwordValid = false
+
 function checkPassword() {
-    if (document.getElementById('passwordSignIn').value.length >=3) {
+    if (document.getElementById('passwordSignIn').value.length >=6) {
         document.getElementById('errorPassword').style.display = "none";
         return true;
     } else {
@@ -63,3 +63,12 @@ function confirmPasswordWalid() {
 };
 
 
+function checkEmailLogin() {
+    if (document.getElementById('emailLogin').value.match(emailPatern)) {
+        document.getElementById('errorEmailLogin').style.display = "none";
+        return true;
+    } else {
+        document.getElementById('errorEmailLogin').style.display = "block";
+        return false;
+    }
+};
