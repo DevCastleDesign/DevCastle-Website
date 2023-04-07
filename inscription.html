@@ -23,35 +23,41 @@
 </header>
 
 <div class="SignIn" id="SignInDiv">
-    <input id="nomSignIn" name="nom" placeholder="nom" type="text">
-
-    <p class="error" id="errorNom">nom invalide</p>
-
-    <input id="prenomSignIn" placeholder="prenom" type="text">
-
-    <p class="error" id="errorPrenom">prénom invalide</p>
-
-    <input id="telSignIn" placeholder="tel" type="tel">
-
-    <p class="error" id="errorTel">numéro de téléphone invalide</p>
-
-    <input id="emailSignIn" name="nom" placeholder="email" type="email">
-
-    <p class="error" id="errorEmail">email invalide</p>
-
-    <div class="passwordDiv">
-        <input id="passwordSignIn" placeholder="mdp" type="password">
+    <div>
+        <p class="titre">Crée votre compte</p>
+        <div>
+            <label>Nom</label>
+            <input id="nomSignIn" name="nom" type="text">
+            <p class="error" id="errorNom">nom invalide</p>
+        </div>
+        <div>
+            <label>Prénom</label>
+            <input id="prenomSignIn" type="text">
+            <p class="error" id="errorPrenom">prénom invalide</p>
+        </div>
+        <div>
+            <label>Numéro de téléphone</label>
+            <input id="telSignIn" type="tel">
+            <p class="error" id="errorTel">numéro de téléphone invalide</p>
+        </div>
+        <div>
+            <label>E-mail</label>
+            <input id="emailSignIn" name="nom" type="email">
+            <p class="error" id="errorEmail">email invalide</p>
+        </div>
+        <div>
+            <label>Mot de passe</label>
+            <input id="passwordSignIn" type="password">
+            <p class="error" id="errorPassword">mot de passe invalide</p>
+        </div>
+        <div>
+            <label>Confirmer le mot de passe</label>
+            <input id="confirmPasswordSignIn" type="password">
+            <p class="error" id="errorconfPassword">le mot de passe de confirmation ne correspond pas</p>
+        </div>
+        <input class="inscriptionButton" id="signUp" type="submit" value="S'inscrire">
     </div>
-    <p class="error" id="errorPassword">mot de passe invalide</p>
-
-    <input id="confirmPasswordSignIn" placeholder="confirme mdp" type="password">
-
-    <p class="error" id="errorconfPassword">le mot de passe de confirmation ne correspond pas</p>
-
-    <input id="signUp" type="submit" value="S'inscrire">
-
-    <p>Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
-
+    <p class="dejaIncrit">Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
 </div>
 
 <script src="LogInSignIn.js"></script>

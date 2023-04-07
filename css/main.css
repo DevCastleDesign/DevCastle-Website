@@ -14,7 +14,9 @@
 }
 
 body {
-    background:  linear-gradient(180deg, #81B9FF 0%, #A0CFFF 100%);
+    background:  linear-gradient(180deg, #81B9FF 0%, #A0CFFF 100%) no-repeat fixed;
+    height: 100%;
+    margin: 0;
 }
 
 a {
@@ -47,12 +49,33 @@ h1 {
 header  {
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 62px;
+    margin-bottom: 30px;
 }
 
 input {
     width: 100%;
     height: 33px;
+}
+
+.titre {
+    font-size: 30px;
+    text-align: center;
+}
+
+#confirmPasswordSignIn {
+    margin-bottom: 30px;
+}
+
+.dejaIncrit {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.inscriptionButton {
+    border: none;
+    background-color: #294876;
+    color: white;
+    height: 50px;
 }
 
 .loginButton {
@@ -75,22 +98,28 @@ input {
 
 .error{
     display: none;
-    color: red;
+    color: #cd3d64;
 }
 
 .SignIn {
     height: 100%;
-    width: 373px;
+    max-width: 530px;
     border-radius: 12px;
     background-color: white;
     margin: 0 auto;
-    padding: 53px 44px 50px 44px;
+    padding: 30px 44px 50px 44px;
 }
 
 .SignIn input {
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #b8b8b8;
 }
 
+label {
+    font-size: 14px;
+}
 
 .devCastleImage {
     float: right;

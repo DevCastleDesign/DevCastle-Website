@@ -22,7 +22,7 @@
 
 <script type="module">
   import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-  import {getDatabase, set, ref, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+  import {getDatabase, set, ref, onValue, remove} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
   import {
     getAuth,
     createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, sendPasswordResetEmail
@@ -55,7 +55,6 @@
   function infoC() {
 
     const user = auth.currentUser;
-    const distanceRef = ref(database, 'users/' + user.uid);
     onValue(ref(database, '/users/' + user.uid), (snapshot) => {
         const username = (snapshot.val().prenom + " " + snapshot.val().nom);
         const email = (snapshot.val().email);
@@ -76,15 +75,16 @@
     }).catch((error) => {
       alert("non")
     });
-
   });
 
   deleteCompte.addEventListener('click', (e) => {
     const user = auth.currentUser;
 
     deleteUser(user).then(() => {
+        remove(ref(database, '/users/' + user.uid));
+        alert("remove path")
+
         window.location.reload();
-      alert("compte supprimé")
 
     }).catch((error) => {
       alert("error delete")
