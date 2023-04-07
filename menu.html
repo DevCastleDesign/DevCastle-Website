@@ -9,7 +9,7 @@
 <a href="inscription.html">S'inscrire</a>
 <a href="connexion.html">Se connecter</a>
 
-<p id="textInfo"> text info</p>
+
 
 <input id="infoCompte" type="submit" value="info compte">
 
@@ -19,8 +19,13 @@
 
 <input id="recupCompte" type="submit" value="supprimer compte">
 
+<p id="usernameInfo"></p>
+<p id="telInfo"></p>
+<p id="emailInfo"></p>
+
 <script type="module">
   import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+  import {getDatabase, set, ref, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
   import {
     getAuth,
     createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, sendPasswordResetEmail
@@ -43,24 +48,23 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
+  const database = getDatabase(app);
 
 
   infoCompte.addEventListener('click', (e) => {
 
     const user = auth.currentUser;
-    if (user !== null) {
-      // The user object has basic properties such as display name, email, etc.
-      const email = user.email;
-      document.getElementById('textInfo').value = "test123";
+    const distanceRef = ref(database, 'users/' + user.uid);
+    onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+        const username = (snapshot.val().prenom + " " + snapshot.val().nom);
+        const email = (snapshot.val().email);
+        const tel = (snapshot.val().tel);
 
-      alert(email);
+        document.getElementById('usernameInfo').innerHTML = username;
+        document.getElementById('telInfo').innerHTML = tel;
+        document.getElementById('emailInfo').innerHTML = email;
+    });
 
-
-      // The user's ID, unique to the Firebase project. Do NOT use
-      // this value to authenticate with your backend server, if
-      // you have one. Use User.getToken() instead.
-      const uid = user.uid;
-    }
   });
 
   logoutCompte.addEventListener('click', (e) => {
