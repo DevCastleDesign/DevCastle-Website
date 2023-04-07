@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="inscription.html">S'inscrire</a>
+<a href="connexion.html">Se connecter</a>
+
+<p id="textInfo"> text info</p>
+
+<input id="infoCompte" type="submit" value="info compte">
+
+<input id="logoutCompte" type="submit" value="logout compte">
+
+<input id="deleteCompte" type="submit" value="supprimer compte">
+
+<input id="recupCompte" type="submit" value="supprimer compte">
+
+<script type="module">
+  import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+  import {
+    getAuth,
+    createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, sendPasswordResetEmail
+
+  } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+    authDomain: "webcastle-website.firebaseapp.com",
+    databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "webcastle-website",
+    storageBucket: "webcastle-website.appspot.com",
+    messagingSenderId: "274339465548",
+    appId: "1:274339465548:web:927dd550601c84dffce7e9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+
+
+  infoCompte.addEventListener('click', (e) => {
+
+    const user = auth.currentUser;
+    if (user !== null) {
+      // The user object has basic properties such as display name, email, etc.
+      const email = user.email;
+      document.getElementById('textInfo').value = "test123";
+
+      alert(email);
+
+
+      // The user's ID, unique to the Firebase project. Do NOT use
+      // this value to authenticate with your backend server, if
+      // you have one. Use User.getToken() instead.
+      const uid = user.uid;
+    }
+  });
+
+  logoutCompte.addEventListener('click', (e) => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      alert("deconnection yes")
+    }).catch((error) => {
+      alert("non")
+    });
+
+  });
+
+  deleteCompte.addEventListener('click', (e) => {
+    const user = auth.currentUser;
+
+    deleteUser(user).then(() => {
+      alert("compte supprimé")
+    }).catch((error) => {
+      alert("error delete")
+    });
+  });
+
+  recupCompte.addEventListener('click', (e) => {
+
+    const user = auth.currentUser;
+    sendPasswordResetEmail(auth, user.email)
+            .then(() => {
+              alert("mail envoyé")
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              alert(errorCode)
+            });
+  });
+
+</script>
+
+</body>
+</html>
