@@ -49,22 +49,27 @@
 
 
   window.addEventListener('load', function () {
-      setTimeout(infoC, 500)
+      setTimeout(infoC, onAuthStateChanged)
   });
 
   function infoC() {
 
-    const user = auth.currentUser;
-    onValue(ref(database, '/users/' + user.uid), (snapshot) => {
-        const username = (snapshot.val().prenom + " " + snapshot.val().nom);
-        const email = (snapshot.val().email);
-        const tel = (snapshot.val().tel);
+      onAuthStateChanged(auth, (user) => {
+          if (user) {
+              const user = auth.currentUser;
+              onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                  const username = (snapshot.val().prenom + " " + snapshot.val().nom);
+                  const email = (snapshot.val().email);
+                  const tel = (snapshot.val().tel);
 
-        document.getElementById('usernameInfo').innerHTML = username;
-        document.getElementById('telInfo').innerHTML = tel;
-        document.getElementById('emailInfo').innerHTML = email;
-    });
+                  document.getElementById('usernameInfo').innerHTML = username;
+                  document.getElementById('telInfo').innerHTML = tel;
+                  document.getElementById('emailInfo').innerHTML = email;
+              });
+          } else {
 
+          }
+      });
   };
 
   logoutCompte.addEventListener('click', (e) => {
