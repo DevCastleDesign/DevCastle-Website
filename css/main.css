@@ -613,6 +613,44 @@ footer .copyrightEtTermes {
     margin-top: 20px;
     cursor: pointer;
 }
+
+.pRDV #popup-ok {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pRDV #popup-ok div {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 50px black;
+    padding: 20px;
+    width: 50vw;
+    height: 50vh;
+    position: relative;
+    z-index: 100;
+}
+
+.pRDV #popup-ok div a {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #2C3973;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 15px;
+    width: fit-content;
+    cursor: pointer;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /* #endregion */
 
 /* #region DASHBOARD */

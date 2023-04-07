@@ -1,3 +1,4 @@
+emailjs.init('W6r4iYSkdNq0KUo4_');
 var calandar = document.getElementById("calendar");
 var time = document.getElementById("time");
 var dname = document.getElementById("datetime-name");
@@ -172,7 +173,6 @@ function submit() {
     } else if (document.getElementById("infos-tel").value === "") {
         errorMsg.innerHTML = "Veuillez saisir votre numero de télephone";
     } else {
-        emailjs.init('W6r4iYSkdNq0KUo4_');
         if (mode === 0) {
             var templateParams = {
                 datetime: dname.innerHTML,
@@ -184,7 +184,11 @@ function submit() {
                 tel: document.getElementById("infos-tel").value,
                 more: document.getElementById("infos-more").value,
             };
-            emailjs.send('service_gtw1i4t', 'template_vo11f77', templateParams)
+            emailjs.send('service_gtw1i4t', 'template_vo11f77', templateParams).then(function(response) {
+                document.getElementById("popup-ok").style.display = "flex";
+                document.body.style.overflow = 'hidden';
+                window.scrollTo(0,0);
+            });
         }
         if (mode === 1) {
             var templateParams = {
@@ -196,7 +200,11 @@ function submit() {
                 tel: document.getElementById("infos-tel").value,
                 more: document.getElementById("infos-more").value,
             };
-            emailjs.send('service_gtw1i4t', 'template_ht3k4w7', templateParams)
+            emailjs.send('service_gtw1i4t', 'template_ht3k4w7', templateParams).then(function(response) {
+                document.getElementById("popup-ok").style.display = "flex";
+                document.body.style.overflow = 'hidden';
+                window.scrollTo(0,0);
+            });
         }
     }
 }
