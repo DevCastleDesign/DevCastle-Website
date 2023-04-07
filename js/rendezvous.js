@@ -4,6 +4,7 @@ var dname = document.getElementById("datetime-name");
 var methods = document.getElementById("methods");
 var adressFields = document.getElementById("adress");
 var videoFields = document.getElementById("video");
+var errorMsg = document.getElementById("error-message");
 var mode = 0;
 var videomode = 0;
 var days = calandar.children[2];
@@ -157,34 +158,49 @@ function setVideo(newvideomode) {
 }
 
 function submit() {
-    if (mode === 0) {
-        console.log(
-            "===[Rendez-vous]===\n" + 
-            dname.innerHTML + "\n" +
-            "===[presentiel]===\n" + 
-            adressFields.children[1].value + " " + adressFields.children[2].value + "\n" + 
-            adressFields.children[4].value + "\n" + 
-            "===[informations]===\n" + 
-            "nom: " + document.getElementById("infos-name").value + "\n" +
-            "email: " + document.getElementById("infos-email").value + "\n" +
-            "tel: " + document.getElementById("infos-tel").value + "\n" +
-            "notes:\n" + document.getElementById("infos-more").value + "\n" + 
-            "===================="
-        );
-    }
-    if (mode === 1) {
-        console.log(
-            "===[Rendez-vous]===\n" + 
-            dname.innerHTML + "\n" +
-            "===[" + videoModeString + "]===\n" + 
-            videoFields.children[2].value + "\n" + 
-            "===[informations]===\n" + 
-            "nom: " + document.getElementById("infos-name").value + "\n" +
-            "email: " + document.getElementById("infos-email").value + "\n" +
-            "tel: " + document.getElementById("infos-tel").value + "\n" +
-            "notes:\n" + document.getElementById("infos-more").value + "\n" + 
-            "===================="
-        );
+    errorMsg.innerHTML = "";
+    if ((adressFields.children[2].value === "" || adressFields.children[4].value === "") && mode === 0) {
+        errorMsg.innerHTML = "Veuillez saisir une adresse complète";
+    } else if (videoFields.children[2].value === "" && mode === 1) {
+        errorMsg.innerHTML = "Veuillez votre nom d'utilisateur " + videoModeString;
+    } else if (selectedHour === -1) {
+        errorMsg.innerHTML = "Veuillez selectionner une heure";
+    } else if (document.getElementById("infos-name").value === "") {
+        errorMsg.innerHTML = "Veuillez saisir votre nom";
+    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("infos-email").value)) {
+        errorMsg.innerHTML = "Veuillez saisir un email correct";
+    } else if (document.getElementById("infos-tel").value === "") {
+        errorMsg.innerHTML = "Veuillez saisir votre numero de télephone";
+    } else {
+        if (mode === 0) {
+            console.log(
+                "===[Rendez-vous]===\n" + 
+                dname.innerHTML + "\n" +
+                "===[presentiel]===\n" + 
+                adressFields.children[1].value + " " + adressFields.children[2].value + "\n" + 
+                adressFields.children[4].value + "\n" + 
+                "===[informations]===\n" + 
+                "nom: " + document.getElementById("infos-name").value + "\n" +
+                "email: " + document.getElementById("infos-email").value + "\n" +
+                "tel: " + document.getElementById("infos-tel").value + "\n" +
+                "notes:\n" + document.getElementById("infos-more").value + "\n" + 
+                "===================="
+            );
+        }
+        if (mode === 1) {
+            console.log(
+                "===[Rendez-vous]===\n" + 
+                dname.innerHTML + "\n" +
+                "===[" + videoModeString + "]===\n" + 
+                videoFields.children[2].value + "\n" + 
+                "===[informations]===\n" + 
+                "nom: " + document.getElementById("infos-name").value + "\n" +
+                "email: " + document.getElementById("infos-email").value + "\n" +
+                "tel: " + document.getElementById("infos-tel").value + "\n" +
+                "notes:\n" + document.getElementById("infos-more").value + "\n" + 
+                "===================="
+            );
+        }
     }
 }
 

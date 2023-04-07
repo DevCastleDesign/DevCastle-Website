@@ -594,6 +594,12 @@ footer .copyrightEtTermes {
     color: #b40000;
 }
 
+.pRDV #error-message {
+    color: #cf0000;
+    text-align: center;
+    margin-top: 25px;
+}
+
 .pRDV #submit {
     border: 0;
     font-size: 1rem;
