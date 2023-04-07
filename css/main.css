@@ -1,84 +1,55 @@
-* {
-    box-sizing: border-box;
-    font-family: Montserrat, sans-serif;
-    margin: 0;
-    padding: 0;
 
-    /* palette */
-    --blue1: #81B9FF;
-    --blue2: #A0CFFF;
-    --blue3: #294876;
-    --bluelink: #006DF0;
-    --black: #000000;
-    --white: #ffffff;
-}
-
-body {
+.pLogInSignIn body {
     background:  linear-gradient(180deg, #81B9FF 0%, #A0CFFF 100%) no-repeat fixed;
     height: 100%;
     margin: 0;
 }
 
-a {
-    text-decoration: none;
-    color: var(--bluelink);
-}
-
-img {
-    max-width: 100%;
-}
-
-h1 {
-    font-family: Montserrat, sans-serif;
-    font-size: 32px;
-    margin-bottom: 29px;
-}
-
-.email {
+.pLogInSignIn .email {
     margin-bottom: 20px;
     background-color: #D9D9D9;
     border: none;
 }
 
-.password {
+.pLogInSignIn .password {
     margin-bottom: 10px;
     background-color: #D9D9D9;
     border: none;
 }
 
-header  {
+.pLogInSignIn header  {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 30px;
 }
 
-input {
+.pLogInSignIn input {
     width: 100%;
     height: 33px;
 }
 
-.titre {
+.pLogInSignIn .titre {
     font-size: 30px;
     text-align: center;
 }
 
-#confirmPasswordSignIn {
+.pLogInSignIn #confirmPasswordSignIn {
     margin-bottom: 30px;
 }
 
-.dejaIncrit {
+.pLogInSignIn .dejaIncrit {
     text-align: center;
     margin-top: 20px;
 }
 
-.inscriptionButton {
+.pLogInSignIn .inscriptionButton {
     border: none;
     background-color: #294876;
     color: white;
     height: 50px;
 }
 
-.loginButton {
+.pLogInSignIn .loginButton {
     width: 190px;
     height: 42px;
     background-color: #D9D9D9;
@@ -87,7 +58,7 @@ input {
     margin-bottom: 100px;
 }
 
-.login {
+.pLogInSignIn .login {
     height: 504px;
     width: 373px;
     border-radius: 12px;
@@ -96,12 +67,12 @@ input {
     padding: 53px 44px 0 44px;
 }
 
-.error{
+.pLogInSignIn .error{
     display: none;
     color: #cd3d64;
 }
 
-.SignIn {
+.pLogInSignIn .SignIn {
     height: 100%;
     max-width: 530px;
     border-radius: 12px;
@@ -110,30 +81,30 @@ input {
     padding: 30px 44px 50px 44px;
 }
 
-.SignIn input {
+.pLogInSignIn .SignIn input {
     margin-top: 5px;
     margin-bottom: 10px;
     border-radius: 3px;
     border: 1px solid #b8b8b8;
 }
 
-label {
+.pLogInSignIn label {
     font-size: 14px;
 }
 
-.devCastleImage {
+.pLogInSignIn .devCastleImage {
     float: right;
     bottom: 0;
     right: 0;
     position: absolute;
 }
 
-.passwordDiv {
+.pLogInSignIn .passwordDiv {
     position: relative;
     display: flex;
 }
 
-.passwordDiv img {
+.pLogInSignIn .passwordDiv img {
     position: absolute;
     right: 0;
 }
