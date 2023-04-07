@@ -21,25 +21,49 @@
     <p class="free">Gratuit</p>
     <p>Parlons de vos envies, vos idée, vos ambitions et
         nous choisirons ensemble comment creer votre site.</p>
-    <input type="date">
-    <div id="calendar">
-        <div class="header">
-            <button onclick="calendarBackward()"></button>
-            <button onclick="calendarForward()"></button>
-            <p>Mois</p>
-        </div>
-        <div class="daynames">
-            <p>lu</p>
-            <p>ma</p>
-            <p>me</p>
-            <p>je</p>
-            <p>ve</p>
-            <p>sa</p>
-            <p>di</p>
-        </div>
-        <div class="days">
+    <input type="datetime-local">
+    <h2>Selectionner la date et l'heure</h2>
+    <div class="datetime">
+        <p id="datetime-name">Nom</p>
+        <div class="selector">
+            <div id="calendar">
+                <div class="header">
+                    <button onclick="calendarBackward()"></button>
+                    <button onclick="calendarForward()"></button>
+                    <p>Mois</p>
+                </div>
+                <div class="daynames">
+                    <p>lu</p>
+                    <p>ma</p>
+                    <p>me</p>
+                    <p>je</p>
+                    <p>ve</p>
+                    <p>sa</p>
+                    <p>di</p>
+                </div>
+                <div class="days">
+                </div>
+            </div>
+            <div id="time">
+                <div class="header">
+                    <p>Heures disponibles</p>
+                </div>
+                    <div class="hours">
+                    <button onclick="selectHour(0)">15:00</button>
+                    <button onclick="selectHour(1)">15:00</button>
+                    <button onclick="selectHour(2)">15:00</button>
+                    <button onclick="selectHour(3)">15:00</button>
+                    <button onclick="selectHour(4)">15:00</button>
+                    <button onclick="selectHour(5)">15:00</button>
+                    <button onclick="selectHour(6)">15:00</button>
+                    <button onclick="selectHour(7)">15:00</button>
+                    <button onclick="selectHour(8)">15:00</button>
+                    <button onclick="selectHour(9)">15:00</button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./js/calendar.js"></script>
+    <h2>Ajouter des informations</h2>
 </body>
 </html>

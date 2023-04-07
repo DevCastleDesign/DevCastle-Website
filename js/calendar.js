@@ -1,4 +1,6 @@
 var calandar = document.getElementById("calendar");
+var time = document.getElementById("time");
+var dname = document.getElementById("datetime-name");
 var days = calandar.children[2];
 var today = new Date();
 var selectedMonth = today.getMonth();
@@ -6,6 +8,7 @@ var selectedYear = today.getFullYear();
 var selectedDay = -1;
 var selectedDayMonth = -1;
 var selectedDayYear = -1;
+var selectedHour = -1;
 
 function monthToString(month) {
     switch (month) {
@@ -22,6 +25,10 @@ function monthToString(month) {
         case 10: return "Novembre"; break;
         case 11: return "Décembre"; break;
     }
+}
+
+function setName() {
+    dname.innerHTML = (selectedDay + 1) + " " + monthToString(selectedMonth) + " " + selectedYear + (selectedHour != -1 ? ", " + selectedHour : "");
 }
 
 function createCalendar() {
@@ -70,7 +77,21 @@ function selectDay(day) {
     selectedDay = day;
     selectedDayMonth = selectedMonth;
     selectedDayYear = selectedYear;
+    if (selectedHour >= 0 && selectedHour < time.children[1].childElementCount) {
+        time.children[1].children[selectedHour].classList.remove("selected");
+    }
+    selectedHour = -1;
     createCalendar();
+    setName();
+}
+
+function selectHour(hour) {
+    if (selectedHour >= 0 && selectedHour < time.children[1].childElementCount) {
+        time.children[1].children[selectedHour].classList.remove("selected");
+    }
+    selectedHour = hour;
+    time.children[1].children[hour].classList.add("selected");
+    setName();
 }
 
 createCalendar();

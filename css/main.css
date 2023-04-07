@@ -335,10 +335,23 @@ footer .copyrightEtTermes {
 /* #endregion */
 
 /* #region RENDEZ VOUS */
-.pRDV #calendar {
-    border: 2px solid black;
-    border-radius: 5px;
+.pRDV .datetime {
     width: fit-content;
+}
+
+.pRDV .datetime #datetime-name {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pRDV .datetime .selector {
+    display: flex;
+}
+
+.pRDV #calendar {
+    width: fit-content;
+    margin-right: 100px;
 }
 
 .pRDV #calendar .header {
@@ -399,6 +412,42 @@ footer .copyrightEtTermes {
 }
 
 .pRDV #calendar .days button.selected {
+    background-color: #2C3973;
+    color: white;
+}
+
+.pRDV #time .header {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.pRDV #time .header p {
+    font-size: 1.2rem;
+    height: 25px;
+}
+
+.pRDV #time .hours {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: flex-start;
+    gap: 10px;
+}
+
+.pRDV #time .hours button {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 1rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content;
+}
+
+.pRDV #time .hours button.selected {
     background-color: #2C3973;
     color: white;
 }
