@@ -74,6 +74,18 @@ input {
     display: none;
 }
 
+.errorEmail {
+    display: none;
+}
+
+.errorPassword {
+    display: none;
+}
+
+.errorconfPassword {
+    display: none;
+}
+
 .SignIn {
     height: 504px;
     width: 373px;
