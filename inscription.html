@@ -21,34 +21,38 @@
 <header>
     <img class="devCastleIcon" height="83" src="src/Icons/DevCastleIcon.png" width="148"/>
 </header>
-<div id="logInDiv" class="login">
-    <h1>Connexion</h1>
-    <p>Email</p>
-    <input class="email" id="emailLogin" type="text">
 
-    <p>Password</p>
-    <input class="password" id="passwordLogin" type="text">
-    <a href="" ><p>Mot de passe oublié</p></a>
+<div class="SignIn" id="SignInDiv">
+    <input id="nomSignIn" name="nom" placeholder="nom" type="text">
 
-    <button id="logIn" class="loginButton" >Se connecter</button>
+    <p class="errorNom" id="errorNom">nom invalide</p>
 
-    <p>pas encore de compte ? <a href="">S'inscrire</a></p>
-</div>
+    <input id="prenomSignIn" placeholder="prenom" type="text">
 
-<div id="SignInDiv" class="SignIn">
-    <input type="text" id="nomSignIn" name="nom" placeholder="nom">
-    <input type="text" id="prenomSignIn" name="nom" placeholder="prenom">
-    <input type="tel" id="telSignIn" name="nom" placeholder="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" onkeypress="telSpaceChara">
-    <input type="email" id="emailSignIn" name="nom" placeholder="email">
-    <p class="errorEmail" id="errorEmail">Email invalide</p>
-    <input type="password" id="passwordSignIn" placeholder="mdp">
-    <p class="errorPassword" id="errorPassword">password invalide</p>
-    <input type="password" id="confirmPasswordSignIn" placeholder="confirme mdp">
-    <p class="errorconfPassword" id="errorconfPassword">pas pareil</p>
-    <img src="src/Icons/PDGIcon.png" id="eyeicon" height="29" width="27"/>
+    <p class="errorPrenom" id="errorPrenom">prénom invalide</p>
+
+    <input id="telSignIn"  placeholder="tel" type="tel">
+
+    <p class="errorTel" id="errorTel">numéro de téléphone invalide</p>
+
+    <input id="emailSignIn" name="nom" placeholder="email" type="email">
+
+    <p class="errorEmail" id="errorEmail">email invalide</p>
+
+    <div class="passwordDiv">
+        <input id="passwordSignIn" placeholder="mdp" type="password">
+        <img height="29" id="eyeicon" src="src/Icons/PDGIcon.png" width="27"/>
+    </div>
+    <p class="errorPassword" id="errorPassword">mot de passe invalide</p>
+
+
+    <input id="confirmPasswordSignIn" placeholder="confirme mdp" type="password">
+
+    <p class="errorconfPassword" id="errorconfPassword">le mot de passe de confirmation ne correspond pas</p>
+
     <input id="signUp" type="submit" value="S'inscrire">
 
-    <p>Déjà inscrit ? <a href="">Se connecter</a></p>
+    <p>Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
 
 
 </div>
@@ -66,37 +70,7 @@
     }
 </script>
 
-<script>
-    var emailValid = false
-    function checkEmail() {
-        if (emailValid == true) {
-            return true;
-        } else {
-            document.getElementById('errorEmail').style.display = "block";
-            return false;
-        }
-    };
-
-    var passwordValid = false
-    function checkPassword() {
-        if (passwordValid == true) {
-            return true;
-        } else {
-            document.getElementById('errorPassword').style.display = "block";
-            return false;
-        }
-    };
-
-    function confirmPasswordWalid() {
-        if (document.getElementById('passwordSignIn').value == document.getElementById('confirmPasswordSignIn').value) {
-            return true
-        } else {
-            document.getElementById('errorconfPassword').style.display = "block";
-            return false;
-        }
-    };
-
-</script>
+<script src="LogInSignIn.js"></script>
 
 <img class="devCastleImage" height="530" src="src/Images/DevCastleImage.png" width="330"/>
 
@@ -105,7 +79,14 @@
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-    import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        setPersistence,
+        browserSessionPersistence,
+        onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -133,13 +114,15 @@
         var email = document.getElementById('emailSignIn').value
         var password = document.getElementById('passwordSignIn').value
 
-        var test = false
 
-        var validewmail = checkEmail()
-        var validepassword = checkPassword()
-        var confPassword = confirmPasswordWalid()
+        checkPrenom()
+        checkNom()
+        checkEmail()
+        checkTel()
+        checkPassword()
+        confirmPasswordWalid()
 
-        if (validewmail == true && validepassword == true && confPassword == true) {
+        if (checkEmail() == true && checkPrenom() == true && checkTel() == true && checkPassword() == true && confirmPasswordWalid() == true) {
 
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
@@ -151,7 +134,7 @@
                         tel: tel,
                         email: email
                     })
-
+                    window.location.href = 'inscription.html';
                     document.getElementById('SignInDiv').remove()
                     document.getElementById('logInDiv').style.display = "block";
                     alert("user created");
@@ -164,22 +147,21 @@
         }
     });
 
-
     logIn.addEventListener('click', (e) => {
         var email = document.getElementById('emailLogin').value
         var password = document.getElementById('passwordLogin').value
 
         setPersistence('local').then(() => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                alert("Login Reussi")
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorCode)
-            });
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert("Login Reussi")
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorCode)
+                });
         })
     });
 </script>

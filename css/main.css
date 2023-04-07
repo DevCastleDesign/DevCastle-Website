@@ -71,18 +71,9 @@ input {
     background-color: white;
     margin: 0 auto;
     padding: 53px 44px 0 44px;
-    display: none;
 }
 
-.errorEmail {
-    display: none;
-}
-
-.errorPassword {
-    display: none;
-}
-
-.errorconfPassword {
+.errorNom, .errorPrenom, .errorTel, .errorEmail, .errorPassword, .errorconfPassword {
     display: none;
 }
 
@@ -100,4 +91,14 @@ input {
     bottom: 0;
     right: 0;
     position: absolute;
+}
+
+.passwordDiv {
+    position: relative;
+    display: flex;
+}
+
+.passwordDiv img {
+    position: absolute;
+    right: 0;
 }
