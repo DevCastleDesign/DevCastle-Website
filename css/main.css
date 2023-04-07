@@ -21,6 +21,15 @@ img {
     -webkit-touch-callout: none;
 }
 
+/*****************************************
+	 Compte Modif
+******************************************/
+
+#dashboardNav, #logOutButton {
+    display: none;
+}
+
+
 /* #region ACCUIEL */
 /*****************************************
 	 ACCUEIL
@@ -129,15 +138,16 @@ img {
 .pAccueil main nav ul {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: right;
     width: 600px;
 }
 
 .pAccueil main nav ul li {
     list-style: none;
+    margin-left: 35px;
 }
 
-.pAccueil main nav ul li:last-child {
+.pAccueil main nav ul li .blueButton {
     background-color: var(--blue3);
     padding: 10px 25px;
     border-radius: 5px;

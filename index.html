@@ -25,10 +25,13 @@
             <a href=""><img height="83" src="src/Icons/DevCastleIcon.png" width="148"/></a>
             <ul>
                 <li><a href="">Contact</a></li>
-                <li><a href="">Tableau de bord</a></li>
-                <li><a href="">Connexion</a></li>
-                <li><a href="">
-                    <div>S'inscrire</div>
+                <li id="loginButton"><a href="">Connexion</a></li>
+                <li id="logOutButton"><a href="">Se deconnecter</a></li>
+                <li id="SignInButton"><a href="inscription.html">
+                    <div class="blueButton">S'inscrire</div>
+                </a></li>
+                <li id="dashboardNav"><a href="">
+                    <div class="blueButton">Tableau de bord</div>
                 </a></li>
             </ul>
         </nav>
@@ -105,9 +108,10 @@
         function verifAccount() {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    alert("account")
-                    const uid = user.uid;
-
+                    document.getElementById('dashboardNav').style.display = "block";
+                    document.getElementById('SignInButton').style.display = "none";
+                    document.getElementById('logOutButton').style.display = "block";
+                    document.getElementById('loginButton').style.display = "none";
                 } else {
                     // User is signed out
                     alert("account no")
