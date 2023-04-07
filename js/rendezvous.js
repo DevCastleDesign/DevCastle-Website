@@ -5,6 +5,7 @@ var methods = document.getElementById("methods");
 var adressFields = document.getElementById("adress");
 var videoFields = document.getElementById("video");
 var mode = 0;
+var videomode = 0;
 var days = calandar.children[2];
 var today = new Date();
 var selectedMonth = today.getMonth();
@@ -100,22 +101,38 @@ function selectHour(hour) {
 
 function setMode(newmode) {
     mode = newmode;
+    methods.children[0].classList.remove("selected");
+    methods.children[1].classList.remove("selected");
+    methods.children[newmode].classList.add("selected");
     if (newmode === 0) {
-        methods.children[0].classList.add("selected");
-        methods.children[1].classList.remove("selected");
         document.getElementById("method-title").innerHTML = "Ou pouvons-nous se rencontrer ?";
         adressFields.style.display = "block";
         videoFields.style.display = "none";
     }
     if (newmode === 1) {
-        methods.children[0].classList.remove("selected");
-        methods.children[1].classList.add("selected");
         document.getElementById("method-title").innerHTML = "Quelle plateforme prefereriez-vous ?";
         adressFields.style.display = "none";
         videoFields.style.display = "block";
     }
 }
 
+function setVideo(newvideomode) {
+    videomode = newvideomode;
+    videoFields.children[0].children[0].classList.remove("selected");
+    videoFields.children[0].children[1].classList.remove("selected");
+    videoFields.children[0].children[2].classList.remove("selected");
+    videoFields.children[0].children[newvideomode].classList.add("selected");
+    var modename = "skype";
+    if (newvideomode === 1) {
+        modename = "discord";
+    }
+    if (newvideomode === 2) {
+        modename = "zoom";
+    }
+    videoFields.children[2].placeholder = "Votre nom d'utilisateur " + modename;
+}
+
 setMode(0);
+setVideo(0);
 createCalendar();
 setName();
