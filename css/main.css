@@ -335,8 +335,44 @@ footer .copyrightEtTermes {
 /* #endregion */
 
 /* #region RENDEZ VOUS */
+.pRDV .content {
+    width: 50vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.pRDV .content h2 {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.pRDV .methods {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pRDV .methods button {
+    border: 0;
+    font-size: 1rem;
+    padding: 10px 30px;
+    border-radius: 5px;
+    width: 48%;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.pRDV .methods button.selected {
+    background-color: #2C3973;
+    color: white;
+    border: 0;
+}
+
 .pRDV .datetime {
     width: fit-content;
+    width: 100%;
 }
 
 .pRDV .datetime #datetime-name {
@@ -347,11 +383,11 @@ footer .copyrightEtTermes {
 
 .pRDV .datetime .selector {
     display: flex;
+    justify-content: space-between;
 }
 
 .pRDV #calendar {
-    width: fit-content;
-    margin-right: 100px;
+    width: 40%;
 }
 
 .pRDV #calendar .header {
@@ -416,6 +452,10 @@ footer .copyrightEtTermes {
     color: white;
 }
 
+.pRDV #time {
+    width: 40%;
+}
+
 .pRDV #time .header {
     display: flex;
     width: 100%;
@@ -431,7 +471,7 @@ footer .copyrightEtTermes {
 
 .pRDV #time .hours {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-content: flex-start;
     gap: 10px;
 }
@@ -444,12 +484,58 @@ footer .copyrightEtTermes {
     padding: 10px 15px;
     cursor: pointer;
     height: fit-content;
-    width: fit-content;
+    width: 100%;
 }
 
 .pRDV #time .hours button.selected {
     background-color: #2C3973;
     color: white;
+}
+
+.pRDV .infos {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.pRDV .infos p {
+    font-weight: 500;
+}
+
+.pRDV .infos div {
+    width: 40%;
+}
+
+.pRDV .infos div input, .pRDV .infos div textarea {
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.pRDV .infos div textarea {
+    resize: vertical;
+}
+
+.pRDV .infos div:first-child p::after {
+    content: "*";
+    color: #b40000;
+}
+
+.pRDV #submit {
+    border: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 5px;
+    width: fit-content;
+    align-self: center;
+    background-color: #2C3973;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
 }
 /* #endregion */
 
