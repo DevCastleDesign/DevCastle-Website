@@ -172,34 +172,31 @@ function submit() {
     } else if (document.getElementById("infos-tel").value === "") {
         errorMsg.innerHTML = "Veuillez saisir votre numero de télephone";
     } else {
+        emailjs.init('W6r4iYSkdNq0KUo4_');
         if (mode === 0) {
-            console.log(
-                "===[Rendez-vous]===\n" + 
-                dname.innerHTML + "\n" +
-                "===[presentiel]===\n" + 
-                adressFields.children[1].value + " " + adressFields.children[2].value + "\n" + 
-                adressFields.children[4].value + "\n" + 
-                "===[informations]===\n" + 
-                "nom: " + document.getElementById("infos-name").value + "\n" +
-                "email: " + document.getElementById("infos-email").value + "\n" +
-                "tel: " + document.getElementById("infos-tel").value + "\n" +
-                "notes:\n" + document.getElementById("infos-more").value + "\n" + 
-                "===================="
-            );
+            var templateParams = {
+                datetime: dname.innerHTML,
+                adress: adressFields.children[4].value,
+                npa: adressFields.children[1].value,
+                loc: adressFields.children[2].value,
+                name: document.getElementById("infos-name").value,
+                email: document.getElementById("infos-email").value,
+                tel: document.getElementById("infos-tel").value,
+                more: document.getElementById("infos-more").value,
+            };
+            emailjs.send('service_gtw1i4t', 'template_vo11f77', templateParams)
         }
         if (mode === 1) {
-            console.log(
-                "===[Rendez-vous]===\n" + 
-                dname.innerHTML + "\n" +
-                "===[" + videoModeString + "]===\n" + 
-                videoFields.children[2].value + "\n" + 
-                "===[informations]===\n" + 
-                "nom: " + document.getElementById("infos-name").value + "\n" +
-                "email: " + document.getElementById("infos-email").value + "\n" +
-                "tel: " + document.getElementById("infos-tel").value + "\n" +
-                "notes:\n" + document.getElementById("infos-more").value + "\n" + 
-                "===================="
-            );
+            var templateParams = {
+                datetime: dname.innerHTML,
+                plateform: videoModeString,
+                username: videoFields.children[2].value,
+                name: document.getElementById("infos-name").value,
+                email: document.getElementById("infos-email").value,
+                tel: document.getElementById("infos-tel").value,
+                more: document.getElementById("infos-more").value,
+            };
+            emailjs.send('service_gtw1i4t', 'template_ht3k4w7', templateParams)
         }
     }
 }
