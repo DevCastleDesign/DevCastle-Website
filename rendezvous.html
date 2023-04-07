@@ -70,17 +70,8 @@
                     <div class="header">
                         <p>Heures disponibles</p>
                     </div>
-                        <div class="hours">
-                        <button onclick="selectHour(0)">15:00</button>
-                        <button onclick="selectHour(1)">15:00</button>
-                        <button onclick="selectHour(2)">15:00</button>
-                        <button onclick="selectHour(3)">15:00</button>
-                        <button onclick="selectHour(4)">15:00</button>
-                        <button onclick="selectHour(5)">15:00</button>
-                        <button onclick="selectHour(6)">15:00</button>
-                        <button onclick="selectHour(7)">15:00</button>
-                        <button onclick="selectHour(8)">15:00</button>
-                        <button onclick="selectHour(9)">15:00</button>
+                    <div class="hours">
+                        
                     </div>
                 </div>
             </div>
@@ -90,18 +81,18 @@
         <div class="infos">
             <div>
                 <p>Nom</p>
-                <input type="text" placeholder="Votre nom">
+                <input id="infos-name" type="text" placeholder="Votre nom">
                 <p>Adresse email</p>
-                <input type="email" placeholder="Votre adresse email">
+                <input id="infos-email" type="email" placeholder="Votre adresse email">
                 <p>Numero de télephone</p>
-                <input type="tel" placeholder="Votre numero de télephone">
+                <input id="infos-tel" type="tel" placeholder="Votre numero de télephone">
             </div>
             <div>
                 <p>Notes</p>
-                <textarea  placeholder="Ajoutez des demandes spéciales"></textarea>
+                <textarea id="infos-more" placeholder="Ajoutez des demandes spéciales"></textarea>
             </div>
         </div>
-        <button id="submit">Reserver</button>
+        <button id="submit" onclick="submit()">Reserver</button>
     </div>
 </body>
 </html>

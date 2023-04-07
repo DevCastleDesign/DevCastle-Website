@@ -14,6 +14,17 @@ var selectedDay = today.getDay() + 1;
 var selectedDayMonth = selectedMonth;
 var selectedDayYear = selectedYear;
 var selectedHour = -1;
+var videoModeString = "skype";
+
+var baseDisHours = [
+    ["17:30"],
+    ["16:00", "16:30", "17:00", "17:30"],
+    ["16:30", "17:00", "17:30"],
+    ["17:30"],
+    ["16:00", "16:30", "17:00", "17:30"],
+    ["13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"],
+    []
+];
 
 function monthToString(month) {
     switch (month) {
@@ -33,13 +44,13 @@ function monthToString(month) {
 }
 
 function setName() {
-    dname.innerHTML = (selectedDay + 1) + " " + monthToString(selectedMonth) + " " + selectedYear + (selectedHour != -1 ? ", " + selectedHour : "");
+    dname.innerHTML = (selectedDay + 1) + " " + monthToString(selectedMonth) + " " + selectedYear + (selectedHour != -1 ? ", " + time.children[1].children[selectedHour].innerHTML : "");
 }
 
 function createCalendar() {
     // write month and year in header
     calandar.children[0].children[2].innerHTML = monthToString(selectedMonth) + " " + selectedYear;
-    // calculate start day and montha lenght
+    // calculate start day and month lenght
     var startDay = new Date(`${selectedYear}-${selectedMonth + 1}-01`).getDay();
     if (startDay === 0) { startDay = 7; }
     var monthLenght = new Date(selectedYear, selectedMonth + 1, 0).getDate();
@@ -58,6 +69,16 @@ function createCalendar() {
     }
     // offset the child to match the start day of the month
     days.children[0].style.gridColumn = startDay;
+}
+
+function createHours(weekday) {
+    time.children[1].innerHTML = "";
+    for (var i = 0; i < baseDisHours[weekday].length; i++) {
+        var newHour = document.createElement("button");
+        newHour.innerHTML = baseDisHours[weekday][i];
+        newHour.setAttribute("onclick", "selectHour(" + i + ")");
+        time.children[1].append(newHour);
+    }
 }
 
 function calendarForward() {
@@ -87,6 +108,8 @@ function selectDay(day) {
     }
     selectedHour = -1;
     createCalendar();
+    var startDay = new Date(`${selectedYear}-${selectedMonth + 1}-01`).getDay();
+    createHours((day + startDay - 1) % 7);
     setName();
 }
 
@@ -129,10 +152,44 @@ function setVideo(newvideomode) {
     if (newvideomode === 2) {
         modename = "zoom";
     }
+    videoModeString = modename;
     videoFields.children[2].placeholder = "Votre nom d'utilisateur " + modename;
+}
+
+function submit() {
+    if (mode === 0) {
+        console.log(
+            "===[Rendez-vous]===\n" + 
+            dname.innerHTML + "\n" +
+            "===[presentiel]===\n" + 
+            adressFields.children[1].value + " " + adressFields.children[2].value + "\n" + 
+            adressFields.children[4].value + "\n" + 
+            "===[informations]===\n" + 
+            "nom: " + document.getElementById("infos-name").value + "\n" +
+            "email: " + document.getElementById("infos-email").value + "\n" +
+            "tel: " + document.getElementById("infos-tel").value + "\n" +
+            "notes:\n" + document.getElementById("infos-more").value + "\n" + 
+            "===================="
+        );
+    }
+    if (mode === 1) {
+        console.log(
+            "===[Rendez-vous]===\n" + 
+            dname.innerHTML + "\n" +
+            "===[" + videoModeString + "]===\n" + 
+            videoFields.children[2].value + "\n" + 
+            "===[informations]===\n" + 
+            "nom: " + document.getElementById("infos-name").value + "\n" +
+            "email: " + document.getElementById("infos-email").value + "\n" +
+            "tel: " + document.getElementById("infos-tel").value + "\n" +
+            "notes:\n" + document.getElementById("infos-more").value + "\n" + 
+            "===================="
+        );
+    }
 }
 
 setMode(0);
 setVideo(0);
+selectDay(selectedDay);
 createCalendar();
 setName();

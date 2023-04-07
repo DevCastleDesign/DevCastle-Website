@@ -335,6 +335,19 @@ footer .copyrightEtTermes {
 /* #endregion */
 
 /* #region RENDEZ VOUS */
+.pRDV h1 {
+    text-align: center;
+}
+
+.pRDV .free {
+    font-weight: bold;
+    text-align: center;
+}
+
+.pRDV>p {
+    text-align: center;
+}
+
 .pRDV .content {
     max-width: 1000px;
     margin: 0 auto;
