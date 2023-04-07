@@ -10,14 +10,11 @@
 <a href="connexion.html">Se connecter</a>
 
 
-
-<input id="infoCompte" type="submit" value="info compte">
-
 <input id="logoutCompte" type="submit" value="logout compte">
 
 <input id="deleteCompte" type="submit" value="supprimer compte">
 
-<input id="recupCompte" type="submit" value="supprimer compte">
+<input id="recupCompte" type="submit" value="envoyer email récupperation compte">
 
 <p id="usernameInfo"></p>
 <p id="telInfo"></p>
@@ -51,7 +48,11 @@
   const database = getDatabase(app);
 
 
-  infoCompte.addEventListener('click', (e) => {
+  window.addEventListener('load', function () {
+      setTimeout(infoC, 500)
+  });
+
+  function infoC() {
 
     const user = auth.currentUser;
     const distanceRef = ref(database, 'users/' + user.uid);
@@ -65,11 +66,12 @@
         document.getElementById('emailInfo').innerHTML = email;
     });
 
-  });
+  };
 
   logoutCompte.addEventListener('click', (e) => {
     const auth = getAuth();
     signOut(auth).then(() => {
+        window.location.reload();
       alert("deconnection yes")
     }).catch((error) => {
       alert("non")
@@ -81,7 +83,9 @@
     const user = auth.currentUser;
 
     deleteUser(user).then(() => {
+        window.location.reload();
       alert("compte supprimé")
+
     }).catch((error) => {
       alert("error delete")
     });
