@@ -28,8 +28,8 @@
     <div id="selector"></div>
   </div>
   <ul class="commandlist">
-    <li><button onclick="window.location.href='./';"><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
-    <li><button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button></li>
+    <li><button onclick="window.location.href='index.html';"><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
+    <li id="logOutButton"><button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button></li>
   </ul>
 </div>
 <div class="content" id="pagecontainer">
@@ -194,5 +194,49 @@
   document.getElementById("selector").style.height = height + "px";
 </script>
 <script src="./js/theme.js"></script>
+
+<script type="module">
+  import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+  import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+    authDomain: "webcastle-website.firebaseapp.com",
+    databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "webcastle-website",
+    storageBucket: "webcastle-website.appspot.com",
+    messagingSenderId: "274339465548",
+    appId: "1:274339465548:web:927dd550601c84dffce7e9"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+
+
+  window.addEventListener('load', function () {
+    setTimeout(verifAccount, onAuthStateChanged)
+  });
+
+  function verifAccount() {
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "index.html";
+      } else {
+
+      }
+    });
+  };
+
+  logOutButton.addEventListener('click', (e) => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      window.location.href = "index.html";
+    }).catch((error) => {
+      alert("non")
+    });
+  });
+
+</script>
 </body>
 </html>
