@@ -197,7 +197,7 @@
 
 <script type="module">
   import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-  import {getAuth, onAuthStateChanged, signOut, onValue, ref, val} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+  import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -221,14 +221,9 @@
   function verifAccount() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-
-        const user = auth.currentUser;
-        onValue(ref(database, '/users/' + user.uid), (snapshot) => {
-          const username = (snapshot.val().prenom + " " + snapshot.val().nom);
-          document.getElementById('nomCompte').innerHTML = username;
-        });
+       alert("trest")
       } else {
-        window.location.href = "index.html";
+        document.getElementById('navNoAccount').style.display = "flex";
       }
     });
   };
