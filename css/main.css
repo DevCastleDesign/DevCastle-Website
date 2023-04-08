@@ -577,8 +577,6 @@ img {
 
 /* #endregion */
 
-
-
 /* #region TermeUtilisation */
 /*****************************************
 	 TermeUtilisation
@@ -620,5 +618,13 @@ img {
     color: dodgerblue;
     font-size: 22px;
 }
+
+/* #endregion */
+
+/* #region Dashboard */
+/*****************************************
+	 Dashboard
+******************************************/
+
 
 /* #endregion */

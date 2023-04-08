@@ -1,11 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
 <h1>Dashboard</h1>
+<p id="usernameInfo"></p>
+<input id="modifCompteButton" type="submit" value="modifier mot de passe">
+<input id="supCompteButton" type="submit" value="supprimer compte">
+
+<div id="blur" class="blur">
+<div class="verifDeleteAccount">
+wef
+</div>
+</div>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {
+        getDatabase,
+        set,
+        ref,
+        onValue,
+        remove
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword, onAuthStateChanged, signOut, deleteUser, sendPasswordResetEmail
+
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+
+    window.addEventListener('load', function () {
+        setTimeout(infoC, onAuthStateChanged)
+    });
+
+    function infoC() {
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const user = auth.currentUser;
+                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                    const username = (snapshot.val().prenom + " " + snapshot.val().nom);
+                    const email = (snapshot.val().email);
+                    const tel = (snapshot.val().tel);
+
+                    document.getElementById('usernameInfo').innerHTML = username;
+                    document.getElementById('telInfo').innerHTML = tel;
+                    document.getElementById('emailInfo').innerHTML = email;
+                });
+            } else {
+
+            }
+        });
+    };
+
+    supCompteButton.addEventListener('click', (e) => {
+        const user = auth.currentUser;
+
+        deleteUser(user).then(() => {
+            remove(ref(database, '/users/' + user.uid));
+            window.location.href = "index.html";
+
+        }).catch((error) => {
+            alert("error delete")
+        });
+    });
+
+    modifCompteButton.addEventListener('click', (e) => {
+       document.getElementById('blur').style.visibility = "visible";
+    });
+
+</script>
 
 </body>
 </html>
