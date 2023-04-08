@@ -25,10 +25,9 @@ img {
 	 Compte Modif
 ******************************************/
 
-#dashboardNav, #logOutButton {
+#navAccount, #navNoAccount {
     display: none;
 }
-
 
 /* #region ACCUIEL */
 /*****************************************

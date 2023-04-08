@@ -23,13 +23,16 @@
     <section class="blueBackground">
         <nav class="header">
             <a href=""><img height="83" src="src/Icons/DevCastleIcon.png" width="148"/></a>
-            <ul>
+            <ul id="navNoAccount">
                 <li><a href="">Contact</a></li>
                 <li id="loginButton"><a href="connexion.html">Connexion</a></li>
-                <li id="logOutButton"><a href="">Se deconnecter</a></li>
-                <li id="SignInButton"><a href="inscription.html">
+                <li class="navHeaderNoConnect"><a href="inscription.html">
                     <div class="blueButton">S'inscrire</div>
                 </a></li>
+            </ul>
+            <ul id="navAccount">
+                <li><a href="">Contact</a></li>
+                <li id="logOutButton"><a href="">Se deconnecter</a></li>
                 <li id="dashboardNav"><a href="">
                     <div class="blueButton">Tableau de bord</div>
                 </a></li>
@@ -108,24 +111,20 @@
         function verifAccount() {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    document.getElementById('dashboardNav').style.display = "block";
-                    document.getElementById('SignInButton').style.display = "none";
-                    document.getElementById('logOutButton').style.display = "block";
-                    document.getElementById('loginButton').style.display = "none";
+                    document.getElementById('navAccount').style.display = "flex";
                 } else {
-                    // User is signed out
+                    document.getElementById('navNoAccount').style.display = "flex";
                 }
             });
         };
 
-
         logOutButton.addEventListener('click', (e) => {
-                const auth = getAuth();
-                signOut(auth).then(() => {
-                    window.location.reload();
-                }).catch((error) => {
-                    alert("non")
-                });
+            const auth = getAuth();
+            signOut(auth).then(() => {
+                window.location.reload();
+            }).catch((error) => {
+                alert("non")
+            });
         });
 
     </script>
