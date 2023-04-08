@@ -21,6 +21,42 @@ img {
     -webkit-touch-callout: none;
 }
 
+.footer {
+    background-color: #111216;
+    height: 350px;
+    text-align: center;
+    color: #C9C9CA;
+    padding-top: 60px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    top: 100%;
+}
+
+.footer label {
+    font-size: 48px;
+    font-family: "Lucida Bright";
+}
+
+.footer .pitchFooter {
+    font-size: 18px;
+    margin: 20px 0 70px 0;
+}
+
+.footer div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #7D7D7D;
+    font-size: 20px;
+}
+
+.footer a {
+    color: #7D7D7D;
+    text-decoration: none;
+}
+
 /*****************************************
 	 Compte Modif
 ******************************************/
@@ -362,39 +398,6 @@ img {
     z-index: 4;
 }
 
-.pAccueil footer {
-    background-color: #111216;
-    height: 350px;
-    text-align: center;
-    color: #C9C9CA;
-    padding-top: 60px;
-}
-
-.pAccueil footer label {
-    font-size: 48px;
-        font-family: "Lucida Bright";
-}
-
-.pAccueil footer .pitchFooter {
-    font-size: 18px;
-    margin: 20px 0 70px 0;
-}
-
-.pAccueil footer div {
-    display: flex;
-    justify-content: space-between;
-    max-width: 700px;
-    margin: 0 auto;
-    color: #7D7D7D;
-    font-size: 20px;
-}
-
-.pAccueil footer a {
-    color: #7D7D7D;
-    text-decoration: none;
-}
-
-
 .landscape * {
     position: absolute;
 }
@@ -597,25 +600,29 @@ img {
 .pTermeUtilisation .container {
     display: flex;
     justify-content: space-between;
-
     font-size: 20px;
+    margin-top: 50px;
 }
 
 .pTermeUtilisation .container div {
     max-width: 500px;
+    margin-bottom: 100px;
 }
 
 .pTermeUtilisation h1 {
     font-size: 45px;
 }
 
-.pTermeUtilisation p {
+.pTermeUtilisation main p {
     font-size: 22px;
     max-width: 700px;
+    margin: 20px 0 5px
 }
 
-.pTermeUtilisation a {
-    text-decoration: none;
-    color: #81B9FF;
+.pTermeUtilisation main a {
+    color: dodgerblue;
+    font-size: 22px;
 }
+
+
 /* #endregion */
