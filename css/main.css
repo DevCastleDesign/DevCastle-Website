@@ -577,3 +577,45 @@ img {
 
 /* #endregion */
 
+
+
+/* #region TermeUtilisation */
+/*****************************************
+	 TermeUtilisation
+******************************************/
+
+.pTermeUtilisation body {
+    background: linear-gradient(180deg, #81B9FF 0%, #A0CFFF 100%) no-repeat fixed;
+}
+
+.pTermeUtilisation main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0 0 0;
+}
+
+.pTermeUtilisation .container {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 20px;
+}
+
+.pTermeUtilisation .container div {
+    max-width: 500px;
+}
+
+.pTermeUtilisation h1 {
+    font-size: 45px;
+}
+
+.pTermeUtilisation p {
+    font-size: 22px;
+    max-width: 700px;
+}
+
+.pTermeUtilisation a {
+    text-decoration: none;
+    color: #81B9FF;
+}
+/* #endregion */
