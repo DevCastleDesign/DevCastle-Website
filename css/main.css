@@ -108,17 +108,22 @@ img {
     border-radius: 3px;
     margin-top: 26px;
     margin-bottom: 26px;
+
 }
 
 .pAccueil .commandButton {
     background-color: #81B9FF;
     border-radius: 12px;
+    border: none;
     color: #294876;
     padding: 20px;
     text-align: center;
     margin-top: 65px;
-    user-select: none;
     transition: 0.2s;
+    width: 100%;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
 }
 
 .pAccueil .commandButton:hover {
@@ -306,69 +311,6 @@ img {
     font-size: 32px;
 }
 
-.pAccueil footer {
-    height: 330px;
-    background-color: #222429;
-    font-size: 20px;
-    padding: 70px 250px 0 250px;
-}
-
-.pAccueil footer a {
-    text-decoration: none;
-    color: white;
-}
-
-.pAccueil .email {
-    width: 410px;
-    height: 47px;
-    border: none;
-    font-size: 20px;
-    padding-left: 10px;
-}
-
-.pAccueil .email input::placeholder {
-    font-size: 40px;
-}
-
-.pAccueil .newsletterButton {
-    background-color: transparent;
-    font-size: 20px;
-    height: 47px;
-    width: 155px;
-    color: white;
-    border: 2px solid white;
-}
-
-.pAccueil .newsletter {
-    display: flex;
-}
-
-.pAccueil .copyrightEtTermes {
-    display: flex;
-    margin-top: 100px;
-    justify-content: space-between;
-}
-
-.pAccueil .foot {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-}
-
-.pAccueil .foot a {
-    text-decoration: none;
-    color: white;
-}
-
-.pAccueil .foot nav ul li {
-    list-style: none;
-    text-decoration: none;
-}
-
-.pAccueil .foot strong {
-    font-size: 24px;
-    padding-bottom: 40px;
-}
 
 .pAccueil .etoiles {
     width: 220px;
@@ -420,6 +362,38 @@ img {
     z-index: 4;
 }
 
+.pAccueil footer {
+    background-color: #111216;
+    height: 350px;
+    text-align: center;
+    color: #C9C9CA;
+    padding-top: 60px;
+}
+
+.pAccueil footer label {
+    font-size: 48px;
+        font-family: "Lucida Bright";
+}
+
+.pAccueil footer .pitchFooter {
+    font-size: 18px;
+    margin: 20px 0 70px 0;
+}
+
+.pAccueil footer div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #7D7D7D;
+    font-size: 20px;
+}
+
+.pAccueil footer a {
+    color: #7D7D7D;
+    text-decoration: none;
+}
+
 /* #endregion */
 
 /* #region LogInSignIn */
@@ -428,7 +402,7 @@ img {
 ******************************************/
 
 .pLogInSignIn body {
-    background:  linear-gradient(180deg, #81B9FF 0%, #A0CFFF 100%) no-repeat fixed;
+    background: linear-gradient(180deg, #79C3FF 0%, #367CBF 100%) no-repeat fixed;
     height: 100%;
     margin: 0;
 }
@@ -538,3 +512,71 @@ img {
 }
 
 /* #endregion */
+
+
+.landscape:after,
+.landscape:before,
+.landscape *,
+.landscape *:after,
+.landscape *:before {
+    position: absolute;
+}
+
+.landscape {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    transform: translateY(250px);
+}
+
+
+.splash {
+    width: 8vmin;
+    height: 3vmin;
+    border: 2px solid white;
+    box-shadow: 0 0 2px white;
+    border-radius: 50%;
+    bottom: 5vmin;
+    left: 70%;
+    animation: splash 9s infinite;
+    transform: scale(0);
+}
+
+.splash-stone {
+    bottom: 40px;
+    left: -3vmin;
+    height: 10vmin;
+    width: 30vmin;
+}
+
+.splash-4 {
+    bottom: 30px;
+    left: auto;
+    right: 50px;
+}
+
+@keyframes splash {
+    50%,
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+.delay-1 {
+    animation-delay: 1s;
+}
+.delay-2 {
+    animation-delay: 2s;
+}
+.delay-3 {
+    animation-delay: 3s;
+}
+.delay-4 {
+    animation-delay: 4s;
+}
+.delay-5 {
+    animation-delay: 5s;
+}
+.delay-6 {
+    animation-delay: 6s;
+}

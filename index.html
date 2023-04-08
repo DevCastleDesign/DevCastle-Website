@@ -70,17 +70,33 @@
                 <hr class="separateur"></hr>
                 <p>Hebergement compris</p>
                 <p>$ 49.99 / an</p>
-                <p class="commandButton">Passer commande</p>
+                <input class="commandButton" type="submit" value="Passer commande">
             </div>
 
         </section>
 
         <img class="castle" height="530" id="castle" src="src/Images/DevCastleImage.png" width="330"/>
 
+
+
         <div class="fond">
             <img class="submountain" height="399" id="moutain2" src="src/Images/submountain.png" width="1440"/>
             <img class="moutain" height="325" id="moutain" src="src/Images/Mountain.png" width="1440"/>
-            <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
+            <div ">
+                <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
+                <div class="landscape">
+                    <div class="water"></div>
+                    <div class="splash"></div>
+                    <div class="splash delay-1"></div>
+                    <div class="splash delay-2"></div>
+                    <div class="splash splash-4 delay-2"></div>
+                    <div class="splash splash-4 delay-3"></div>
+                    <div class="splash splash-4 delay-4"></div>
+                    <div class="splash splash-stone delay-3"></div>
+                    <div class="splash splash-stone splash-4"></div>
+                    <div class="splash splash-stone splash-5"></div>
+                </div>
+            </div>
             <img class="border" height="799" id="border" src="src/Images/border.png" width="1440"/>
         </div>
     </section>
@@ -121,6 +137,7 @@
         logOutButton.addEventListener('click', (e) => {
             const auth = getAuth();
             signOut(auth).then(() => {
+                document.getElementById('navAccount').style.display = "none";
                 window.location.reload();
             }).catch((error) => {
                 alert("non")
@@ -161,9 +178,7 @@
             <div class="rectangle">
 
                 <p class="titre">Requetes</p>
-                <p>3ewrwerwer werwer
-                    werwerewr werwerew ereerewrew erer ererer ererer ererewrer
-                    ere rer erer e ererewrwere rwerer erwererere ererer
+                <p>Prenons rendez-vous pour parler de vos envies, vos idée, vos ambitions et nous choisirons ensemble comment creer votre site.
                 </p>
             </div>
         </div>
@@ -172,18 +187,16 @@
             <div class="rectangle">
 
                 <p class="titre">Maquette</p>
-                <p>Une maquette sera réalisé pour que vous puissiez
+                <p>Une fois cela fait, nous commencerons a créer une maquette et c'est là que vous
+                    pourrez voir clairement à quoi cela ressemblera et pourquoi pas nous demander quelques modifications.
                 </p>
             </div>
         </div>
         <div class="r3">
             <img height="176" src="src/Images/EcranImage.png" width="176"/>
             <div class="rectangle">
-
-                <p class="titre">Requetes</p>
-                <p>3ewrwerwer werwer
-                    werwerewr werwerew ereerewrew erer ererer ererer ererewrer
-                    ere rer erer e ererewrwere rwerer erwererere ererer
+                <p class="titre">Developpement</p>
+                <p>Ensuite, nous allons creer votre site de A à Z en se basant sur la maquette.
                 </p>
             </div>
         </div>
@@ -191,10 +204,9 @@
             <img height="120" src="src/Images/HebergementImage.png" width="120"/>
             <div class="rectangle">
 
-                <p class="titre">Requetes</p>
-                <p>3ewrwerwer werwer
-                    werwerewr werwerew ereerewrew erer ererer ererer ererewrer
-                    ere rer erer e ererewrwere rwerer erwererere ererer
+                <p class="titre">Hebergement</p>
+                <p>Une fois le site terminé, nous allons le mettre en ligne pour
+                    que la planete entière puisse voir ce chef-d'oeuvre.
                 </p>
             </div>
         </div>
@@ -213,36 +225,12 @@
 
 </main>
 <footer>
-    <div class="foot">
-        <nav>
-            <ul>
-                <p><strong>Service</strong></p>
-                <li><a href="dashboard/">Tableau de bord</a></li>
-                <li><a href="">Connexion</a></li>
-                <li><a href="">S'inscrire</a></li>
-            </ul>
-        </nav>
-
-        <nav>
-            <ul>
-                <p><strong>Contact</strong></p>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Support</a></li>
-            </ul>
-        </nav>
-
-        <div class="newsletter">
-            <div>
-                <p><strong>Newsletter</strong></p>
-                <input class="email" placeholder="Email" type="email">
-                <button class="newsletterButton">S'inscrire</button>
-            </div>
-
-        </div>
-    </div>
-    <div class="copyrightEtTermes">
-        <p>Copyright © 2023</p>
-        <a href="#"><p>Termes d’utilisation</p></a>
+    <label class="devCastleFooter">DevCastle</label>
+    <p class="pitchFooter">Débloquez le plein potentiel de votre entreprise</p>
+    <div>
+        <p class="copyRightFooter">© 2023 - devcastle</p>
+        <p>Contact</p>
+        <a href="">Termes d’utilisation</a>
     </div>
 </footer>
 
