@@ -39,22 +39,22 @@
     <table>
       <tr>
         <td>Nom</td>
-        <td>---</td>
+        <td id="nomCompte" class="nomCompte">---</td>
         <td><img src="./src/Icons/CrayonIcon.png"></td>
       </tr>
       <tr>
         <td>Prenom</td>
-        <td id="nomCompte">---</td>
+        <td id="prenomCompte">---</td>
         <td><img src="./src/Icons/CrayonIcon.png"></td>
       </tr>
       <tr>
         <td>Email</td>
-        <td>---</td>
+        <td id="emailCompte">---</td>
         <td><img src="./src/Icons/CrayonIcon.png"></td>
       </tr>
       <tr>
         <td>Telephone</td>
-        <td>---</td>
+        <td id="telCompte">---</td>
         <td><img src="./src/Icons/CrayonIcon.png"></td>
       </tr>
       <tr>
@@ -197,6 +197,7 @@
 
 <script type="module">
   import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+  import {getDatabase, set, ref, onValue, remove} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
   import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
   const firebaseConfig = {
@@ -212,6 +213,8 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const auth = getAuth();
+  const database = getDatabase(app);
+
 
 
   window.addEventListener('load', function () {
@@ -221,9 +224,16 @@
   function verifAccount() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       alert("trest")
+        const user = auth.currentUser;
+        onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+          document.getElementById('nomCompte').innerHTML = (snapshot.val().nom);
+          document.getElementById('prenomCompte').innerHTML = (snapshot.val().prenom);
+          document.getElementById('emailCompte').innerHTML = (snapshot.val().email);
+          document.getElementById('telCompte').innerHTML = (snapshot.val().tel);
+
+        });
       } else {
-        document.getElementById('navNoAccount').style.display = "flex";
+        window.location.href = "index.html";
       }
     });
   };
