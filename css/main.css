@@ -144,7 +144,6 @@ img {
     border-radius: 3px;
     margin-top: 26px;
     margin-bottom: 26px;
-
 }
 
 .pAccueil .commandButton {
@@ -216,6 +215,7 @@ img {
     margin-bottom: 100px;
     z-index: 2;
 }
+
 .pAccueil .castle {
     position: absolute;
     left: 50%;
@@ -246,7 +246,6 @@ img {
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
-
 }
 
 .pAccueil .rectangle {
@@ -255,7 +254,6 @@ img {
     background-color: #222429;
     height: 296px;
     width: 247px;
-
 }
 
 .pAccueil .rectangle .titre {
@@ -460,7 +458,6 @@ img {
     animation-delay: 6s;
 }
 
-
 /* #endregion */
 
 /* #region LogInSignIn */
@@ -623,6 +620,5 @@ img {
     color: dodgerblue;
     font-size: 22px;
 }
-
 
 /* #endregion */
