@@ -55,7 +55,7 @@
             <input id="confirmPasswordSignIn" type="password">
             <p class="error" id="errorconfPassword">le mot de passe de confirmation ne correspond pas</p>
         </div>
-        <input class="inscriptionButton" id="signUp" type="submit" value="S'inscrire">
+        <button class="inscriptionButton " id="signUp"><span>S'inscrire</span></button>
     </div>
     <p class="dejaIncrit">Déjà inscrit ? <a href="connexion.html">Se connecter</a></p>
 </div>
@@ -94,6 +94,7 @@
 
 
     signUp.addEventListener('click', (e) => {
+
         var nom = document.getElementById("nomSignIn").value
         var prenom = document.getElementById('prenomSignIn').value
         var tel = document.getElementById('telSignIn').value
@@ -110,7 +111,12 @@
 
         if (checkEmail() == true && checkPrenom() == true && checkTel() == true && checkPassword() == true && confirmPasswordWalid() == true) {
 
+            document.getElementById('signUp').disabled = true;
+
+            document.getElementById('signUp').classList.toggle('inscriptionButton-loading')
+
             createUserWithEmailAndPassword(auth, email, password)
+
                 .then((userCredential) => {
                     const user = userCredential.user;
 
@@ -120,10 +126,16 @@
                         tel: tel,
                         email: email,
                     })
-                    window.open("menu.html");
-                    alert("user created");
+
+                    setTimeout(redirect, 1000)
+
+                    function redirect(){
+                        window.location.href = "index.html";
+                    };
                 })
                 .catch((error) => {
+                    document.getElementById('signUp').disabled = false;
+                    document.getElementById('signUp').classList.toggle('inscriptionButton')
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     alert(errorCode);

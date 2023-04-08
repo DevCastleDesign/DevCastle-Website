@@ -87,12 +87,12 @@
     <table>
       <tr>
         <td>Nom du site</td>
-        <td>---</td>
+        <td id="nomSite">---</td>
         <td><img src="./src/Icons/CrayonIcon.png"></td>
       </tr>
       <tr>
         <td>URL</td>
-        <td>---</td>
+        <td id="urlSite">---</td>
         <td></td>
       </tr>
       <tr>
@@ -153,7 +153,7 @@
     </div>
   </div>
 </div>
-<div id="popup-blur" style="display: none;">
+<div id="popup-blur" style="display:none;">
   <div class="popup ticket">
     <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
     <h1>Titre de la question</h1>
@@ -230,8 +230,12 @@
           document.getElementById('prenomCompte').innerHTML = (snapshot.val().prenom);
           document.getElementById('emailCompte').innerHTML = (snapshot.val().email);
           document.getElementById('telCompte').innerHTML = (snapshot.val().tel);
-
         });
+        onValue(ref(database, '/users/' + user.uid + "/" + "Site"), (snapshot) => {
+          document.getElementById('nomSite').innerHTML = (snapshot.val().nom);
+          document.getElementById('urlSite').innerHTML = (snapshot.val().url);
+        });
+
       } else {
         window.location.href = "index.html";
       }

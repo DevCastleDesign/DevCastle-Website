@@ -70,7 +70,7 @@
                 <hr class="separateur"></hr>
                 <p>Hebergement compris</p>
                 <p>$ 49.99 / an</p>
-                <input class="commandButton" type="submit" value="Passer commande">
+                <input id="commandeButton" class="commandButton" type="submit" value="Passer commande">
             </div>
 
         </section>
@@ -102,6 +102,7 @@
     <script type="module">
         import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
         import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+        import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -116,6 +117,7 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
+        const database = getDatabase(app);
 
 
         window.addEventListener('load', function () {
@@ -141,6 +143,16 @@
                 alert("non")
             });
         });
+
+        commandeButton.addEventListener('click', (e) => {
+            const user = auth.currentUser;
+
+            set(ref(database, 'users/' + user.uid + "/" + "Site" ), {
+                nom: "monsite",
+                url: "www.monsite.com"
+            })
+            alert("Website data add test")
+            });
 
     </script>
 
