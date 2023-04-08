@@ -94,8 +94,7 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     document.getElementById('errorLogin').style.display = "none";
-                    window.open("index.html");
-                    alert("Login Reussi")
+                    window.location.href = "index.html";
                 })
 
                 .catch((error) => {
