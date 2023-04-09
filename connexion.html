@@ -1,36 +1,109 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="pLogInSignIn">
 <head>
     <!-- Metadonnées -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="Arsène Brosy & Sohan Anampalli">
-    <meta name="keywords" content="Création, site, internet, web, design">
-    <meta name="description" content="Creez vos sites web avec des pros a mini-prix">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Arsène Brosy & Sohan Anampalli" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
 
     <!-- Titre -->
     <title>Devcastle - Création de site webs a mini-prix</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/fonts/fonts.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
-<body class="pConnexion">
-    <header>
-        <img class="devCastleIcon" src="../src/Icons/DevCastleIcon.png" height="83" width="148"/>
-    </header>
-    <div>
-        <h1>Connexion</h1>
-        <p>Email</p>
-        <input class="email" type="email">
-        <p>Password</p>
-        <input class="password" type="password">
-        <a href=""><p>Mot de passe oublié</p></a>
-        <button class="loginButton">Se connecter</button>
-        <p>pas encore de compte ? <a href="">S'inscrire</a></p>
-    </div>
+<body>
 
-    <img class="devCastleImage" src="../src/Images/DevCastleImage.png" height="530" width="330"/>
+<header>
+    <img class="devCastleIcon" height="83" src="src/Icons/DevCastleIcon.png" width="148"/>
+</header>
+
+<div id="logInDiv" class="login">
+    <label>connexion</label>
+    <p>Email</p>
+    <input class="email" id="emailLogin" type="email">
+    <p class="error" id="errorEmailLogin">email invalide</p>
+
+    <p>Password</p>
+    <input class="password" id="passwordLogin" type="password">
+    <p class="error" id="errorLogin">email ou mot de passe incorrect</p>
+    <a href="" ><p>Mot de passe oublié</p></a>
+
+    <input type="submit" value="Se connecter" id="logIn">
+
+    <p>pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+</div>
+
+
+<script>
+    let eyeicon = document.getElementById('eyeicon');
+    let password = document.getElementById('passwordSignIn');
+
+    eyeicon.onclick = function () {
+        if (password.type == "password") {
+            password.type = "text";
+        } else {
+            password.type = "password";
+        }
+    }
+</script>
+
+<script src="Javascript/LogInSignIn.js"></script>
+
+<img class="devCastleImage" height="530" src="src/Images/DevCastleImage.png" width="330"/>
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    logIn.addEventListener('click', (e) => {
+
+        var email = document.getElementById('emailLogin').value
+        var password = document.getElementById('passwordLogin').value
+
+        checkEmailLogin()
+
+        if (checkEmailLogin() == true) {
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    document.getElementById('errorLogin').style.display = "none";
+                    window.location.href = "index.html";
+                })
+
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    document.getElementById('errorLogin').style.display = "block";
+                });
+        }
+    });
+</script>
 </body>
 </html>

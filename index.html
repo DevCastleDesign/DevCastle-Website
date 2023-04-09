@@ -14,130 +14,235 @@
 
     <!-- CSS -->
     <link href="../css/fonts/fonts.css" rel="stylesheet">
-    <link href="../css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 
 <body class="pAccueil" id="body">
-    <main>
-        <section class="blueBackground">
-            <section class="sectionHaut">
-                <div class="texte">
-                    <h1>DEVCASTLE</h1>
-                    <h2>CREATION DE SITE INTERNET</h2>
-                    <p class="presentation">
-                        De nos jours, un site web est devenu indispensable pour toute entreprise
-                        souhaitant se développer.<br>
-                        Il permet d'atteindre un public plus large,
-                        de partager des informations importantes et de promouvoir des produits
-                        ou services.
-                    </p>
+
+<main>
+    <section class="blueBackground">
+        <nav class="header">
+            <a href=""><img height="83" src="src/Icons/DevCastleIcon.png" width="148"/></a>
+            <ul id="navNoAccount">
+                <li><a href="">Contact</a></li>
+                <li id="loginButton"><a href="connexion.html">Connexion</a></li>
+                <li class="navHeaderNoConnect"><a href="inscription.html">
+                    <div class="blueButton">S'inscrire</div>
+                </a></li>
+            </ul>
+            <ul id="navAccount">
+                <li><a href="">Contact</a></li>
+                <li id="logOutButton"><a href="">Se deconnecter</a></li>
+                <li id="dashboardNav"><a href="dashboard.html">
+                    <div class="blueButton">Tableau de bord</div>
+                </a></li>
+            </ul>
+        </nav>
+
+        <section class="sectionHaut">
+            <div>
+                <div>
+
+                    <div class="etoiles">
+                        <p>Noté</p>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                    </div>
                 </div>
+                <h1>DEVCASTLE</h1>
+                <h2>CREATION DE SITE INTERNET</h2>
 
-                <div class="offreDiv" id="offre">
-                    <p class="titre">Des 499 CHF.-</p>
-                    <p class="p1">Peut diminuer ou augmenter en fonction de la demande</p>
-                    <hr class="separateur"></hr>
-                    <p>Hebergement compris</p>
-                    <p>$ 79.99 / an</p>
-                    <p class="commandButton">Prendre rendez-vous</p>
-                </div>
-            </section>
+                <p class="presentation">Nous sommes deux étudiants d’informatiques de 16ans et
+                    nous créons des sites internets / modifions vos sites
+                    pour pour objectif de ramener le plus de personnes possible
+                </p>
 
-            <img class="castle" height="530" id="castle" src="src/Images/DevCastleImage.png" width="330"/>
+                <p class="pitch">Vous avez une idee ? une envie ? faisons equipe !</p>
 
-            <div class="fond">
-                <img class="submountain" height="399" id="moutain2" src="src/Images/submountain.png" width="1440"/>
-                   <img class="moutain" height="325" id="moutain" src="src/Images/Mountain.png" width="1440"/>
-                   <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
-                   <img class="border" height="799" id="border" src="src/Images/border.png" width="1440"/>
             </div>
+
+            <div class="offreDiv" id="offre">
+                <p class="titre">Moins de 499 CHF.-</p>
+                <p class="p1">Peut diminuer ou augmenter en fonction de la demande</p>
+                <hr class="separateur"></hr>
+                <p>Hebergement compris</p>
+                <p>$ 49.99 / an</p>
+                <input id="commandeButton" class="commandButton" type="submit" value="Passer commande">
+            </div>
+
         </section>
 
-        <script>
-            let mountain1 = document.getElementById('moutain');
-            let mountain2 = document.getElementById('moutain2');
-            let border = document.getElementById('border');
-            let lac = document.getElementById('lac');
-            let castle = document.getElementById('castle');
-            let offre = document.getElementById('offre');
+        <img class="castle" height="530" id="castle" src="src/Images/DevCastleImage.png" width="330"/>
 
-            window.addEventListener('scroll', () => {
-                let value = window.scrollY;
+        <div class="fond">
+            <img class="submountain" height="399" id="moutain2" src="src/Images/submountain.png" width="1440"/>
+            <img class="moutain" height="325" id="moutain" src="src/Images/Mountain.png" width="1440"/>
+            <div ">
+                <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
+                <div class="landscape">
+                    <div class="water"></div>
+                    <div class="splash"></div>
+                    <div class="splash delay-1"></div>
+                    <div class="splash delay-2"></div>
+                    <div class="splash splash-4 delay-2"></div>
+                    <div class="splash splash-4 delay-3"></div>
+                    <div class="splash splash-4 delay-4"></div>
+                    <div class="splash splash-stone delay-3"></div>
+                    <div class="splash splash-stone splash-4"></div>
+                    <div class="splash splash-stone splash-5"></div>
+                </div>
+            </div>
+            <img class="border" height="799" id="border" src="src/Images/border.png" width="1440"/>
+        </div>
+    </section>
 
-                mountain2.style.marginTop = value / -4 + "px";
-                mountain1.style.marginTop = value / -4 + "px";
-                lac.style.marginTop = value / -4 + "px";
-                castle.style.marginTop = value / 10 + "px";
-                border.style.marginTop = value * -0.8 + "px";
-                offre.style.marginTop = value * 0.2 + "px";
+    <script type="module">
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+        import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+            authDomain: "webcastle-website.firebaseapp.com",
+            databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "webcastle-website",
+            storageBucket: "webcastle-website.appspot.com",
+            messagingSenderId: "274339465548",
+            appId: "1:274339465548:web:927dd550601c84dffce7e9"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase(app);
+
+
+        window.addEventListener('load', function () {
+            setTimeout(verifAccount, onAuthStateChanged)
+        });
+
+        function verifAccount() {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    document.getElementById('navAccount').style.display = "flex";
+                } else {
+                    document.getElementById('navNoAccount').style.display = "flex";
+                }
+            });
+        };
+
+        logOutButton.addEventListener('click', (e) => {
+            const auth = getAuth();
+            signOut(auth).then(() => {
+                document.getElementById('navAccount').style.display = "none";
+                window.location.reload();
+            }).catch((error) => {
+                alert("non")
+            });
+        });
+
+        commandeButton.addEventListener('click', (e) => {
+            const user = auth.currentUser;
+
+            set(ref(database, 'users/' + user.uid + "/" + "Site" ), {
+                nom: "monsite",
+                url: "www.monsite.com"
             })
-        </script>
+            alert("Website data add test")
+            });
 
-        <div class="fonctionnement">
-            <p class="titre">Comment sa fonctionne</p>
-            <p class="para">Un procedé simple en 4 étapes</p>
-        </div>
+    </script>
 
-        <div class="rectanglesection">
-            <div class="r1">
-                <img height="116" src="src/Images/CrayonImage.png" width="116"/>
-                <div class="rectangle">
+    <script>
+        let mountain1 = document.getElementById('moutain');
+        let mountain2 = document.getElementById('moutain2');
+        let border = document.getElementById('border');
+        let lac = document.getElementById('lac');
+        let castle = document.getElementById('castle');
+        let offre = document.getElementById('offre');
 
-                    <p class="titre">Rendez-vous</p>
-                    <p>
-                        Prenons rendez-vous pour parler de vos envies, vos idée, vos ambitions et
-                        nous choisirons ensemble comment creer votre site.
-                    </p>
-                </div>
-            </div>
-            <div class="r2">
-                <img height="109" src="src/Images/RequetesImage.png" width="109"/>
-                <div class="rectangle">
+        window.addEventListener('scroll', () => {
+            let value = window.scrollY;
 
-                    <p class="titre">Maquette</p>
-                    <p>
-                        Une fois cela fait, nous commencerons a créer une maquette 
-                        et c'est la que vous pourrez voir clairement a quoi cela ressemblera et
-                        pourquois pas nous demander quelques modifications.
-                    </p>
-                </div>
-            </div>
-            <div class="r3">
-                <img height="176" src="src/Images/EcranImage.png" width="176"/>
-                <div class="rectangle">
+            mountain2.style.marginTop = value / -4 + "px";
+            mountain1.style.marginTop = value / -4 + "px";
+            lac.style.marginTop = value / -4 + "px";
+            castle.style.marginTop = value / 10 + "px";
+            border.style.marginTop = value * -0.8 + "px";
+            offre.style.marginTop = value * 0.2 + "px";
+        });
+    </script>
 
-                    <p class="titre">Developpement</p>
-                    <p>
-                        Ensuite, nous allons creer votre site de A à Z en se basant sur la maquette.
-                    </p>
-                </div>
-            </div>
-            <div class="r4">
-                <img height="120" src="src/Images/HebergementImage.png" width="120"/>
-                <div class="rectangle">
+    <div class="fonctionnement">
+        <p class="titre">Comment sa fonctionne</p>
+        <p class="para">Une barre de progression vous montrera ou en est le projet</p>
+        <img height="66" src="src/Images/ProgressBarImage.png" width="1066"/>
+    </div>
 
-                    <p class="titre">Hebergement</p>
-                    <p>
-                        Une fois le site terminé, nous allons le mettre en ligne pour que la planete
-                        entière puisse voir ce chef-d'oeuvre.
-                    </p>
-                </div>
+    <div class="rectanglesection">
+        <div class="r1">
+            <img height="116" src="src/Images/CrayonImage.png" width="116"/>
+            <div class="rectangle">
+
+                <p class="titre">Requetes</p>
+                <p>Prenons rendez-vous pour parler de vos envies, vos idée, vos ambitions et nous choisirons ensemble comment creer votre site.
+                </p>
             </div>
         </div>
+        <div class="r2">
+            <img height="109" src="src/Images/RequetesImage.png" width="109"/>
+            <div class="rectangle">
 
-        <p class="bottomtext">
-            Vous aurez toutes les informations sur l'avancée du projet par mail.<br>
-            c'est aussi depuis l'adresse support@devcastle.ch que nous réponderons
-            a toutes vos questions.
-        </p>
-
-    </main>
-    <footer>
-        <div class="copyrightEtTermes">
-            <p>Devcastle</p>
-            <p>Copyright © 2023</p>
+                <p class="titre">Maquette</p>
+                <p>Une fois cela fait, nous commencerons a créer une maquette et c'est là que vous
+                    pourrez voir clairement à quoi cela ressemblera et pourquoi pas nous demander quelques modifications.
+                </p>
+            </div>
         </div>
-    </footer>
+        <div class="r3">
+            <img height="176" src="src/Images/EcranImage.png" width="176"/>
+            <div class="rectangle">
+                <p class="titre">Developpement</p>
+                <p>Ensuite, nous allons creer votre site de A à Z en se basant sur la maquette.
+                </p>
+            </div>
+        </div>
+        <div class="r4">
+            <img height="120" src="src/Images/HebergementImage.png" width="120"/>
+            <div class="rectangle">
+
+                <p class="titre">Hebergement</p>
+                <p>Une fois le site terminé, nous allons le mettre en ligne pour
+                    que la planete entière puisse voir ce chef-d'oeuvre.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="securePaiement">
+        <div>
+            <img height="193" src="src/Images/PaiementSecureImage.png" width="193"/>
+        </div>
+        <div class="securePaiementText">
+            <h1>PAIEMENTS SÉCURISÉS</h1>
+            <p>Propulsé par <a href="https://stripe.com/fr-ch"><strong>Stripe</strong></a></p>
+            <img height="71" src="src/Images/GroupementPaiementIconsImage.png" width="173"/>
+        </div>
+    </div>
+
+</main>
+<footer class="footer">
+    <label class="devCastleFooter">DevCastle</label>
+    <p class="pitchFooter">Débloquez le plein potentiel de votre entreprise</p>
+    <div>
+        <p class="copyRightFooter">© 2023 - devcastle</p>
+        <a href="./contact.html">Contact</a>
+        <a href="termesUtilisation.html">Termes d’utilisation</a>
+    </div>
+</footer>
 
 </body>
 </html>
