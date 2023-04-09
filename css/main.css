@@ -1114,3 +1114,20 @@ img {
 }
 
 /* #endregion */
+
+
+.pSite-informations h1 {
+    font-size: 98px;
+    animation: apparition 0.8s ease-in-out forwards;
+    opacity: 0;
+}
+
+.pSite-informations  {
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+}
+
+@keyframes apparition {
+    100% {
+        opacity: 1;
+    }
+}
