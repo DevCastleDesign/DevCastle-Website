@@ -25,10 +25,7 @@
             <a href=""><img height="83" src="src/Icons/DevCastleIcon.png" width="148"/></a>
             <ul id="navNoAccount">
                 <li><a href="">Contact</a></li>
-                <li id="loginButton"><a href="connexion.html">Connexion</a></li>
-                <li class="navHeaderNoConnect"><a href="inscription.html">
-                    <div class="blueButton">S'inscrire</div>
-                </a></li>
+                <li id="loginButton"><a class="blueButton" href="connexion.html">Connexion</a></li>
             </ul>
             <ul id="navAccount">
                 <li><a href="">Contact</a></li>
@@ -70,7 +67,7 @@
                 <hr class="separateur"></hr>
                 <p>Hebergement compris</p>
                 <p>$ 49.99 / an</p>
-                <input id="commandeButton" class="commandButton" type="submit" value="Passer commande">
+                <input class="commandButton" id="commandeButton" type="submit" value="Passer commande">
             </div>
 
         </section>
@@ -80,22 +77,23 @@
         <div class="fond">
             <img class="submountain" height="399" id="moutain2" src="src/Images/submountain.png" width="1440"/>
             <img class="moutain" height="325" id="moutain" src="src/Images/Mountain.png" width="1440"/>
-            <div ">
-                <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
-                <div class="landscape">
-                    <div class="water"></div>
-                    <div class="splash"></div>
-                    <div class="splash delay-1"></div>
-                    <div class="splash delay-2"></div>
-                    <div class="splash splash-4 delay-2"></div>
-                    <div class="splash splash-4 delay-3"></div>
-                    <div class="splash splash-4 delay-4"></div>
-                    <div class="splash splash-stone delay-3"></div>
-                    <div class="splash splash-stone splash-4"></div>
-                    <div class="splash splash-stone splash-5"></div>
-                </div>
+            <div
+            ">
+            <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
+            <div class="landscape">
+                <div class="water"></div>
+                <div class="splash"></div>
+                <div class="splash delay-1"></div>
+                <div class="splash delay-2"></div>
+                <div class="splash splash-4 delay-2"></div>
+                <div class="splash splash-4 delay-3"></div>
+                <div class="splash splash-4 delay-4"></div>
+                <div class="splash splash-stone delay-3"></div>
+                <div class="splash splash-stone splash-4"></div>
+                <div class="splash splash-stone splash-5"></div>
             </div>
-            <img class="border" height="799" id="border" src="src/Images/border.png" width="1440"/>
+        </div>
+        <img class="border" height="799" id="border" src="src/Images/border.png" width="1440"/>
         </div>
     </section>
 
@@ -145,14 +143,16 @@
         });
 
         commandeButton.addEventListener('click', (e) => {
-            const user = auth.currentUser;
+            window.location.href = "site-welcome.html";
+        });
 
-            set(ref(database, 'users/' + user.uid + "/" + "Site" ), {
-                nom: "monsite",
-                url: "www.monsite.com"
-            })
-            alert("Website data add test")
-            });
+
+        //     const user = auth.currentUser;
+
+        //     set(ref(database, 'users/' + user.uid + "/" + "Site" ), {
+        //         nom: "monsite",
+        //         url: "www.monsite.com"
+        //     })
 
     </script>
 
@@ -188,7 +188,8 @@
             <div class="rectangle">
 
                 <p class="titre">Requetes</p>
-                <p>Prenons rendez-vous pour parler de vos envies, vos idée, vos ambitions et nous choisirons ensemble comment creer votre site.
+                <p>Prenons rendez-vous pour parler de vos envies, vos idée, vos ambitions et nous choisirons ensemble
+                    comment creer votre site.
                 </p>
             </div>
         </div>
@@ -198,7 +199,8 @@
 
                 <p class="titre">Maquette</p>
                 <p>Une fois cela fait, nous commencerons a créer une maquette et c'est là que vous
-                    pourrez voir clairement à quoi cela ressemblera et pourquoi pas nous demander quelques modifications.
+                    pourrez voir clairement à quoi cela ressemblera et pourquoi pas nous demander quelques
+                    modifications.
                 </p>
             </div>
         </div>

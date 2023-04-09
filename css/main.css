@@ -1116,18 +1116,45 @@ img {
 /* #endregion */
 
 
-.pSite-informations h1 {
+.pSite-welcome h1 {
     font-size: 98px;
     animation: apparition 0.8s ease-in-out forwards;
     opacity: 0;
 }
 
-.pSite-informations  {
+
+
+.pSite-welcome  {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+    color: white;
+    font-size: 20px;
+    padding: 100px;
+}
+
+.pSite-welcome p {
+    max-width: 1400px;
+    animation: apparition 0.8s 0.2s ease-in-out forwards;
+    opacity: 0;
+    margin: 40px 0 80px 0;
+}
+
+.pSite-welcome button {
+    font-family: 'Montserrat', sans-serif;
+    padding: 15px 80px;
+    background-color: white;
+    font-size: 25px;
+    font-weight: 700;
+    animation: apparition 0.8s 0.4s ease-in-out forwards;
+    opacity: 0;
 }
 
 @keyframes apparition {
     100% {
         opacity: 1;
     }
+}
+
+.pSite-information {
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+    color: white;
 }
