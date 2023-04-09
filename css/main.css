@@ -1,4 +1,5 @@
-* {
+/* #region Regles generales*/
+*{
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -8,6 +9,8 @@
     --blue2: #A0CFFF;
     --blue3: #294876;
     --bluelink: #006DF0;
+    --gradient1: #051E41;
+    --gradient2: #010914;
     --black: #000000;
     --white: #ffffff;
     /* palette */
@@ -78,15 +81,14 @@ img {
 	 ACCUEIL
 ******************************************/
 
-
 .pAccueil {
     background-color: #090A0D;
     color: white;
 }
 
-.pAccueil .blueBackground {
+.blueBackground {
     background: linear-gradient(180deg, #79C3FF 0%, #0B4E95 100%);
-    height: 600px;
+    height: 100vh;
 }
 
 .pAccueil .header {
@@ -173,6 +175,11 @@ img {
     background-color: #DBEBFF;
 }
 
+.pAccueil .bottomtext {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
 .pAccueil main nav {
     display: flex;
     justify-content: space-between;
@@ -209,8 +216,9 @@ img {
 .pAccueil .sectionHaut {
     display: flex;
     justify-content: space-between;
-    margin-right: 70px;
-    margin-left: 70px;
+    align-items: center;
+    margin: 0 70px;
+    height: 75vh;
 }
 
 .pAccueil .presentation {
@@ -239,7 +247,7 @@ img {
 
 .pAccueil .fonctionnement {
     position: relative;
-    margin-top: 400px;
+    margin-top: 100px;
     margin-bottom: 100px;
     text-align: center;
     z-index: 4;
@@ -260,8 +268,9 @@ img {
     padding: 77px 22px 0 22px;
     border-radius: 19px;
     background-color: #222429;
-    height: 296px;
+    height: 330px;
     width: 247px;
+    position: relative;
 }
 
 .pAccueil .rectangle .titre {
@@ -270,10 +279,19 @@ img {
 
 .pAccueil .rectanglesection {
     margin: 0 auto;
-    width: 1100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     text-align: center;
+}
+
+.pAccueil .rectanglesection>* {
+    margin: 0 10px;
+    z-index: 5;
+}
+
+.pAccueil .rectanglesection>* img {
+    position: relative;
+    z-index: 6;
 }
 
 .pAccueil .rectanglesection p {
@@ -403,6 +421,326 @@ img {
     position: absolute;
     z-index: 4;
 }
+
+/* #endregion */
+
+/* #region RENDEZ VOUS */
+.pRDV h1 {
+    text-align: center;
+}
+
+.pRDV .free {
+    font-weight: bold;
+    text-align: center;
+}
+
+.pRDV>p {
+    text-align: center;
+}
+
+.pRDV .content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pRDV .content h2 {
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.pRDV #methods {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pRDV #methods button {
+    border: 0;
+    font-size: 1rem;
+    padding: 10px 30px;
+    border-radius: 5px;
+    width: 48%;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.pRDV #methods button.selected {
+    background-color: #2C3973;
+    color: white;
+    border: 0;
+}
+
+.pRDV #adress input, .pRDV #adress textarea {
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.pRDV #adress input {
+    width: calc(100% - 125px);
+}
+
+.pRDV #adress textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.pRDV #adress input:first-of-type {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.pRDV #video .plateforms {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pRDV #video button {
+    border: 0;
+    font-size: 1rem;
+    padding: 10px 30px;
+    border-radius: 5px;
+    width: 30%;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.pRDV #video button.selected {
+    background-color: #2C3973;
+    color: white;
+    border: 0;
+}
+
+.pRDV #video input {
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    background-color: #eeeeee;
+    border-radius: 5px;
+}
+
+.pRDV .datetime {
+    width: fit-content;
+    width: 100%;
+}
+
+.pRDV .datetime #datetime-name {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pRDV .datetime .selector {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pRDV #calendar {
+    width: 40%;
+}
+
+.pRDV #calendar .header {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.pRDV #calendar .header *:not(:first-child) {
+    margin: 0 5px;
+}
+
+.pRDV #calendar .header p {
+    font-size: 1.2rem;
+}
+
+.pRDV #calendar .header button {
+    background: url("../src/Icons/nav-arrow-left.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 0;
+    outline: none;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.pRDV #calendar .header button:nth-child(2) {
+    background: url("../src/Icons/nav-arrow-right.svg");
+}
+
+.pRDV #calendar .daynames {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pRDV #calendar .daynames * {
+    text-align: center;
+    width: 50px;
+}
+
+.pRDV #calendar .days {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.pRDV #calendar .days button {
+    border: 0;
+    outline: none;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    transform: scale(0.75);
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.pRDV #calendar .days button.selected {
+    background-color: #2C3973;
+    color: white;
+}
+
+.pRDV #time {
+    width: 40%;
+}
+
+.pRDV #time .header {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.pRDV #time .header p {
+    font-size: 1.2rem;
+    height: 25px;
+}
+
+.pRDV #time .hours {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-content: flex-start;
+    gap: 10px;
+}
+
+.pRDV #time .hours button {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 1rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    height: fit-content;
+    width: 100%;
+}
+
+.pRDV #time .hours button.selected {
+    background-color: #2C3973;
+    color: white;
+}
+
+.pRDV .infos {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.pRDV .infos p {
+    font-weight: 500;
+}
+
+.pRDV .infos div {
+    width: 40%;
+}
+
+.pRDV .infos div input, .pRDV .infos div textarea {
+    padding: 5px 10px;
+    width: 100%;
+    border: 0;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.pRDV .infos div textarea {
+    resize: vertical;
+    min-height: 75px;
+}
+
+.pRDV .infos div:first-child p::after {
+    content: "*";
+    color: #b40000;
+}
+
+.pRDV #error-message {
+    color: #cf0000;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.pRDV #submit {
+    border: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 5px;
+    width: fit-content;
+    align-self: center;
+    background-color: #2C3973;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.pRDV #popup-ok {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pRDV #popup-ok div {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 50px black;
+    padding: 20px;
+    width: 50vw;
+    height: 50vh;
+    position: relative;
+    z-index: 100;
+}
+
+.pRDV #popup-ok div a {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #2C3973;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 15px;
+    width: fit-content;
+    cursor: pointer;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+
 
 .landscape * {
     position: absolute;
@@ -727,6 +1065,7 @@ img {
 .pContact .contact-card .title {
     opacity: 0.5;
     margin-top: 30px;
+
 }
 /* #endregion */
 
@@ -864,8 +1203,6 @@ img {
     display: flex;
     justify-content: space-between;
 }
-
-
 
 .pDashboard .content .site a {
     background-color: var(--dashboardseparator);
@@ -1114,3 +1451,579 @@ img {
 }
 
 /* #endregion */
+
+/* #region PROGRESSBAR */
+#progress-bar {
+    width: 80vw;
+    margin: 0 10vw;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+#progress-bar div {
+    background-color: #68FF5B;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+
+#progress-bar div:nth-child(3) {
+    background-color: #A3A3A3;
+}
+
+#progress-bar div:nth-child(4) {
+    background-color: #A3A3A3;
+}
+
+#progress-bar div:not(:last-child)::before {
+    content: "";
+    width: calc(80vw/3);
+    background-color: #A3A3A3;
+    height: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: block;
+    z-index: -1;
+    position: absolute;
+}
+
+#progress-bar div:not(:last-child)::after {
+    content: "";
+    background-color: #68FF5B;
+    height: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: block;
+    z-index: -1;
+    position: absolute;
+}
+
+#progress-bar div:nth-child(1)::after {
+    width: 0;
+}
+
+#progress-bar div:nth-child(2)::after {
+    width: 0;
+}
+
+#progress-bar div:nth-child(3)::after {
+    width: 0;
+}
+
+#progress-bar div p {
+    position: absolute;
+    color: var(--white);
+    top: 30px;
+    left: 50%;
+    width: 150px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+/* #endregion */
+
+/* #region DEPART */
+.pDepart {
+    background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
+    color: var(--white);
+    text-align: center;
+}
+
+.pDepart .content {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pDepart .content button {
+    border: 0;
+    background-color: var(--blue3);
+    color: var(--white);
+    font-size: 1rem;
+    padding: 10px 30px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.pDepart .content #tabs button {
+    border: 0;
+    background-color: var(--blue3);
+    padding: 10px 0;
+    width: 20vw;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--white);
+    border-top: 5px solid var(--blue3);
+    border-bottom: 5px solid var(--blue3);
+}
+
+.pDepart .content #tabs button.active {
+    border-bottom: 5px solid var(--white);
+}
+
+.pDepart .infos {
+    background-color: var(--blue3);
+    width: 80vw;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin: 50px 0;
+}
+
+.pDepart .infos div {
+    width: 100%;
+}
+
+.pDepart .infos h1::after {
+    content: "";
+    background-color: var(--white);
+    height: 1px;
+    width: 100%;
+    display: block;
+    margin-top: 20px;
+}
+
+.pDepart .infos p {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.pDepart .infos input[type="text"] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    padding: 5px 0;
+    color: var(--white);
+    outline: none;
+    font-size: 1rem;
+    width: 20rem;
+}
+
+.pDepart .infos input[type="text"]:focus {
+    border-bottom: 1px solid var(--blue1);
+}
+
+.pDepart .infos textarea {
+    resize: vertical;
+    background-color: transparent;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: var(--white);
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    min-height: 5rem;
+}
+
+.pDepart .infos textarea:focus {
+    border: 1px solid var(--blue1);
+}
+
+.pDepart .infos #design #site-icon {
+    border: none;
+    width: 5vw;
+    height: 5vw;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+}
+
+.pDepart .infos #design #site-icon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../src/Images/SuisseDrapeauImage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.pDepart .infos #design #site-icon:hover:before {
+    filter: brightness(0.4);
+}
+
+.pDepart .infos #design #site-icon img {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.pDepart .infos #design #site-icon:hover img  {
+    opacity: 1;
+}
+
+.pDepart .infos #design input[type="color"] {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 2.5px;
+}
+
+.pDepart .infos #design .addColor {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 10px;
+    border: 2px solid white;
+    background: url("../src/Icons/AddIcon.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    cursor: pointer;
+    margin: 2.5px 0;
+    padding: 0;
+}
+
+.pDepart .infos * p:last-child {
+    font-weight: normal;
+    opacity: 0.5;
+}
+/* #endregion */
+
+/* #region DEVELOPPEMENT */
+.pDeveloppement {
+    background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
+    color: var(--white);
+    text-align: center;
+}
+
+.pDeveloppement .content {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pDeveloppement .content>* {
+    margin: 20px 0;
+}
+
+.pDeveloppement .content #statut {
+    background-color: green;
+    padding: 5px 25px;
+    display: block;
+    width: fit-content;
+    margin: 10px 0;
+}
+
+.pDeveloppement .content #date {
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.pDeveloppement .content button {
+    background-color: #2C3973;
+    outline: none;
+    border: none;
+    color: var(--white);
+    padding: 10px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.pDeveloppement>button {
+    background-color: #2C3973;
+    position: absolute;
+    bottom: 2vw;
+    right: 2vw;
+    outline: none;
+    border: none;
+    color: var(--white);
+    padding: 5px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* #endregion */
+
+/* #region HEBERGEMENT */
+.pHebergement {
+    background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
+    color: var(--white);
+    text-align: center;
+}
+
+.pHebergement .content {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 750px;
+}
+
+.pHebergement .content>div {
+    padding: 15px;
+    background-color: #294876;
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pHebergement .content>div img {
+    width: 25%;
+}
+
+.pHebergement .content>div .price {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.pHebergement .content>div button {
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 5px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pHebergement>button {
+    background-color: #2C3973;
+    position: absolute;
+    bottom: 2vw;
+    right: 2vw;
+    outline: none;
+    border: none;
+    color: var(--white);
+    padding: 5px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+/* #endregion */
+
+/* #region REMERCIEMENTS */
+.pRemerciements {
+    background: linear-gradient(135deg, var(--gradient1), var(--gradient2));
+    color: var(--white);
+    text-align: center;
+}
+
+.pRemerciements .content {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pRemerciements .content>* {
+    margin: 20px 0;
+}
+
+.pRemerciements .content div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pRemerciements .content div #imdb {
+    flex-direction: row;
+    align-self: flex-start;
+}
+
+.pRemerciements .content div #imdb button {
+    background-color: transparent;
+    padding: 0;
+}
+.pRemerciements .content div #imdb img {
+    width: 25px;
+    margin: 5px;
+}
+
+.pRemerciements .content textarea {
+    border: 2px solid #2C3973;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    resize: none;
+    width: 40vw;
+    height: 100px;
+    margin: 10px 0;
+}
+
+.pRemerciements .content button {
+    outline: none;
+    border: none;
+    background-color: #2C3973;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 25px;
+    border-radius: 5px;
+    width: fit-content;
+    align-self: flex-end;
+    cursor: pointer;
+}
+/* #endregion */
+
+/* #region CONNEXION */
+.pConnexion {
+    background: linear-gradient(180deg, #81B9FF 0%, #A0CFFF 100%);
+}
+
+.pConnexion a {
+    text-decoration: none;
+    color: var(--bluelink);
+}
+
+.pConnexion img {
+    max-width: 100%;
+}
+
+.pConnexion h1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 32px;
+    margin-bottom: 29px;
+}
+
+.pConnexion .email {
+    margin-bottom: 20px;
+    background-color: #D9D9D9;
+    border: none;
+}
+
+.pConnexion .password {
+    margin-bottom: 10px;
+    background-color: #D9D9D9;
+    border: none;
+}
+
+.pConnexion header  {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 62px;
+}
+
+.pConnexion input {
+    width: 100%;
+    height: 33px;
+}
+
+.pConnexion .loginButton {
+    width: 190px;
+    height: 42px;
+    background-color: #D9D9D9;
+    border: none;
+    margin-top: 57px;
+    margin-bottom: 100px;
+}
+
+.pConnexion div {
+    height: 504px;
+    width: 373px;
+    border-radius: 12px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 53px 44px 0 44px;
+}
+
+.pConnexion .devCastleImage {
+    float: right;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+/* #endregion */
+
+/* #region INSCRIPTION */
+
+/* #endregion */
+
+/* #region REINTIALISER MOT DE PASSE */
+
+/* #endregion */
+
+/* #region PAIEMENT */
+.pPaiement .achatList {
+    width: 385px;
+    font-size: 20px;
+    font-family: inter, sans-serif;
+}
+
+.pPaiement .paiementSiteWeb, .paiementHebergeur, .remisePremiere, .remiseSuisse, .total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.pPaiement .total {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.pPaiement hr {
+    border: 1px solid #CCCCCC;
+    margin-bottom: 30px;
+}
+
+.pPaiement .chf {
+    font-size: 15px;
+}
+
+.pPaiement .paypal, .mastercard, .visa {
+    height: 170px;
+    width: 142px;
+    border-radius: 15px;
+    border: 3px solid #cccccc;
+}
+
+.pPaiement .Paiement {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pPaiement .moyenPaiement {
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+
+.pPaiement .infoPers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pPaiement .numCarte {
+    width: 100%;
+}
+
+.pPaiement .expirationCVV {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pPaiement .cartePaiement {
+    width: 350px;
+}
+/* #endregion */
+
+/* #region THERMES UTILISATION */
+
+/* #endregion */
+ 

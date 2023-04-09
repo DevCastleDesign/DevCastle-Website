@@ -1,0 +1,91 @@
+Index: css/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>* {\r\n    box-sizing: border-box;\r\n    font-family: Montserrat, sans-serif;\r\n    margin: 0;\r\n    padding: 0;\r\n\r\n    /* palette */\r\n    --blue1: #81B9FF;\r\n    --blue2: #A0CFFF;\r\n    --blue3: #294876;\r\n    --bluelink: #006DF0;\r\n    --black: #000000;\r\n    --white: #ffffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    color: var(--bluelink);\r\n}\r\n\r\nimg {\r\n    max-width: 100%;\r\n}\r\n\r\nfooter {\r\n    height: 330px;\r\n    background-color: #090A0D;\r\n    font-size: 20px;\r\n    padding: 70px 250px 0 250px;\r\n}\r\n\r\nfooter a {\r\n    text-decoration: none;\r\n    color: white;\r\n}\r\n\r\n.email {\r\n    width: 410px;\r\n    height: 47px;\r\n    border: none;\r\n    font-size: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.email input::placeholder {\r\n    font-size: 40px;\r\n}\r\n\r\n.newsletterButton {\r\n    background-color: transparent;\r\n    font-size: 20px;\r\n    height: 47px;\r\n    width: 155px;\r\n    color: black;\r\n    border: 2px solid black\r\n}\r\n\r\n.newsletter {\r\n    display: flex;\r\n}\r\n\r\n.copyrightEtTermes {\r\n    display: flex;\r\n    margin-top: 100px;\r\n    justify-content: space-between;\r\n}\r\n\r\n.foot {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    color: white;\r\n}\r\n\r\n.foot a {\r\n    text-decoration: none;\r\n    color: white;\r\n}\r\n\r\n.foot nav ul li {\r\n    list-style: none;\r\n    text-decoration: none;\r\n}\r\n\r\n.foot strong {\r\n    font-size: 24px;\r\n    padding-bottom: 40px;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/css/main.css b/css/main.css
+--- a/css/main.css	
++++ b/css/main.css	
+@@ -13,15 +13,29 @@
+     --white: #ffffff;
+ }
+ 
+-a {
+-    text-decoration: none;
+-    color: var(--bluelink);
+-}
+ 
+ img {
+     max-width: 100%;
+ }
+ 
++.contactPage {
++    height: 511px;
++    width: 397px;
++    background-color: #0C0C0C;
++    border-radius: 15px;
++    text-align: center;
++    color: white;
++}
++
++.reseauIcon {
++    margin: 0 auto;
++    display: flex;
++    justify-content: space-between;
++    max-width: 120px;
++}
++
++
++
+ footer {
+     height: 330px;
+     background-color: #090A0D;
+@@ -84,4 +98,8 @@
+ .foot strong {
+     font-size: 24px;
+     padding-bottom: 40px;
++}
++
++.terrain {
++    width: 100%;
+ }
+\ No newline at end of file
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"fr\">\r\n<head>\r\n    <!-- Metadonnées -->\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"author\" content=\"Arsène Brosy & Maltered\">\r\n    <meta name=\"keywords\" content=\"Création, site, internet, web, design\">\r\n    <meta name=\"description\" content=\"Creez vos sites web avec des pros a mini-prix\">\r\n\r\n    <!-- Titre -->\r\n    <title>Devcastle - Création de site webs a mini-prix</title>\r\n\r\n    <!-- CSS -->\r\n    <link rel=\"stylesheet\" href=\"../css/fonts/fonts.css\">\r\n    <link rel=\"stylesheet\" href=\"../css/main.css\">\r\n\r\n    <img src=\"src/Icons/1157725.svg\" alt=\"\">\r\n</head>\r\n<body>\r\n\r\n\r\n\r\n<footer>\r\n    <div class=\"foot\">\r\n        <nav>\r\n            <ul>\r\n                <p><strong>Service</strong></p>\r\n                <li><a href=\"\">Tableau de bord</a></li>\r\n                <li><a href=\"\">Connexion</a></li>\r\n                <li><a href=\"\">S'inscrire</a></li>\r\n            </ul>\r\n        </nav>\r\n\r\n        <nav>\r\n            <ul>\r\n                <p><strong>Contact</strong></p>\r\n                <li><a href=\"\">Contact</a></li>\r\n                <li><a href=\"\">Support</a></li>\r\n            </ul>\r\n        </nav>\r\n\r\n        <div class=\"newsletter\">\r\n            <div>\r\n                <p><strong>Newsletter</strong></p>\r\n                <input class=\"email\" placeholder=\"Email\" type=\"email\">\r\n                <button class=\"newsletterButton\">S'inscrire</button>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n    <div class=\"copyrightEtTermes\">\r\n        <p>Copyright © 2023</p>\r\n        <a href=\"#\"><p>Termes d’utilisation</p></a>\r\n\r\n    </div>\r\n</footer>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	
++++ b/index.html	
+@@ -20,8 +20,26 @@
+ </head>
+ <body>
+ 
++<div class="contactPage">
++
+ 
++    <img src="src/Icons/DevCastleClaireIcon.png" width="90"/>
++    <p>CREATION DE SITE INTERNET</p>z
+ 
++    <p>Email</p>
++    <p>notre.email@gmail.com</p>
++
++    <p>Tel.</p>
++    <p>+41 79 282 09 68</p>
++
++    <div class="reseauIcon">
++        <img src="src/Icons/TiktokIcon.png" height="39" width="39"/>
++        <img src="src/Icons/InstaIcon.png" height="39" width="39"/>
++    </div>
++</div>
++
++
++<img class="terrain" src="src/Images/Mask group.png" height="109" width="1440"/>
+ <footer>
+     <div class="foot">
+         <nav>

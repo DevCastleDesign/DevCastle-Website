@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Arsène Brosy & Sohan Anampalli">
+    <meta name="keywords" content="Création, site, internet, web, design">
+    <meta name="description" content="Creez vos sites web avec des pros a mini-prix">
+
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/fonts/fonts.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body class="pDepart">
+    <div id="progress-bar">
+        <div>
+            <p>Rendez-vous</p>
+        </div>
+        <div>
+            <p>Creation</p>
+        </div>
+        <div>
+            <p>Mise en ligne</p>
+        </div>
+        <div>
+            <p>Fin</p>
+        </div>
+    </div>
+    <script src="../js/progressbar.js"></script>
+    <div class="content">
+        <h1>Depart</h1>
+        <p>Votre projet est pret à etre commencé</p>
+        <button>Passer a la suite</button>
+        <div id="tabs">
+            <button onclick="OpenTab('informations', 0)" class="active">Information</button>
+            <button onclick="OpenTab('design', 1)">Design</button>
+        </div>
+        <script src="./js/switch-tab.js"></script>
+        <div id="pages" class="infos">
+            <div id="informations" style="display: block;">
+                <h1>Informations</h1>
+                <p>Nom du site</p>
+                <input type="text" id="site-name">
+                <p>Commentaires</p>
+                <textarea id="site-comm"></textarea>
+                <p>Si vous désirez encore modifier une des informations présentes après cette étape notez que chaque modification vous sera facturée pour un montant de 29.99 CHF. Nous vous conseillons donc fortement tout relire avant de passer à la suite.</p>
+            </div>
+            <div id="design" style="display: none;">
+                <h1>Design</h1>
+                <p>Icône du site</p>
+                <button id="site-icon"><img src="../src/Icons/CrayonIcon.png"></button>
+                <p>Couleurs principales</p>
+                <div id="palette">
+                    <button onclick="addColor()" class="addColor"></button>
+                </div>
+                <script src="./js/add-color.js"></script>
+                <p>Commentaires</p>
+                <textarea id="site-comm"></textarea>
+                <p>Si vous désirez encore modifier une des informations présentes après cette étape notez que chaque modification vous sera facturée pour un montant de 29.99 CHF. Nous vous conseillons donc fortement tout relire avant de passer à la suite.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
