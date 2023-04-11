@@ -1165,13 +1165,19 @@ img {
 /* #endregion */
 
 /* #region RENDEZ VOUS */
+.pRDV {
+    padding: 50px 0;
+}
+
 .pRDV h1 {
     text-align: center;
+    margin-bottom: 5px;
 }
 
 .pRDV .free {
     font-weight: bold;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .pRDV>p {
@@ -1467,6 +1473,13 @@ img {
     z-index: 100;
 }
 
+.pRDV #popup-ok div p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .pRDV #popup-ok div a {
     border: 1px solid black;
     border-radius: 5px;
@@ -1484,6 +1497,7 @@ img {
 }
 /* #endregion */
 
+/* #region WELCOME */
 .pSite-welcome h1 {
     font-size: 98px;
     animation: apparition 0.8s ease-in-out forwards;
@@ -1525,3 +1539,4 @@ img {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
     color: white;
 }
+/* #endregion */
