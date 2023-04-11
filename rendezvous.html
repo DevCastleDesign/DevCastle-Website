@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Sohan Anampalli & Arsène Brosy" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
+
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
+
+    <!-- CSS -->
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+</head>
+<body class="pRDV">
+    <div id="popup-ok" style="display: none;">
+        <div>
+            <h1>Rendez-vous effectué</h1>
+            <a href="./">Retourner a l'acceuil</a>
+        </div>
+    </div>
+    <h1>1er Rendez-vous - Devcastle</h1>
+    <p class="free">Gratuit</p>
+    <p>Parlons de vos envies, vos idée, vos ambitions et
+        nous choisirons ensemble comment creer votre site.</p>
+    <div class="content">
+        <h2></h2>
+        <div id="methods">
+            <button onclick="setMode(0)">Presentiel (recommandé)</button>
+            <button onclick="setMode(1)">Videoconférence</button>
+        </div>
+        <h2 id="method-title">Ou pouvons-nous se rencontrer ?</h2>
+        <div id="adress">
+            <p>Localité</p>
+            <input type="number" placeholder="NPA">
+            <input type="text" placeholder="Localité">
+            <p>Adresse</p>
+            <textarea placeholder="Votre adresse"></textarea>
+        </div>
+        <div id="video">
+            <div class="plateforms">
+                <button onclick="setVideo(0)">Skype</button>
+                <button onclick="setVideo(1)">Discord</button>
+                <button onclick="setVideo(2)">Zoom</button>
+            </div>
+            <p>Nom d'utilisateur</p>
+            <input type="text" placeholder="Votre nom d'utilisateur skype">
+        </div>
+        <h2>Date et Heure</h2>
+        <div class="datetime">
+            <p id="datetime-name">Nom</p>
+            <div class="selector">
+                <div id="calendar">
+                    <div class="header">
+                        <button onclick="calendarBackward()"></button>
+                        <button onclick="calendarForward()"></button>
+                        <p>Mois</p>
+                    </div>
+                    <div class="daynames">
+                        <p>lu</p>
+                        <p>ma</p>
+                        <p>me</p>
+                        <p>je</p>
+                        <p>ve</p>
+                        <p>sa</p>
+                        <p>di</p>
+                    </div>
+                    <div class="days">
+                    </div>
+                </div>
+                <div id="time">
+                    <div class="header">
+                        <p>Heures disponibles</p>
+                    </div>
+                    <div class="hours">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2>Vos informations</h2>
+        <div class="infos">
+            <div>
+                <p>Nom</p>
+                <input id="infos-name" type="text" placeholder="Votre nom">
+                <p>Adresse email</p>
+                <input id="infos-email" type="email" placeholder="Votre adresse email">
+                <p>Numero de télephone</p>
+                <input id="infos-tel" type="tel" placeholder="Votre numero de télephone">
+            </div>
+            <div>
+                <p>Notes</p>
+                <textarea id="infos-more" placeholder="Ajoutez des demandes spéciales"></textarea>
+            </div>
+        </div>
+        <p id="error-message"></p>
+        <button id="submit" onclick="submit()">Reserver</button>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script src="./Javascript/rendezvous.js"></script>
+    </div>
+</body>
+</html>
