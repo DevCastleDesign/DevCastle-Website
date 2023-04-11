@@ -27,6 +27,7 @@ img {
     user-select: none;
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
+    pointer-events: none;
 }
 
 .footer {
@@ -168,6 +169,7 @@ img {
     font-weight: bold;
     font-size: 24px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .pAccueil .commandButton:hover {
@@ -223,6 +225,15 @@ img {
     position: relative;
     margin-bottom: 100px;
     z-index: 2;
+}
+
+.pAccueil .presentation a {
+    color: white;
+    text-decoration: none;
+    background-color: #0B4E95;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-top: 20px;
 }
 
 .pAccueil .castle {
@@ -1484,6 +1495,7 @@ img {
     color: white;
     font-size: 20px;
     padding: 100px;
+    overflow: hidden;
 }
 
 .pSite-welcome p {
