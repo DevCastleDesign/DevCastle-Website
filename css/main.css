@@ -73,6 +73,17 @@ img {
     display: none;
 }
 
+#navAccount, #navNoAccount {
+    opacity: 0;
+    animation: apparitionNav 0.2s ease-in-out forwards;
+}
+
+@keyframes apparitionNav {
+    100% {
+        opacity: 1;
+    }
+}
+
 /* #region ACCUIEL */
 /*****************************************
 	 ACCUEIL
@@ -122,16 +133,6 @@ img {
     font-size: 32px;
     line-height: 39px;
     margin-bottom: 50px;
-}
-
-.pAccueil .pitch {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    text-transform: uppercase;
-    width: 380px;
 }
 
 .pAccueil .titre {
@@ -227,7 +228,31 @@ img {
 .pAccueil .castle {
     position: absolute;
     left: 50%;
+    scale: 97%;
     transform: translateX(-52%) translateY(-100%);
+    animation: apparitionCastle 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+.pAccueil .textHaut {
+    opacity: 0;
+    animation: apparitionTextHaut 0.5s ease-in-out forwards;
+    z-index: 2;
+    margin-bottom: 40px;
+}
+
+@keyframes apparitionTextHaut {
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes apparitionCastle {
+    100% {
+        opacity: 1;
+        scale: 100%;
+    }
 }
 
 .pAccueil .cercle {
@@ -666,6 +691,7 @@ img {
 /*****************************************
 	 Dashboard
 ******************************************/
+
 .pDashboard ::-webkit-scrollbar {
     width: 10px;
 }
@@ -682,6 +708,10 @@ img {
 /* #endregion */
 
 /* #region CONTACT */
+/*****************************************
+	 Contact
+******************************************/
+
 .pContact {
     background: linear-gradient(180deg, #79C3FF 0%, #0B4E95 100%);
 }
@@ -690,26 +720,35 @@ img {
     position: absolute;
     right: 50px;
     opacity: 0.5;
+    transform: translateY(133px);
 }
 
 .pContact .big-text {
-    font-size: 3rem;
+    font-size: 3.1rem;
     position: absolute;
     top: 100px;
-    left: 50%;
+    left: 40%;
     right: 100px;
 }
 
 .pContact .contact-card {
-    background-color: #000000;
+    background-color: #0C0C0C;
     width: fit-content;
     color: white;
     border-radius: 10px;
-    padding: 50px 15px;
-    margin: 100px;
+    padding: 70px 15px 120px 15px;
+    margin: 100px 0 200px 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.pContact .contact-card h1 {
+    font-size: 25px;
+}
+
+.pContact .contact-card p {
+    margin-bottom: 3px;
+    font-size: 20px;
 }
 
 .pContact .contact-card img {
@@ -848,7 +887,6 @@ img {
 /* Site */
 
 .pDashboard .siteImage {
-    background-image: url('/src/Images/PaupeSarl.png');
     height: 291px;
     width: 554px;
     border-radius: 20px;
@@ -1121,8 +1159,6 @@ img {
     animation: apparition 0.8s ease-in-out forwards;
     opacity: 0;
 }
-
-
 
 .pSite-welcome  {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;

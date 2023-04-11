@@ -68,7 +68,7 @@
         <td><img src="./src/Icons/CrayonIcon.png"></td>
       </tr>
     </table>
-    <p>actif depuis le ---</p>
+    <p>actif depuis le <span id="actifDateAccount">---</span></p>
   </div>
   <div class="site" style="display: none;">
     <h1>Mon site</h1>
@@ -230,6 +230,7 @@
           document.getElementById('prenomCompte').innerHTML = (snapshot.val().prenom);
           document.getElementById('emailCompte').innerHTML = (snapshot.val().email);
           document.getElementById('telCompte').innerHTML = (snapshot.val().tel);
+          document.getElementById('actifDateAccount').innerHTML = user.metadata.creationTime;
         });
         onValue(ref(database, '/users/' + user.uid + "/" + "Site"), (snapshot) => {
           document.getElementById('nomSite').innerHTML = (snapshot.val().nom);
