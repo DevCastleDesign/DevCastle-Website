@@ -1584,9 +1584,6 @@ img {
 }
 
 
-.pSite-information #palette input {
-    height: 100px;
-}
 
 .addColor {
     height: 5vw;
@@ -1601,6 +1598,14 @@ img {
     cursor: pointer;
     margin: 2.5px 0;
     padding: 0;
+}
+
+.pSite-information #palette input[type="color"] {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 2.5px;
 }
 
 /* #endregion */
