@@ -1538,5 +1538,50 @@ img {
 .pSite-information {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
     color: white;
+    padding: 0 180px 0 180px;
 }
+
+.pSite-information .page {
+    background-color: #202020;
+    padding: 60px;
+}
+
+.pSite-information .iconSpace {
+    height: 160px;
+    width: 160px;
+    border: 2px white solid;
+}
+
+.pSite-information .addIconButton {
+    height: 50px;
+    width: 160px;
+    color: black;
+}
+
+.pSite-information .addIconButton img{
+    height: 20px;
+    width: 20px;
+}
+
+.pSite-information .addIconPart {
+    display: flex;
+}
+
+.pSite-information {
+
+}
+
+.pSite-information {
+
+}
+
+.pSite-information {
+
+}
+
+.pSite-information {
+
+}
+
+
 /* #endregion */
