@@ -1584,4 +1584,23 @@ img {
 }
 
 
+.pSite-information #palette input {
+    height: 100px;
+}
+
+.addColor {
+    height: 5vw;
+    width: 5vw;
+    border-radius: 10px;
+    border: 2px solid white;
+    background: url("../src/Icons/AddIcon.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    cursor: pointer;
+    margin: 2.5px 0;
+    padding: 0;
+}
+
 /* #endregion */
