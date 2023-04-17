@@ -80,49 +80,75 @@
         </div>
     </div>
 
+    <input id="continue" type="submit" value="continue">
+
     <div class="achatList">
         <h1>Votre commande</h1>
         <hr>
         <div class="paiementSiteWeb">
             <p>Site web</p>
-            <p><span class="chf">chf</span><span class="sitePrix">499</span></p>
+            <p><span class="chf">CHF </span><span id="sitePrix" class="prix">---</span></p>
         </div>
         <div class="paiementHebergeur">
             <p>Hebergement</p>
-            <p><span class="chf">chf</span><span class="hebergPrix">50</span></p>
+            <p><span class="trace-chf">CHF 60</span><span class="chf">CHF </span><span id="hebergPrix" class="prix">---</span></p>
         </div>
         <hr>
-        <div class="remiseSuisse">
+        <div id="suisseRemise" class="remiseSuisse">
             <p>Remise de 5% pour les suisses</p>
-            <p><span class="chf">chf</span>-27.99</p>
+            <p><span class="chf">CHF </span><span id="suisseRemisePrix" class="prix">---</span></p>
         </div>
-        <div class="remisePremiere">
+        <div id="firstCommande" class="remisePremiere">
             <p>Bonus de première commande</p>
-            <p><span class="chf">CHF 60</span><span>chf</span>-10</p>
+            <p><span>CHF </span><span class="prix">-10</span></p>
         </div>
-        <hr>
+        <hr id="remiseSeparation">
         <div class="total">
             <p>Total</p>
-            <p>CHF 511.99</p>
+            <p>CHF <span id="total">---</span></p>
         </div>
-        <p>Arrondi favorale pour vous</p>
+        <p class="arrondiText">Arrondi favorable pour vous</p>
     </div>
 </div>
 
 <script>
+    var sitePrix = 505.99;
+    var hebergPrix = 50;
 
-    var sitePrix = 300;
-    var hebergPrix = 0;
+    var suisseRemisePrix = 0;
+    var firstCommandePrix = 0;
 
-    document.getElementById('sitePrix').innerHTML = sitePrix;
+    var firstCommande = true;
+    var suisseRemise = true;
 
+    window.addEventListener('load', function () {
 
+        if (suisseRemise == false) {
+            document.getElementById('suisseRemise').style.display = 'none';
+        } else {
+            suisseRemisePrix = Math.round((sitePrix + hebergPrix) / 100 * 5)
+            document.getElementById('suisseRemisePrix').innerHTML = suisseRemisePrix;
+        }
 
+        if (firstCommande == false) {
+            document.getElementById('firstCommande').style.display = 'none';
+        } else {
+            firstCommandePrix = 10;
+        }
 
+        if (firstCommande == false && suisseRemise == false) {
+            document.getElementById('remiseSeparation').style.display = 'none';
+        };
+
+        document.getElementById('sitePrix').innerHTML = sitePrix;
+        document.getElementById('hebergPrix').innerHTML = hebergPrix;
+
+        document.getElementById('total').innerHTML = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
+    });
 
 </script>
 
-<p>En effectuant votre commande, vous acceptez nos Termes d’utilisation</p>
+<p>En effectuant votre commande, vous acceptez nos <a href="">Termes d’utilisation</a></p>
 
 </body>
 </html>

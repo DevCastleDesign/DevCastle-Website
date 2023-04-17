@@ -21,6 +21,13 @@ a {
     color: var(--bluelink);
 }
 
+.trace-chf {
+    color: #AFAFAF;
+    text-decoration : line-through;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
 img {
     max-width: 100%;
 }
@@ -43,13 +50,32 @@ img {
     font-weight: 500;
 }
 
+h1 {
+    margin-bottom: 30px;
+}
+
 hr {
     border: 1px solid #CCCCCC;
     margin-bottom: 30px;
 }
 
 .chf {
-    font-size: 15px;
+    font-size: 18px;
+}
+
+.prix {
+    font-size: 25px;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.arrondiText {
+    text-align: right;
+    color: #AFAFAF;
+    font-size: 18px;
+    transform: translateY(-20px);
 }
 
 .paypal, .bankCard {
