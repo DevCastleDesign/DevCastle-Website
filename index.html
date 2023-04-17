@@ -120,8 +120,7 @@
                 }
             };
         </script>
-
-        <input id="payerButton" type="submit" value="payer">
+        <input id="payerButton" class="inscriptionButton" type="submit" value="payer">
     </div>
 
     <div class="achatList">
@@ -241,7 +240,10 @@
     const database = getDatabase(app);
 
 
-    payerButton.addEventListener('click', (e) => {
+    payerButton.addEventListener('click', (e) =>
+
+
+        document.getElementById('signUp').classList.toggle('inscriptionButton-loading')
 
         const user = auth.currentUser;
 
