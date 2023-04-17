@@ -51,8 +51,9 @@ img {
     font-weight: 500;
 }
 
-h1 {
+h2 {
     margin-bottom: 30px;
+    font-size: 40px;
 }
 
 hr {

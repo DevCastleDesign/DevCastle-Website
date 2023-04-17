@@ -19,8 +19,8 @@
 </head>
 <body>
 <div class="Paiement">
-    <div>
-        <h2>ewf</h2>
+    <div id="choixPaiement">
+        <h2>Moyen de paiement</h2>
         <p>Séléctionnez un moyen de paiement</p>
         <div class="moyenPaiement">
             <div class="paypal" id="paypal">
@@ -57,10 +57,14 @@
             document.getElementById('paypal').style.borderColor = '#cccccc';
         });
 
+        continueButton.addEventListener('click', (e) => {
+            document.getElementById('choixPaiement').style.display = 'none';
+            document.getElementById('cartePaiement').style.display = 'block';
+        });
 
     </script>
 
-    <div class="cartePaiement">
+    <div id="cartePaiement" class="cartePaiement">
         <div class="infoPers">
             <div class="nom">
                 <p>Nom</p>
@@ -88,7 +92,7 @@
     </div>
 
     <div class="achatList">
-        <h1>Votre commande</h1>
+        <h2>Votre commande</h2>
         <hr>
         <div class="paiementSiteWeb">
             <p>Site web</p>
