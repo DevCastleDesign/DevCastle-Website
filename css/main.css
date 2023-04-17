@@ -176,7 +176,7 @@ img {
     background-color: #DBEBFF;
 }
 
-.pAccueil main nav {
+ main nav {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
@@ -185,26 +185,26 @@ img {
     color: white;
 }
 
-.pAccueil main nav ul {
+ main nav ul {
     display: flex;
     align-items: center;
     justify-content: right;
     width: 600px;
 }
 
-.pAccueil main nav ul li {
+ main nav ul li {
     list-style: none;
     margin-left: 35px;
 }
 
-.pAccueil main nav ul li .blueButton {
+ main nav ul li .blueButton {
     background-color: var(--blue3);
     padding: 10px 25px;
     border-radius: 5px;
     border-width: 40px;
 }
 
-.pAccueil main nav ul li a {
+ main nav ul li a {
     text-decoration: none;
     color: white;
 }
@@ -1609,3 +1609,94 @@ img {
 }
 
 /* #endregion */
+
+
+.pValidPaiement main {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.pValidPaiement main a {
+    color: black;
+}
+
+.pValidPaiement main .blueButton {
+    color: white;
+}
+
+.greenRec {
+    background-color: #A9FFB2;
+    height: 188px;
+    width: 440px;
+}
+
+.greenRec p {
+    color: #105106;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin: auto;
+    transform: translateY(75%);
+    max-width: 300px;
+}
+
+.greenRec img {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.pValidPaiement h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+.validDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 680px;
+    margin: 0 auto;
+}
+
+.pValidPaiement .infoPrix {
+    transform: translateY(15px);
+}
+
+
+.pValidPaiement .prix {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.pValidPaiement .info {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.pValidPaiement .reponse {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.pValidPaiement .dashButton {
+    display: block;
+    margin: 100px auto 60px auto;
+    width: 429px;
+    height: 62px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 9px;
+    font-size: 20px;
+    background-color: #D9D9D9;
+}
+
+.pValidPaiement .retourAccueil {
+    display: block;
+    text-align: center;
+    margin-bottom: 100px;
+}

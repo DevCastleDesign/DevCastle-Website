@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="pValidPaiement">
+<head>
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Sohan Anampalli & Arsène Brosy" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
+
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
+
+    <!-- CSS -->
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<main>
+<nav class="header">
+    <a href=""><img height="83" src="src/Icons/DevCastleIcon.png" width="148"/></a>
+    <ul id="navNoAccount">
+        <li><a href="./contact.html">Contact</a></li>
+        <li id="loginButton"><a class="blueButton" href="connexion.html">Connexion</a></li>
+    </ul>
+    <ul id="navAccount">
+        <li><a href="./contact.html">Contact</a></li>
+        <li id="logOutButton"><a href="">Se deconnecter</a></li>
+        <li id="dashboardNav"><a href="dashboard.html">
+            <div class="blueButton">Tableau de bord</div>
+        </a></li>
+    </ul>
+</nav>
+
+    <h1>Merci de nous avoir fait confiance</h1>
+    <div class="validDiv">
+        <div class="greenRec">
+            <img src="src/Icons/checkIcon.png" height="42" width="42"/>
+            <p>Le paiement de votre commande à bien été pris en compte</p>
+        </div>
+        <div class="infoPrix">
+            <p class="prix">CHF 511.99</p>
+            <p class="info">Moyen de paiement</p>
+            <p class="reponse">Visa 9745 **** **** ****</p>
+            <p class="info">Date de transaction</p>
+            <p class="reponse">18.03.2023</p>
+        </div>
+
+    </div>
+    <input onclick="window.location.href = 'dashboard.html'" class="dashButton" type="submit" value="Accéder au tableau de bord">
+    <a class="retourAccueil" href="index.html">Retourner à l’accueil</a>
+</main>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    window.addEventListener('load', function () {
+        setTimeout(verifAccount, onAuthStateChanged)
+    });
+
+    function verifAccount() {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('navAccount').style.display = "flex";
+            } else {
+                window.location.href = "index.html";
+            }
+        });
+    };
+</script>
+
+<footer class="footer">
+    <label class="devCastleFooter">DevCastle</label>
+    <p class="pitchFooter">Débloquez le plein potentiel de votre entreprise</p>
+    <div>
+        <p class="copyRightFooter">© 2023 - devcastle</p>
+        <p>Contact</p>
+        <a href="termesUtilisation.html">Termes d’utilisation</a>
+    </div>
+</footer>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+
+    window.addEventListener('load', function () {
+        setTimeout(verifAccount, onAuthStateChanged)
+    });
+
+    function verifAccount() {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('navAccount').style.display = "flex";
+            } else {
+                document.getElementById('navNoAccount').style.display = "flex";
+            }
+        });
+    };
+
+    logOutButton.addEventListener('click', (e) => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            document.getElementById('navAccount').style.display = "none";
+            window.location.reload();
+        }).catch((error) => {
+            alert("non")
+        });
+    });
+
+    commandeButton.addEventListener('click', (e) => {
+        window.location.href = "site-welcome.html";
+    });
+
+</script>
+
+</body>
+</html>
