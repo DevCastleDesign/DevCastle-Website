@@ -89,6 +89,7 @@
                 <input type="text">
             </div>
         </div>
+        <input id="payerButton" type="submit" value="payer">
     </div>
 
     <div class="achatList">
@@ -120,7 +121,11 @@
     </div>
 </div>
 
-<script>
+
+<script type="module">
+
+    var prixTotal = 0;
+
     var sitePrix = 505.99;
     var hebergPrix = 50;
 
@@ -152,7 +157,47 @@
         document.getElementById('sitePrix').innerHTML = sitePrix;
         document.getElementById('hebergPrix').innerHTML = hebergPrix;
 
-        document.getElementById('total').innerHTML = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
+        prixTotal = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
+        document.getElementById('total').innerHTML = prixTotal;
+    });
+
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+
+    payerButton.addEventListener('click', (e) => {
+
+        const user = auth.currentUser;
+
+        var numFacture = 1;
+
+        var now = new Date();
+        var date = now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear() ;
+
+        set(ref(database, 'users/' + user.uid + "/" + "facturation/facture_" + numFacture ), {
+            prix: prixTotal,
+            date: date
+        })
+
+        set(ref(database, 'users/' + user.uid + "/" + "facturation"), {
+            nombre_facture:
+        })
+
     });
 
 </script>
