@@ -163,7 +163,7 @@
 
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-    import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {getDatabase, set, ref, onValue, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -184,20 +184,23 @@
 
         const user = auth.currentUser;
 
-        var numFacture = 1;
+        var numFacture = 0;
 
         var now = new Date();
         var date = now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear() ;
 
-        set(ref(database, 'users/' + user.uid + "/" + "facturation/facture_" + numFacture ), {
+        onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
+            numFacture = (snapshot.val().nombre_facture);
+        });
+
+        set(ref(database, 'users/' + user.uid + "/facturation/facture_" + (numFacture + 1) ), {
             prix: prixTotal,
             date: date
-        })
+        });
 
-        set(ref(database, 'users/' + user.uid + "/" + "facturation"), {
-            nombre_facture:
-        })
-
+        update(ref(database, 'users/' + user.uid + "/facturation"), {
+            nombre_facture: numFacture +1
+        });
     });
 
 </script>
