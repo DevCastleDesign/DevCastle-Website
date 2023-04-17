@@ -239,15 +239,6 @@
 
     window.addEventListener('load', function () {
 
-        const user = auth.currentUser;
-
-        var pays = "";
-        onValue(ref(database, '/users/' + user.uid ), (snapshot) => {
-            pays = (snapshot.val().pays);
-        });
-
-        alert(pays);
-
         if (firstCommande == false) {
             document.getElementById('firstCommande').style.display = 'none';
         } else {
@@ -264,6 +255,17 @@
 
         prixTotal = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
         document.getElementById('total').innerHTML = prixTotal;
+
+        const user = auth.currentUser;
+
+        var pays = 0;
+        onValue(ref(database, '/users/' + user.uid ), (snapshot) => {
+            pays = (snapshot.val().pays);
+        });
+
+       if (pays != 0) {
+           document.getElementById('firstCommande').style.display = 'none';
+       };
     });
 
     payerButton.addEventListener('click', (e) => {
