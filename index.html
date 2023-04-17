@@ -242,7 +242,7 @@
 
     payerButton.addEventListener('click', (e) => {
 
-
+        document.getElementById('payerButton').disabled = true;
         document.getElementById('payerButton').classList.toggle('inscriptionButton-loading')
 
         const user = auth.currentUser;
