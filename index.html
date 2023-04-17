@@ -240,10 +240,10 @@
     const database = getDatabase(app);
 
 
-    payerButton.addEventListener('click', (e) =>
+    payerButton.addEventListener('click', (e) => {
 
 
-        document.getElementById('signUp').classList.toggle('inscriptionButton-loading')
+        document.getElementById('payerButton').classList.toggle('inscriptionButton-loading')
 
         const user = auth.currentUser;
 

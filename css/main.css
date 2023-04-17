@@ -169,6 +169,14 @@ footer {
     border-radius: 50%;
     animation: inscriptionButton-loading 1s ease infinite;
 }
+.inscriptionButton {
+    border: none;
+    background-color: #294876;
+    color: white;
+    height: 50px;
+    width: 100%;
+    position: relative;
+}
 
 @keyframes inscriptionButton-loading {
     from {
