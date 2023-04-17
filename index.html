@@ -172,6 +172,7 @@
     </div>
 </div>
 
+
 <script type="module">
 
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
@@ -243,12 +244,11 @@
             document.getElementById('firstCommande').style.display = 'none';
         } else {
             firstCommandePrix = 10;
-        }
+        };
 
         if (firstCommande == false && suisseRemise == false) {
             document.getElementById('remiseSeparation').style.display = 'none';
-        }
-        ;
+        };
 
         document.getElementById('sitePrix').innerHTML = sitePrix;
         document.getElementById('hebergPrix').innerHTML = hebergPrix;
@@ -256,16 +256,9 @@
         prixTotal = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
         document.getElementById('total').innerHTML = prixTotal;
 
-        const user = auth.currentUser;
-
-        var pays = 0;
         onValue(ref(database, '/users/' + user.uid ), (snapshot) => {
-            pays = (snapshot.val().pays);
+            prixTotal = (snapshot.val().tel);
         });
-
-       if (pays != 0) {
-           document.getElementById('firstCommande').style.display = 'none';
-       };
     });
 
     payerButton.addEventListener('click', (e) => {
