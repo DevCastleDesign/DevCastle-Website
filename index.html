@@ -40,7 +40,6 @@
         <input id="button" type="submit" value="checkout">
     </div>
 
-
     <script>
 
         var stripe = Stripe(
@@ -59,14 +58,16 @@
                 successUrl: "https://google.com/",
                 cancelUrl: "https://twitter.com/",
             })
-                .then(function(result) {
-            });
-        });
+                .then(function (result) {
+                });
+        })
+
+        var moyenPaiementSelect = "";
 
         paypal.addEventListener('click', (e) => {
             document.getElementById('paypal').style.backgroundColor = '#9AC7FF';
             document.getElementById('paypal').style.borderColor = '#57A2FF';
-
+            moyenPaiementSelect = "paypal";
             document.getElementById('bankCard').style.backgroundColor = 'white';
             document.getElementById('bankCard').style.borderColor = '#cccccc';
         });
@@ -74,20 +75,37 @@
         bankCard.addEventListener('click', (e) => {
             document.getElementById('bankCard').style.backgroundColor = '#9AC7FF';
             document.getElementById('bankCard').style.borderColor = '#57A2FF';
-
+            moyenPaiementSelect = "card";
             document.getElementById('paypal').style.backgroundColor = 'white';
             document.getElementById('paypal').style.borderColor = '#cccccc';
         });
 
         continueButton.addEventListener('click', (e) => {
-            document.getElementById('choixPaiement').style.display = 'none';
-            document.getElementById('cartePaiement').style.display = 'block';
+            if (moyenPaiementSelect == "") {
+                alert("alert")
+            } else {
+                document.getElementById('choixPaiement').style.display = 'none';
+                document.getElementById('cartePaiement').style.display = 'block';
+            }
         });
 
     </script>
 
-    <div id="cartePaiement" class="cartePaiement">
+    <div class="cartePaiement" id="cartePaiement">
         <h2>Paiement</h2>
+
+        <div class="retour" id="retour">
+            <img src="src/Icons/retourIcon.png"/>
+            <p>Retour</p>
+        </div>
+
+        <script>
+            retour.addEventListener('click', (e) => {
+                document.getElementById('choixPaiement').style.display = 'block';
+                document.getElementById('cartePaiement').style.display = 'none';
+            });
+        </script>
+
         <div class="infoPers">
             <div class="nom">
                 <p>Nom</p>
@@ -100,27 +118,28 @@
         </div>
         <div>
             <p>Numéro de carte</p>
-            <input id="number" class="numCarte" type="text" maxlength="19" onkeypress="isInputNumber(event)" placeholder="1234 1234 1234 1234">
+            <input class="numCarte" id="number" maxlength="19" onkeypress="isInputNumber(event)" placeholder="1234 1234 1234 1234"
+                   type="text">
         </div>
         <div class="expirationCVV">
             <div class="expiration">
                 <p>Expiration</p>
-                <input id="date" type="text" maxlength="5" onkeypress="isInputNumber(event)">
+                <input id="date" maxlength="5" onkeypress="isInputNumber(event)" placeholder=" MM/AA" type="text">
             </div>
             <div class="CVV">
                 <p>CVV</p>
-                <input id="cvv" type="text" maxlength="3" onkeypress="isInputNumber(event)">
+                <input id="cvv" maxlength="3" onkeypress="isInputNumber(event)" placeholder=" 123" type="text">
             </div>
         </div>
         <script>
-            function isInputNumber(evt){
+            function isInputNumber(evt) {
                 var ch = String.fromCharCode(evt.which);
-                if(!(/[0-9]/.test(ch))){
+                if (!(/[0-9]/.test(ch))) {
                     evt.preventDefault();
                 }
             };
         </script>
-        <button id="payerButton" class="inscriptionButton " type="submit">Payer</button>
+        <button class="inscriptionButton " id="payerButton"><span>PAYER</span></button>
     </div>
 
     <div class="achatList">
@@ -128,18 +147,19 @@
         <hr>
         <div class="paiementSiteWeb">
             <p>Site web</p>
-            <p><span class="chf">CHF </span><span id="sitePrix" class="prix">---</span></p>
+            <p><span class="chf">CHF </span><span class="prix" id="sitePrix">---</span></p>
         </div>
         <div class="paiementHebergeur">
             <p>Hebergement</p>
-            <p><span class="trace-chf">CHF 60</span><span class="chf">CHF </span><span id="hebergPrix" class="prix">---</span></p>
+            <p><span class="trace-chf">CHF 60</span><span class="chf">CHF </span><span class="prix"
+                                                                                       id="hebergPrix">---</span></p>
         </div>
         <hr>
-        <div id="suisseRemise" class="remiseSuisse">
+        <div class="remiseSuisse" id="suisseRemise">
             <p>Remise de 5% pour les suisses</p>
-            <p><span class="chf">CHF </span><span id="suisseRemisePrix" class="prix">---</span></p>
+            <p><span class="chf">CHF </span><span class="prix" id="suisseRemisePrix">---</span></p>
         </div>
-        <div id="firstCommande" class="remisePremiere">
+        <div class="remisePremiere" id="firstCommande">
             <p>Bonus de première commande</p>
             <p><span>CHF </span><span class="prix">-10</span></p>
         </div>
@@ -152,11 +172,10 @@
     </div>
 </div>
 
-
 <script type="module">
 
     let cNumber = document.getElementById('number');
-    cNumber.addEventListener('keyup', function(e) {
+    cNumber.addEventListener('keyup', function (e) {
 
         let num = cNumber.value;
 
@@ -170,7 +189,7 @@
     });
 
     let date = document.getElementById('date');
-    date.addEventListener('keyup', function( e ) {
+    date.addEventListener('keyup', function (e) {
 
         if (e.which !== 8) {
             var numChars = e.target.value.length;
@@ -182,7 +201,6 @@
             }
         }
     });
-
 
     var prixTotal = 0;
 
@@ -212,7 +230,8 @@
 
         if (firstCommande == false && suisseRemise == false) {
             document.getElementById('remiseSeparation').style.display = 'none';
-        };
+        }
+        ;
 
         document.getElementById('sitePrix').innerHTML = sitePrix;
         document.getElementById('hebergPrix').innerHTML = hebergPrix;
@@ -223,7 +242,13 @@
 
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-    import {getDatabase, set, ref, onValue, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {
+        getDatabase,
+        set,
+        ref,
+        onValue,
+        update
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -239,7 +264,6 @@
     const auth = getAuth();
     const database = getDatabase(app);
 
-
     payerButton.addEventListener('click', (e) => {
 
         document.getElementById('payerButton').disabled = true;
@@ -250,19 +274,19 @@
         var numFacture = 0;
 
         var now = new Date();
-        var date = now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear() ;
+        var date = now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear();
 
         onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
             numFacture = (snapshot.val().nombre_facture);
         });
 
-        set(ref(database, 'users/' + user.uid + "/facturation/facture_" + (numFacture + 1) ), {
+        set(ref(database, 'users/' + user.uid + "/facturation/facture_" + (numFacture + 1)), {
             prix: prixTotal,
             date: date
         });
 
         update(ref(database, 'users/' + user.uid + "/facturation"), {
-            nombre_facture: numFacture +1
+            nombre_facture: numFacture + 1
         });
     });
 
@@ -271,9 +295,9 @@
 <footer>
     <div class="center">
         <p>En effectuant votre commande, vous acceptez nos <a href="">Termes d’utilisation</a></p>
+        <p class="paiementSecureFooter">Paiements sécurisés avec <strong>Stripe</strong></p>
     </div>
 </footer>
-
 
 </body>
 </html>

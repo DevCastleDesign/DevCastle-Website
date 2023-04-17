@@ -14,7 +14,7 @@
 }
 
 body {
-    padding: 100px;
+    padding: 100px 200px;
     min-height: 100vh;
 }
 
@@ -76,8 +76,8 @@ hr {
 
 .arrondiText {
     text-align: right;
-    color: #AFAFAF;
-    font-size: 18px;
+    opacity: 50%;
+    font-size: 15px;
     transform: translateY(-20px);
 }
 
@@ -131,10 +131,11 @@ hr {
     margin-right: 10px;
     margin-bottom: 20px;
     border: 1px solid #cccccc ;
+    padding-left: 5px;
 }
 
 .numCarte {
-    width: 450px;
+    width: 455px;
 }
 
 footer {
@@ -142,6 +143,7 @@ footer {
     text-align: center;
     position: sticky;
     top: 100%;
+    opacity: 50%;
 }
 
 .center {
@@ -174,8 +176,11 @@ footer {
     background-color: #294876;
     color: white;
     height: 50px;
-    width: 100%;
+    width: 98%;
     position: relative;
+    margin-top: 50px;
+    border-radius: 5px;
+    font-size: 18px;
 }
 
 @keyframes inscriptionButton-loading {
@@ -186,4 +191,24 @@ footer {
     to {
         transform: rotate(1turn);
     }
+}
+
+.retour {
+    display: flex;
+    font-size: 25px;
+    user-select: none;
+}
+
+.retour img {
+    width: 26px;
+    height: 26px;
+    opacity: 80%;
+}
+
+.retour p {
+    transform: translateX(10px) translateY(-3px);
+}
+
+.paiementSecureFooter {
+    margin-top: 30px;
 }
