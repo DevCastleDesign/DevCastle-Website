@@ -21,19 +21,37 @@
 
 <div class="Paiement">
     <div class="moyenPaiement">
-        <div class="paypal">
+        <div class="paypal" id="paypal">
             <div class="alignCard">
                 <img height="54" src="src/Icons/PaypalIcon.png" width="54"/>
                 <p>Paypal</p>
             </div>
         </div>
-        <div class="bankCard">
+        <div class="bankCard" id="bankCard">
             <div class="alignCard">
                 <img height="32.31" src="src/Icons/MastercardIcon.png" width="52.14"/>
                 <p>Carte bancaire</p>
             </div>
         </div>
     </div>
+
+    <script>
+        paypal.addEventListener('click', (e) => {
+            document.getElementById('paypal').style.backgroundColor = '#9AC7FF';
+            document.getElementById('paypal').style.borderColor = '#57A2FF';
+
+            document.getElementById('bankCard').style.backgroundColor = 'white';
+            document.getElementById('bankCard').style.borderColor = '#cccccc';
+        });
+
+        bankCard.addEventListener('click', (e) => {
+            document.getElementById('bankCard').style.backgroundColor = '#9AC7FF';
+            document.getElementById('bankCard').style.borderColor = '#57A2FF';
+
+            document.getElementById('paypal').style.backgroundColor = 'white';
+            document.getElementById('paypal').style.borderColor = '#cccccc';
+        });
+    </script>
 
     <div class="cartePaiement">
         <div class="infoPers">

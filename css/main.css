@@ -79,6 +79,7 @@ hr {
     display: flex;
     justify-content: space-between;
     width: 320px;
+    user-select: none;
 }
 
 .infoPers {
