@@ -600,6 +600,15 @@ img {
     border: 1px solid #b8b8b8;
 }
 
+.pLogInSignIn .SignIn select {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: 1px solid #b8b8b8;
+    height: 35px;
+    width: 100%;
+}
+
 .pLogInSignIn label {
     font-size: 14px;
 }

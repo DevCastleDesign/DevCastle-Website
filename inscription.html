@@ -41,6 +41,15 @@
             <p class="error" id="errorTel">numéro de téléphone invalide</p>
         </div>
         <div>
+            <label>Pays ou région</label>
+            <select class="form-select" id="country" name="country">
+                <option value="CH">Suisse</option>
+                <option value="FR">France</option>
+                <option value="BE">Belgique</option>
+                <option value="OTHER">Autre</option>
+            </select>
+        </div>
+        <div>
             <label>E-mail</label>
             <input id="emailSignIn" name="nom" type="email">
             <p class="error" id="errorEmail">email invalide</p>
@@ -98,9 +107,9 @@
         var nom = document.getElementById("nomSignIn").value
         var prenom = document.getElementById('prenomSignIn').value
         var tel = document.getElementById('telSignIn').value
+        var pays = document.getElementById('country').value
         var email = document.getElementById('emailSignIn').value
         var password = document.getElementById('passwordSignIn').value
-
 
         checkPrenom()
         checkNom()
@@ -124,6 +133,7 @@
                         nom: nom,
                         prenom: prenom,
                         tel: tel,
+                        pays: pays,
                         email: email,
                     })
 
