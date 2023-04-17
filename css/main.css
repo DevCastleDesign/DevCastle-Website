@@ -14,6 +14,7 @@
 
 body {
     padding: 100px;
+    min-height: 100vh;
 }
 
 a {
@@ -125,4 +126,15 @@ hr {
 .cartePaiement {
     width: 350px;
     display: none;
+}
+
+footer {
+    bottom: 0;
+    text-align: center;
+    position: sticky;
+    top: 100%;
+}
+
+.center {
+    margin: 0 auto;
 }

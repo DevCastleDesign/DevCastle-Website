@@ -18,22 +18,27 @@
 
 </head>
 <body>
-
 <div class="Paiement">
-    <div class="moyenPaiement">
-        <div class="paypal" id="paypal">
-            <div class="alignCard">
-                <img height="54" src="src/Icons/PaypalIcon.png" width="54"/>
-                <p>Paypal</p>
+    <div>
+        <h2>ewf</h2>
+        <p>Séléctionnez un moyen de paiement</p>
+        <div class="moyenPaiement">
+            <div class="paypal" id="paypal">
+                <div class="alignCard">
+                    <img height="54" src="src/Icons/PaypalIcon.png" width="54"/>
+                    <p>Paypal</p>
+                </div>
+            </div>
+            <div class="bankCard" id="bankCard">
+                <div class="alignCard">
+                    <img height="32.31" src="src/Icons/MastercardIcon.png" width="52.14"/>
+                    <p>Carte bancaire</p>
+                </div>
             </div>
         </div>
-        <div class="bankCard" id="bankCard">
-            <div class="alignCard">
-                <img height="32.31" src="src/Icons/MastercardIcon.png" width="52.14"/>
-                <p>Carte bancaire</p>
-            </div>
-        </div>
+        <input id="continueButton" type="submit" value="12321">
     </div>
+
 
     <script>
         paypal.addEventListener('click', (e) => {
@@ -51,6 +56,8 @@
             document.getElementById('paypal').style.backgroundColor = 'white';
             document.getElementById('paypal').style.borderColor = '#cccccc';
         });
+
+
     </script>
 
     <div class="cartePaiement">
@@ -79,8 +86,6 @@
             </div>
         </div>
     </div>
-
-    <input id="continue" type="submit" value="continue">
 
     <div class="achatList">
         <h1>Votre commande</h1>
@@ -148,7 +153,12 @@
 
 </script>
 
-<p>En effectuant votre commande, vous acceptez nos <a href="">Termes d’utilisation</a></p>
+<footer>
+    <div class="center">
+        <p>En effectuant votre commande, vous acceptez nos <a href="">Termes d’utilisation</a></p>
+    </div>
+</footer>
+
 
 </body>
 </html>
