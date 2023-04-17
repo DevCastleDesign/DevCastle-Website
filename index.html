@@ -87,6 +87,7 @@
     </script>
 
     <div id="cartePaiement" class="cartePaiement">
+        <h2>Paiement</h2>
         <div class="infoPers">
             <div class="nom">
                 <p>Nom</p>
@@ -99,18 +100,27 @@
         </div>
         <div>
             <p>Numéro de carte</p>
-            <input class="numCarte" type="text">
+            <input id="number" class="numCarte" type="text" maxlength="19" onkeypress="isInputNumber(event)" placeholder="1234 1234 1234 1234">
         </div>
         <div class="expirationCVV">
             <div class="expiration">
                 <p>Expiration</p>
-                <input type="text">
+                <input id="date" type="text" maxlength="5" onkeypress="isInputNumber(event)">
             </div>
             <div class="CVV">
                 <p>CVV</p>
-                <input type="text">
+                <input id="cvv" type="text" maxlength="3" onkeypress="isInputNumber(event)">
             </div>
         </div>
+        <script>
+            function isInputNumber(evt){
+                var ch = String.fromCharCode(evt.which);
+                if(!(/[0-9]/.test(ch))){
+                    evt.preventDefault();
+                }
+            };
+        </script>
+
         <input id="payerButton" type="submit" value="payer">
     </div>
 
@@ -145,6 +155,35 @@
 
 
 <script type="module">
+
+    let cNumber = document.getElementById('number');
+    cNumber.addEventListener('keyup', function(e) {
+
+        let num = cNumber.value;
+
+        let newValue = '';
+        num = num.replace(/\s/g, '');
+        for (var i = 0; i < num.length; i++) {
+            if (i % 4 == 0 && i > 0) newValue = newValue.concat(' ');
+            newValue = newValue.concat(num[i]);
+            cNumber.value = newValue;
+        }
+    });
+
+    let date = document.getElementById('date');
+    date.addEventListener('keyup', function( e ) {
+
+        if (e.which !== 8) {
+            var numChars = e.target.value.length;
+            if (numChars == 2) {
+                var thisVal = e.target.value;
+                thisVal += '/';
+                e.target.value = thisVal;
+                console.log(thisVal.length)
+            }
+        }
+    });
+
 
     var prixTotal = 0;
 
