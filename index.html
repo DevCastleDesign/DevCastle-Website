@@ -118,7 +118,8 @@
         </div>
         <div>
             <p>Numéro de carte</p>
-            <input class="numCarte" id="number" maxlength="19" onkeypress="isInputNumber(event)" placeholder="1234 1234 1234 1234"
+            <input class="numCarte" id="number" maxlength="19" onkeypress="isInputNumber(event)"
+                   placeholder="1234 1234 1234 1234"
                    type="text">
         </div>
         <div class="expirationCVV">
@@ -159,7 +160,7 @@
             <p>Remise de 5% pour les suisses</p>
             <p><span class="chf">CHF </span><span class="prix" id="suisseRemisePrix">---</span></p>
         </div>
-        <div class="remisePremiere" id="firstCommande">
+        <div class="remisePremiere" id="firstCommande" style="display: none">
             <p>Bonus de première commande</p>
             <p><span>CHF </span><span class="prix">-10</span></p>
         </div>
@@ -172,6 +173,52 @@
     </div>
 </div>
 
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import {getDatabase, ref, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+    window.addEventListener('load', function () {
+        setTimeout(verifAccount, onAuthStateChanged)
+    });
+
+    function verifAccount() {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
+                    var  numFacture = (snapshot.val().nombre_facture);
+                });
+                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                    var  pays = (snapshot.val().pays);
+                });
+
+                alert(pays);
+
+            } else {
+                alert("non");
+            }
+        });
+
+    };
+
+
+
+</script>
 
 <script type="module">
 
@@ -198,6 +245,7 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth();
     const database = getDatabase(app);
+
 
     let cNumber = document.getElementById('number');
     cNumber.addEventListener('keyup', function (e) {
@@ -232,40 +280,13 @@
     var sitePrix = 505.99;
     var hebergPrix = 50;
 
-    var suisseRemisePrix = 0;
-    var firstCommandePrix = 0;
 
+    var suisseRemisePrix = 0;
     var firstCommande = true;
     var suisseRemise = true;
 
-    window.addEventListener('load', function () {
-        setTimeout(verifAccount, onAuthStateChanged)
-    });
-
-    function verifAccount() {
-        var pays = "";
-        var numFacture = 0;
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
-                    pays  = (snapshot.val().pays);
-                });
-                onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
-                    numFacture = (snapshot.val().nombre_facture);
-                });
-            } else {
-                alert("non");
-            }
-        });
-
-        if (pays != "CH") {
-            document.getElementById('suisseRemise').style.display = 'flex';
-        }
-
-        if (numFacture == 0) {
-            document.getElementById('firstCommande').style.display = 'none';
-        }
-    };
+    var pays = 0;
+    var numFacture = 0;
 
     payerButton.addEventListener('click', (e) => {
 
@@ -281,6 +302,10 @@
 
         onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
             numFacture = (snapshot.val().nombre_facture);
+        });
+
+        set(ref(database, 'users/' + user.uid + "/facturation"), {
+            nombre_facture: numFacture
         });
 
         set(ref(database, 'users/' + user.uid + "/facturation/facture_" + (numFacture + 1)), {
