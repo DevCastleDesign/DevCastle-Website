@@ -155,7 +155,7 @@
                                                                                        id="hebergPrix">---</span></p>
         </div>
         <hr>
-        <div class="remiseSuisse" id="suisseRemise">
+        <div class="remiseSuisse" id="suisseRemise" style="display: none">
             <p>Remise de 5% pour les suisses</p>
             <p><span class="chf">CHF </span><span class="prix" id="suisseRemisePrix">---</span></p>
         </div>
@@ -176,7 +176,7 @@
 <script type="module">
 
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     import {
         getDatabase,
         set,
@@ -239,27 +239,33 @@
     var suisseRemise = true;
 
     window.addEventListener('load', function () {
-
-        if (firstCommande == false) {
-            document.getElementById('firstCommande').style.display = 'none';
-        } else {
-            firstCommandePrix = 10;
-        };
-
-        if (firstCommande == false && suisseRemise == false) {
-            document.getElementById('remiseSeparation').style.display = 'none';
-        };
-
-        document.getElementById('sitePrix').innerHTML = sitePrix;
-        document.getElementById('hebergPrix').innerHTML = hebergPrix;
-
-        prixTotal = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
-        document.getElementById('total').innerHTML = prixTotal;
-
-        onValue(ref(database, '/users/' + user.uid ), (snapshot) => {
-            prixTotal = (snapshot.val().tel);
-        });
+        setTimeout(verifAccount, onAuthStateChanged)
     });
+
+    function verifAccount() {
+        var pays = "";
+        var numFacture = 0;
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                    pays  = (snapshot.val().pays);
+                });
+                onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
+                    numFacture = (snapshot.val().nombre_facture);
+                });
+            } else {
+                alert("non");
+            }
+        });
+
+        if (pays != "CH") {
+            document.getElementById('suisseRemise').style.display = 'flex';
+        }
+
+        if (numFacture == 0) {
+            document.getElementById('firstCommande').style.display = 'none';
+        }
+    };
 
     payerButton.addEventListener('click', (e) => {
 
