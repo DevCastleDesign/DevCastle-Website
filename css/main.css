@@ -1851,6 +1851,21 @@ img {
 
 
 
+
+
+
+
+
+
+
+
+
+
+.pPaiement body {
+    padding: 100px;
+}
+
+
 .pPaiement .trace-chf {
     color: #AFAFAF;
     text-decoration : line-through;
@@ -2009,16 +2024,6 @@ img {
     margin-top: 50px;
     border-radius: 5px;
     font-size: 18px;
-}
-
-@keyframes inscriptionButton-loading {
-    from {
-        transform: rotate(0turn);
-    }
-
-    to {
-        transform: rotate(1turn);
-    }
 }
 
 .pPaiement .retour {
