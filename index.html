@@ -204,49 +204,29 @@
     });
 
     function verifAccount() {
-        var pays = "";
         var numFacture = 0;
-        var suisseRemisePrix = 0;
         var firstCommandePrix = 0;
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
+        var suisseRemisePrix = 0;
+        var pays = "CH";
 
-                onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
-                    numFacture = (snapshot.val().nombre_facture);
-                    if (numFacture == 0) {
-                        document.getElementById('firstCommande').style.display = 'flex';
-                        firstCommandePrix = 30;
-                    }
-                });
+        var sitePrix = 505.99;
+        var hebergPrix = 50;
 
-                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
-                    pays  = (snapshot.val().pays);
-                    if (pays == "CH") {
-                        document.getElementById('suisseRemise').style.display = 'flex';
-                    }
-                });
+        if (pays == "CH") {
+            document.getElementById('suisseRemise').style.display = 'flex';
+            suisseRemisePrix = Math.round(((sitePrix + hebergPrix) / 100 * 5));
+            document.getElementById('suisseRemisePrix').innerHTML = suisseRemisePrix;
+        }
 
-                document.getElementById('sitePrix').innerHTML = sitePrix;
-                document.getElementById('hebergPrix').innerHTML = hebergPrix;
+        if (numFacture == 0) {
+            document.getElementById('firstCommande').style.display = 'flex';
+            firstCommandePrix = 10;
+        }
 
+        document.getElementById('sitePrix').innerHTML = sitePrix;
+        document.getElementById('hebergPrix').innerHTML = hebergPrix;
 
-                if (document.getElementById('suisseRemise').style.display == 'flex') {
-                    suisseRemisePrix = Math.round(((sitePrix + hebergPrix) / 100 * 5));
-                    document.getElementById('suisseRemisePrix').innerHTML = suisseRemisePrix;
-
-                }
-
-                alert(firstCommandePrix);
-
-                document.getElementById('total').innerHTML = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
-
-
-
-
-            } else {
-                alert("non");
-            }
-        });
+        document.getElementById('total').innerHTML = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
     };
 
 
@@ -277,19 +257,6 @@
             }
         }
     });
-
-    var prixTotal = 0;
-
-    var sitePrix = 505.99;
-    var hebergPrix = 50;
-
-
-    var suisseRemisePrix = 0;
-    var firstCommande = true;
-    var suisseRemise = true;
-
-    var pays = 0;
-    var numFacture = 0;
 
     payerButton.addEventListener('click', (e) => {
 
