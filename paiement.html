@@ -203,30 +203,47 @@
         setTimeout(verifAccount, onAuthStateChanged)
     });
 
+
     function verifAccount() {
-        var numFacture = 0;
-        var firstCommandePrix = 0;
-        var suisseRemisePrix = 0;
-        var pays = "CH";
 
-        var sitePrix = 505.99;
-        var hebergPrix = 50;
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                    const pays = (snapshot.val().pays);
 
-        if (pays == "CH") {
-            document.getElementById('suisseRemise').style.display = 'flex';
-            suisseRemisePrix = Math.round(((sitePrix + hebergPrix) / 100 * 5));
-            document.getElementById('suisseRemisePrix').innerHTML = suisseRemisePrix;
-        }
 
-        if (numFacture == 0) {
-            document.getElementById('firstCommande').style.display = 'flex';
-            firstCommandePrix = 10;
-        }
+                    onValue(ref(database, '/users/' + user.uid + "/achat"), (snapshot) => {
+                        const sitePrix = (snapshot.val().site);
+                        const hebergPrix = (snapshot.val().hebergement);
 
-        document.getElementById('sitePrix').innerHTML = sitePrix;
-        document.getElementById('hebergPrix').innerHTML = hebergPrix;
+                        var suisseRemisePrix = 0;
+                        var firstCommandePrix = 0;
 
-        document.getElementById('total').innerHTML = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
+                        if (pays == "CH") {
+                            document.getElementById('suisseRemise').style.display = 'flex';
+                            suisseRemisePrix = Math.round(((sitePrix + hebergPrix) / 100 * 5));
+                            document.getElementById('suisseRemisePrix').innerHTML = "-" + suisseRemisePrix;
+                        }
+
+                        onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
+                            const nbrFacture = (snapshot.val().nombre_facture);
+                            if (nbrFacture == 0) {
+                                document.getElementById('firstCommande').style.display = 'flex';
+                                firstCommandePrix = 10;
+                            }
+
+                            document.getElementById('sitePrix').innerHTML = sitePrix;
+                            document.getElementById('hebergPrix').innerHTML = hebergPrix;
+
+                            document.getElementById('total').innerHTML = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
+                        });
+                    });
+                });
+            } else {
+                window.location.href = "index.html";
+            }
+        });
+
     };
 
 
@@ -265,34 +282,36 @@
 
         const user = auth.currentUser;
 
-        var numFacture = 0;
+        var numFacture = 6;
 
         var now = new Date();
         var date = now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear();
 
+
         onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
             numFacture = (snapshot.val().nombre_facture);
-        });
 
-        set(ref(database, 'users/' + user.uid + "/facturation"), {
-            nombre_facture: numFacture
-        });
+            var total = document.getElementById('total').innerHTML;
 
-        set(ref(database, 'users/' + user.uid + "/facturation/facture_" + (numFacture + 1)), {
-            prix: prixTotal,
-            date: date
-        });
+            setTimeout(test,1000)
+            function test() {
+                set(ref(database, 'users/' + user.uid + "/facturation/facture_" + numFacture ), {
+                    date: date,
+                    prix: total,
+                });
+            }
 
-        update(ref(database, 'users/' + user.uid + "/facturation"), {
-            nombre_facture: numFacture + 1
         });
+            update(ref(database, 'users/' + user.uid + "/facturation"), {
+                nombre_facture: (numFacture + 1),
+            });
     });
 
 </script>
 
 <footer>
     <div class="center">
-        <p>En effectuant votre commande, vous acceptez nos <a href="">Termes d’utilisation</a></p>
+        <p>En effectuant votre commande, vous acceptez nos <a href="termesUtilisation.html">Termes d’utilisation</a></p>
         <p class="paiementSecureFooter">Paiements sécurisés avec <strong>Stripe</strong></p>
     </div>
 </footer>
