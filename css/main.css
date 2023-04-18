@@ -1775,30 +1775,45 @@ img {
     justify-content: space-between;
     max-width: 800px;
     margin: 0 auto;
-    transform: translateY(30%);
+    transform: translateY(20%);
 }
 
 .pOptions .rdvDiv {
-    background-color: orange;
-    height: 500px;
+    background-color: #2C3973;
+    height: 580px;
     width: 350px;
     border-radius: 10px;
     text-align: center;
 }
 
 .pOptions .propreDiv {
-    background-color: orange;
-    height: 500px;
+    background-color: #618EC5;
+    height: 580px;
     width: 350px;
     border-radius: 10px;
     text-align: center;
+    position: relative;
 }
 
 .pOptions h2 {
     font-size: 38px;
     width: 350px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.pOptions .avantage1 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.pOptions .avantage {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .pOptions input {
@@ -1810,11 +1825,16 @@ img {
     position: absolute;
     bottom: 50px;
     transform: translateX(-50%);
+    transition: 0.1s;
+}
+
+.pOptions input:hover {
+    background-color: #A0CFFF;
 }
 
 .pOptions p {
-    text-align: left;
-    margin: 0 30px 20px 30px;
+    text-align: center;
+    margin: 0 30px 30px 30px;
     font-size: 20px;
 }
 
