@@ -173,53 +173,6 @@
     </div>
 </div>
 
-
-<script type="module">
-    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-    import {getDatabase, ref, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
-        authDomain: "webcastle-website.firebaseapp.com",
-        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "webcastle-website",
-        storageBucket: "webcastle-website.appspot.com",
-        messagingSenderId: "274339465548",
-        appId: "1:274339465548:web:927dd550601c84dffce7e9"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-    const database = getDatabase(app);
-
-    window.addEventListener('load', function () {
-        setTimeout(verifAccount, onAuthStateChanged)
-    });
-
-    function verifAccount() {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
-                    var  numFacture = (snapshot.val().nombre_facture);
-                });
-                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
-                    var  pays = (snapshot.val().pays);
-                });
-
-                alert(pays);
-
-            } else {
-                alert("non");
-            }
-        });
-
-    };
-
-
-
-</script>
-
 <script type="module">
 
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
@@ -245,6 +198,56 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth();
     const database = getDatabase(app);
+
+    window.addEventListener('load', function () {
+        setTimeout(verifAccount, onAuthStateChanged)
+    });
+
+    function verifAccount() {
+        var pays = "";
+        var numFacture = 0;
+        var suisseRemisePrix = 0;
+        var firstCommandePrix = 0;
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+
+                onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
+                    numFacture = (snapshot.val().nombre_facture);
+                    if (numFacture == 0) {
+                        document.getElementById('firstCommande').style.display = 'flex';
+                        firstCommandePrix = 30;
+                    }
+                });
+
+                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                    pays  = (snapshot.val().pays);
+                    if (pays == "CH") {
+                        document.getElementById('suisseRemise').style.display = 'flex';
+                    }
+                });
+
+                document.getElementById('sitePrix').innerHTML = sitePrix;
+                document.getElementById('hebergPrix').innerHTML = hebergPrix;
+
+
+                if (document.getElementById('suisseRemise').style.display == 'flex') {
+                    suisseRemisePrix = Math.round(((sitePrix + hebergPrix) / 100 * 5));
+                    document.getElementById('suisseRemisePrix').innerHTML = suisseRemisePrix;
+
+                }
+
+                alert(firstCommandePrix);
+
+                document.getElementById('total').innerHTML = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
+
+
+
+
+            } else {
+                alert("non");
+            }
+        });
+    };
 
 
     let cNumber = document.getElementById('number');
