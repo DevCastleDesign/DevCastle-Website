@@ -135,7 +135,14 @@
                         tel: tel,
                         pays: pays,
                         email: email,
-                    })
+                        status: "aucun"
+                    });
+
+                    set(ref(database, 'users/' + user.uid + "/achat"), {
+                        site: 0,
+                        hebergement: 0,
+                        supplement: 0,
+                    });
 
                     setTimeout(redirect, 1000)
 
