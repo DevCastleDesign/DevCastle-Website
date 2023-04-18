@@ -1,87 +1,64 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
 
-    /* palette */
-    --blue1: #81B9FF;
-    --blue2: #A0CFFF;
-    --blue3: #294876;
-    --bluelink: #006DF0;
-    --black: #000000;
-    --white: #ffffff;
-}
 
-body {
-    padding: 100px 200px;
-    min-height: 100vh;
-}
-
-a {
-    text-decoration: none;
-    color: var(--bluelink);
-}
-
-.trace-chf {
+.pPaiement .trace-chf {
     color: #AFAFAF;
     text-decoration : line-through;
     font-size: 18px;
     margin-right: 10px;
 }
 
-img {
+.pPaiement img {
     max-width: 100%;
 }
 
-.achatList {
+.pPaiement .achatList {
     width: 385px;
     font-size: 20px;
     font-family: inter, sans-serif;
 }
 
-.paiementSiteWeb, .paiementHebergeur, .remisePremiere, .remiseSuisse, .total {
+.pPaiement .paiementSiteWeb, .paiementHebergeur, .remisePremiere, .remiseSuisse, .total {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
 }
 
-.total {
+.pPaiement .total {
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
 }
 
-h2 {
+.pPaiement h2 {
     margin-bottom: 30px;
     font-size: 40px;
 }
 
-hr {
+.pPaiement hr {
     border: 1px solid #CCCCCC;
     margin-bottom: 30px;
 }
 
-.chf {
+.pPaiement .chf {
     font-size: 18px;
 }
 
-.prix {
+.pPaiement .prix {
     font-size: 25px;
 }
 
-.total {
+.pPaiement .total {
     font-weight: bold;
 }
 
-.arrondiText {
+.pPaiement .arrondiText {
     text-align: right;
     opacity: 50%;
     font-size: 15px;
     transform: translateY(-20px);
 }
 
-.paypal, .bankCard {
+.pPaiement .paypal, .bankCard {
     height: 170px;
     width: 142px;
     border-radius: 15px;
@@ -89,43 +66,43 @@ hr {
     position: relative;
 }
 
-.paypal .alignCard {
+.pPaiement .paypal .alignCard {
     text-align: center;
     padding-top: 25px;
 }
 
-.bankCard .alignCard {
+.pPaiement .bankCard .alignCard {
     text-align: center;
     padding-top: 25px;
 }
 
-.Paiement {
+.pPaiement .Paiement {
     display: flex;
     justify-content: space-between;
 }
 
-.moyenPaiement {
+.pPaiement .moyenPaiement {
     display: flex;
     justify-content: space-between;
     width: 320px;
     user-select: none;
 }
 
-.infoPers {
+.pPaiement .infoPers {
     display: flex;
     justify-content: space-between;
 }
 
-.expirationCVV {
+.pPaiement .expirationCVV {
     display: flex;
     justify-content: space-between;
 }
 
-.cartePaiement {
+.pPaiement .cartePaiement {
     display: none;
 }
 
-.cartePaiement input {
+.pPaiement .cartePaiement input {
     height: 35px;
     font-size: 17px;
     margin-right: 10px;
@@ -134,11 +111,11 @@ hr {
     padding-left: 5px;
 }
 
-.numCarte {
+.pPaiement .numCarte {
     width: 455px;
 }
 
-footer {
+.pPaiement footer {
     bottom: 0;
     text-align: center;
     position: sticky;
@@ -146,17 +123,17 @@ footer {
     opacity: 50%;
 }
 
-.center {
+.pPaiement .center {
     margin: 0 auto;
 }
 
 
-.inscriptionButton-loading span{
+.pPaiement .inscriptionButton-loading span{
     visibility: hidden;
     opacity: 0;
 }
 
-.inscriptionButton-loading:after {
+.pPaiement .inscriptionButton-loading:after {
     content: " ";
     position: absolute;
     width: 16px;
@@ -171,7 +148,7 @@ footer {
     border-radius: 50%;
     animation: inscriptionButton-loading 1s ease infinite;
 }
-.inscriptionButton {
+.pPaiement .inscriptionButton {
     border: none;
     background-color: #294876;
     color: white;
@@ -193,22 +170,22 @@ footer {
     }
 }
 
-.retour {
+.pPaiement .retour {
     display: flex;
     font-size: 25px;
     user-select: none;
 }
 
-.retour img {
+.pPaiement .retour img {
     width: 26px;
     height: 26px;
     opacity: 80%;
 }
 
-.retour p {
+.pPaiement .retour p {
     transform: translateX(10px) translateY(-3px);
 }
 
-.paiementSecureFooter {
+.pPaiement .paiementSecureFooter {
     margin-top: 30px;
 }
