@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" class="pOptions">
+<head>
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Sohan Anampalli & Arsène Brosy" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
+
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
+
+    <!-- CSS -->
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="cartes">
+    <div class="rdvDiv">
+        <h2>Prendre rendez-vous</h2>
+        <p>Prenez rendez-vous avec nous pour nous expliquer vos idées et vos envies</p>
+        <ul>
+            <li>Rendez-vous en présentiel en Suisse</li>
+            <li>Visioconférence</li>
+        </ul>
+
+        <input id="continueRdv" type="submit" value="continuer">
+    </div>
+    <div class="propreDiv">
+        <h2>Utiliser nos services</h2>
+        <p>Donnez toutes les informations que vous souhaitez obtenir sur votre site internet directement sur notre site</p>
+        <ul>
+            <li>Textes à afficher sur votre site</li>
+            <li>Couleurs de votre site internet</li>
+            <li>Images à afficher sur votre site internet</li>
+        </ul>
+        <input id="continueSite" type="submit" value="continuer">
+    </div>
+</div>
+
+<script>
+    continueRdv.addEventListener('click', (e) => {
+        window.location.href = "rendezvous.html";
+    });
+
+    continueSite.addEventListener('click', (e) => {
+        window.location.href = "site-information.html";
+    });
+
+</script>
+
+</body>
+</html>
