@@ -1576,22 +1576,76 @@ img {
     display: flex;
 }
 
-.pSite-information {
-
+.pSite-information hr {
+    opacity: 20%;
+    border: 1.5px solid ;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.pSite-information {
-
+.pSite-information h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 78px;
 }
 
-.pSite-information {
-
+.pSite-information h2 {
+    margin-bottom: 20px;
 }
 
-.pSite-information {
-    
+.pSite-information textarea{
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 300px;
+    background-color: #2C2C2C;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
 }
 
+.imageRecDiv {
+    background-image: url("../src/Images/SuisseDrapeauImage.jpg");
+    height: 200px;
+    width: 400px;
+    position: relative;
+}
+
+.suppImage:hover {
+    background-color: black;
+    opacity: 100%;
+}
+
+.suppImage {
+    opacity: 0%;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.pSite-information .info {
+    display: flex;
+    justify-content: space-between;
+    max-width: 280px;
+    margin: 0 auto;
+    transform: translateY(90%);
+    user-select: none;
+}
+
+.pSite-information label {
+    font-size: 20px;
+    max-width: 200px;
+}
+
+.pSite-information .trashButton {
+    background-color: transparent;
+    border: none;
+    transition: 0.2s;
+}
+
+.pSite-information .trashButton:hover {
+    scale: 110%;
+}
 
 
 .addColor {
