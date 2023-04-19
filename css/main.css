@@ -2058,3 +2058,65 @@ img {
     width: 90px;
     background-size: 30px;
 }
+
+.pRemerciements {
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+    height: 100vh;
+    color: var(--white);
+    text-align: center;
+}
+
+.pRemerciements .content {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pRemerciements .content>* {
+    margin: 20px 0;
+}
+
+.pRemerciements .content div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pRemerciements .content div #imdb {
+    flex-direction: row;
+    align-self: flex-start;
+}
+
+.pRemerciements .content div #imdb img {
+    width: 25px;
+    margin: 5px;
+}
+
+.pRemerciements .content textarea {
+    border: 2px solid #2C3973;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    resize: none;
+    width: 40vw;
+    height: 100px;
+    margin: 10px 0;
+}
+
+.pRemerciements .content button {
+    outline: none;
+    border: none;
+    background-color: #2C3973;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 25px;
+    border-radius: 5px;
+    width: fit-content;
+    align-self: flex-end;
+    cursor: pointer;
+}

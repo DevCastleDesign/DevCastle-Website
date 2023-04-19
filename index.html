@@ -94,8 +94,7 @@
         <div class="fond">
             <img class="submountain" height="399" id="moutain2" src="src/Images/submountain.png" width="1440"/>
             <img class="moutain" height="325" id="moutain" src="src/Images/Mountain.png" width="1440"/>
-            <div
-            ">
+            <div>
             <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
             <div class="landscape">
                 <div class="water"></div>
@@ -144,19 +143,8 @@
                 if (user) {
                     document.getElementById('navAccount').style.display = "flex";
                     document.getElementById('commandeButton').value = "continuer";
-                    set(ref(database, "/review"), {
-                        nombre_facture: 0,
-                    });
 
-                    set(ref(database, "/review"), {
-                        nombre_Ratting: 0,
-                        total_Ratting: 0,
-                        nombre_avis: 0,
-                    });
 
-                    set(ref(database, "/review/avis"), {
-                        avis_0_Sohan_Anampalli: "test",
-                    });
                 } else {
                     document.getElementById('navNoAccount').style.display = "flex";
                 }

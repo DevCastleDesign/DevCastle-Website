@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr" class="pRemerciements">
+<head>
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Sohan Anampalli & Arsène Brosy" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
+
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
+
+    <!-- CSS -->
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="content">
+    <h1>Merci !</h1>
+    <p>Nous vous sommes reconnaissants d'avoir choisi nos services.</p>
+    <div>
+        <p>Votre avis compte</p>
+        <div id="imdb">
+            <img src="./src/Icons/EtoileIcon.png">
+            <img src="./src/Icons/EtoileIcon.png">
+            <img src="./src/Icons/EtoileIcon.png">
+            <img src="./src/Icons/EtoileIcon.png">
+            <img src="./src/Icons/EtoileIcon.png">
+        </div>
+        <textarea id="avisText" placeholder="Ajouter un commentaire"></textarea>
+        <button id="envoyerButton">Envoyer</button>
+    </div>
+    <script type="module">
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import {getDatabase, set, ref, update, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+        import {
+            getAuth,
+            createUserWithEmailAndPassword
+
+        } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+            authDomain: "webcastle-website.firebaseapp.com",
+            databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "webcastle-website",
+            storageBucket: "webcastle-website.appspot.com",
+            messagingSenderId: "274339465548",
+            appId: "1:274339465548:web:927dd550601c84dffce7e9"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+
+        envoyerButton.addEventListener('click', (e) => {
+
+            const user = auth.currentUser;
+            var nombre_avis = 0;
+
+            onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                const nom = (snapshot.val().nom);
+                const prenom = (snapshot.val().prenom);
+
+                onValue(ref(database, '/review'), (snapshot) => {
+                    nombre_avis = (snapshot.val().nombre_avis);
+                    // const nombre_ratting = (snapshot.val().nombre_Ratting);
+                    // const total_ratting = (snapshot.val().total_Ratting);
+
+
+                    setTimeout(add, 1000)
+                    function add() {
+                        set(ref(database, "/review/avis/avis_" + nombre_avis), {
+                            user: prenom + " " + nom,
+                            commentaire: document.getElementById('avisText').value,
+                        });
+                    };
+
+                });
+                update(ref(database, '/review'), {
+                    nombre_avis: nombre_avis +1,
+                });
+
+            });
+
+
+
+        });
+
+    </script>
+</div>
+</body>
+</html>
