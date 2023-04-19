@@ -41,11 +41,30 @@
                 <div>
                     <div class="etoiles">
                         <p>Noté</p>
-                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
-                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
-                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
-                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
-                        <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
+                        <div class="ratting">
+                            <div class="outer">
+                                <div id="inner" class="inner"></div>
+                            </div>
+                        </div>
+                        <script>
+
+                            const nbrRat = 2;
+                            const ratNum = 5;
+
+                            function round(value, step) {
+                                step || (step = 1.0);
+                                var inv = 1.0 / step;
+                                return Math.round(value * inv) / inv;
+                            }
+
+                            const ratings = round((ratNum/nbrRat) , 0.5);
+
+
+                            let ratePercentage = (ratings / 5) * 100;
+                            const inner = document.getElementById(`inner`)
+                            inner.style.width = `${ratePercentage}%`
+
+                        </script>
                     </div>
                 </div>
                 <h1>DEVCASTLE</h1>
@@ -125,6 +144,19 @@
                 if (user) {
                     document.getElementById('navAccount').style.display = "flex";
                     document.getElementById('commandeButton').value = "continuer";
+                    set(ref(database, "/review"), {
+                        nombre_facture: 0,
+                    });
+
+                    set(ref(database, "/review"), {
+                        nombre_Ratting: 0,
+                        total_Ratting: 0,
+                        nombre_avis: 0,
+                    });
+
+                    set(ref(database, "/review/avis"), {
+                        avis_0_Sohan_Anampalli: "test",
+                    });
                 } else {
                     document.getElementById('navNoAccount').style.display = "flex";
                 }

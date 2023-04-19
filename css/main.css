@@ -2045,3 +2045,16 @@ img {
 .pPaiement .paiementSecureFooter {
     margin-top: 30px;
 }
+
+.outer {
+    background-image: url(../src/Icons/EtoileGrisIcon.png);
+    height: 25px;
+    width: 150px;
+    background-size: 30px;
+}
+.inner {
+    background-image: url(../src/Icons/EtoileIco.png);
+    height: 25px;
+    width: 90px;
+    background-size: 30px;
+}
