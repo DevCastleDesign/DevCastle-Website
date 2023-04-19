@@ -39,7 +39,6 @@
         <section class="sectionHaut">
             <div class="textHaut">
                 <div>
-
                     <div class="etoiles">
                         <p>Noté</p>
                         <img height="25" src="src/Icons/EtoileIcon.png" width="25"/>
@@ -99,7 +98,7 @@
     <script type="module">
         import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
         import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-        import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+        import {getDatabase, set, ref, update, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -125,6 +124,7 @@
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     document.getElementById('navAccount').style.display = "flex";
+                    document.getElementById('commandeButton').value = "continuer";
                 } else {
                     document.getElementById('navNoAccount').style.display = "flex";
                 }
@@ -142,16 +142,29 @@
         });
 
         commandeButton.addEventListener('click', (e) => {
-            window.location.href = "site-welcome.html";
+
+            const user = auth.currentUser;
+
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                        const status = (snapshot.val().status);
+                        if (status == "inscrit") {
+                            window.location.href = "options.html";
+                        } else if (status == "rdv") {
+                            window.location.href = "rendezvous.html";
+                        } else if (status == "design") {
+                            window.location.href = "site-information.html";
+                        } else {
+                            window.location.href = "dashboard.html";
+                        }
+                    });
+                } else {
+                    window.location.href = "site-welcome.html";
+                }
+            });
         });
 
-
-        //     const user = auth.currentUser;
-
-        //     set(ref(database, 'users/' + user.uid + "/" + "Site" ), {
-        //         nom: "monsite",
-        //         url: "www.monsite.com"
-        //     })
 
     </script>
 
