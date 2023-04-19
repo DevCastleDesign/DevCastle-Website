@@ -46,25 +46,6 @@
                                 <div id="inner" class="inner"></div>
                             </div>
                         </div>
-                        <script>
-
-                            const nbrRat = 2;
-                            const ratNum = 5;
-
-                            function round(value, step) {
-                                step || (step = 1.0);
-                                var inv = 1.0 / step;
-                                return Math.round(value * inv) / inv;
-                            }
-
-                            const ratings = round((ratNum/nbrRat) , 0.5);
-
-
-                            let ratePercentage = (ratings / 5) * 100;
-                            const inner = document.getElementById(`inner`)
-                            inner.style.width = `${ratePercentage}%`
-
-                        </script>
                     </div>
                 </div>
                 <h1>DEVCASTLE</h1>
@@ -116,7 +97,7 @@
     <script type="module">
         import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
         import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-        import {getDatabase, set, ref, update, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+        import {getDatabase, ref, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -144,7 +125,21 @@
                     document.getElementById('navAccount').style.display = "flex";
                     document.getElementById('commandeButton').value = "continuer";
 
+                    onValue(ref(database, '/review'), (snapshot) => {
+                        const nbrRat = (snapshot.val().nombre_ratting);
+                        const totalNum = (snapshot.val().total_ratting);
 
+                        function round(value, step) {
+                            step || (step = 1.0);
+                            var inv = 1.0 / step;
+                            return Math.round(value * inv) / inv;
+                        }
+
+
+                        let ratePercentage = (round((totalNum/nbrRat) , 0.5) / 5) * 100;
+                        const inner = document.getElementById(`inner`)
+                        inner.style.width = `${ratePercentage}%`
+                    });
                 } else {
                     document.getElementById('navNoAccount').style.display = "flex";
                 }
@@ -178,6 +173,8 @@
                         } else {
                             window.location.href = "dashboard.html";
                         }
+                    }, {
+                        onlyOnce: true
                     });
                 } else {
                     window.location.href = "site-welcome.html";

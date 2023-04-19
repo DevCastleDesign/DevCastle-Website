@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="pRemerciements">
+<html class="pRemerciements" lang="fr">
 <head>
     <!-- Metadonnées -->
     <meta charset="UTF-8">
@@ -24,23 +24,30 @@
     <div>
         <p>Votre avis compte</p>
         <div id="imdb">
-            <img src="./src/Icons/EtoileIcon.png">
-            <img src="./src/Icons/EtoileIcon.png">
-            <img src="./src/Icons/EtoileIcon.png">
-            <img src="./src/Icons/EtoileIcon.png">
-            <img src="./src/Icons/EtoileIcon.png">
+            <div class="star">
+                <div class="star-fill"></div>
+                <div class="star-fill"></div>
+                <div class="star-fill"></div>
+                <div class="star-fill"></div>
+                <div class="star-fill"></div>
+            </div>
+            <div>
+                <p><span id="nombreEtoile">0</span>/5</p>
+            </div>
         </div>
         <textarea id="avisText" placeholder="Ajouter un commentaire"></textarea>
-        <button id="envoyerButton">Envoyer</button>
+        <input type="submit" id="envoyerButton" value="send">
     </div>
     <script type="module">
         import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-        import {getDatabase, set, ref, update, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
         import {
-            getAuth,
-            createUserWithEmailAndPassword
-
-        } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+            getDatabase,
+            set,
+            ref,
+            update,
+            onValue
+        } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+        import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -60,38 +67,52 @@
         const database = getDatabase(app);
         const auth = getAuth();
 
+
+        var stars = document.querySelectorAll('.star div');
+
+        stars.forEach((item, index1) => {
+            item.addEventListener('click', () => {
+                stars.forEach((star, index2) => {
+                    index1 >= index2 ? star.classList.add('active') : star.classList.remove('active')
+                });
+                document.getElementById('nombreEtoile').innerHTML = index1 + 1;
+            })
+        });
+
         envoyerButton.addEventListener('click', (e) => {
 
             const user = auth.currentUser;
-            var nombre_avis = 0;
+
+            var etoile = document.getElementById('nombreEtoile').innerText;
+
+            var nombre_etoile = parseInt(etoile);
 
             onValue(ref(database, '/users/' + user.uid), (snapshot) => {
                 const nom = (snapshot.val().nom);
                 const prenom = (snapshot.val().prenom);
 
                 onValue(ref(database, '/review'), (snapshot) => {
-                    nombre_avis = (snapshot.val().nombre_avis);
-                    // const nombre_ratting = (snapshot.val().nombre_Ratting);
-                    // const total_ratting = (snapshot.val().total_Ratting);
+                    const nombre_avis = (snapshot.val().nombre_avis);
+                    const total_ratting = (snapshot.val().total_ratting);
+                    const nombre_ratting = (snapshot.val().nombre_ratting);
 
+                    set(ref(database, '/review/avis/avis_' + prenom + "_" + nom), {
+                        commentaire: document.getElementById('avisText').value,
+                        etoile: nombre_etoile,
+                    });
 
-                    setTimeout(add, 1000)
-                    function add() {
-                        set(ref(database, "/review/avis/avis_" + nombre_avis), {
-                            user: prenom + " " + nom,
-                            commentaire: document.getElementById('avisText').value,
-                        });
-                    };
+                    update(ref(database, '/review'), {
+                        nombre_avis: (nombre_avis + 1),
+                        nombre_ratting: (nombre_ratting + 1),
+                        total_ratting: nombre_etoile + total_ratting,
+                    });
 
+                }, {
+                    onlyOnce: true
                 });
-                update(ref(database, '/review'), {
-                    nombre_avis: nombre_avis +1,
-                });
-
+            }, {
+                onlyOnce: true
             });
-
-
-
         });
 
     </script>
