@@ -12,7 +12,7 @@ var days = calandar.children[2];
 var today = new Date();
 var selectedMonth = today.getMonth();
 var selectedYear = today.getFullYear();
-var selectedDay = today.getDay() + 1;
+var selectedDay = today.getDay() + 2;
 var selectedDayMonth = selectedMonth;
 var selectedDayYear = selectedYear;
 var selectedHour = -1;
@@ -93,6 +93,7 @@ function calendarForward() {
 }
 
 function calendarBackward() {
+    if (selectedMonth === today.getMonth() && selectedYear === today.getFullYear()) { return; }
     selectedMonth --;
     if (selectedMonth < 0) {
         selectedMonth = 11;
@@ -102,6 +103,7 @@ function calendarBackward() {
 }
 
 function selectDay(day) {
+    if (selectedMonth === today.getMonth() && selectedYear === today.getFullYear() && day < today.getDay() + 2) { return; }
     selectedDay = day;
     selectedDayMonth = selectedMonth;
     selectedDayYear = selectedYear;
