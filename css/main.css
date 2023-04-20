@@ -928,8 +928,42 @@ main nav ul li a {
 
 .pDashboard .attenteDiv {
     height: 291px;
-    width: 291px;
+    width: 500px;
     background-color: #171717;
+    border-radius: 10px;
+    border-radius: 10px;
+}
+
+.pDashboard .attenteDiv #onStatus {
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.pDashboard .attenteDiv #titreAttenteDiv {
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.pDashboard .attenteDiv .statusText {
+    opacity: 50%;
+    font-size: 18px;
+}
+
+.pDashboard .attenteDiv #statusAttenteDiv {
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+.pDashboard .attenteDiv .startAttenteDiv {
+    opacity: 50%;
+    font-size: 14px;
+}
+
+.pDashboard .attenteDiv .textAttenteDiv {
+    opacity: 40%;
+    font-size: 20px;
+    text-align: center;
+    transform: translateY(500%);
 }
 
 .pDashboard .hautPageSite {
@@ -948,11 +982,11 @@ main nav ul li a {
     border-radius: 5px;
 }
 
-.pDashboard .content .site p {
+.pDashboard .content .site .infoDiv p {
     border-bottom: 2px solid var(--dashboardseparator);
     display: block;
     width: fit-content;
-    margin: 50px 0 5px;
+    margin-top: 50px;
 }
 
 .pDashboard .content .site a img {
@@ -965,8 +999,8 @@ main nav ul li a {
     display: flex;
 }
 
-.pDashboard .content .hosting .card {
-    background-color: var(--blue3);
+.pDashboard .content .hosting .hostingSub .card {
+    background-color: #2C3973;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -974,40 +1008,97 @@ main nav ul li a {
     align-items: center;
 }
 
-.pDashboard .content .hosting .card :first-child {
+.pDashboard .content .hosting .hostingSub .card :first-child {
     font-size: 1.5rem;
     text-align: center;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-.pDashboard .content .hosting .card .price {
+.pDashboard .content .hosting .hostingSub .card .price {
     margin: 30px 0;
     font-weight: 600;
 }
 
-.pDashboard .content .hosting .card :last-child {
+.pDashboard .content .hosting .hostingSub .card :last-child {
     opacity: 0.5;
 }
 
-.pDashboard .content .hosting .infos {
+.pDashboard .content .hosting .hostingSub .infos {
     margin-left: 50px;
 }
 
-.pDashboard .content .hosting .infos h1 {
+#hostingNoSub .container {
+    display: flex;
+}
+
+#hostingNoSub .buttonContainer {
+    display: flex;
+    margin-top: 50px;
+}
+
+#hostingNoSub .buttonContainer #infoSupp {
+}
+
+#hostingNoSub .card {
+    background-color: #2C3973;
+    width: 258px;
+    min-width: 258px;
+    height: 360px;
+    text-align: center;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#hostingNoSub .card .price {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+#hostingNoSub .card img {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#hostingNoSub .noHostP {
+    position: absolute;
+    right: 40%;
+    left: 40%;
+}
+
+#hostingNoSub .hostingDiv2 {
+    max-width: 600px;
+    margin-left: 60px;
+}
+
+#hostingNoSub .hostingDiv2 .text {
+    font-size: 18px;
+}
+
+#hostingNoSub .hostingDiv2 h2 {
+    margin-top: 0;
     margin-bottom: 20px;
 }
 
-.pDashboard .content .hosting .infos .name {
-    opacity: 0.5;
-    margin-top: 20px;
+#hostingNoSub #hostButton {
+    border: none;
+    width: 232px;
+    height: 45px;
+    background: linear-gradient(252.04deg, #98BED3 8.82%, #51779C 99.46%), #D9D9D9;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
 }
 
-.pDashboard .content .hosting .infos a {
-    font-size: 0.9rem;
-}
 
-/* Support */
+
+
+
+
+
+    /* Support */
 .pDashboard .content .support .banner {
     background-color: #1D1C21;
     padding: 20px;

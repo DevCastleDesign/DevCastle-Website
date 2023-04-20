@@ -1,15 +1,7 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import {getDatabase, ref, onValue, update, remove} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-import {
-    getAuth,
-    onAuthStateChanged,
-    signOut,
-    updatePassword,
-    signInWithEmailAndPassword,
-    updateEmail,
-    deleteUser
-} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-
+import {getAuth, onAuthStateChanged, signOut, updatePassword, signInWithEmailAndPassword, updateEmail, deleteUser} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -25,6 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const database = getDatabase(app);
+const storage = getStorage(app);
 
 modifButton.addEventListener('click', (e) => {
 
@@ -149,11 +142,22 @@ function verifAccount() {
                 document.getElementById('emailCompte').innerHTML = (snapshot.val().email);
                 document.getElementById('telCompte').innerHTML = (snapshot.val().tel);
                 document.getElementById('actifDateAccount').innerHTML = user.metadata.creationTime;
+                const status = (snapshot.val().status);
+
+                if (status == 'maquette') {
+                    document.getElementById('onStatus').style.display = 'block';
+                    document.getElementById('noStatus').style.display = 'none';
+                } else {
+                    document.getElementById('noStatus').style.display = 'block';
+                    document.getElementById('onStatus').style.display = 'none';
+                }
             });
             onValue(ref(database, '/users/' + user.uid + "/" + "Site"), (snapshot) => {
                 document.getElementById('nomSite').innerHTML = (snapshot.val().nom);
                 document.getElementById('urlSite').innerHTML = (snapshot.val().url);
             });
+
+
 
         } else {
             window.location.href = "index.html";

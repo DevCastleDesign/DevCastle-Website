@@ -98,12 +98,22 @@
                 <p>www.paupesarl.ch</p>
             </div>
             <div class="attenteDiv">
-                <p>Rien en attente</p>
+                <div id="onStatus" style="display: none">
+                    <p id="titreAttenteDiv">Maquette</p>
+                    <p class="statusText">status</p>
+                    <p id="statusAttenteDiv">En développement</p>
+                    <p class="startAttenteDiv">Commencé le <span id="dateAttenteDiv">13.03.23</span></p>
+                </div>
+                <div id="noStatus" style="display: none">
+                    <p class="textAttenteDiv">Rien en attente</p>
+                </div>
+
+
             </div>
         </div>
-
         <h2>Informations</h2>
         <table>
+            <div class="infoDiv">
             <tr>
                 <td>Nom du site</td>
                 <td id="nomSite">---</td>
@@ -119,30 +129,68 @@
                 <td>---</td>
                 <td><img src="./src/Icons/CrayonIcon.png"></td>
             </tr>
+        </div>
         </table>
         <p>Récuperer le code source</p>
         <a href=""><img alt="" src="./src/Icons/AddIcon.png">Télécharger</a>
+
     </div>
     <div class="hosting" style="display: none;">
-        <h1>Hebergement</h1>
-        <div class="columns">
-            <div class="card">
-                <p>Hebergement</p>
-                <img alt="" src="./src/Images/HebergementImage.png">
-                <p class="price">50 CHF/an</p>
-                <p>actif depuis le ---</p>
-            </div>
-            <div class="infos">
-                <h1>Informations</h1>
-                <p class="name">Statut</p>
-                <p class="value">---</p>
-                <p class="name">Adresse</p>
-                <p class="value">---</p>
-                <p class="name">Moyen de paiement</p>
-                <p class="value">---</p>
-                <a href="">Modifier</a>
+        <div id="hostingSub" style="display: none">
+            <h1>Hebergement</h1>
+            <div class="columns">
+                <div class="card">
+                    <p>Hebergement</p>
+                    <img alt="" src="./src/Images/HebergementImage.png">
+                    <p class="price">50 CHF/an</p>
+                    <p>actif depuis le ---</p>
+                </div>
+                <div class="infos">
+                    <h1>Informations</h1>
+                    <p class="name">Statut</p>
+                    <p class="value">---</p>
+                    <p class="name">Adresse</p>
+                    <p class="value">---</p>
+                    <p class="name">Moyen de paiement</p>
+                    <p class="value">---</p>
+                    <a href="">Modifier</a>
+                </div>
             </div>
         </div>
+        <div id="hostingNoSub">
+            <h1>Hebergement</h1>
+            <div class="container">
+                <div class="card">
+                    <h2>Hebergement</h2>
+                    <img alt="" src="./src/Images/HebergementImage.png">
+                    <p class="price">50 CHF / an</p>
+                    <p>Vous n’avez rien à faire, vous n’avez qu’à profiter de votre site internet</p>
+                </div>
+                <div class="hostingDiv2">
+                    <h2>Hebergement</h2>
+                    <input id="file-input" type="file">
+
+                    <p class="text">L’hebergement ? Il sert à pouvoir avoir accès à son site web
+                        sur internet. Il est donc indispensable et est mis en place
+                        pour 100% des site internet
+                        <br><br>
+                        Nos services d'hébergement de site web sont conçus pour offrir
+                        une plateforme de haute qualité et fiable pour votre site web.
+                        <br><br>
+                        Nous proposons un plans d'hébergement adaptés à tout les types
+                        de sites web, que vous soyez un blogueur débutant, une petite
+                        entreprise ou une entreprise de grande envergure. Votre site
+                        internet sera en ligne 24/24.</p>
+                    <div class="buttonContainer">
+                        <input id="hostButton" type="submit" value="Commencer">
+                        <input id="infoSupp" type="submit" value="Informations supplémentaires">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <p class="noHostP">Vous n’avez pas encore d’hebergeur</p>
+        </div>
+
     </div>
     <div class="support" style="display: none;">
         <div class="banner">
