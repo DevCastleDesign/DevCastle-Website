@@ -87,6 +87,7 @@
             </tr>
         </table>
         <p>actif depuis le <span id="actifDateAccount">---</span></p>
+        <input id="suppAccount" type="submit" value="Supprimer mon compte">
     </div>
     <div class="site" style="display: none;">
         <h1>Mon site</h1>
@@ -215,6 +216,17 @@
         <textarea placeholder="Description"></textarea>
 
         <button>Envoyer</button>
+    </div>
+
+    <div id="suppAccountPopup" style="display: none">
+        <h1>Supprimer mon compte</h1>
+        <p>Pour une raison de sécurité, veuillez confirmer l'aide de votre mot de passe</p>
+        <input id="supAccountMdp" placeholder="mot de passe" type="password">
+        <p id="suppCompteMdpAlerte"></p>
+        <div class="buttonDiv">
+            <input id="suppAccountButton" type="submit" value="Supprimer">
+            <input id="cancelSuppAccountButton" type="submit" value="annuler">
+        </div>
     </div>
 
     <div class="popupmodif" id="popupmodif" style="display: none">

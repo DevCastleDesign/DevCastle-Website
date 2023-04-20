@@ -1202,7 +1202,6 @@ main nav ul li a {
     margin-bottom: 30px;
 }
 
-
 .pDashboard .popupmodif input[type="text"], .pDashboard .popupmodif input[type="password"]{
     width: 350px;
     height: 40px;
@@ -1210,7 +1209,6 @@ main nav ul li a {
     margin-bottom: 15px;
     margin-top: 5px;
 }
-
 
 .pDashboard .buttonDiv {
     display: flex;
@@ -1225,13 +1223,77 @@ main nav ul li a {
     height: 40px;
     width: 120px;
     font-size: 20px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .pDashboard #cancelButton {
     height: 40px;
     width: 120px;
     font-size: 20px;
+    cursor: pointer;
 }
+
+.pDashboard #suppAccountPopup {
+    background-color: var(--dashboardseparator);
+    height: 320px;
+    width: 600px;
+    position: absolute;
+    margin: 50vh 0 0 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+}
+
+.pDashboard #suppAccount {
+    width: 200px;
+    height: 50px;
+    border: none;
+    background-color: #303134;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.pDashboard #suppAccountButton {
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.pDashboard #suppAccountPopup h1 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.pDashboard #suppAccountPopup input[type="password"]{
+    width: 350px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.pDashboard #suppAccountPopup p{
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+}
+
+
+.pDashboard #cancelSuppAccountButton {
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
 
 
 /* #endregion */

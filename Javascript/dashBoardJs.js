@@ -1,5 +1,5 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-import {getDatabase, ref, onValue, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+import {getDatabase, ref, onValue, update, remove} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import {
     getAuth,
     onAuthStateChanged,
@@ -7,6 +7,7 @@ import {
     updatePassword,
     signInWithEmailAndPassword,
     updateEmail,
+    deleteUser
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
 
@@ -168,3 +169,34 @@ logOutButton.addEventListener('click', (e) => {
         alert("non")
     });
 });
+
+suppAccount.addEventListener('click', (e) => {
+
+    document.getElementById('popup-blur').style.display = 'block';
+    document.getElementById('suppAccountPopup').style.display = 'block';
+});
+
+
+
+suppAccountButton.addEventListener('click', (e) => {
+
+    const user = auth.currentUser;
+    signInWithEmailAndPassword(auth, user.email, document.getElementById('supAccountMdp').value)
+        .then((userCredential) => {
+            deleteUser(user).then(() => {
+                remove(ref(database, 'users/' + user.uid), {});
+                window.location.href = "index.html";
+            }).catch((error) => {
+                alert(error)
+            });
+        })
+        .catch((error) => {
+            document.getElementById('suppCompteMdpAlerte').innerHTML = "mot de passe incorrect";
+        });
+});
+
+cancelSuppAccountButton.addEventListener('click', (e) => {
+    document.getElementById('suppAccountPopup').style.display = 'none';
+    document.getElementById('popup-blur').style.display = 'none';
+});
+
