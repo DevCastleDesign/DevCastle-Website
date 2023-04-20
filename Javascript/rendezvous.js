@@ -184,6 +184,7 @@ function submit() {
                 tel: document.getElementById("infos-tel").value,
                 more: document.getElementById("infos-more").value,
             };
+
             emailjs.send('service_gtw1i4t', 'template_vo11f77', templateParams).then(function(response) {
                 document.getElementById("popup-ok").style.display = "flex";
                 document.body.style.overflow = 'hidden';

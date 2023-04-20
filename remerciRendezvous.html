@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="pRemerciRendezvous">
+<head>
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Sohan Anampalli & Arsène Brosy" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
+
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
+
+    <!-- CSS -->
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<main>
+    <nav class="header">
+        <a href=""><img height="83" src="src/Icons/DevCastleIcon.png" width="148"/></a>
+        <ul id="navNoAccount">
+            <li><a href="./contact.html">Contact</a></li>
+            <li id="loginButton"><a class="blueButton" href="connexion.html">Connexion</a></li>
+        </ul>
+        <ul id="navAccount">
+            <li><a href="./contact.html">Contact</a></li>
+            <li id="logOutButton"><a href="">Se deconnecter</a></li>
+            <li id="dashboardNav"><a href="dashboard.html">
+                <div class="blueButton">Tableau de bord</div>
+            </a></li>
+        </ul>
+    </nav>
+</main>
+<H1>Rendez-vous effectué</H1>
+<p>nous vous enverons un mail de confirmation du rendez-vous dans les brefs délais à l'adresse suivante:</p>
+<p id="email" class="email">sohan.anampalli@gmail.com</p>
+<p class="warning">Veuillez vérifiez régulièrement vos mails pour vous tenir informé des éventuels problèmes</p>
+
+<input onclick="window.location.href = 'dashboard.html'" class="dashButton" type="submit" value="Accéder au tableau de bord">
+<a class="retourAccueil" href="index.html">Retourner à l’accueil</a>
+
+<script src="./Javascript/rendezvous.js"></script>
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+    window.addEventListener('load', function () {
+        setTimeout(verifAccount, onAuthStateChanged)
+    });
+
+    templater
+
+    function verifAccount() {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('navAccount').style.display = "flex";
+                onValue(ref(database, 'users/' + user.uid + "/rdv"), (snapshot) => {
+                    document.getElementById('email').innerHTML = (snapshot.val().email);
+                }, {
+                    onlyOnce: true
+                });
+            } else {
+                document.getElementById('navNoAccount').style.display = "flex";
+            }
+        });
+    };
+
+    logOutButton.addEventListener('click', (e) => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            document.getElementById('navAccount').style.display = "none";
+            window.location.reload();
+        }).catch((error) => {
+            alert("non")
+        });
+    });
+
+    commandeButton.addEventListener('click', (e) => {
+        window.location.href = "site-welcome.html";
+    });
+
+</script>
+<footer class="footer">
+    <label class="devCastleFooter">DevCastle</label>
+    <p class="pitchFooter">Débloquez le plein potentiel de votre entreprise</p>
+    <div>
+        <p class="copyRightFooter">© 2023 - devcastle</p>
+        <p>Contact</p>
+        <a href="termesUtilisation.html">Termes d’utilisation</a>
+    </div>
+</footer>
+</body>
+</html>

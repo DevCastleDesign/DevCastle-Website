@@ -85,6 +85,46 @@ img {
     }
 }
 
+/* #region MENU NAVIGATION */
+/*****************************************
+	 MENU NAVIGATION
+******************************************/
+
+main nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    height: 100px;
+    font-size: 18px;
+    color: white;
+}
+
+main nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 600px;
+}
+
+main nav ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+main nav ul li .blueButton {
+    background-color: var(--blue3);
+    padding: 10px 25px;
+    border-radius: 5px;
+    border-width: 40px;
+}
+
+main nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* #endregion */
+
 /* #region ACCUIEL */
 /*****************************************
 	 ACCUEIL
@@ -174,39 +214,6 @@ img {
 
 .pAccueil .commandButton:hover {
     background-color: #DBEBFF;
-}
-
- main nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0;
-    height: 100px;
-    font-size: 18px;
-    color: white;
-}
-
- main nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    width: 600px;
-}
-
- main nav ul li {
-    list-style: none;
-    margin-left: 35px;
-}
-
- main nav ul li .blueButton {
-    background-color: var(--blue3);
-    padding: 10px 25px;
-    border-radius: 5px;
-    border-width: 40px;
-}
-
- main nav ul li a {
-    text-decoration: none;
-    color: white;
 }
 
 .pAccueil .sectionHaut {
@@ -320,7 +327,6 @@ img {
     transition: 0.2s;
 }
 
-
 .pAccueil .r2 {
     transform: translateY(7px);
     transition: 0.2s;
@@ -388,7 +394,6 @@ img {
 .pAccueil .securePaiement h1 {
     font-size: 32px;
 }
-
 
 .pAccueil .etoiles {
     width: 220px;
@@ -483,21 +488,27 @@ img {
         opacity: 0;
     }
 }
+
 .pAccueil .delay-1 {
     animation-delay: 1s;
 }
+
 .pAccueil .delay-2 {
     animation-delay: 2s;
 }
+
 .pAccueil .delay-3 {
     animation-delay: 3s;
 }
+
 .pAccueil .delay-4 {
     animation-delay: 4s;
 }
+
 .pAccueil .delay-5 {
     animation-delay: 5s;
 }
+
 .pAccueil .delay-6 {
     animation-delay: 6s;
 }
@@ -729,7 +740,7 @@ img {
 
 /* #region CONTACT */
 /*****************************************
-	 Contact
+	 CONTACT
 ******************************************/
 
 .pContact {
@@ -787,9 +798,14 @@ img {
     opacity: 0.5;
     margin-top: 30px;
 }
+
 /* #endregion */
 
 /* #region DASHBOARD */
+/*****************************************
+	 DASHBOARD
+******************************************/
+
 .pDashboard {
     background-color: var(--dashboarddark);
     display: flex;
@@ -899,13 +915,11 @@ img {
 }
 
 /* Compte */
-
 .pDashboard .content .account p {
     opacity: 0.3;
 }
 
 /* Site */
-
 .pDashboard .siteImage {
     height: 291px;
     width: 554px;
@@ -922,8 +936,6 @@ img {
     display: flex;
     justify-content: space-between;
 }
-
-
 
 .pDashboard .content .site a {
     background-color: var(--dashboardseparator);
@@ -1174,6 +1186,10 @@ img {
 /* #endregion */
 
 /* #region RENDEZ VOUS */
+/*****************************************
+	 RENDEZ VOUS
+******************************************/
+
 .pRDV {
     padding: 50px 0;
 }
@@ -1445,7 +1461,7 @@ img {
     margin-top: 25px;
 }
 
-.pRDV #submit {
+.pRDV #submitButton {
     border: 0;
     font-size: 1rem;
     font-weight: bold;
@@ -1504,9 +1520,14 @@ img {
     transform: translateX(-50%);
     text-decoration: none;
 }
+
 /* #endregion */
 
-/* #region WELCOME */
+/* #region SITE WELCOME */
+/*****************************************
+	 SITE WELCOME
+******************************************/
+
 .pSite-welcome h1 {
     font-size: 98px;
     animation: apparition 0.8s ease-in-out forwards;
@@ -1543,6 +1564,11 @@ img {
         opacity: 1;
     }
 }
+
+/* #region SITE INFORMATION */
+/*****************************************
+	 SITE INFORMATION
+******************************************/
 
 .pSite-information {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
@@ -1604,19 +1630,19 @@ img {
     padding: 20px;
 }
 
-.imageRecDiv {
+.pSite-information .imageRecDiv {
     background-image: url("../src/Images/SuisseDrapeauImage.jpg");
     height: 200px;
     width: 400px;
     position: relative;
 }
 
-.suppImage:hover {
+.pSite-information .suppImage:hover {
     background-color: black;
     opacity: 100%;
 }
 
-.suppImage {
+.pSite-information .suppImage {
     opacity: 0%;
     width: 100%;
     height: 100%;
@@ -1647,8 +1673,7 @@ img {
     scale: 110%;
 }
 
-
-.addColor {
+.pSite-information .addColor {
     height: 5vw;
     width: 5vw;
     border-radius: 10px;
@@ -1673,6 +1698,10 @@ img {
 
 /* #endregion */
 
+/* #region VALID PAIEMENT */
+/*****************************************
+	 VALID PAIEMENT
+******************************************/
 
 .pValidPaiement main {
     padding-left: 60px;
@@ -1687,13 +1716,13 @@ img {
     color: white;
 }
 
-.greenRec {
+.pValidPaiement .greenRec {
     background-color: #A9FFB2;
     height: 188px;
     width: 440px;
 }
 
-.greenRec p {
+.pValidPaiement .greenRec p {
     color: #105106;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -1706,7 +1735,7 @@ img {
     max-width: 300px;
 }
 
-.greenRec img {
+.pValidPaiement .greenRec img {
     position: absolute;
     margin-top: 15px;
     margin-left: 20px;
@@ -1719,7 +1748,7 @@ img {
     margin-bottom: 70px;
 }
 
-.validDiv {
+.pValidPaiement .validDiv {
     display: flex;
     justify-content: space-between;
     width: 680px;
@@ -1729,7 +1758,6 @@ img {
 .pValidPaiement .infoPrix {
     transform: translateY(15px);
 }
-
 
 .pValidPaiement .prix {
     font-size: 38px;
@@ -1763,6 +1791,13 @@ img {
     text-align: center;
     margin-bottom: 100px;
 }
+
+/* #endregion */
+
+/* #region pOPTIONS */
+/*****************************************
+	 pOPTIONS
+******************************************/
 
 .pOptions {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
@@ -1849,22 +1884,16 @@ img {
     font-size: 20px;
 }
 
+/* #endregion */
 
-
-
-
-
-
-
-
-
-
-
+/* #region PAIEMENT */
+/*****************************************
+	 PAIEMENT
+******************************************/
 
 .pPaiement body {
     padding: 100px;
 }
-
 
 .pPaiement .trace-chf {
     color: #AFAFAF;
@@ -1993,7 +2022,6 @@ img {
     margin: 0 auto;
 }
 
-
 .pPaiement .inscriptionButton-loading span{
     visibility: hidden;
     opacity: 0;
@@ -2014,6 +2042,7 @@ img {
     border-radius: 50%;
     animation: inscriptionButton-loading 1s ease infinite;
 }
+
 .pPaiement .inscriptionButton {
     border: none;
     background-color: #294876;
@@ -2046,13 +2075,21 @@ img {
     margin-top: 30px;
 }
 
-.outer {
+/* #endregion */
+
+/* #region REMERCIEMENT */
+/*****************************************
+	 REMERCIEMENT
+******************************************/
+
+.pRemerciements .outer {
     background-image: url(../src/Icons/EtoileGrisIcon.png);
     height: 25px;
     width: 150px;
     background-size: 30px;
 }
-.inner {
+
+.pRemerciements .inner {
     background-image: url(../src/Icons/EtoileIco.png);
     height: 25px;
     width: 90px;
@@ -2120,18 +2157,86 @@ img {
     cursor: pointer;
 }
 
-.star {
+.pRemerciements .star {
     display: flex;
     justify-content: center;
 }
 
-.star .star-fill {
+.pRemerciements .star .star-fill {
     background-image: url(../src/Icons/EtoileGrisIcon.png);
     height: 25px;
     width: 30px;
     background-size: 30px;
 }
 
-.star .star-fill.active {
+.pRemerciements .star .star-fill.active {
     background-image: url(../src/Icons/EtoileIco.png);
 }
+
+/* #endregion */
+
+/* #region REMERCIEMENT RDV */
+/*****************************************
+	 REMERCIEMENT RDV
+******************************************/
+
+.pRemerciRendezvous main a {
+    color: black;
+}
+
+.pRemerciRendezvous main .blueButton {
+    color: white;
+}
+
+.pRemerciRendezvous main  {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.pRemerciRendezvous {
+    text-align: center;
+}
+
+.pRemerciRendezvous h1 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+.pRemerciRendezvous p {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.pRemerciRendezvous .email {
+    font-weight: bold;
+}
+
+.pRemerciRendezvous .warning {
+    max-width: 500px;
+    margin: 60px auto 0 auto;
+    font-size: 15px;
+}
+
+.pRemerciRendezvous .dashButton {
+    display: block;
+    margin: 100px auto 60px auto;
+    width: 429px;
+    height: 62px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 9px;
+    font-size: 20px;
+    background-color: #D9D9D9;
+    cursor: pointer;
+}
+
+.pRemerciRendezvous .retourAccueil {
+    display: block;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+/* #endregion */
