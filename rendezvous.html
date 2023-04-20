@@ -152,7 +152,9 @@
                 errorMsg.innerHTML = "Veuillez saisir votre numero de télephone";
             } else {
 
-                submit()
+
+                submitButton.disabled = true;
+                submitButton.style.opacity = 0.6;
 
                 if (mode === 0) {
                     set(ref(database, 'users/' + user.uid + "/rdv"), {
@@ -164,6 +166,9 @@
                         tel: document.getElementById("infos-tel").value,
                         more: document.getElementById("infos-more").value,
                     });
+
+
+
                 } else {
                     set(ref(database, 'users/' + user.uid + "/rdv"), {
                         datetime: dname.innerHTML,
@@ -175,51 +180,16 @@
                         tel: document.getElementById("infos-tel").value,
                         more: document.getElementById("infos-more").value,
                     });
+
+
                 }
+
+                sendMail()
+
+
             }
         });
     </script>
 </div>
-<script>
-    function submit() {
-
-        if (mode === 0) {
-            var templateParams = {
-
-                adress: adressFields.children[4].value,
-                npa: adressFields.children[1].value,
-                loc: adressFields.children[2].value,
-                name: document.getElementById("infos-name").value,
-                email: document.getElementById("infos-email").value,
-                tel: document.getElementById("infos-tel").value,
-                more: document.getElementById("infos-more").value,
-            };
-
-            emailjs.send('service_gtw1i4t', 'template_vo11f77', templateParams).then(function (response) {
-                document.getElementById("popup-ok").style.display = "flex";
-                document.body.style.overflow = 'hidden';
-                window.scrollTo(0, 0);
-            });
-        }
-        if (mode === 1) {
-            var templateParams = {
-                datetime: dname.innerHTML,
-                plateform: videoModeString,
-                username: videoFields.children[2].value,
-                name: document.getElementById("infos-name").value,
-                email: document.getElementById("infos-email").value,
-                tel: document.getElementById("infos-tel").value,
-                more: document.getElementById("infos-more").value,
-            };
-            emailjs.send('service_gtw1i4t', 'template_ht3k4w7', templateParams).then(function (response) {
-                document.getElementById("popup-ok").style.display = "flex";
-                document.body.style.overflow = 'hidden';
-                window.scrollTo(0, 0);
-            });
-        }
-
-    }
-
-</script>
 </body>
 </html>

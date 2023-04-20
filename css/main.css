@@ -1183,6 +1183,57 @@ main nav ul li a {
     outline: none;
 }
 
+.pDashboard .popupmodif {
+    background-color: var(--dashboardseparator);
+    height: 320px;
+    width: 600px;
+    position: absolute;
+    margin: 50vh 0 0 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+}
+
+.pDashboard .popupmodif h1 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+
+.pDashboard .popupmodif input[type="text"], .pDashboard .popupmodif input[type="password"]{
+    width: 350px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+
+.pDashboard .buttonDiv {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 20px;
+    left: 150px;
+    right: 150px;
+}
+
+.pDashboard #modifButton {
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+}
+
+.pDashboard #cancelButton {
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+}
+
+
 /* #endregion */
 
 /* #region RENDEZ VOUS */

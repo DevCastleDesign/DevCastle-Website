@@ -1,256 +1,463 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Metadonnées -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Arsène Brosy & Maltered">
-  <meta name="keywords" content="Création, site, internet, web, design">
-  <meta name="description" content="Creez vos sites web avec des pros a mini-prix">
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Arsène Brosy & Maltered" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
 
-  <!-- Titre -->
-  <title>Devcastle - Création de site webs a mini-prix</title>
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="./css/fonts/fonts.css">
-  <link rel="stylesheet" href="css/main.css">
+    <!-- CSS -->
+    <link href="./css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body class="pDashboard">
 <div class="panels">
-  <div class="list">
-    <ul id="panellist">
-      <li><button onclick="OpenDashboard(0)" class="active"><img src="./src/Icons/ParamIcon.png"><span>Compte</span></button></li>
-      <li><button onclick="OpenDashboard(1)"><img src="./src/Icons/HomeIcon.png"><span>Mon site</span></button></li>
-      <li><button onclick="OpenDashboard(2)"><img src="./src/Icons/CloudIcon.png"><span>Hebergement</span></button></li>
-      <li><button onclick="OpenDashboard(3)"><img src="./src/Icons/InterogationIcon.png"><span>Support</span></button></li>
+    <div class="list">
+        <ul id="panellist">
+            <li>
+                <button class="active" onclick="OpenDashboard(0)"><img
+                        src="./src/Icons/ParamIcon.png"><span>Compte</span></button>
+            </li>
+            <li>
+                <button onclick="OpenDashboard(1)"><img src="./src/Icons/HomeIcon.png"><span>Mon site</span></button>
+            </li>
+            <li>
+                <button onclick="OpenDashboard(2)"><img src="./src/Icons/CloudIcon.png"><span>Hebergement</span>
+                </button>
+            </li>
+            <li>
+                <button onclick="OpenDashboard(3)"><img src="./src/Icons/InterogationIcon.png"><span>Support</span>
+                </button>
+            </li>
+        </ul>
+        <div id="selector"></div>
+    </div>
+    <ul class="commandlist">
+        <li>
+            <button onclick="window.location.href='index.html';"><img
+                    src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button>
+        </li>
+        <li id="logOutButton">
+            <button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button>
+        </li>
     </ul>
-    <div id="selector"></div>
-  </div>
-  <ul class="commandlist">
-    <li><button onclick="window.location.href='index.html';"><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button></li>
-    <li id="logOutButton"><button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button></li>
-  </ul>
 </div>
 <div class="content" id="pagecontainer">
-  <div class="account" style="display: block;">
-    <h1>Mon compte</h1>
-    <h2>Informations</h2>
-    <table>
-      <tr>
-        <td>Nom</td>
-        <td id="nomCompte" class="nomCompte">---</td>
-        <td><img src="./src/Icons/CrayonIcon.png"></td>
-      </tr>
-      <tr>
-        <td>Prenom</td>
-        <td id="prenomCompte">---</td>
-        <td><img src="./src/Icons/CrayonIcon.png"></td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td id="emailCompte">---</td>
-        <td><img src="./src/Icons/CrayonIcon.png"></td>
-      </tr>
-      <tr>
-        <td>Telephone</td>
-        <td id="telCompte">---</td>
-        <td><img src="./src/Icons/CrayonIcon.png"></td>
-      </tr>
-      <tr>
-        <td>Mot de passe</td>
-        <td>---</td>
-        <td><img src="./src/Icons/CrayonIcon.png"></td>
-      </tr>
-      <tr>
-        <td>Budget</td>
-        <td>---</td>
-        <td><img src="./src/Icons/CrayonIcon.png"></td>
-      </tr>
-    </table>
-    <p>actif depuis le <span id="actifDateAccount">---</span></p>
-  </div>
-  <div class="site" style="display: none;">
-    <h1>Mon site</h1>
+    <div class="account" style="display: block;">
+        <h1>Mon compte</h1>
+        <h2>Informations</h2>
+        <table>
+            <tr>
+                <td>Nom</td>
+                <td class="nomCompte" id="nomCompte">---</td>
+                <td onclick="modifPopup('nom', 'nomCompte')"><img src="./src/Icons/CrayonIcon.png"></td>
+            </tr>
+            <tr>
+                <td>Prenom</td>
+                <td id="prenomCompte">---</td>
+                <td onclick="modifPopup('prenom', 'prenomCompte')"><img src="./src/Icons/CrayonIcon.png"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td id="emailCompte">---</td>
+                <td onclick="modifPopup('email', 'emailCompte')"><img src="./src/Icons/CrayonIcon.png"></td>
+            </tr>
+            <tr>
+                <td>Telephone</td>
+                <td id="telCompte">---</td>
+                <td onclick="modifPopup('numéro de telephone', 'telCompte')"><img src="./src/Icons/CrayonIcon.png"></td>
+            </tr>
+            <tr>
+                <td>Mot de passe</td>
+                <td>---</td>
+                <td onclick="modifPopup('mot de passe', 'mdpCompte')"><img src="./src/Icons/CrayonIcon.png"></td>
+            </tr>
+            <tr>
+                <td>Budget</td>
+                <td>---</td>
+                <td><img src="./src/Icons/CrayonIcon.png"></td>
+            </tr>
+        </table>
+        <p>actif depuis le <span id="actifDateAccount">---</span></p>
+    </div>
+    <div class="site" style="display: none;">
+        <h1>Mon site</h1>
 
-    <div class="hautPageSite">
-      <div class="siteImage">
-        <p>Paupe sarl</p>
-        <p>www.paupesarl.ch</p>
-      </div>
-      <div class="attenteDiv">
-        <p>Rien en attente</p>
-      </div>
-    </div>
-
-    <h2>Informations</h2>
-    <table>
-      <tr>
-        <td>Nom du site</td>
-        <td id="nomSite">---</td>
-        <td><img src="./src/Icons/CrayonIcon.png"></td>
-      </tr>
-      <tr>
-        <td>URL</td>
-        <td id="urlSite">---</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Icone</td>
-        <td>---</td>
-        <td><img src="./src/Icons/CrayonIcon.png"></td>
-      </tr>
-    </table>
-    <p>Récuperer le code source</p>
-    <a href=""><img src="./src/Icons/AddIcon.png" alt="">Télécharger</a>
-  </div>
-  <div class="hosting" style="display: none;">
-    <h1>Hebergement</h1>
-    <div class="columns">
-      <div class="card">
-        <p>Hebergement</p>
-        <img src="./src/Images/HebergementImage.png" alt="">
-        <p class="price">50 CHF/an</p>
-        <p>actif depuis le ---</p>
-      </div>
-      <div class="infos">
-        <h1>Informations</h1>
-        <p class="name">Statut</p>
-        <p class="value">---</p>
-        <p class="name">Adresse</p>
-        <p class="value">---</p>
-        <p class="name">Moyen de paiement</p>
-        <p class="value">---</p>
-        <a href="">Modifier</a>
-      </div>
-    </div>
-  </div>
-  <div class="support" style="display: none;">
-    <div class="banner">
-      <div>
-        <h1>Support et aide</h1>
-        <p>Nous sommes à l'ecoute de toutes vos questions cela fait partie de nos valeurs</p>
-      </div>
-      <img src="./src/Images/SupportImage.png" alt="">
-    </div>
-    <p>N'hésitez pas a nous demander de l'aide si vous avez le moindre doute et nous vous réponderons au plus vite.
-      <br><br>Vous verrez nos réponses ici ainsi via un mail qui vous sera envoyé</p>
-    <div class="h2p"><h2>Vos questions</h2><p>Vous avez - réponse en attente</p></div>
-    <div class="columns">
-      <div class="tickets">
-        <div class="list">
-          <button>Question test<div class="reddot"></div></button>
-          <button>Question test<div class="reddot"></div></button>
-          <button>Question test<div class="reddot"></div></button>
-          <button>Question test<div class="reddot"></div></button>
-          <button>Question test<div class="reddot"></div></button>
-          <button>Question test<div class="reddot"></div></button>
-          <button>Question test<div class="reddot"></div></button>
-          <button>Question test<div class="reddot"></div></button>
+        <div class="hautPageSite">
+            <div class="siteImage">
+                <p>Paupe sarl</p>
+                <p>www.paupesarl.ch</p>
+            </div>
+            <div class="attenteDiv">
+                <p>Rien en attente</p>
+            </div>
         </div>
-      </div>
-      <a>Nouvelle question</a>
+
+        <h2>Informations</h2>
+        <table>
+            <tr>
+                <td>Nom du site</td>
+                <td id="nomSite">---</td>
+                <td><img src="./src/Icons/CrayonIcon.png"></td>
+            </tr>
+            <tr>
+                <td>URL</td>
+                <td id="urlSite">---</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Icone</td>
+                <td>---</td>
+                <td><img src="./src/Icons/CrayonIcon.png"></td>
+            </tr>
+        </table>
+        <p>Récuperer le code source</p>
+        <a href=""><img alt="" src="./src/Icons/AddIcon.png">Télécharger</a>
     </div>
-  </div>
+    <div class="hosting" style="display: none;">
+        <h1>Hebergement</h1>
+        <div class="columns">
+            <div class="card">
+                <p>Hebergement</p>
+                <img alt="" src="./src/Images/HebergementImage.png">
+                <p class="price">50 CHF/an</p>
+                <p>actif depuis le ---</p>
+            </div>
+            <div class="infos">
+                <h1>Informations</h1>
+                <p class="name">Statut</p>
+                <p class="value">---</p>
+                <p class="name">Adresse</p>
+                <p class="value">---</p>
+                <p class="name">Moyen de paiement</p>
+                <p class="value">---</p>
+                <a href="">Modifier</a>
+            </div>
+        </div>
+    </div>
+    <div class="support" style="display: none;">
+        <div class="banner">
+            <div>
+                <h1>Support et aide</h1>
+                <p>Nous sommes à l'ecoute de toutes vos questions cela fait partie de nos valeurs</p>
+            </div>
+            <img alt="" src="./src/Images/SupportImage.png">
+        </div>
+        <p>N'hésitez pas a nous demander de l'aide si vous avez le moindre doute et nous vous réponderons au plus vite.
+            <br><br>Vous verrez nos réponses ici ainsi via un mail qui vous sera envoyé</p>
+        <div class="h2p"><h2>Vos questions</h2>
+            <p>Vous avez - réponse en attente</p></div>
+        <div class="columns">
+            <div class="tickets">
+                <div class="list">
+                    <button>Question test
+                        <div class="reddot"></div>
+                    </button>
+                    <button>Question test
+                        <div class="reddot"></div>
+                    </button>
+                    <button>Question test
+                        <div class="reddot"></div>
+                    </button>
+                    <button>Question test
+                        <div class="reddot"></div>
+                    </button>
+                    <button>Question test
+                        <div class="reddot"></div>
+                    </button>
+                    <button>Question test
+                        <div class="reddot"></div>
+                    </button>
+                    <button>Question test
+                        <div class="reddot"></div>
+                    </button>
+                    <button>Question test
+                        <div class="reddot"></div>
+                    </button>
+                </div>
+            </div>
+            <a>Nouvelle question</a>
+        </div>
+    </div>
 </div>
-<div id="popup-blur" style="display:none;">
-  <div class="popup ticket">
-    <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
-    <h1>Titre de la question</h1>
+<div id="popup-blur" style="display:block;">
+    <div class="popup ticket" style="display: none">
+        <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+        <h1>Titre de la question</h1>
 
-    <h2>Votre question</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, alias sunt! Rem perferendis temporibus eligendi, iure magnam sunt nemo aspernatur assumenda provident facilis nam, vero odit, unde maiores. Magnam, quis?</p>
+        <h2>Votre question</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, alias sunt! Rem perferendis temporibus
+            eligendi, iure magnam sunt nemo aspernatur assumenda provident facilis nam, vero odit, unde maiores. Magnam,
+            quis?</p>
 
-    <h2>Notre réponse</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum? Odit similique autem, molestiae fugit optio vel dicta, assumenda placeat error blanditiis quis eos eum fugiat totam quo eveniet quas.</p>
+        <h2>Notre réponse</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum? Odit similique autem, molestiae fugit
+            optio vel dicta, assumenda placeat error blanditiis quis eos eum fugiat totam quo eveniet quas.</p>
 
-    <button>Fermer la question</button>
-  </div>
-  <div class="popup new-ticket">
-    <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
-    <h1>Nouvelle question</h1>
+        <button>Fermer la question</button>
+    </div>
+    <div class="popup new-ticket" style="display: none">
+        <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+        <h1>Nouvelle question</h1>
 
-    <h2>Titre de la question</h2>
-    <input type="text" placeholder="Titre">
+        <h2>Titre de la question</h2>
+        <input placeholder="Titre" type="text">
 
-    <h2>Expliquez nous tout</h2>
-    <textarea placeholder="Description"></textarea>
+        <h2>Expliquez nous tout</h2>
+        <textarea placeholder="Description"></textarea>
 
-    <button>Envoyer</button>
-  </div>
+        <button>Envoyer</button>
+    </div>
+
+    <div class="popupmodif" id="popupmodif" style="display: block">
+        <h1>Modifier mon <span id="type">---</span></h1>
+
+        <div id="classicModif" style="display: none">
+            <p>actuel : <span id="titre">--</span></p>
+            <input id="inputModif" type="text">
+            <p id="inputAlerte"></p>
+        </div>
+
+        <div id="emailDiv" style="display: none">
+            <p>actuel : <span id="titreEmail">--</span></p>
+            <input id="emailMdp" placeholder="mot de passe actuel" type="text">
+            <input id="inputEmail" placeholder="nouvelle email" type="text">
+            <p id="emailAlerte"></p>
+        </div>
+
+        <div id="mdpDiv" style="display: none">
+            <input id="oldMdp" placeholder="mot de passe actuel" type="password">
+            <input id="newMdp" placeholder="nouveau mot de passe" type="password">
+            <p id="oldMdpAlerte"></p>
+        </div>
+
+        <div class="buttonDiv">
+            <input id="modifButton" type="submit" value="modifier">
+            <input id="cancelButton" type="submit" value="annuler">
+        </div>
+
+    </div>
+    <script>
+
+        function modifPopup(type, titre) {
+
+            document.getElementById('type').innerHTML = type;
+            if (type != 'mot de passe' && type != 'email') {
+                document.getElementById('classicModif').style.display = 'block';
+                document.getElementById('titre').innerText = document.getElementById(titre).innerHTML;
+
+                document.getElementById('inputModif').placeholder = "nouveau " + type;
+
+            } else if (type == 'email') {
+                document.getElementById('emailDiv').style.display = 'block';
+                document.getElementById('titreEmail').innerText = document.getElementById(titre).innerHTML;
+            } else {
+                document.getElementById('mdpDiv').style.display = 'block';
+            }
+
+            document.getElementById('popup-blur').style.display = 'block';
+            document.getElementById('popupmodif').style.display = 'block';
+        }
+
+    </script>
+
 </div>
 
 <script>
-  var height = document.getElementById("panellist").children[0].clientHeight;
-  function OpenDashboard(index) {
-    for (var i = 0; i < document.getElementById("panellist").childElementCount; i++) {
-      document.getElementById("panellist").children[i].children[0].classList.remove("active");
-      document.getElementById("pagecontainer").children[i].style.display = "none";
+    var height = document.getElementById("panellist").children[0].clientHeight;
+
+    function OpenDashboard(index) {
+        for (var i = 0; i < document.getElementById("panellist").childElementCount; i++) {
+            document.getElementById("panellist").children[i].children[0].classList.remove("active");
+            document.getElementById("pagecontainer").children[i].style.display = "none";
+        }
+        document.getElementById("panellist").children[index].children[0].classList.add("active");
+        document.getElementById("pagecontainer").children[index].style.display = "block";
+        document.getElementById("selector").style.transform = "translateY(" + (20 * (index + 1) + height * index) + "px)";
     }
-    document.getElementById("panellist").children[index].children[0].classList.add("active");
-    document.getElementById("pagecontainer").children[index].style.display = "block";
-    document.getElementById("selector").style.transform = "translateY(" + (20 * (index + 1) + height * index) + "px)";
-  }
-  document.getElementById("selector").style.height = height + "px";
+
+    document.getElementById("selector").style.height = height + "px";
 </script>
+
 <script src="./js/theme.js"></script>
 
 <script type="module">
-  import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-  import {getDatabase, set, ref, onValue, remove} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-  import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getDatabase, ref, onValue, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {
+        getAuth,
+        onAuthStateChanged,
+        signOut,
+        updatePassword,
+        signInWithEmailAndPassword,
+        updateEmail,
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
-    authDomain: "webcastle-website.firebaseapp.com",
-    databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "webcastle-website",
-    storageBucket: "webcastle-website.appspot.com",
-    messagingSenderId: "274339465548",
-    appId: "1:274339465548:web:927dd550601c84dffce7e9"
-  };
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth();
-  const database = getDatabase(app);
-
-
-
-  window.addEventListener('load', function () {
-    setTimeout(verifAccount, onAuthStateChanged)
-  });
-
-  function verifAccount() {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const user = auth.currentUser;
-        onValue(ref(database, '/users/' + user.uid), (snapshot) => {
-          document.getElementById('nomCompte').innerHTML = (snapshot.val().nom);
-          document.getElementById('prenomCompte').innerHTML = (snapshot.val().prenom);
-          document.getElementById('emailCompte').innerHTML = (snapshot.val().email);
-          document.getElementById('telCompte').innerHTML = (snapshot.val().tel);
-          document.getElementById('actifDateAccount').innerHTML = user.metadata.creationTime;
-        });
-        onValue(ref(database, '/users/' + user.uid + "/" + "Site"), (snapshot) => {
-          document.getElementById('nomSite').innerHTML = (snapshot.val().nom);
-          document.getElementById('urlSite').innerHTML = (snapshot.val().url);
-        });
-
-      } else {
-        window.location.href = "index.html";
-      }
-    });
-  };
-
-  logOutButton.addEventListener('click', (e) => {
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
     const auth = getAuth();
-    signOut(auth).then(() => {
-      window.location.href = "index.html";
-    }).catch((error) => {
-      alert("non")
+    const database = getDatabase(app);
+    const user = auth.currentUser;
+
+    modifButton.addEventListener('click', (e) => {
+
+        var type = document.getElementById('type').innerHTML;
+
+        const user = auth.currentUser;
+
+        const oldPassword = document.getElementById('oldMdp').value;
+
+        if (type == "mot de passe") {
+            signInWithEmailAndPassword(auth, user.email, oldPassword)
+                .then((userCredential) => {
+
+                    const user = userCredential.user;
+
+                    if (document.getElementById('newMdp').value.length > 5) {
+                        updatePassword(user, document.getElementById('newMdp').value).then(() => {
+                            document.getElementById('popupmodif').style.display = 'none';
+                            document.getElementById('popup-blur').style.display = 'none';
+                            document.getElementById('mdpDiv').style.display = 'none';
+                            document.getElementById('emailDiv').style.display = 'none';
+                            document.getElementById('classicModif').style.display = 'none';
+                        }).catch((error) => {
+                            alert(error)
+                        });
+                    } else {
+                        document.getElementById('oldMdpAlerte').innerHTML = "Mot de passe trop court";
+                    }
+                })
+                .catch((error) => {
+                    document.getElementById('oldMdpAlerte').innerHTML = "Ancien mot de passe incorrect";
+                });
+
+        } else if (type == "email") {
+            const user = auth.currentUser;
+
+            const password = document.getElementById('emailMdp').value;
+
+            const emailPatern = /^[^@]+@\w+(\.\w+)+\w$/;
+
+            const email = document.getElementById('inputEmail').value;
+
+            signInWithEmailAndPassword(auth, user.email, password)
+                .then((userCredential) => {
+                    if (email.match(emailPatern)) {
+                        updateEmail(auth.currentUser, email).then(() => {
+                            document.getElementById('popupmodif').style.display = 'none';
+                            document.getElementById('popup-blur').style.display = 'none';
+                            document.getElementById('mdpDiv').style.display = 'none';
+                            document.getElementById('emailDiv').style.display = 'none';
+                            document.getElementById('classicModif').style.display = 'none';
+
+                            update(ref(database, '/users/' + user.uid), {
+                                email: email,
+                            });
+                        }).catch((error) => {
+                            document.getElementById('emailAlerte').innerHTML = "email déjà utilisée par un utilisateur";
+                        });
+
+                    } else {
+                        document.getElementById('emailAlerte').innerHTML = "email invalide";
+                    }
+                })
+                .catch((error) => {
+                    document.getElementById('emailAlerte').innerHTML = "mot de passe incorrect";
+                });
+        } else {
+            const user = auth.currentUser;
+
+            var change = document.getElementById('inputModif').value
+
+            if (type == "numéro de telephone") {
+                if (change.length >= 10) {
+                    update(ref(database, '/users/' + user.uid), {
+                        tel: change,
+                    });
+                    document.getElementById('popupmodif').style.display = 'none';
+                    document.getElementById('popup-blur').style.display = 'none';
+                    document.getElementById('mdpDiv').style.display = 'none';
+                    document.getElementById('emailDiv').style.display = 'none';
+                    document.getElementById('classicModif').style.display = 'none';
+                } else {
+                    document.getElementById('inputAlerte').innerHTML = "Numéro de téléphone invalide";
+                }
+
+            } else {
+                if (change.length >= 2) {
+                    update(ref(database, '/users/' + user.uid), {
+                        [type]: change,
+                    });
+                    document.getElementById('popupmodif').style.display = 'none';
+                    document.getElementById('popup-blur').style.display = 'none';
+                    document.getElementById('mdpDiv').style.display = 'none';
+                    document.getElementById('emailDiv').style.display = 'none';
+                    document.getElementById('classicModif').style.display = 'none';
+                } else {
+                    document.getElementById('inputAlerte').innerHTML = "saisi trop court";
+                }
+            }
+        }
     });
-  });
+
+    cancelButton.addEventListener('click', (e) => {
+        document.getElementById('popupmodif').style.display = 'none';
+        document.getElementById('popup-blur').style.display = 'none';
+        document.getElementById('mdpDiv').style.display = 'none';
+        document.getElementById('emailDiv').style.display = 'none';
+        document.getElementById('classicModif').style.display = 'none';
+    });
+
+    window.addEventListener('load', function () {
+        setTimeout(verifAccount, onAuthStateChanged)
+    });
+
+    function verifAccount() {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const user = auth.currentUser;
+                onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                    document.getElementById('nomCompte').innerHTML = (snapshot.val().nom);
+                    document.getElementById('prenomCompte').innerHTML = (snapshot.val().prenom);
+                    document.getElementById('emailCompte').innerHTML = (snapshot.val().email);
+                    document.getElementById('telCompte').innerHTML = (snapshot.val().tel);
+                    document.getElementById('actifDateAccount').innerHTML = user.metadata.creationTime;
+                });
+                onValue(ref(database, '/users/' + user.uid + "/" + "Site"), (snapshot) => {
+                    document.getElementById('nomSite').innerHTML = (snapshot.val().nom);
+                    document.getElementById('urlSite').innerHTML = (snapshot.val().url);
+                });
+
+            } else {
+                window.location.href = "index.html";
+            }
+        });
+    };
+
+    logOutButton.addEventListener('click', (e) => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            window.location.href = "index.html";
+        }).catch((error) => {
+            alert("non")
+        });
+    });
 
 </script>
 </body>

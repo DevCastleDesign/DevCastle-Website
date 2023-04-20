@@ -158,21 +158,10 @@ function setVideo(newvideomode) {
     videoFields.children[2].placeholder = "Votre nom d'utilisateur " + modename;
 }
 
-function submit() {
-    errorMsg.innerHTML = "";
-    if ((adressFields.children[2].value === "" || adressFields.children[4].value === "") && mode === 0) {
-        errorMsg.innerHTML = "Veuillez saisir une adresse complète";
-    } else if (videoFields.children[2].value === "" && mode === 1) {
-        errorMsg.innerHTML = "Veuillez votre nom d'utilisateur " + videoModeString;
-    } else if (selectedHour === -1) {
-        errorMsg.innerHTML = "Veuillez selectionner une heure";
-    } else if (document.getElementById("infos-name").value === "") {
-        errorMsg.innerHTML = "Veuillez saisir votre nom";
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("infos-email").value)) {
-        errorMsg.innerHTML = "Veuillez saisir un email correct";
-    } else if (document.getElementById("infos-tel").value === "") {
-        errorMsg.innerHTML = "Veuillez saisir votre numero de télephone";
-    } else {
+function sendMail() {
+
+
+
         if (mode === 0) {
             var templateParams = {
                 datetime: dname.innerHTML,
@@ -186,10 +175,9 @@ function submit() {
             };
 
             emailjs.send('service_gtw1i4t', 'template_vo11f77', templateParams).then(function(response) {
-                document.getElementById("popup-ok").style.display = "flex";
-                document.body.style.overflow = 'hidden';
-                window.scrollTo(0,0);
+                window.location.href = "remerciRendezvous.html";
             });
+
         }
         if (mode === 1) {
             var templateParams = {
@@ -202,12 +190,10 @@ function submit() {
                 more: document.getElementById("infos-more").value,
             };
             emailjs.send('service_gtw1i4t', 'template_ht3k4w7', templateParams).then(function(response) {
-                document.getElementById("popup-ok").style.display = "flex";
-                document.body.style.overflow = 'hidden';
-                window.scrollTo(0,0);
+                window.location.href = "remerciRendezvous.html";
             });
         }
-    }
+
 }
 
 setMode(0);
