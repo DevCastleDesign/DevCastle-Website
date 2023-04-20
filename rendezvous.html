@@ -109,14 +109,9 @@
             getDatabase,
             set,
             ref,
-            update,
-            onValue
         } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
         import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
             authDomain: "webcastle-website.firebaseapp.com",
@@ -127,11 +122,9 @@
             appId: "1:274339465548:web:927dd550601c84dffce7e9"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
         const auth = getAuth();
-
 
         submitButton.addEventListener('click', (e) => {
 
@@ -152,7 +145,6 @@
                 errorMsg.innerHTML = "Veuillez saisir votre numero de télephone";
             } else {
 
-
                 submitButton.disabled = true;
                 submitButton.style.opacity = 0.6;
 
@@ -166,8 +158,6 @@
                         tel: document.getElementById("infos-tel").value,
                         more: document.getElementById("infos-more").value,
                     });
-
-
 
                 } else {
                     set(ref(database, 'users/' + user.uid + "/rdv"), {
@@ -185,7 +175,6 @@
                 }
 
                 sendMail()
-
 
             }
         });
