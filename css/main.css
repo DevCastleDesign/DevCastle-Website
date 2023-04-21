@@ -954,7 +954,7 @@ main nav ul li a {
     margin-bottom: 30px;
 }
 
-.pDashboard .attenteDiv .startAttenteDiv {
+.pDashboard .attenteDiv #dateAttenteDiv {
     opacity: 50%;
     font-size: 14px;
 }
@@ -2441,3 +2441,77 @@ main nav ul li a {
 }
 
 /* #endregion */
+
+
+.pMaquette-Developpement body {
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    animation: apparition2 0.1s ease-in-out forwards;
+}
+
+.pMaquette-Developpement .page h1 {
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.pMaquette-Developpement .page #divStatus {
+    width: 208px;
+    height: 40px;
+    background-color: #4F4F4F;
+    margin: 10px auto;
+}
+
+.pMaquette-Developpement .page #divStatus p  {
+    transform: translateY(40%);
+}
+
+.pMaquette-Developpement .page #maquetteDate {
+    font-size: 16px;
+    opacity: 60%;
+}
+
+.pMaquette-Developpement .page .mailEnvoyeP {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+
+.pMaquette-Developpement .page input {
+    width: 303px;
+    height: 49px;
+    background-color: #2C3973;
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    margin-top: 60px;
+    margin-bottom: 200px;
+}
+
+.pMaquette-Developpement .page #nextStepButton {
+    opacity: 50%;
+}
+
+.pMaquette-Developpement main {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.pMaquette-Developpement main a {
+    color: white;
+}
+
+.pMaquette-Developpement main .blueButton {
+    color: white;
+}
+
+@keyframes apparition2 {
+
+    100% {
+        opacity: 1;
+    }
+}
+

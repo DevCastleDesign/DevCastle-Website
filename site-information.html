@@ -116,14 +116,36 @@
 
         const user = auth.currentUser;
 
-        set(ref(database, 'users/' + user.uid + "/" + "Site/informations" ), {
+        set(ref(database, 'users/' + user.uid + "/" + "site/informations" ), {
             nom_site: document.getElementById('nomSite').value,
             info_entreprise: document.getElementById('infoEntreprise').value
         })
 
-        set(ref(database, 'users/' + user.uid + "/" + "Site/design" ), {
+        set(ref(database, 'users/' + user.uid + "/" + "site/design" ), {
             design_commentaire: document.getElementById('commSite').value
         })
+
+        set(ref(database, 'users/' + user.uid + "/" + "site/maquette" ), {
+            status: "attente",
+            date_debut: "",
+            date_fin: "",
+        })
+
+        set(ref(database, 'users/' + user.uid + "/" + "site/developpement" ), {
+            status: "attente",
+            date_debut: "",
+            date_fin: "",
+        })
+
+        update(ref(database, 'users/' + user.uid), {
+            status: "maquette",
+        });
+
+        setTimeout(changePage, 1000)
+
+        function changePage() {
+            window.location.href = "maquette.html";
+        }
     });
 
     click.addEventListener('click', (e) => {

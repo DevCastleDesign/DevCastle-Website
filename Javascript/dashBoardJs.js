@@ -1,7 +1,27 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-import {getDatabase, ref, onValue, update, remove} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-import {getAuth, onAuthStateChanged, signOut, updatePassword, signInWithEmailAndPassword, updateEmail, deleteUser} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+import {
+    getDatabase,
+    ref,
+    onValue,
+    update,
+    remove
+} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut,
+    updatePassword,
+    signInWithEmailAndPassword,
+    updateEmail,
+    deleteUser
+} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+import {
+    getStorage,
+    ref as sRef,
+    uploadBytesResumable,
+    getDownloadURL,
+    uploadBytes
+} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -144,20 +164,65 @@ function verifAccount() {
                 document.getElementById('actifDateAccount').innerHTML = user.metadata.creationTime;
                 const status = (snapshot.val().status);
 
-                if (status == 'maquette') {
-                    document.getElementById('onStatus').style.display = 'block';
-                    document.getElementById('noStatus').style.display = 'none';
-                } else {
-                    document.getElementById('noStatus').style.display = 'block';
-                    document.getElementById('onStatus').style.display = 'none';
-                }
+                onValue(ref(database, '/users/' + user.uid + "/site/maquette"), (snapshot) => {
+                    const statusMaquette = (snapshot.val().status);
+                    const date_debut_Maq = (snapshot.val().date_debut);
+                    const date_fin_Maq = (snapshot.val().date_fin);
+
+                    onValue(ref(database, '/users/' + user.uid + "/site/developpement"), (snapshot) => {
+                        const statusDev = (snapshot.val().status);
+                        const date_debut_Dev = (snapshot.val().date_debut);
+                        const date_fin_Dev = (snapshot.val().date_fin);
+
+                        if (status == 'maquette') {
+
+                            document.getElementById('onStatus').style.display = 'block';
+                            document.getElementById('noStatus').style.display = 'none';
+                            document.getElementById('titreAttenteDiv').innerHTML = "Maquette"
+
+                            if (statusMaquette == "dev") {
+                                document.getElementById('statusAttenteDiv').innerHTML = "En développement";
+                                document.getElementById('dateAttenteDiv').innerHTML = "Commencé le " + date_debut_Maq;
+                            } else if (statusMaquette == "termine") {
+                                document.getElementById('statusAttenteDiv').innerHTML = "terminé";
+                                document.getElementById('dateAttenteDiv').innerHTML = "Fini le " + date_fin_Maq;
+                            } else {
+                                document.getElementById('statusAttenteDiv').innerHTML = "En Attente";
+                                document.getElementById('dateAttenteDiv').innerHTML = "";
+                            }
+                        } else if (status == 'developpement') {
+
+                            document.getElementById('onStatus').style.display = 'block';
+                            document.getElementById('noStatus').style.display = 'none';
+                            document.getElementById('titreAttenteDiv').innerHTML = "Développement"
+
+                            if (statusDev == "dev") {
+                                document.getElementById('statusAttenteDiv').innerHTML = "En développement";
+                                document.getElementById('dateAttenteDiv').innerHTML = "Commencé le " + date_debut_Dev;
+                            } else if (statusDev == "termine") {
+                                document.getElementById('statusAttenteDiv').innerHTML = "terminé";
+                                document.getElementById('dateAttenteDiv').innerHTML = "Fini le " + date_fin_Dev;
+                            } else {
+                                document.getElementById('statusAttenteDiv').innerHTML = "En Attente";
+                                document.getElementById('dateAttenteDiv').innerHTML = "";
+                            }
+
+                        } else {
+                            document.getElementById('noStatus').style.display = 'block';
+                            document.getElementById('onStatus').style.display = 'none';
+                        }
+                    });
+                }, {
+                    onlyOnce: true
+                });
+            }, {
+                onlyOnce: true
             });
+
             onValue(ref(database, '/users/' + user.uid + "/" + "Site"), (snapshot) => {
                 document.getElementById('nomSite').innerHTML = (snapshot.val().nom);
                 document.getElementById('urlSite').innerHTML = (snapshot.val().url);
             });
-
-
 
         } else {
             window.location.href = "index.html";
@@ -179,7 +244,6 @@ suppAccount.addEventListener('click', (e) => {
     document.getElementById('popup-blur').style.display = 'block';
     document.getElementById('suppAccountPopup').style.display = 'block';
 });
-
 
 
 suppAccountButton.addEventListener('click', (e) => {
@@ -204,3 +268,23 @@ cancelSuppAccountButton.addEventListener('click', (e) => {
     document.getElementById('popup-blur').style.display = 'none';
 });
 
+
+const fileInput = document.getElementById("infoSupp");
+
+// Ajout d'un écouteur d'événement sur le champ de fichier
+fileInput.addEventListener('click', (e) => {
+    const ref = storage.ref();
+    const file = document.querySelector("#photo").files[0];
+    const name = +new Date() + "-" + file.name;
+    const metadata = {
+        contentType: file.type
+    };
+    const task = ref.child(name).put(file, metadata);
+    task
+        .then(snapshot => snapshot.ref.getDownloadURL())
+        .then(url => {
+            console.log(url);
+            alert('image uploaded successfully');
+            document.querySelector("#image").src = url;
+        })
+});
