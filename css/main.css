@@ -1758,6 +1758,7 @@ main nav ul li a {
     font-weight: 700;
     animation: apparition 0.8s 0.4s ease-in-out forwards;
     opacity: 0;
+    cursor: pointer;
 }
 
 @keyframes apparition {
