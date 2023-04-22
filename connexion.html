@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="pLogInSignIn">
+<html class="pLogInSignIn" lang="fr">
 <head>
     <!-- Metadonnées -->
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
     <img class="devCastleIcon" height="83" src="src/Icons/DevCastleIcon.png" width="148"/>
 </header>
 
-<div id="logInDiv" class="login">
+<div class="login" id="logInDiv">
     <label>connexion</label>
     <p>Email</p>
     <input class="email" id="emailLogin" type="email">
@@ -31,11 +31,12 @@
     <p>Password</p>
     <input class="password" id="passwordLogin" type="password">
     <p class="error" id="errorLogin">email ou mot de passe incorrect</p>
-    <a href="" ><p>Mot de passe oublié</p></a>
+    <p id="forgetMdp">mot de passe oublié</p>
 
-    <input type="submit" value="Se connecter" id="logIn">
+    <input id="logIn" type="submit" value="Se connecter">
 
     <p>pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+
 </div>
 
 
@@ -61,7 +62,12 @@
     // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-    import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        sendPasswordResetEmail
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -104,6 +110,21 @@
                 });
         }
     });
+
+    document.getElementById('forgetMdp').addEventListener('click', (e) => {
+
+        var email = document.getElementById('emailLogin').value;
+
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert("ok")
+            })
+            .catch((error) => {
+                alert(error)
+            });
+    });
+
 </script>
 </body>
 </html>
+

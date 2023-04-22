@@ -2536,3 +2536,7 @@ main nav ul li a {
     }
 }
 
+#forgetMdp{
+    cursor: pointer;
+    user-select: none;
+}
