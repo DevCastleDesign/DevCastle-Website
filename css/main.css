@@ -161,11 +161,24 @@ main nav ul li a {
     right: 30px;
 }
 
+.pAccueil .outer {
+    background-image: url(../src/Icons/EtoileGrisIcon.png);
+    height: 25px;
+    width: 150px;
+    background-size: 30px;
+}
+
+.pAccueil .inner {
+    background-image: url(../src/Icons/EtoileIco.png);
+    height: 25px;
+    width: 90px;
+    background-size: 30px;
+}
+
 .pAccueil h1  {
     font-style: normal;
     font-weight: 700;
     font-size: 64px;
-    line-height: 78px;
 }
 
 .pAccueil h2 {
@@ -368,45 +381,62 @@ main nav ul li a {
 }
 
 .pAccueil .securePaiement {
-    width: 861px;
-    height: 296px;
-    background-color: #222429;
+    width: 1120px;
+    background-image: url("../src/Images/securePaiementBgImage.png");
+    background-size: 100%;
+    height: 410px;
     border-radius: 19px;
     display: flex;
-    padding-left: 97px;
+    padding-left: 60px;
     padding-top: 50px;
     margin: 90px auto 200px auto;
 }
 
-.pAccueil .securePaiementText {
-    margin-left: 40px;
-}
-
-.pAccueil .securePaiementText img {
-    margin-top: 25px;
-}
-
-.pAccueil .securePaiementText a {
-    text-decoration: none;
-    color: white;
-}
 
 .pAccueil .securePaiement h1 {
-    font-size: 32px;
+    font-size: 45px;
 }
 
-.pAccueil .etoiles {
+.pAccueil .securePaiement p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+
+.pAccueil .securePaiement img {
+    transform: translateY(-80px) translateX(70px);
+}
+
+
+.pAccueil .securePaiement input {
+    background-color: #8CAEDC;
+    height: 51px;
+    width: 189px;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    border: none;
+    transition: 0.2s;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.pAccueil .securePaiement input:hover {
+    scale: 103%;
+}
+
+.pAccueil #etoiles {
     width: 220px;
     display: flex;
     justify-content: space-between;
     transition: 0.1s;
 }
 
-.pAccueil .etoiles:hover {
+.pAccueil #etoiles:hover {
     filter: contrast(150%);
 }
 
-.pAccueil .etoiles p {
+.pAccueil #etoiles p {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -2282,20 +2312,6 @@ main nav ul li a {
 /*****************************************
 	 REMERCIEMENT
 ******************************************/
-
-.pRemerciements .outer {
-    background-image: url(../src/Icons/EtoileGrisIcon.png);
-    height: 25px;
-    width: 150px;
-    background-size: 30px;
-}
-
-.pRemerciements .inner {
-    background-image: url(../src/Icons/EtoileIco.png);
-    height: 25px;
-    width: 90px;
-    background-size: 30px;
-}
 
 .pRemerciements {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;

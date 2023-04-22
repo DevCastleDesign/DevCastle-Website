@@ -39,9 +39,9 @@
         <section class="sectionHaut">
             <div class="textHaut">
                 <div>
-                    <div class="etoiles">
+                    <div id="etoiles" >
                         <p>Noté</p>
-                        <div class="ratting">
+                        <div id="ratting" style="visibility: hidden">
                             <div class="outer">
                                 <div id="inner" class="inner"></div>
                             </div>
@@ -134,6 +134,7 @@
                             return Math.round(value * inv) / inv;
                         }
 
+                        document.getElementById('ratting').style.visibility = "visible";
 
                         let ratePercentage = (round((totalNum/nbrRat) , 0.5) / 5) * 100;
                         const inner = document.getElementById(`inner`)
@@ -182,7 +183,6 @@
                 }
             });
         });
-
 
     </script>
 
@@ -256,12 +256,12 @@
 
     <div class="securePaiement">
         <div>
-            <img height="193" src="src/Images/PaiementSecureImage.png" width="193"/>
+            <h1>PAIEMENTS SÉCURISÉS</h1>
+            <p>Nos paiements sont sécurisés et se font grâce à l’une des plus grandes entreprises de paiement en ligne du monde, Stripe</p>
+            <input type="submit" value="Stripe" onclick="window.open('https://stripe.com/')">
         </div>
         <div class="securePaiementText">
-            <h1>PAIEMENTS SÉCURISÉS</h1>
-            <p>Propulsé par <a href="https://stripe.com/fr-ch"><strong>Stripe</strong></a></p>
-            <img height="71" src="src/Images/GroupementPaiementIconsImage.png" width="173"/>
+            <img src="src/Images/securePaiementIlluImage.png" height="483" width="627"/>
         </div>
     </div>
 
