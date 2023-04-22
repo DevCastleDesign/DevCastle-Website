@@ -1122,12 +1122,6 @@ main nav ul li a {
     font-size: 25px;
 }
 
-
-
-
-
-
-
     /* Support */
 .pDashboard .content .support .banner {
     background-color: #1D1C21;
@@ -2478,6 +2472,10 @@ main nav ul li a {
     font-weight: 700;
     font-size: 48px;
     margin-bottom: 40px;
+}
+
+.pMaquette-Developpement .page img {
+    height: 500px;
 }
 
 .pMaquette-Developpement .page #divStatus {
