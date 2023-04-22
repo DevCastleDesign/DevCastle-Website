@@ -2001,7 +2001,7 @@ main nav ul li a {
 ******************************************/
 
 .pOptions {
-    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%);
     color: white;
 }
 
@@ -2012,23 +2012,28 @@ main nav ul li a {
     max-width: 800px;
     margin: 0 auto;
     transform: translateY(20%);
+    height: fit-content;
+    padding-bottom: 50px;
 }
 
 .pOptions .rdvDiv {
     background-color: #2C3973;
-    height: 580px;
     width: 350px;
     border-radius: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .pOptions .propreDiv {
     background-color: #618EC5;
-    height: 580px;
     width: 350px;
     border-radius: 10px;
     text-align: center;
     position: relative;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
 }
 
 .pOptions h2 {
@@ -2058,10 +2063,11 @@ main nav ul li a {
     border: none;
     border-radius: 5px;
     font-size: 25px;
-    position: absolute;
-    bottom: 50px;
-    transform: translateX(-50%);
     transition: 0.1s;
+    margin-top: auto;
+    margin-bottom: 50px;
+    align-self: center;
+    cursor: pointer;
 }
 
 .pOptions input:hover {
