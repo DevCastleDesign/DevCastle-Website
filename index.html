@@ -134,13 +134,27 @@
                             return Math.round(value * inv) / inv;
                         }
 
-
                         let ratePercentage = (round((totalNum/nbrRat) , 0.5) / 5) * 100;
                         const inner = document.getElementById(`inner`)
                         inner.style.width = `${ratePercentage}%`
                     });
                 } else {
                     document.getElementById('navNoAccount').style.display = "flex";
+
+                    onValue(ref(database, '/review'), (snapshot) => {
+                        const nbrRat = (snapshot.val().nombre_ratting);
+                        const totalNum = (snapshot.val().total_ratting);
+
+                        function round(value, step) {
+                            step || (step = 1.0);
+                            var inv = 1.0 / step;
+                            return Math.round(value * inv) / inv;
+                        }
+
+                        let ratePercentage = (round((totalNum/nbrRat) , 0.5) / 5) * 100;
+                        const inner = document.getElementById(`inner`)
+                        inner.style.width = `${ratePercentage}%`
+                    });
                 }
             });
         };
