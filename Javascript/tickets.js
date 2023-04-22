@@ -22,6 +22,8 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
+const htmlElement = "<button>Question test<div class=\"reddot\"></div></button>";
+
 document.getElementById("new-ticket-send").addEventListener('click', (e) => {
     const user = auth.currentUser;
 
@@ -36,8 +38,8 @@ document.getElementById("new-ticket-send").addEventListener('click', (e) => {
                 var lastname = snapshot.val().nom;
                 set(ref(database, "tickets/ticket_" + ticket_id), {
                     author_id: user.uid,
-                    author_first_name: name,
-                    author_last_name: lastname,
+                    nom: name,
+                    prenom: lastname,
                     title: document.getElementById("new-ticket-title").value,
                     content: document.getElementById("new-ticket-content").value,
                     answer: ""
