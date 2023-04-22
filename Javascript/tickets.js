@@ -20,7 +20,10 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
-function newTicket() {
+document.getElementById("new-ticket-send").addEventListener('click', (e) => {
     const user = auth.currentUser;
     console.log(user);
-}
+    set(ref(database, 'users/' + user.uid + "/tickets/" + document.getElementById("new-ticket-title").value), {
+        content: document.getElementById("new-ticket-content").value
+    });
+});
