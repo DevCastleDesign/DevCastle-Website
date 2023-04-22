@@ -6,7 +6,10 @@ import {
     child,
     ref,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+import {
+    getAuth,
+    onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -21,8 +24,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
-
-const htmlElement = "<button>Question test<div class=\"reddot\"></div></button>";
 
 document.getElementById("new-ticket-send").addEventListener('click', (e) => {
     const user = auth.currentUser;
@@ -41,7 +42,7 @@ document.getElementById("new-ticket-send").addEventListener('click', (e) => {
                     nom: name,
                     prenom: lastname,
                     title: document.getElementById("new-ticket-title").value,
-                    content: document.getElementById("new-ticket-content").value,
+                    content: document.getElementById("new-ticket-content").value.replace(/\r?\n/g, '<br>'),
                     answer: ""
                 });
             } else {
@@ -52,4 +53,29 @@ document.getElementById("new-ticket-send").addEventListener('click', (e) => {
         });
     });
     ClosePopups();
+});
+
+function refreshTicketsList() {
+    const user = auth.currentUser;
+    get(child(ref(database), "tickets")).then((tickets_snapshot) => {
+        var tickets = [];
+        if (tickets_snapshot.exists()) {
+            tickets = Object.values(tickets_snapshot.val());
+        }
+        for (var i = 0; i < tickets.length; i++) {
+            if (tickets[i].author_id === user.uid) {
+                var newButton = document.createElement("button");
+                newButton.innerHTML = tickets[i].title + "<div class=\"reddot\" style=\"display: " + (tickets[i].answer === "" ? "none" : "block") + ";\"></div>";
+                newButton.setAttribute("onclick", "ShowTicket(\"" + tickets[i].title + "\"" + ", " + "\"" + tickets[i].content + "\"" + ", " + "\"" + tickets[i].answer + "\")")
+                document.getElementById("tickets-list").appendChild(newButton);
+            }
+        }
+    });
+}
+window.addEventListener('load', function () {
+    setTimeout(() => {
+        onAuthStateChanged(auth, (user) => {
+            refreshTicketsList();
+        });
+    }, onAuthStateChanged)
 });
