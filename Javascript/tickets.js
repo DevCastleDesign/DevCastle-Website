@@ -2,6 +2,8 @@ import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-
 import {
     getDatabase,
     set,
+    get,
+    child,
     ref,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
@@ -22,8 +24,30 @@ const auth = getAuth();
 
 document.getElementById("new-ticket-send").addEventListener('click', (e) => {
     const user = auth.currentUser;
-    console.log(user);
-    set(ref(database, 'users/' + user.uid + "/tickets/" + document.getElementById("new-ticket-title").value), {
-        content: document.getElementById("new-ticket-content").value
+
+    get(child(ref(database), "tickets")).then((tickets_snapshot) => {
+        var ticket_id = 0;
+        if (tickets_snapshot.exists()) {
+            ticket_id = Object.keys(tickets_snapshot.val()).length;
+        }
+        get(child(ref(database), `users/${user.uid}`)).then((snapshot) => {
+            if (snapshot.exists()) {
+                var name = snapshot.val().prenom;
+                var lastname = snapshot.val().nom;
+                set(ref(database, "tickets/ticket_" + ticket_id), {
+                    author_id: user.uid,
+                    author_first_name: name,
+                    author_last_name: lastname,
+                    title: document.getElementById("new-ticket-title").value,
+                    content: document.getElementById("new-ticket-content").value,
+                    answer: ""
+                });
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
     });
+    ClosePopups();
 });
