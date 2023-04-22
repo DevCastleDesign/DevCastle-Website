@@ -66,6 +66,10 @@ img {
     text-decoration: none;
 }
 
+button {
+    border: none;
+}
+
 /*****************************************
 	 Compte Modif
 ******************************************/
@@ -1135,7 +1139,8 @@ main nav ul li a {
     align-items: center;
 }
 
-.pDashboard .content .support a {
+.pDashboard .content .support .new-ticket {
+    border: none;
     color: var(--blue1);
     background-color: var(--dashboardseparator);
     padding: 10px 20px;
@@ -1226,6 +1231,11 @@ main nav ul li a {
     top: 1vw;
     opacity: 0.5;
     cursor: pointer;
+}
+
+.pDashboard .popup .close img {
+    width: 1.5vw;
+    aspect-ratio: 1;
 }
 
 .pDashboard .popup h1 {

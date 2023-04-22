@@ -230,13 +230,13 @@
                     </button>
                 </div>
             </div>
-            <a>Nouvelle question</a>
+            <button onclick="OpenPopup('new-ticket')" class="new-ticket">Nouvelle question</button>
         </div>
     </div>
 </div>
 <div id="popup-blur" style="display: none;">
     <div class="popup ticket" style="display: none">
-        <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+        <button class="close" onclick="ClosePopups()"><img src="./src/Icons/CloseIcon.png"></button>
         <h1>Titre de la question</h1>
 
         <h2>Votre question</h2>
@@ -251,7 +251,7 @@
         <button>Fermer la question</button>
     </div>
     <div class="popup new-ticket" style="display: none">
-        <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+        <button class="close" onclick="ClosePopups()"><img src="./src/Icons/CloseIcon.png"></button>
         <h1>Nouvelle question</h1>
 
         <h2>Titre de la question</h2>
@@ -344,7 +344,8 @@
     document.getElementById("selector").style.height = height + "px";
 </script>
 
-<script src="./js/theme.js"></script>
+<script src="./Javascript/tickets.js" type="module"></script>
+<script src="./Javascript/popups.js"></script>
 
 </body>
 </html>
