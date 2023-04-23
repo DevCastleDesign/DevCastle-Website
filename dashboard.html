@@ -18,6 +18,7 @@
 
     <script type="module" src="Javascript/dashBoardJs.js"></script>
     <script type="module" src="Javascript/ticket.js"></script>
+    <script src="Javascript/popup.js"></script>
 </head>
 <body class="pDashboard">
 <div class="panels">
@@ -198,40 +199,17 @@
             </div>
             <img alt="" src="./src/Images/SupportImage.png">
         </div>
-        <p>N'hésitez pas a nous demander de l'aide si vous avez le moindre doute et nous vous réponderons au plus vite.
+        <p>N'hésitez pas à nous demander de l'aide si vous avez le moindre doute et nous vous réponderons au plus vite.
             <br><br>Vous verrez nos réponses ici ainsi via un mail qui vous sera envoyé</p>
         <div class="h2p"><h2>Vos questions</h2>
-            <p>Vous avez - réponse en attente</p></div>
+            <p id="tickets-list-answers">Vous avez - réponse en attente</p></div>
         <div class="columns">
             <div class="tickets">
-                <div class="list">
-                    <button>Question test
-                        <div class="reddot"></div>
-                    </button>
-                    <button>Question test
-                        <div class="reddot"></div>
-                    </button>
-                    <button>Question test
-                        <div class="reddot"></div>
-                    </button>
-                    <button>Question test
-                        <div class="reddot"></div>
-                    </button>
-                    <button>Question test
-                        <div class="reddot"></div>
-                    </button>
-                    <button>Question test
-                        <div class="reddot"></div>
-                    </button>
-                    <button>Question test
-                        <div class="reddot"></div>
-                    </button>
-                    <button>Question test
-                        <div class="reddot"></div>
-                    </button>
+                <div class="list" id="tickets-list">
+
                 </div>
             </div>
-            <a>Nouvelle question</a>
+            <button onclick="OpenPopup('new-ticket')" class="new-ticket">Nouvelle question</button>
         </div>
     </div>
 </div>
