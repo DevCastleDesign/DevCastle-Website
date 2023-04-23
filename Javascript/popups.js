@@ -9,8 +9,8 @@ function ClosePopups() {
     }
     document.getElementById('popup-blur').style.display = 'none';
 }
-
-function ShowTicket(title, content, answer) {
+var openedTicket = null;
+function ShowTicket(title, content, answer, id) {
     document.getElementById("ticket-title").innerHTML = title;
     document.getElementById("ticket-content").innerHTML = content;
     document.getElementById("ticket-answer").innerHTML = answer;
@@ -22,4 +22,5 @@ function ShowTicket(title, content, answer) {
         document.getElementById("ticket-answer").style.color = "grey";
     }
     OpenPopup("ticket");
+    openedTicket = id;
 }

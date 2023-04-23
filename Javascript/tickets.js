@@ -5,6 +5,7 @@ import {
     get,
     child,
     ref,
+    remove,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import {
     getAuth,
@@ -58,9 +59,9 @@ document.getElementById("new-ticket-send").addEventListener('click', () => {
 });
 
 document.getElementById("ticket-close-button").addEventListener('click', () => {
-    const user = auth.currentUser;
-
-    console.log(user);
+    remove(child(ref(database), "tickets/ticket_" + openedTicket));
+    ClosePopups();
+    setTimeout(refreshTicketsList, 500);
 });
 
 function refreshTicketsList() {
@@ -76,12 +77,15 @@ function refreshTicketsList() {
             if (tickets[i].author_id === user.uid) {
                 var newButton = document.createElement("button");
                 newButton.innerHTML = tickets[i].title + "<div class=\"reddot\" style=\"display: " + (tickets[i].answer === "" ? "none" : "block") + ";\"></div>";
-                newButton.setAttribute("onclick", "ShowTicket(\"" + tickets[i].title + "\"" + ", " + "\"" + tickets[i].content + "\"" + ", " + "\"" + tickets[i].answer + "\")")
+                newButton.setAttribute("onclick", "ShowTicket(\"" + tickets[i].title + "\", \"" + tickets[i].content + "\", \"" + tickets[i].answer + "\", " + tickets[i].id + ")")
                 document.getElementById("tickets-list").appendChild(newButton);
                 if (tickets[i].answer != "") { answers++; }
             }
         }
         document.getElementById("tickets-list-answers").innerHTML = "Vous avez " + answers + " réponse en attente";
+        if (document.getElementById("tickets-list").innerHTML === "") {
+            document.getElementById("tickets-list").innerHTML = "Vous n'avez pas de questions en attente.";
+        }
     });
 }
 window.addEventListener('load', function () {
