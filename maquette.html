@@ -44,18 +44,33 @@
             <p id="statusText"></p>
         </div>
         <p id="maquetteDate"></p>
+
+        <div id="maquetteViewer" style="display:none">
+            <div class="pagevi">
+                <div class="pageViewer">
+                    <h2>Accueil</h2>
+                    <img src="src/Images/Accueil.png"/>
+                </div>
+                <div class="pageViewer">
+                    <h2>Contact</h2>
+                    <img src="src/Images/Contact.png"/>
+                </div>
+            </div>
+
+        </div>
+
+        <input id="modifDemandeButton" type="submit" value="Demander une modification">
+
         <input id="nextStepButton" type="submit" value="Continuer">
 
-        <img src="src/Images/Accueil.png" /></main>
     </div>
 
-
-
+</main>
 
 <script type="module">
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {getAuth, onAuthStateChanged,} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-    import {getDatabase, ref, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {getDatabase, ref, onValue, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -92,6 +107,9 @@
                     document.getElementById('nextStepButton').style.opacity = '100%';
 
                     document.getElementById('nextStepButton').disabled = false;
+
+                    document.getElementById('maquetteViewer').style.display = "block"
+
                 } else {
                     document.getElementById('statusText').innerHTML = "En attente";
                 }
@@ -104,9 +122,15 @@
     });
 
     document.getElementById('nextStepButton').addEventListener('click', (e) => {
-        alert("ok")
-    });
 
+        const user = auth.currentUser;
+
+        window.location.href = "developpement.html";
+
+        update(ref(database, 'users/' + user.uid), {
+            status: "maquette",
+        });
+    });
 
 </script>
 

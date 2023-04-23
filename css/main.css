@@ -1174,7 +1174,8 @@ main nav ul li a {
     align-items: center;
 }
 
-.pDashboard .content .support a {
+.pDashboard .content .support .new-ticket {
+    border: none;
     color: var(--blue1);
     background-color: var(--dashboardseparator);
     padding: 10px 20px;
@@ -1223,7 +1224,10 @@ main nav ul li a {
     margin-bottom: 10px;
     cursor: pointer;
     position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 
 .pDashboard .content .support .tickets .list button .reddot {
     background-color: #DB6262;
@@ -1267,8 +1271,14 @@ main nav ul li a {
     cursor: pointer;
 }
 
+.pDashboard .popup .close img {
+    width: 1.5vw;
+    aspect-ratio: 1;
+}
+
 .pDashboard .popup h1 {
-    text-align: center;
+    max-width: 500px;
+    line-break: anywhere;
 }
 
 .pDashboard .popup h2 {
@@ -2490,7 +2500,15 @@ main nav ul li a {
 }
 
 .pMaquette-Developpement .page img {
-    height: 500px;
+    width: 300px;
+}
+
+.pagevi {
+    display: flex;
+}
+.pageViewer {
+    background-color: #0B4E95;
+    padding: 40px;
 }
 
 .pMaquette-Developpement .page #divStatus {
