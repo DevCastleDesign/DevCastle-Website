@@ -31,13 +31,14 @@ document.getElementById("new-ticket-send").addEventListener('click', () => {
     get(child(ref(database), "tickets")).then((tickets_snapshot) => {
         var ticket_id = 0;
         if (tickets_snapshot.exists()) {
-            ticket_id = Object.keys(tickets_snapshot.val()).length;
+            ticket_id = Object.values(tickets_snapshot.val())[Object.values(tickets_snapshot.val()).length - 1].id + 1;
         }
         get(child(ref(database), `users/${user.uid}`)).then((snapshot) => {
             if (snapshot.exists()) {
                 var name = snapshot.val().prenom;
                 var lastname = snapshot.val().nom;
                 set(ref(database, "tickets/ticket_" + ticket_id), {
+                    id: ticket_id,
                     author_id: user.uid,
                     nom: name,
                     prenom: lastname,
