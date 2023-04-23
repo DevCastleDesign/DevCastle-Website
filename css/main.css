@@ -612,12 +612,24 @@ main nav ul li a {
 }
 
 .pLogInSignIn .login {
-    height: 504px;
+    height: 100%;
     width: 373px;
     border-radius: 12px;
     background-color: white;
     margin: 0 auto;
     padding: 53px 44px 0 44px;
+}
+
+.pLogInSignIn .loginDiv {
+    padding-bottom: 200px;
+}
+
+.pLogInSignIn #loginDivcontain {
+    padding-bottom: 200px;
+}
+
+.pLogInSignIn #emailResetMdpDiv {
+    padding-bottom: 200px;
 }
 
 .pLogInSignIn .error{

@@ -23,19 +23,30 @@
 </header>
 
 <div class="login" id="logInDiv">
-    <label>connexion</label>
-    <p>Email</p>
-    <input class="email" id="emailLogin" type="email">
-    <p class="error" id="errorEmailLogin">email invalide</p>
+    <div id="loginDivcontain">
+        <label>connexion</label>
+        <p>Email</p>
+        <input class="email" id="emailLogin" type="email">
+        <p class="error" id="errorEmailLogin">email invalide</p>
 
-    <p>Password</p>
-    <input class="password" id="passwordLogin" type="password">
-    <p class="error" id="errorLogin">email ou mot de passe incorrect</p>
-    <p id="forgetMdp">mot de passe oublié</p>
+        <p>Password</p>
+        <input class="password" id="passwordLogin" type="password">
+        <p class="error" id="errorLogin">email ou mot de passe incorrect</p>
+        <p id="forgetMdp">mot de passe oublié</p>
 
-    <input id="logIn" type="submit" value="Se connecter">
+        <input id="logIn" type="submit" value="Se connecter">
 
-    <p>pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+        <p>pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+    </div>
+
+    <div id="emailResetMdpDiv" style="display: none">
+        <p>Entrez l'adresse email utilisée par votre compte, nous vous enverrons un lien pour modifier votre mot de passe.</p>
+        <p>Email</p>
+        <input class="email" id="emailForgotMdp" type="email">
+        <p class="error" >email invalide</p>
+        <input id="forgotMdpButton" type="submit" value="Se connecter">
+    </div>
+
 
 </div>
 
@@ -59,19 +70,14 @@
 
 
 <script type="module">
-    // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import {getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {getDatabase} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
     import {
         getAuth,
-        createUserWithEmailAndPassword,
         signInWithEmailAndPassword,
         sendPasswordResetEmail
     } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
     const firebaseConfig = {
         apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
         authDomain: "webcastle-website.firebaseapp.com",
@@ -82,7 +88,6 @@
         appId: "1:274339465548:web:927dd550601c84dffce7e9"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth();
@@ -112,8 +117,14 @@
     });
 
     document.getElementById('forgetMdp').addEventListener('click', (e) => {
+        document.getElementById('loginDivcontain').style.display = 'none';
+        document.getElementById('emailResetMdpDiv').style.display = 'block';
 
-        var email = document.getElementById('emailLogin').value;
+    });
+
+    document.getElementById('forgotMdpButton').addEventListener('click', (e) => {
+
+        const email = document.getElementById('emailForgotMdp').value;
 
         sendPasswordResetEmail(auth, email)
             .then(() => {
