@@ -80,11 +80,6 @@
                 <td>---</td>
                 <td onclick="modifPopup('mot de passe', 'mdpCompte')"><img src="./src/Icons/CrayonIcon.png"></td>
             </tr>
-            <tr>
-                <td>Budget</td>
-                <td>---</td>
-                <td><img src="./src/Icons/CrayonIcon.png"></td>
-            </tr>
         </table>
         <p>actif depuis le <span id="actifDateAccount">---</span></p>
         <input id="suppAccount" type="submit" value="Supprimer mon compte">
@@ -200,7 +195,7 @@
         <p>N'hésitez pas a nous demander de l'aide si vous avez le moindre doute et nous vous réponderons au plus vite.
             <br><br>Vous verrez nos réponses ici ainsi via un mail qui vous sera envoyé</p>
         <div class="h2p"><h2>Vos questions</h2>
-            <p>Vous avez - réponse en attente</p></div>
+            <p id="tickets-list-answers">Vous avez - réponse en attente</p></div>
         <div class="columns">
             <div class="tickets">
                 <div class="list" id="tickets-list">
@@ -225,7 +220,7 @@
         <p id="ticket-answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum? Odit similique autem, molestiae fugit
             optio vel dicta, assumenda placeat error blanditiis quis eos eum fugiat totam quo eveniet quas.</p>
 
-        <button>Fermer la question</button>
+        <button id="ticket-close-button">Fermer la question</button>
     </div>
     <div class="popup new-ticket" style="display: none">
         <button class="close" onclick="ClosePopups()"><img src="./src/Icons/CloseIcon.png"></button>

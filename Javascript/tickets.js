@@ -25,7 +25,7 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const auth = getAuth();
 
-document.getElementById("new-ticket-send").addEventListener('click', (e) => {
+document.getElementById("new-ticket-send").addEventListener('click', () => {
     const user = auth.currentUser;
 
     get(child(ref(database), "tickets")).then((tickets_snapshot) => {
@@ -53,12 +53,21 @@ document.getElementById("new-ticket-send").addEventListener('click', (e) => {
         });
     });
     ClosePopups();
+    setTimeout(refreshTicketsList, 500);
+});
+
+document.getElementById("ticket-close-button").addEventListener('click', () => {
+    const user = auth.currentUser;
+
+    console.log(user);
 });
 
 function refreshTicketsList() {
     const user = auth.currentUser;
+    document.getElementById("tickets-list").innerHTML = "";
     get(child(ref(database), "tickets")).then((tickets_snapshot) => {
         var tickets = [];
+        var answers = 0;
         if (tickets_snapshot.exists()) {
             tickets = Object.values(tickets_snapshot.val());
         }
@@ -68,8 +77,10 @@ function refreshTicketsList() {
                 newButton.innerHTML = tickets[i].title + "<div class=\"reddot\" style=\"display: " + (tickets[i].answer === "" ? "none" : "block") + ";\"></div>";
                 newButton.setAttribute("onclick", "ShowTicket(\"" + tickets[i].title + "\"" + ", " + "\"" + tickets[i].content + "\"" + ", " + "\"" + tickets[i].answer + "\")")
                 document.getElementById("tickets-list").appendChild(newButton);
+                if (tickets[i].answer != "") { answers++; }
             }
         }
+        document.getElementById("tickets-list-answers").innerHTML = "Vous avez " + answers + " réponse en attente";
     });
 }
 window.addEventListener('load', function () {
