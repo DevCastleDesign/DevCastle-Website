@@ -17,6 +17,7 @@
     <link href="css/main.css" rel="stylesheet">
 
     <script type="module" src="Javascript/dashBoardJs.js"></script>
+    <script type="module" src="Javascript/ticket.js"></script>
 </head>
 <body class="pDashboard">
 <div class="panels">
@@ -236,31 +237,31 @@
 </div>
 <div id="popup-blur" style="display: none;">
     <div class="popup ticket" style="display: none">
-        <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
-        <h1>Titre de la question</h1>
+        <button class="close" onclick="ClosePopups()"><img src="./src/Icons/CloseIcon.png"></button>
+        <h1 id="ticket-title">Titre de la question</h1>
 
         <h2>Votre question</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, alias sunt! Rem perferendis temporibus
+        <p id="ticket-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, alias sunt! Rem perferendis temporibus
             eligendi, iure magnam sunt nemo aspernatur assumenda provident facilis nam, vero odit, unde maiores. Magnam,
             quis?</p>
 
         <h2>Notre réponse</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum? Odit similique autem, molestiae fugit
+        <p id="ticket-answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum? Odit similique autem, molestiae fugit
             optio vel dicta, assumenda placeat error blanditiis quis eos eum fugiat totam quo eveniet quas.</p>
 
-        <button>Fermer la question</button>
+        <button id="ticket-close-button">Fermer la question</button>
     </div>
     <div class="popup new-ticket" style="display: none">
-        <button class="close"><img src="./src/Icons/CloseIcon.png"></button>
+        <button class="close" onclick="ClosePopups()"><img src="./src/Icons/CloseIcon.png"></button>
         <h1>Nouvelle question</h1>
 
         <h2>Titre de la question</h2>
-        <input placeholder="Titre" type="text">
+        <input id="new-ticket-title" placeholder="Titre" type="text">
 
         <h2>Expliquez nous tout</h2>
-        <textarea placeholder="Description"></textarea>
+        <textarea id="new-ticket-content" placeholder="Description"></textarea>
 
-        <button>Envoyer</button>
+        <button id="new-ticket-send">Envoyer</button>
     </div>
 
     <div id="suppAccountPopup" style="display: none">
