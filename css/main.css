@@ -568,6 +568,17 @@ main nav ul li a {
     border: none;
 }
 
+.pLogInSignIn label {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.pLogInSignIn #retourButton {
+    user-select: none;
+    cursor: pointer;
+}
+
+
 .pLogInSignIn header  {
     text-align: center;
     margin-top: 10px;
@@ -612,7 +623,7 @@ main nav ul li a {
 }
 
 .pLogInSignIn .login {
-    height: 100%;
+    height: 500px;
     width: 373px;
     border-radius: 12px;
     background-color: white;
@@ -621,14 +632,6 @@ main nav ul li a {
 }
 
 .pLogInSignIn .loginDiv {
-    padding-bottom: 200px;
-}
-
-.pLogInSignIn #loginDivcontain {
-    padding-bottom: 200px;
-}
-
-.pLogInSignIn #emailResetMdpDiv {
     padding-bottom: 200px;
 }
 
@@ -646,6 +649,10 @@ main nav ul li a {
     padding: 30px 44px 50px 44px;
 }
 
+.pLogInSignIn label {
+    font-size: 14px;
+}
+
 .pLogInSignIn .SignIn input {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -660,10 +667,6 @@ main nav ul li a {
     border: 1px solid #b8b8b8;
     height: 35px;
     width: 100%;
-}
-
-.pLogInSignIn label {
-    font-size: 14px;
 }
 
 .pLogInSignIn .devCastleImage {

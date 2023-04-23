@@ -34,22 +34,22 @@
         <p class="error" id="errorLogin">email ou mot de passe incorrect</p>
         <p id="forgetMdp">mot de passe oublié</p>
 
-        <input id="logIn" type="submit" value="Se connecter">
+        <input id="logIn" class="connectionButton" type="submit" value="Se connecter">
 
         <p>pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
     </div>
 
     <div id="emailResetMdpDiv" style="display: none">
+        <label>Mot de passe oublié</label>
         <p>Entrez l'adresse email utilisée par votre compte, nous vous enverrons un lien pour modifier votre mot de passe.</p>
         <p>Email</p>
         <input class="email" id="emailForgotMdp" type="email">
         <p class="error" >email invalide</p>
-        <input id="forgotMdpButton" type="submit" value="Se connecter">
+        <input class="connectionButton" id="forgotMdpButton" type="submit" value="Se connecter">
+        <p id="retourButton">retour</p>
     </div>
 
-
 </div>
-
 
 <script>
     let eyeicon = document.getElementById('eyeicon');
@@ -133,6 +133,11 @@
             .catch((error) => {
                 alert(error)
             });
+    });
+
+    document.getElementById('retourButton').addEventListener('click', (e) => {
+        document.getElementById('loginDivcontain').style.display = 'block';
+        document.getElementById('emailResetMdpDiv').style.display = 'none';
     });
 
 </script>
