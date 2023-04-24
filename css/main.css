@@ -1135,6 +1135,7 @@ main nav ul li a {
     border-radius: 10px;
     color: white;
     font-size: 25px;
+    cursor: pointer;
 }
 
     /* Support */
@@ -2169,7 +2170,7 @@ main nav ul li a {
     font-family: inter, sans-serif;
 }
 
-.pPaiement .paiementSiteWeb, .paiementHebergeur, .remisePremiere, .remiseSuisse, .total {
+.pPaiement .paiementSiteWeb, .paiementHebergeur, .paiementSupplement, .remisePremiere, .remiseSuisse, .total {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -2572,4 +2573,21 @@ main nav ul li a {
 #forgetMdp{
     cursor: pointer;
     user-select: none;
+}
+
+.pHebergementInfo body {
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+    color: white;
+}
+
+.pHebergementInfo {
+
+}
+
+.pHebergementInfo {
+
+}
+
+.pHebergementInfo {
+
 }

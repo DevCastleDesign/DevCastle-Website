@@ -146,14 +146,18 @@
     <div class="achatList">
         <h2>Votre commande</h2>
         <hr>
-        <div class="paiementSiteWeb">
+        <div class="paiementSiteWeb" id="paiementSiteWeb" style="display: none">
             <p>Site web</p>
             <p><span class="chf">CHF </span><span class="prix" id="sitePrix">---</span></p>
         </div>
-        <div class="paiementHebergeur">
+        <div class="paiementHebergeur" id="paiementHebergeur" style="display: none">
             <p>Hebergement</p>
             <p><span class="trace-chf">CHF 60</span><span class="chf">CHF </span><span class="prix"
                                                                                        id="hebergPrix">---</span></p>
+        </div>
+        <div class="paiementSupplement" id="paiementModif" style="display: none">
+            <p>Modification</p>
+            <p><span class="chf">CHF </span><span class="prix" id="modifPrix">---</span></p>
         </div>
         <hr>
         <div class="remiseSuisse" id="suisseRemise" style="display: none">
@@ -211,10 +215,21 @@
                 onValue(ref(database, '/users/' + user.uid), (snapshot) => {
                     const pays = (snapshot.val().pays);
 
-
                     onValue(ref(database, '/users/' + user.uid + "/achat"), (snapshot) => {
                         const sitePrix = (snapshot.val().site);
                         const hebergPrix = (snapshot.val().hebergement);
+                        const modifSupplement = (snapshot.val().supplement);
+
+                        if (sitePrix != 0) {
+                            document.getElementById('paiementSiteWeb').style.display = 'flex';
+                        }
+                        if (hebergPrix != 0) {
+                            document.getElementById('paiementHebergeur').style.display = 'flex';
+                        }
+                        if (modifSupplement != 0) {
+                            document.getElementById('paiementModif').style.display = 'flex';
+                        }
+
 
                         var suisseRemisePrix = 0;
                         var firstCommandePrix = 0;
@@ -234,6 +249,7 @@
 
                             document.getElementById('sitePrix').innerHTML = sitePrix;
                             document.getElementById('hebergPrix').innerHTML = hebergPrix;
+                            document.getElementById('modifPrix').innerHTML = modifSupplement;
 
                             document.getElementById('total').innerHTML = sitePrix + hebergPrix - suisseRemisePrix - firstCommandePrix;
                         });

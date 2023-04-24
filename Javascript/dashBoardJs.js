@@ -275,6 +275,10 @@ cancelSuppAccountButton.addEventListener('click', (e) => {
 });
 
 
+hostButton.addEventListener('click', (e) => {
+    window.location.href = "hebergementInfo.html";
+});
+
 const fileInput = document.getElementById("infoSupp");
 
 // Ajout d'un écouteur d'événement sur le champ de fichier
