@@ -174,6 +174,12 @@ function verifAccount() {
                         const date_debut_Dev = (snapshot.val().date_debut);
                         const date_fin_Dev = (snapshot.val().date_fin);
 
+                        onValue(ref(database, '/users/' + user.uid + "/site/informations"), (snapshot) => {
+                            document.getElementById('nomSite').innerHTML = (snapshot.val().nom_site);
+                    }, {
+                        onlyOnce: true
+                    });
+
                         if (status == 'maquette') {
 
                             document.getElementById('onStatus').style.display = 'block';
