@@ -44,7 +44,7 @@
         <p>Entrez l'adresse email utilisée par votre compte, nous vous enverrons un lien pour modifier votre mot de passe.</p>
         <p>Email</p>
         <input class="email" id="emailForgotMdp" type="email">
-        <p class="error" >email invalide</p>
+        <p id="errorResetMail"></p>
         <input class="connectionButton" id="forgotMdpButton" type="submit" value="Se connecter">
         <p id="retourButton">retour</p>
     </div>
@@ -126,13 +126,22 @@
 
         const email = document.getElementById('emailForgotMdp').value;
 
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
-                alert("ok")
-            })
-            .catch((error) => {
-                alert(error)
-            });
+        const emailPatern = /^[^@]+@\w+(\.\w+)+\w$/;
+
+        if (email.match(emailPatern)) {
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    alert("ok")
+                })
+                .catch((error) => {
+                    if (error.code == "auth/user-not-found") {
+                        document.getElementById('errorResetMail').innerHTML = "email attribuée à aucun compte";
+                    }
+                });
+        } else {
+            document.getElementById('errorResetMail').innerHTML = "email invalide";
+        }
+
     });
 
     document.getElementById('retourButton').addEventListener('click', (e) => {
