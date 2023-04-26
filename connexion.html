@@ -15,6 +15,10 @@
     <!-- CSS -->
     <link href="../css/fonts/fonts.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" crossorigin="anonymous" />
+
 </head>
 <body>
 
@@ -26,17 +30,18 @@
     <div id="loginDivcontain">
         <label>connexion</label>
         <p>Email</p>
-        <input class="email" id="emailLogin" type="email">
+        <input class="email" id="phone" type="email">
         <p class="error" id="errorEmailLogin">email invalide</p>
 
         <p>Password</p>
         <input class="password" id="passwordLogin" type="password">
-        <p class="error" id="errorLogin">email ou mot de passe incorrect</p>
-        <p id="forgetMdp">mot de passe oublié</p>
+        <p class="errorMdp" id="errorLogin">email ou mot de passe incorrect</p>
+
 
         <input id="logIn" class="connectionButton" type="submit" value="Se connecter">
-
-        <p>pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+        <hr>
+        <p class="noAccountLogin">pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+        <p id="forgetMdp">mot de passe oublié</p>
     </div>
 
     <div id="emailResetMdpDiv" style="display: none">
@@ -151,6 +156,7 @@
 
 
 </script>
+
 </body>
 </html>
 
