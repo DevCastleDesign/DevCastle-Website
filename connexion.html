@@ -18,7 +18,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" crossorigin="anonymous" />
-
 </head>
 <body>
 
@@ -28,29 +27,33 @@
 
 <div class="login" id="logInDiv">
     <div id="loginDivcontain">
-        <label>connexion</label>
-        <p>Email</p>
-        <input class="email" id="emailLogin" type="email">
-        <p class="error" id="errorEmailLogin">email invalide</p>
+        <label class="connexionTitle">Connexion</label>
+        <div class="loginContainer">
+            <p>Email</p>
+            <input class="email" id="emailLogin" type="email">
+            <p class="error" id="errorEmailLogin">email invalide</p>
 
-        <p>Password</p>
-        <input class="password" id="passwordLogin" type="password">
-        <p class="errorMdp" id="errorLogin">email ou mot de passe incorrect</p>
+            <p>Password</p>
+            <input class="password" id="passwordLogin" type="password">
+            <p class="errorMdp" id="errorLogin">email ou mot de passe incorrect</p>
 
-
-        <input id="logIn" class="connectionButton" type="submit" value="Se connecter">
-        <hr>
-        <p class="noAccountLogin">pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
-        <p id="forgetMdp">mot de passe oublié</p>
+            <input id="logIn" class="connectionButton" type="submit" value="Se connecter">
+            <hr>
+            <p class="noAccountLogin">pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+            <p id="forgetMdp">mot de passe oublié</p>
+        </div>
     </div>
 
     <div id="emailResetMdpDiv" style="display: none">
-        <label>Mot de passe oublié</label>
-        <p>Entrez l'adresse email utilisée par votre compte, nous vous enverrons un lien pour modifier votre mot de passe.</p>
-        <p>Email</p>
-        <input class="email" id="emailForgotMdp" type="email">
-        <p id="errorResetMail"></p>
-        <input class="connectionButton" id="forgotMdpButton" type="submit" value="Se connecter">
+        <label class="connexionTitle">Mot de passe oublié</label>
+        <div class="resetMdpContainer">
+            <p class="textReset">Entrez l'adresse email utilisée par votre compte, nous vous enverrons un lien pour modifier votre mot de passe.</p>
+            <p>Email</p>
+            <input class="email" id="emailForgotMdp" type="email">
+            <p id="errorResetMail"></p>
+            <input class="connectionButton" id="forgotMdpButton" type="submit" value="Se connecter">
+
+        </div>
         <p id="retourButton">retour</p>
     </div>
 

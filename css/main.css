@@ -553,8 +553,21 @@ main nav ul li a {
     margin: 0;
 }
 
-.pLogInSignIn .email {
+.pLogInSignIn #loginDivcontain .email {
     margin-bottom: 30px;
+}
+
+.pLogInSignIn #loginDivcontain {
+    text-align: center;
+}
+
+.pLogInSignIn .connexionTitle {
+    font-size: 25px;
+}
+
+.pLogInSignIn .loginContainer {
+    text-align: left;
+    margin-top: 20px;
 }
 
 .pLogInSignIn .password {
@@ -597,6 +610,27 @@ main nav ul li a {
     margin-top: 40px;
 }
 
+.pLogInSignIn #emailResetMdpDiv {
+    text-align: center;
+}
+
+.pLogInSignIn #forgotMdpButton {
+    margin-top: 30px;
+}
+
+
+.pLogInSignIn .resetMdpContainer {
+    padding-top: 20px;
+}
+
+.pLogInSignIn .textReset {
+    margin-bottom: 20px;
+}
+
+.pLogInSignIn #emailResetMdpDiv p {
+    text-align: left;
+}
+
 .pLogInSignIn a {
     text-decoration: none;
     color: #006DF0;
@@ -635,7 +669,6 @@ main nav ul li a {
     margin-top: 20px;
 }
 
-
 .pLogInSignIn .loginButton {
     width: 190px;
     height: 42px;
@@ -651,7 +684,7 @@ main nav ul li a {
     border-radius: 12px;
     background-color: white;
     margin: 0 auto;
-    padding: 53px 44px 0 44px;
+    padding: 30px 44px 0 44px;
 }
 
 .pLogInSignIn .loginDiv {
