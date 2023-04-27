@@ -61,7 +61,7 @@
         <div>
             <label>Mot de passe</label>
             <input id="passwordSignIn" type="password">
-            <p class="error" id="errorPassword">mot de passe invalide</p>
+            <p class="error" id="errorPassword">mot de passe invalide (min. 6)</p>
         </div>
         <div>
             <label>Confirmer le mot de passe</label>
@@ -78,18 +78,14 @@
 <img class="devCastleImage" height="530" src="src/Images/DevCastleImage.png" width="330"/>
 
 <script type="module">
-    // Import the functions you need from the SDKs you need
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
     import {
         getAuth,
         createUserWithEmailAndPassword
-
     } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
+
     const firebaseConfig = {
         apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
         authDomain: "webcastle-website.firebaseapp.com",
@@ -100,11 +96,9 @@
         appId: "1:274339465548:web:927dd550601c84dffce7e9"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
     const auth = getAuth();
-
 
     signUp.addEventListener('click', (e) => {
 
@@ -119,8 +113,6 @@
         checkNom()
         checkEmail()
         checkTel()
-        checkPassword()
-        confirmPasswordWalid()
 
         if (checkEmail() == true && checkPrenom() == true && checkTel() == true && checkPassword() == true && confirmPasswordWalid() == true) {
 
@@ -129,7 +121,6 @@
             document.getElementById('signUp').classList.toggle('inscriptionButton-loading')
 
             createUserWithEmailAndPassword(auth, email, password)
-
                 .then((userCredential) => {
                     const user = userCredential.user;
 

@@ -392,7 +392,6 @@ main nav ul li a {
     margin: 90px auto 200px auto;
 }
 
-
 .pAccueil .securePaiement h1 {
     font-size: 45px;
 }
@@ -402,11 +401,9 @@ main nav ul li a {
     margin: 20px 0;
 }
 
-
 .pAccueil .securePaiement img {
     transform: translateY(-80px) translateX(70px);
 }
-
 
 .pAccueil .securePaiement input {
     background-color: #8CAEDC;
@@ -558,7 +555,6 @@ main nav ul li a {
 
 .pLogInSignIn .email {
     margin-bottom: 30px;
-
 }
 
 .pLogInSignIn .password {
@@ -619,10 +615,6 @@ main nav ul li a {
     text-align: center;
 }
 
-.pLogInSignIn #confirmPasswordSignIn {
-    margin-bottom: 30px;
-}
-
 .pLogInSignIn .dejaIncrit {
     text-align: center;
     margin-top: 20px;
@@ -636,6 +628,7 @@ main nav ul li a {
     height: 50px;
     width: 100%;
     position: relative;
+    margin-top: 30px;
 }
 
 .pLogInSignIn .paysRegion {
@@ -675,6 +668,13 @@ main nav ul li a {
 .pLogInSignIn .SignIn .error{
     display: none;
     color: #cd3d64;
+    transform: translateY(-5px);
+}
+
+.pLogInSignIn .SignIn #errorTel{
+    display: none;
+    color: #cd3d64;
+    transform: translateY(10px);
 }
 
 .pLogInSignIn .errorMdp{

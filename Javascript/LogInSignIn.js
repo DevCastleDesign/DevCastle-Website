@@ -23,13 +23,14 @@ function checkPrenom() {
 };
 
 function checkTel() {
-    if (document.getElementById('telSignIn').value.length >= 10) {
+    if (document.getElementById('phone').value[4] != null &&
+        document.getElementById('phone').value.length >= 13) {
         document.getElementById('errorTel').style.display = "none";
-        document.getElementById('telSignIn').style.border = "1px solid #b8b8b8";
+        document.getElementById('phone').style.border = "1px solid #b8b8b8";
         return true;
     } else {
         document.getElementById('errorTel').style.display = "block";
-        document.getElementById('telSignIn').style.border = "#cd3d64 solid 1.5px";
+        document.getElementById('phone').style.border = "#cd3d64 solid 1.5px";
         return false;
     }
 };
