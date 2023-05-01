@@ -17,12 +17,12 @@ const auth = getAuth();
 const storage = getStorage();
 
 
-const input = document.getElementById("test-file");
+const input = document.getElementById("site-images");
 input.addEventListener("change", (event) => {
         const user = auth.currentUser;
         const selectedfile = event.target.files;
-        if (selectedfile.length > 0) {
-            const [imageFile] = selectedfile;
+        for (let i = 0; i < selectedfile.length; i++) {
+            const imageFile = selectedfile[i];
             uploadBytes(ref(storage, "users/" + user.uid + "/" + imageFile.name), imageFile).then(() => {
                 console.log('Uploaded a file!');
             });
