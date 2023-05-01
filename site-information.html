@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
   <link href="css/main.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 
@@ -55,6 +57,7 @@
         <h2>Couleurs principales</h2>
         <div id="palette">
             <button onclick="addColor()" class="addColor"></button>
+
         </div>
         <script>
             var palette = document.getElementById("palette")
@@ -83,6 +86,14 @@
                 </div>
             </div>
         </div>-->
+        <button><i class="material-icons">add_circle_outline</i>Ajouter une image</button>
+        <style>
+            button {
+                display: inline-flex;
+                align-items: center;
+                padding: 30px 40px;
+            }
+        </style>
         <input type="file" multiple id="site-images">
         <div id="site-images-cont">
         </div>
@@ -103,7 +114,7 @@
 <script type="module">
     
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
     
     const firebaseConfig = {
