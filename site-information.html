@@ -14,11 +14,6 @@
     <button onclick="OpenTab('design', 1)">Design</button>
 </div>
 
-<input type="file" placeholder="test" id="test-file" multiple>
-<button id="sendButton">send</button>
-
-<script src="Javascript/images.js" type="module"></script>
-
 <script>
     function OpenTab(id, tabId) {
         var pages = document.getElementById("pages");
@@ -35,7 +30,7 @@
 </script>
 
 <div id="pages">
-    <div id="informations" class="page" style="display: block;">
+    <div id="informations" class="page" style="display: none;">
         <h1>Informations</h1>
         <hr>
         <p>Nom du site</p>
@@ -44,17 +39,18 @@
         <textarea id="infoEntreprise"></textarea>
         <p>Si vous désirez encore modifier une des informations présentes après cette étape notez que chaque modification vous sera facturée pour un montant de 29.99 CHF. Nous vous conseillons donc fortement tout relire avant de passer à la suite.</p>
     </div>
-    <div id="design" class="page" style="display: none;">
+    <div id="design" class="page" style="display: block;">
         <h1>Design</h1>
         <hr>
         <h2>Icône du site</h2>
-        <div class="addIconPart">
+        <!--<div class="addIconPart">
             <div class="iconPart">
                 <div class="iconSpace"></div>
                 <img src="src/Icons/TrashIcon.png"/>
             </div>
             <button class="addIconButton"><img src="../src/Icons/AddIconBlack.png">Ajouter une image</button>
-        </div>
+        </div>-->
+        <input type="file" id="site-icon">
         <hr>
         <h2>Couleurs principales</h2>
         <div id="palette">
@@ -71,11 +67,11 @@
                     palette.children[palette.childElementCount - 1].style.display = "none";
                 }
             }
-        </script>
+            </script>
         <hr>
         <h2>Images</h2>
 
-        <button>add</button>
+        <!--<button>add</button>
 
         <div class="imageDiv">
             <div class="imageRecDiv">
@@ -86,7 +82,17 @@
                     </div>
                 </div>
             </div>
+        </div>-->
+        <input type="file" multiple id="site-images">
+        <div id="site-images-cont">
         </div>
+        <!--^DANS CETTE DIV ^<div class="site-images-elem">
+            <img src="https://firebasestorage.googleapis.com/v0/b/webcastle-website.appspot.com/o/users%2FqHD1bcogxwc3syUuHeY5X9cqiuG2%2Ftest.png?alt=media&token=b5f6eeee-cd49-4647-a819-53d093b31654">
+            <div>
+                <p>test image.png</p>
+                <button><img src="src/Icons/TrashIcon.png"></button>
+            </div>
+        </div>-->
         <hr>
         <h2>Commentaires</h2>
         <textarea id="commSite"></textarea>
@@ -95,11 +101,11 @@
 </div>
 
 <script type="module">
-
+    
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-
+    
     const firebaseConfig = {
         apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
         authDomain: "webcastle-website.firebaseapp.com",
@@ -109,31 +115,31 @@
         messagingSenderId: "274339465548",
         appId: "1:274339465548:web:927dd550601c84dffce7e9"
     };
-
+    
     const app = initializeApp(firebaseConfig);
     const auth = getAuth();
     const database = getDatabase(app);
-
-
+    
+    
     confirmButton.addEventListener('click', (e) => {
-
+        
         const user = auth.currentUser;
-
+        
         set(ref(database, 'users/' + user.uid + "/" + "site/informations" ), {
             nom_site: document.getElementById('nomSite').value,
             info_entreprise: document.getElementById('infoEntreprise').value
         })
-
+        
         set(ref(database, 'users/' + user.uid + "/" + "site/design" ), {
             design_commentaire: document.getElementById('commSite').value
         })
-
+        
         set(ref(database, 'users/' + user.uid + "/" + "site/maquette" ), {
             status: "attente",
             date_debut: "",
             date_fin: "",
         })
-
+        
         set(ref(database, 'users/' + user.uid + "/" + "site/hebergement" ), {
             status: "attente",
             adresse: "",
@@ -145,22 +151,23 @@
             date_debut: "",
             date_fin: "",
         })
-
+        
         update(ref(database, 'users/' + user.uid), {
             status: "maquette",
         });
-
+        
         setTimeout(changePage, 1000)
-
+        
         function changePage() {
             window.location.href = "maquette.html";
         }
     });
-
+    
     click.addEventListener('click', (e) => {
-       alert("ok")
+        alert("ok")
     });
-
-    </script>
+    
+</script>
+<script src="Javascript/images.js" type="module"></script>
 </body>
 </html>
