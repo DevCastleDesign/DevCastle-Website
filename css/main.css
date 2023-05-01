@@ -1960,6 +1960,35 @@ main nav ul li a {
     position: relative;
 }
 
+.pSite-information #site-images-cont {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 750px;
+}
+
+.pSite-information .site-images-elem {
+    max-width: 30%;
+    margin: 0 1.6% 50px;
+}
+
+.pSite-information .site-images-elem img {
+    width: 100%;
+}
+
+.pSite-information .site-images-elem div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pSite-information .site-images-elem div button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+}
+
 .pSite-information .suppImage:hover {
     background-color: black;
     opacity: 100%;
