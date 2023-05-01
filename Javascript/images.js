@@ -17,14 +17,26 @@ const auth = getAuth();
 const storage = getStorage();
 
 
+const iconInput = document.getElementById("site-icon");
+iconInput.addEventListener("change", (event) => {
+    const user = auth.currentUser;
+    const selectedfile = event.target.files;
+    if (selectedfile.length > 0) {
+        const [imageFile] = selectedfile;
+        uploadBytes(ref(storage, "users/" + user.uid + "/icon/" + imageFile.name), imageFile).then(() => {
+            console.log('Uploaded a file (' + imageFile.name + ')!');
+        });
+    }
+});
+
 const input = document.getElementById("site-images");
 input.addEventListener("change", (event) => {
-        const user = auth.currentUser;
-        const selectedfile = event.target.files;
-        for (let i = 0; i < selectedfile.length; i++) {
-            const imageFile = selectedfile[i];
-            uploadBytes(ref(storage, "users/" + user.uid + "/" + imageFile.name), imageFile).then(() => {
-                console.log('Uploaded a file!');
-            });
-        }
-    });
+    const user = auth.currentUser;
+    const selectedfile = event.target.files;
+    for (let i = 0; i < selectedfile.length; i++) {
+        const imageFile = selectedfile[i];
+        uploadBytes(ref(storage, "users/" + user.uid + "/" + imageFile.name), imageFile).then(() => {
+            console.log('Uploaded a file (' + imageFile.name + ')!');
+        });
+    }
+});
