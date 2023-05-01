@@ -230,6 +230,19 @@ function verifAccount() {
                 document.getElementById('urlSite').innerHTML = (snapshot.val().url);
             });
 
+            onValue(ref(database, '/users/' + user.uid + "/site/hebergement"), (snapshot) => {
+                if (snapshot.val().status == "") {
+                    document.getElementById('hostingDiv1').style.display = 'block';
+                } else {
+                    document.getElementById('hostingDiv2').style.display = 'block';
+
+                    document.getElementById('statusHeberg').innerHTML = (snapshot.val().status);
+                    document.getElementById('adresseHeberg').innerHTML = (snapshot.val().adresse);
+                }
+            }, {
+                onlyOnce: true
+            });
+
         } else {
             window.location.href = "index.html";
         }

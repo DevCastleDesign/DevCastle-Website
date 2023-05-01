@@ -1184,16 +1184,16 @@ main nav ul li a {
     left: 40%;
 }
 
-#hostingNoSub .hostingDiv2 {
+#hostingNoSub #hostingDiv1, .hostingDiv2 {
     max-width: 600px;
     margin-left: 60px;
 }
 
-#hostingNoSub .hostingDiv2 .text {
+#hostingNoSub #hostingDiv1 .text {
     font-size: 18px;
 }
 
-#hostingNoSub .hostingDiv2 h2 {
+#hostingNoSub #hostingDiv1 h2, .hostingDiv2 h2 {
     margin-top: 0;
     margin-bottom: 20px;
 }

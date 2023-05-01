@@ -129,6 +129,12 @@
             date_fin: "",
         })
 
+        set(ref(database, 'users/' + user.uid + "/" + "site/hebergement" ), {
+            status: "attente",
+            adresse: "",
+            date_actif: "",
+        })
+
         set(ref(database, 'users/' + user.uid + "/" + "site/developpement" ), {
             status: "attente",
             date_debut: "",
