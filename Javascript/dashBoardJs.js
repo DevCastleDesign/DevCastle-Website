@@ -176,9 +176,10 @@ function verifAccount() {
 
                         onValue(ref(database, '/users/' + user.uid + "/site/informations"), (snapshot) => {
                             document.getElementById('nomSite').innerHTML = (snapshot.val().nom_site);
-                    }, {
-                        onlyOnce: true
-                    });
+                            document.getElementById('siteNom').innerHTML = (snapshot.val().nom_site);
+                        }, {
+                            onlyOnce: true
+                        });
 
                         if (status == 'maquette') {
 
@@ -235,13 +236,26 @@ function verifAccount() {
                     document.getElementById('hostingDiv1').style.display = 'block';
                 } else {
                     document.getElementById('hostingDiv2').style.display = 'block';
-
+                    document.getElementById('siteUrl').innerHTML = (snapshot.val().adresse);
                     document.getElementById('statusHeberg').innerHTML = (snapshot.val().status);
                     document.getElementById('adresseHeberg').innerHTML = (snapshot.val().adresse);
                 }
+
             }, {
                 onlyOnce: true
             });
+
+            getDownloadURL(sRef(storage, 'users/' + user.uid + '/IconImage.png'))
+                .then((url) => {
+                    const img = document.getElementById("imgSrc");
+
+                    img.style.backgroundImage = 'url(' + url + ')';
+
+                })
+                .catch((error) => {
+                    alert("no image")
+                });
+
 
         } else {
             window.location.href = "index.html";
@@ -290,24 +304,4 @@ cancelSuppAccountButton.addEventListener('click', (e) => {
 
 hostButton.addEventListener('click', (e) => {
     window.location.href = "hebergementInfo.html";
-});
-
-const fileInput = document.getElementById("infoSupp");
-
-// Ajout d'un écouteur d'événement sur le champ de fichier
-fileInput.addEventListener('click', (e) => {
-    const ref = storage.ref();
-    const file = document.querySelector("#photo").files[0];
-    const name = +new Date() + "-" + file.name;
-    const metadata = {
-        contentType: file.type
-    };
-    const task = ref.child(name).put(file, metadata);
-    task
-        .then(snapshot => snapshot.ref.getDownloadURL())
-        .then(url => {
-            console.log(url);
-            alert('image uploaded successfully');
-            document.querySelector("#image").src = url;
-        })
 });

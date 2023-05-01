@@ -18,13 +18,28 @@ const storage = getStorage();
 
 
 const input = document.getElementById("test-file");
-input.addEventListener("change", (event) => {
-        const user = auth.currentUser;
-        const selectedfile = event.target.files;
-        if (selectedfile.length > 0) {
-            const [imageFile] = selectedfile;
-            uploadBytes(ref(storage, "users/" + user.uid + "/" + imageFile.name), imageFile).then(() => {
-                console.log('Uploaded a file!');
-            });
+
+
+
+document.getElementById('sendButton').addEventListener('click', (e) => {
+    const metadata = {
+        customMetadata: {
+            "nom:": "nom image"
         }
-    });
+    }
+    const user = auth.currentUser;
+
+
+    for (let i = 0; i < input.files.length ; i++) {
+
+        const selectedfile = input.file[i];
+        const [imageFile] = selectedfile;
+
+        uploadBytes(ref(storage, "users/" + user.uid + "/" + imageFile.name), imageFile, metadata).then(() => {
+            alert(imageFile.name)
+        });
+
+    }
+
+});
+
