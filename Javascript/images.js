@@ -22,9 +22,7 @@ iconInput.addEventListener("change", (event) => {
     const selectedfile = event.target.files;
     if (selectedfile.length > 0) {
         const [imageFile] = selectedfile;
-        uploadBytes(ref(storage, "users/" + user.uid + "/icon/" + imageFile.name), imageFile).then(() => {
-            console.log('Uploaded a file (' + imageFile.name + ')!');
-        });
+        uploadBytes(ref(storage, "users/" + user.uid + "/icon/" + imageFile.name), imageFile).then(updateSiteIcon);
     }
 });
 
@@ -63,11 +61,41 @@ function updateSiteImages() {
         });
     });
 }
+
+function updateSiteIcon() {
+    const user = auth.currentUser;
+    document.getElementById("site-icon-cont").innerHTML = "";
+    document.getElementById("site-icon-add-btn").style.display = "block";
+    listAll(ref(storage, "users/" + user.uid + "/icon")).then((res) => {
+        res.items.forEach((itemRef) => {
+            getDownloadURL(itemRef).then((url) => {
+                document.getElementById("site-icon-cont").innerHTML += `
+                <img src="` + url + `">
+                <button onclick="DeleteIcon()"><img src="src/Icons/TrashIcon.png"></button>
+                `;
+            });
+            document.getElementById("site-icon-add-btn").style.display = "none";
+        });
+    });
+}
+
+onAuthStateChanged(auth, updateSiteIcon);
 onAuthStateChanged(auth, updateSiteImages);
 
 setInterval(() => {
     if (hasToBeDeleted) {
         hasToBeDeleted = false;
         deleteObject(ref(storage, URLOfImageToDeleted)).then(updateSiteImages);
+    }
+    if (hasIconToBeDeleted) {
+        hasIconToBeDeleted = false;
+        const user = auth.currentUser;
+        listAll(ref(storage, "users/" + user.uid + "/icon")).then((res) => {
+            res.items.forEach((itemRef) => {
+                getDownloadURL(itemRef).then((url) => {
+                    deleteObject(ref(storage, url)).then(updateSiteIcon);;
+                });
+            });
+        });
     }
 }, 200);

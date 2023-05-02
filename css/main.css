@@ -1999,6 +1999,33 @@ main nav ul li a {
     position: relative;
 }
 
+.pSite-information #site-icon-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+
+.pSite-information #site-icon-cont img {
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.pSite-information #site-icon-cont button {
+    margin-top: 5%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    aspect-ratio: 1;
+}
+
+.pSite-information #site-icon-cont button img {
+    width: 100%;
+    height: 100%;
+}
+
 .pSite-information #site-images-cont {
     display: flex;
     flex-wrap: wrap;

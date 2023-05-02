@@ -45,14 +45,11 @@
         <h1>Design</h1>
         <hr>
         <h2>Icône du site</h2>
-        <!--<div class="addIconPart">
-            <div class="iconPart">
-                <div class="iconSpace"></div>
-                <img src="src/Icons/TrashIcon.png"/>
-            </div>
-            <button class="addIconButton"><img src="../src/Icons/AddIconBlack.png">Ajouter une image</button>
-        </div>-->
-        <input type="file" id="site-icon">
+        <input type="file" id="site-icon" style="display: none;">
+        <input type="button" id="site-icon-add-btn" class="file-input" value="Ajouter une image" onclick="document.getElementById('site-icon').click();"/>
+        <div id="site-icon-cont">
+            <!-- IMAGE DANS FIREBASE STORAGE (CONTENU DE CETTE DIV MIS AVEC JS) -->
+        </div>
         <hr>
         <h2>Couleurs principales</h2>
         <div id="palette">
@@ -73,27 +70,6 @@
             </script>
         <hr>
         <h2>Images</h2>
-
-        <!--<button>add</button>
-
-        <div class="imageDiv">
-            <div class="imageRecDiv">
-                <div  class="suppImage">
-                    <div class="info">
-                        <label>Image restaurant dans une grande ville connue</label>
-                        <button class="trashButton" id="click"><img src="src/Icons/TrashIcon.png" height="50" width="50"/></button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-        <!--<button><i class="material-icons">add_circle_outline</i>Ajouter une image</button>
-        <style>
-            button {
-                display: inline-flex;
-                align-items: center;
-                padding: 30px 40px;
-            }
-        </style>-->
         <input type="file" multiple id="site-images" style="display: none;">
         <input type="button" class="file-input" value="Ajouter des images" onclick="document.getElementById('site-images').click();" />
         <div id="site-images-cont">
