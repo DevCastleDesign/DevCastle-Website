@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-import { getStorage, ref, uploadBytes, listAll, getDownloadURL, getMetadata } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+import { getStorage, ref, uploadBytes, listAll, getDownloadURL, getMetadata, deleteObject } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -43,7 +43,6 @@ input.addEventListener("change", (event) => {
 });
 
 function updateSiteImages() {
-    console.log("updating");
     const user = auth.currentUser;
     document.getElementById("site-images-cont").innerHTML = "";
     listAll(ref(storage, "users/" + user.uid)).then((res) => {
@@ -55,7 +54,7 @@ function updateSiteImages() {
                         <img src="` + url + `">
                         <div>
                             <p>` + metadata.name + `</p>
-                            <button><img src="src/Icons/TrashIcon.png"></button>
+                            <button onclick="AddImageToDelete('` + url + `')"><img src="src/Icons/TrashIcon.png"></button>
                         </div>
                     </div>
                     `;
@@ -65,3 +64,10 @@ function updateSiteImages() {
     });
 }
 onAuthStateChanged(auth, updateSiteImages);
+
+setInterval(() => {
+    if (hasToBeDeleted) {
+        hasToBeDeleted = false;
+        deleteObject(ref(storage, URLOfImageToDeleted)).then(updateSiteImages);
+    }
+}, 200);

@@ -94,7 +94,8 @@
                 padding: 30px 40px;
             }
         </style>-->
-        <input type="file" multiple id="site-images">
+        <input type="file" multiple id="site-images" style="display: none;">
+        <input type="button" class="file-input" value="Ajouter des images" onclick="document.getElementById('site-images').click();" />
         <div id="site-images-cont">
             <!-- IMAGES DANS FIREBASE STORAGE (CONTENU DE CETTE DIV MIS AVEC JS) -->
         </div>
@@ -173,6 +174,7 @@
     });
     
 </script>
+<script src="Javascript/deleteImages.js"></script>
 <script src="Javascript/images.js" type="module"></script>
 </body>
 </html>
