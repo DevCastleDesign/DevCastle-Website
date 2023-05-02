@@ -245,7 +245,9 @@ function verifAccount() {
                 onlyOnce: true
             });
 
-            getDownloadURL(sRef(storage, 'users/' + user.uid + '/PereNoel.png'))
+            const storef = "users/" + user.uid;
+
+            getDownloadURL(sRef(storage, storef.child(RandomName()) ))
                 .then((url) => {
                     const img = document.getElementById("imgSrc");
 
