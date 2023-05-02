@@ -2011,6 +2011,16 @@ main nav ul li a {
     margin: 0 1.6% 50px;
 }
 
+.pSite-information input.file-input {
+    background-color: white;
+    color: black;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 .pSite-information .site-images-elem img {
     width: 100%;
 }
