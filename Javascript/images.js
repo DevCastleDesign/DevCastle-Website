@@ -1,6 +1,6 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+import { getStorage, ref, uploadBytes, listAll, getDownloadURL, getMetadata } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -15,7 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const storage = getStorage();
-
 
 const iconInput = document.getElementById("site-icon");
 iconInput.addEventListener("change", (event) => {
@@ -36,7 +35,33 @@ input.addEventListener("change", (event) => {
     for (let i = 0; i < selectedfile.length; i++) {
         const imageFile = selectedfile[i];
         uploadBytes(ref(storage, "users/" + user.uid + "/" + imageFile.name), imageFile).then(() => {
-            console.log('Uploaded a file (' + imageFile.name + ')!');
+            updateSiteImages();
         });
     }
 });
+
+function updateSiteImages() {
+    const user = auth.currentUser;
+    listAll(ref(storage, "users/" + user.uid)).then((res) => {
+        document.getElementById("site-images-cont").innerHTML = "";
+        res.items.forEach((itemRef) => {
+            getDownloadURL(itemRef).then((url) => {
+                getMetadata(itemRef).then((metadata) => {
+                    document.getElementById("site-images-cont").innerHTML += `
+                    <div class="site-images-elem">
+                        <img src="` + url + `">
+                        <div>
+                            <p>` + metadata.name + `</p>
+                            <button><img src="src/Icons/TrashIcon.png"></button>
+                        </div>
+                    </div>
+                    `;
+                });
+            })
+        });
+    });
+}
+
+setTimeout(() => {
+    updateSiteImages();
+},1000);
