@@ -1,5 +1,5 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL, getMetadata } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
@@ -35,15 +35,18 @@ input.addEventListener("change", (event) => {
     for (let i = 0; i < selectedfile.length; i++) {
         const imageFile = selectedfile[i];
         uploadBytes(ref(storage, "users/" + user.uid + "/" + imageFile.name), imageFile).then(() => {
-            updateSiteImages();
+            if (i >= selectedfile.length - 1) {
+                updateSiteImages();
+            }
         });
-    }
+    };
 });
 
 function updateSiteImages() {
+    console.log("updating");
     const user = auth.currentUser;
+    document.getElementById("site-images-cont").innerHTML = "";
     listAll(ref(storage, "users/" + user.uid)).then((res) => {
-        document.getElementById("site-images-cont").innerHTML = "";
         res.items.forEach((itemRef) => {
             getDownloadURL(itemRef).then((url) => {
                 getMetadata(itemRef).then((metadata) => {
@@ -61,7 +64,4 @@ function updateSiteImages() {
         });
     });
 }
-
-setTimeout(() => {
-    updateSiteImages();
-},1000);
+onAuthStateChanged(auth, updateSiteImages);
