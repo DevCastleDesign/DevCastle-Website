@@ -20,7 +20,9 @@ import {
     ref as sRef,
     uploadBytesResumable,
     getDownloadURL,
-    uploadBytes
+    uploadBytes,
+    listAll,
+    getMetadata
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
@@ -245,18 +247,31 @@ function verifAccount() {
                 onlyOnce: true
             });
 
-            const storef = "users/" + user.uid;
+            let test = [];
 
-            getDownloadURL(sRef(storage, storef.child(RandomName()) ))
-                .then((url) => {
-                    const img = document.getElementById("imgSrc");
+            const storef = 'users/' + user.uid;
 
-                    img.style.backgroundImage = 'url(' + url + ')';
 
-                })
-                .catch((error) => {
-                    alert("no image")
+            listAll(sRef(storage, "users/" + user.uid)).then((res) => {
+                res.items.forEach((itemRef) => {
+                    test.push(itemRef.name)
                 });
+
+                const random = Math.floor(Math.random() * test.length);
+
+                getDownloadURL(sRef(storage, "users/" + user.uid + "/" +(random, test[random])))
+                    .then((url) => {
+                        const img = document.getElementById("imgSrc");
+
+                        img.style.backgroundImage = 'url(' + url + ')';
+
+                    })
+                    .catch((error) => {
+                        alert("no image")
+                    });
+
+            });
+
 
 
         } else {
@@ -310,5 +325,33 @@ hostButton.addEventListener('click', (e) => {
 
 
 siteUrl.addEventListener('click', (e) => {
-   window.open('https://' + siteUrl.value);
+    window.open('https://' + siteUrl.value);
 });
+
+let test = [];
+
+reloadImageIcon.addEventListener('click', (e) => {
+    const user = auth.currentUser;
+
+    listAll(sRef(storage, "users/" + user.uid)).then((res) => {
+        res.items.forEach((itemRef) => {
+            test.push(itemRef.name)
+        });
+
+        const random = Math.floor(Math.random() * test.length);
+
+        getDownloadURL(sRef(storage, "users/" + user.uid + "/" +(random, test[random])))
+            .then((url) => {
+                const img = document.getElementById("imgSrc");
+
+                img.style.backgroundImage = 'url(' + url + ')';
+
+            })
+            .catch((error) => {
+                alert("no image")
+            });
+
+    });
+
+});
+
