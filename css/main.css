@@ -1069,6 +1069,7 @@ main nav ul li a {
     font-size: 20px;
     font-weight: 300;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .pDashboard .attenteDiv {

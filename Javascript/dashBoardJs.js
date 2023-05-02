@@ -245,7 +245,7 @@ function verifAccount() {
                 onlyOnce: true
             });
 
-            getDownloadURL(sRef(storage, 'users/' + user.uid + '/IconImage.png'))
+            getDownloadURL(sRef(storage, 'users/' + user.uid + '/PereNoel.png'))
                 .then((url) => {
                     const img = document.getElementById("imgSrc");
 
@@ -304,4 +304,9 @@ cancelSuppAccountButton.addEventListener('click', (e) => {
 
 hostButton.addEventListener('click', (e) => {
     window.location.href = "hebergementInfo.html";
+});
+
+
+siteUrl.addEventListener('click', (e) => {
+   window.open('https://' + siteUrl.value);
 });
