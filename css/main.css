@@ -2027,15 +2027,11 @@ main nav ul li a {
 }
 
 .pSite-information #site-images-cont {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 5%;
     overflow-y: auto;
     max-height: 750px;
-}
-
-.pSite-information .site-images-elem {
-    max-width: 30%;
-    margin: 0 1.6% 50px;
 }
 
 .pSite-information input.file-input {
@@ -2046,6 +2042,7 @@ main nav ul li a {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .pSite-information .site-images-elem img {
@@ -2053,6 +2050,7 @@ main nav ul li a {
 }
 
 .pSite-information .site-images-elem div {
+    margin-top: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
