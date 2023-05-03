@@ -20,6 +20,7 @@
     <script type="module" src="Javascript/dashBoardJs.js"></script>
     <script type="module" src="Javascript/ticket.js"></script>
     <script src="Javascript/popup.js"></script>
+
 </head>
 <body class="pDashboard">
 <div class="panels">
@@ -45,8 +46,7 @@
     </div>
     <ul class="commandlist">
         <li>
-            <button onclick="window.location.href='index.html';"><img
-                    src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button>
+            <button onclick="window.location.href='index.html';"><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button>
         </li>
         <li id="logOutButton">
             <button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button>
@@ -83,11 +83,6 @@
                 <td>---</td>
                 <td onclick="modifPopup('mot de passe', 'mdpCompte')"><img src="./src/Icons/CrayonIcon.png"></td>
             </tr>
-            <tr>
-                <td>Budget</td>
-                <td>---</td>
-                <td><img src="./src/Icons/CrayonIcon.png"></td>
-            </tr>
         </table>
         <p>actif depuis le <span id="actifDateAccount">---</span></p>
         <input id="suppAccount" type="submit" value="Supprimer mon compte">
@@ -122,11 +117,11 @@
             <tr>
                 <td>Nom du site</td>
                 <td id="nomSite">---</td>
-                <td><img src="./src/Icons/CrayonIcon.png"></td>
+                <td></td>
             </tr>
             <tr>
                 <td>URL</td>
-                <td id="urlSite">---</td>
+                <td id="urlSite"></td>
                 <td></td>
             </tr>
             <tr>
@@ -136,9 +131,9 @@
             </tr>
         </div>
         </table>
-        <p>Récuperer le code source</p>
-        <a href=""><img alt="" src="./src/Icons/AddIcon.png">Télécharger</a>
-
+        <p class="codeSource">Récuperer le code source</p>
+        <button id="codeSourceButton" disabled style="opacity: 50%"><i class="material-icons" style="font-size:28px">file_download</i>Télécharger</button>
+        <a href=""></a>
     </div>
     <div class="hosting" style="display: none">
         <div id="hostingSub" style="display: none">
@@ -173,7 +168,6 @@
                 </div>
                 <div id="hostingDiv1">
                     <h2>Hebergement</h2>
-
                     <p class="text">L’hebergement ? Il sert à pouvoir avoir accès à son site web
                         sur internet. Il est donc indispensable et est mis en place
                         pour 100% des site internet
@@ -194,7 +188,6 @@
             </div>
             <p class="noHostP">Vous n’avez pas encore d’hebergeur</p>
         </div>
-
     </div>
     <div class="support" style="display: none;">
         <div class="banner">
@@ -219,7 +212,13 @@
     </div>
 </div>
 <div id="popup-hebergement" style="display: none">
-    <button id="but" onclick="testButton()"></button>
+    <button class="close" onclick="closeHebergPopup()"><img src="./src/Icons/CloseIcon.png"></button>
+    <script>
+        function closeHebergPopup() {
+            document.getElementById('popup-blur').style.display = 'none';
+            document.getElementById('popup-hebergement').style.display = 'none';
+        }
+    </script>
     <h1>L’hebergement</h1>
     <div class="textHebergPopup">
         <div>

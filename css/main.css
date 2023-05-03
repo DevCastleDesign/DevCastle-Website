@@ -1072,13 +1072,23 @@ main nav ul li a {
     cursor: pointer;
 }
 
-.pDashboard  i {
+.pDashboard .siteImage #reloadImageIcon {
     position: absolute;
     top: 10px;
     right: 10px;
     z-index: 1;
     cursor: pointer;
     user-select: none;
+    transition: 0.2s;
+}
+
+.pDashboard .siteImage #reloadImageIcon:hover {
+    scale: 110%;
+}
+
+#noUrlSite {
+    opacity: 50%;
+    cursor: pointer;
 }
 
 .pDashboard .attenteDiv {
@@ -1093,6 +1103,7 @@ main nav ul li a {
     padding-left: 30px;
     padding-top: 30px;
 }
+
 
 .pDashboard .attenteDiv #titreAttenteDiv {
     font-size: 35px;
@@ -1126,15 +1137,23 @@ main nav ul li a {
     justify-content: space-between;
 }
 
-.pDashboard .content .site a {
+.pDashboard .content .site button {
     background-color: var(--dashboardseparator);
-    height: fit-content;
-    width: fit-content;
+    height: 50px;
+    width: 200px;
     display: flex;
     align-items: center;
     padding: 5px 20px;
     color: var(--white);
     border-radius: 5px;
+    justify-content: center;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.pDashboard .content .site button i {
+    margin-right: 7px;
 }
 
 .pDashboard .content .site .infoDiv p {
@@ -1149,11 +1168,15 @@ main nav ul li a {
     margin-right: 5px;
 }
 
+.codeSource {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
 /* Hebergement */
 .pDashboard .content .hosting .columns {
     display: flex;
 }
-
 
 .hosting .card :first-child {
     font-size: 1.5rem;
@@ -1276,7 +1299,6 @@ main nav ul li a {
 
 #popup-hebergement h1 {
     margin: 50px 0;
-
 }
 
 #popup-hebergement h2 {
@@ -1291,7 +1313,7 @@ main nav ul li a {
     /* Support */
 .pDashboard .content .support .banner {
     background-color: #1D1C21;
-    padding: 20px;
+    padding: 30px 20px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
@@ -1299,7 +1321,7 @@ main nav ul li a {
 }
 
 .pDashboard .content .support .banner img {
-    width: 20%;
+    width: 25%;
 }
 
 .pDashboard .content .support .h2p {
@@ -1411,7 +1433,7 @@ main nav ul li a {
     padding: 1vw;
 }
 
-.pDashboard .popup .close {
+.close {
     border: none;
     background-color: transparent;
     width: 1.5vw;
@@ -1422,7 +1444,7 @@ main nav ul li a {
     cursor: pointer;
 }
 
-.pDashboard .popup .close img {
+.close img {
     width: 1.5vw;
     aspect-ratio: 1;
 }

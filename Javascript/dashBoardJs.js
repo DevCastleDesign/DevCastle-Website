@@ -215,7 +215,10 @@ function verifAccount() {
                                 document.getElementById('statusAttenteDiv').innerHTML = "En Attente";
                                 document.getElementById('dateAttenteDiv').innerHTML = "";
                             }
-
+                        } else if (status == 'termine') {
+                            const codeSourceButton = document.getElementById('codeSourceButton');
+                            codeSourceButton.style.opacity = '100%';
+                            codeSourceButton.disabled = false;
                         } else {
                             document.getElementById('noStatus').style.display = 'block';
                             document.getElementById('onStatus').style.display = 'none';
@@ -236,30 +239,33 @@ function verifAccount() {
             onValue(ref(database, '/users/' + user.uid + "/site/hebergement"), (snapshot) => {
                 if (snapshot.val().status == "") {
                     document.getElementById('hostingNoSub').style.display = 'block';
+                    const urlSite = document.getElementById('urlSite');
+                    urlSite.innerHTML = "plan d'hebergement requis pour avoir une url";
+                    urlSite.style = 'opacity: 30%; cursor: pointer';
+                    urlSite.addEventListener('click', (e) => {
+                        OpenDashboard(2);
+                    });
                 } else {
                     document.getElementById('hostingSub').style.display = 'block';
+                    document.getElementById('urlSite').innerHTML = (snapshot.val().adresse);
                     document.getElementById('siteUrl').innerHTML = (snapshot.val().adresse);
                     document.getElementById('statusHeberg').innerHTML = (snapshot.val().status);
                     document.getElementById('adresseHeberg').innerHTML = (snapshot.val().adresse);
                 }
-
             }, {
                 onlyOnce: true
             });
 
-            let test = [];
-
-            const storef = 'users/' + user.uid;
-
+            let imageListe = [];
 
             listAll(sRef(storage, "users/" + user.uid)).then((res) => {
                 res.items.forEach((itemRef) => {
-                    test.push(itemRef.name)
+                    imageListe.push(itemRef.name)
                 });
 
-                const random = Math.floor(Math.random() * test.length);
+                const random = Math.floor(Math.random() * imageListe.length);
 
-                getDownloadURL(sRef(storage, "users/" + user.uid + "/" +(random, test[random])))
+                getDownloadURL(sRef(storage, "users/" + user.uid + "/" + (random, imageListe[random])))
                     .then((url) => {
                         const img = document.getElementById("imgSrc");
 
@@ -269,11 +275,7 @@ function verifAccount() {
                     .catch((error) => {
                         alert("no image")
                     });
-
             });
-
-
-
         } else {
             window.location.href = "index.html";
         }
@@ -357,3 +359,27 @@ infoSupp.addEventListener('click', (e) => {
     document.getElementById('popup-hebergement').style.display = 'block';
 });
 
+document.getElementById('codeSourceButton').addEventListener('click', (e) => {
+    const user = auth.currentUser;
+
+    onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+        const status = (snapshot.val().status);
+
+        if(status == 'termine') {
+            getDownloadURL(sRef(storage, "users/" + user.uid + "/source.rar"))
+                .then((url) => {
+                    var a = document.createElement('a');
+                    a.href = a.download = url;
+                    document.body.append(a);
+                    a.click();
+                    a.remove()
+                    window.URL.revokeObjectURL(url)
+                })
+                .catch((error) => {
+                    alert("no image")
+                });
+        }
+    }, {
+        onlyOnce: true
+    });
+});
