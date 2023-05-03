@@ -1154,65 +1154,62 @@ main nav ul li a {
     display: flex;
 }
 
-.pDashboard .content .hosting .hostingSub .card {
-    background-color: #2C3973;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.pDashboard .content .hosting .hostingSub .card :first-child {
+.hosting .card :first-child {
     font-size: 1.5rem;
     text-align: center;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-.pDashboard .content .hosting .hostingSub .card .price {
+
+.hosting .card .price {
     margin: 30px 0;
     font-weight: 600;
 }
 
-.pDashboard .content .hosting .hostingSub .card :last-child {
+.hosting .card :last-child {
     opacity: 0.5;
 }
 
-.pDashboard .content .hosting .hostingSub .infos {
+.hosting .infos {
     margin-left: 50px;
 }
 
-#hostingNoSub .container {
+.hosting #hostingNoSub .container {
     display: flex;
 }
 
-#hostingNoSub .buttonContainer {
+.hosting #hostingNoSub .buttonContainer {
     display: flex;
     margin-top: 50px;
 }
 
-#hostingNoSub .buttonContainer #infoSupp {
-}
-
-#hostingNoSub .card {
+.card {
     background-color: #2C3973;
     width: 258px;
     min-width: 258px;
-    height: 360px;
     text-align: center;
     border-radius: 10px;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-#hostingNoSub .card .price {
+#hostingNoSub .card {
+    height: 400px;
+}
+
+#hostingSub .card {
+    height: 360px;
+}
+
+.card .price {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 30px;
 }
 
-#hostingNoSub .card img {
+.card img {
     margin-bottom: 30px;
     margin-top: 30px;
 }
@@ -1221,6 +1218,8 @@ main nav ul li a {
     position: absolute;
     right: 40%;
     left: 40%;
+    transform: translateY(100px);
+    opacity: 40%;
 }
 
 #hostingNoSub #hostingDiv1, .hostingDiv2 {
@@ -1246,6 +1245,47 @@ main nav ul li a {
     color: white;
     font-size: 25px;
     cursor: pointer;
+}
+
+#infoSupp {
+    color: #A0CFFF;
+    font-size: 18px;
+    transform: translateX(20px) translateY(10px);
+    cursor: pointer;
+    user-select: none;
+}
+
+#popup-hebergement {
+    background: linear-gradient(252.04deg, #2C3973 8.82%, #51779C 99.46%);
+    border-radius: 14px;
+    max-width: 891px;
+    position: absolute;
+    color: white;
+    padding: 0 30px 50px 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+
+#popup-hebergement .textHebergPopup {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+#popup-hebergement h1 {
+    margin: 50px 0;
+
+}
+
+#popup-hebergement h2 {
+    margin-bottom: 20px;
+}
+
+#popup-hebergement button {
+    width: 40px;
+    height: 20px;
 }
 
     /* Support */

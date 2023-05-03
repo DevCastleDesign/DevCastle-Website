@@ -235,9 +235,9 @@ function verifAccount() {
 
             onValue(ref(database, '/users/' + user.uid + "/site/hebergement"), (snapshot) => {
                 if (snapshot.val().status == "") {
-                    document.getElementById('hostingDiv1').style.display = 'block';
+                    document.getElementById('hostingNoSub').style.display = 'block';
                 } else {
-                    document.getElementById('hostingDiv2').style.display = 'block';
+                    document.getElementById('hostingSub').style.display = 'block';
                     document.getElementById('siteUrl').innerHTML = (snapshot.val().adresse);
                     document.getElementById('statusHeberg').innerHTML = (snapshot.val().status);
                     document.getElementById('adresseHeberg').innerHTML = (snapshot.val().adresse);
@@ -345,13 +345,15 @@ reloadImageIcon.addEventListener('click', (e) => {
                 const img = document.getElementById("imgSrc");
 
                 img.style.backgroundImage = 'url(' + url + ')';
-
             })
             .catch((error) => {
                 alert("no image")
             });
-
     });
+});
 
+infoSupp.addEventListener('click', (e) => {
+    document.getElementById('popup-blur').style.display = 'block';
+    document.getElementById('popup-hebergement').style.display = 'block';
 });
 

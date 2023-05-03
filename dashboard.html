@@ -140,7 +140,7 @@
         <a href=""><img alt="" src="./src/Icons/AddIcon.png">Télécharger</a>
 
     </div>
-    <div class="hosting" style="display: none;">
+    <div class="hosting" style="display: none">
         <div id="hostingSub" style="display: none">
             <h1>Hebergement</h1>
             <div class="columns">
@@ -153,16 +153,16 @@
                 <div class="infos">
                     <h1>Informations</h1>
                     <p class="name">Statut</p>
-                    <p class="value">---</p>
+                    <p id="statusHeberg"></p>
                     <p class="name">Adresse</p>
-                    <p class="value">---</p>
+                    <p id="adresseHeberg"></p>
                     <p class="name">Moyen de paiement</p>
                     <p class="value">---</p>
                     <a href="">Modifier</a>
                 </div>
             </div>
         </div>
-        <div id="hostingNoSub">
+        <div id="hostingNoSub" style="display: none">
             <h1>Hebergement</h1>
             <div class="container">
                 <div class="card">
@@ -171,7 +171,7 @@
                     <p class="price">50 CHF / an</p>
                     <p>Vous n’avez rien à faire, vous n’avez qu’à profiter de votre site internet</p>
                 </div>
-                <div id="hostingDiv1"  style="display: none">
+                <div id="hostingDiv1">
                     <h2>Hebergement</h2>
 
                     <p class="text">L’hebergement ? Il sert à pouvoir avoir accès à son site web
@@ -187,21 +187,9 @@
                         internet sera en ligne 24/24.</p>
                     <div class="buttonContainer">
                         <input id="hostButton" type="submit" value="Commencer">
-                        <input id="infoSupp" type="submit" value="Informations supplémentaires">
+                        <p id="infoSupp">Informations supplémentaires</p>
                         <p></p>
                     </div>
-                </div>
-                <div id="hostingDiv2" style="display: none">
-                    <h2>Hebergement</h2>
-
-                    <p>Status</p>
-                    <p id="statusHeberg"></p>
-                    <p>Adresse</p>
-                    <p id="adresseHeberg"></p>
-                </div>
-                <div id="hostingDivNoHeberg" style="display: none">
-                    <h2>Hebergement</h2>
-
                 </div>
             </div>
             <p class="noHostP">Vous n’avez pas encore d’hebergeur</p>
@@ -230,6 +218,32 @@
         </div>
     </div>
 </div>
+<div id="popup-hebergement" style="display: none">
+    <button id="but" onclick="testButton()"></button>
+    <h1>L’hebergement</h1>
+    <div class="textHebergPopup">
+        <div>
+            <h2>c’est quoi ?</h2>
+            <p>C’est le procedé qui permet à n’importe quel ordinateur d’acceder à votre site.
+                Il est donc indispensable et est mis en place pour 100% des site internet
+                <br><br>
+                Chaque sites à besoin d’être hebergé pour fonctionner.
+                <br><br>
+                Mais n’ayez crainte. nous pouvons le faire à votre place et vous n’aurez rien à faire.</p>
+        </div>
+        <div>
+            <h2>Pourquoi le faison nous ?</h2>
+            <p>C’est tout simplement compliqué. Il est facile de se perde pour ne plus s’y
+                retrouver et finir avec un site mal organisé et mal optimisé.
+                <br><br>
+                En tant qu’informaticiens nous vous assurons que votre site sera bien hebergé.
+                de plus, nous ne faisons pratiquement aucune marge sur le prix que çela nous coute.
+                <br><br>
+                Mais si aimez le défi, vous avez aussi biensur la possibilité de gerer ça tout
+                seul, nous vous fournissons le code de site et à vous de vous débrouiller pour l’hebergement.</p>
+        </div>
+    </div>
+</div>
 <div id="popup-blur" style="display: none;">
     <div class="popup ticket" style="display: none">
         <button class="close" onclick="ClosePopups()"><img src="./src/Icons/CloseIcon.png"></button>
@@ -247,7 +261,7 @@
         <button id="ticket-close-button">Fermer la question</button>
     </div>
     <div class="popup new-ticket" style="display: none">
-        <button class="close" onclick="ClosePopups()"><img src="./src/Icons/CloseIcon.png"></button>
+        <button class="close" onclick="test()"><img src="./src/Icons/CloseIcon.png"></button>
         <h1>Nouvelle question</h1>
 
         <h2>Titre de la question</h2>
