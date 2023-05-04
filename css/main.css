@@ -930,16 +930,11 @@ main nav ul li a {
 /* panels */
 .pDashboard .panels {
     height: 100vh;
-    width: 20vw;
+    width: 17vw;
     border-right: var(--dashboardseparator) solid 2px;
     padding: 10px 0;
 }
 
-.pDashboard .panels a img {
-    height: 75px;
-    width: auto;
-    margin-right: 10px;
-}
 
 .pDashboard .panels .list {
     display: flex;
@@ -973,7 +968,7 @@ main nav ul li a {
 }
 
 .pDashboard .panels .commandlist {
-    width: 20vw;
+    width: 17vw;
     border-top: var(--dashboardseparator) solid 2px;
     position: absolute;
     bottom: 0;
@@ -1178,7 +1173,7 @@ main nav ul li a {
     display: flex;
 }
 
-.hosting .card :first-child {
+.card :first-child {
     font-size: 1.5rem;
     text-align: center;
     font-weight: 700;
@@ -1186,12 +1181,12 @@ main nav ul li a {
 }
 
 
-.hosting .card .price {
+.card .price {
     margin: 30px 0;
     font-weight: 600;
 }
 
-.hosting .card :last-child {
+.card :last-child {
     opacity: 0.5;
 }
 
@@ -1268,6 +1263,18 @@ main nav ul li a {
     color: white;
     font-size: 25px;
     cursor: pointer;
+}
+
+#hostingSub p{
+    font-size: 22px;
+}
+
+#hostingSub .infoHeberg{
+    margin-bottom: 20px;
+}
+
+#hostingSub .name {
+    opacity: 40%;
 }
 
 #infoSupp {
@@ -1347,16 +1354,27 @@ main nav ul li a {
     align-items: center;
 }
 
-.pDashboard .content .support .new-ticket {
-    border: none;
-    color: var(--blue1);
+.pDashboard .content .support .new-ticket{
     background-color: var(--dashboardseparator);
-    padding: 10px 20px;
+    height: 50px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    color: var(--white);
     border-radius: 5px;
+    justify-content: center;
+    border: none;
+    font-size: 16px;
     cursor: pointer;
-    margin-left: 25%;
-    transform: translateX(-50%);
+    transform: translateX(50%);
 }
+
+.pDashboard .content .support .new-ticket span {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
 
 .pDashboard .content .support .tickets {
     display: flex;

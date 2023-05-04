@@ -16,10 +16,20 @@
     <link href="./css/fonts/fonts.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
     <script type="module" src="Javascript/dashBoardJs.js"></script>
     <script type="module" src="Javascript/ticket.js"></script>
     <script src="Javascript/popup.js"></script>
+
+    <style>
+        .material-symbols-outlined {
+            font-weight: 100;
+            scale: 150%;
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+    </style>
 
 </head>
 <body class="pDashboard">
@@ -27,18 +37,17 @@
     <div class="list">
         <ul id="panellist">
             <li>
-                <button class="active" onclick="OpenDashboard(0)"><img
-                        src="./src/Icons/ParamIcon.png"><span>Compte</span></button>
+                <button class="active" onclick="OpenDashboard(0)"><span class="material-symbols-outlined">account_circle</span><span>Compte</span></button>
             </li>
             <li>
-                <button onclick="OpenDashboard(1)"><img src="./src/Icons/HomeIcon.png"><span>Mon site</span></button>
+                <button onclick="OpenDashboard(1)"><span class="material-symbols-outlined">home</span><span>Mon site</span></button>
             </li>
             <li>
-                <button onclick="OpenDashboard(2)"><img src="./src/Icons/CloudIcon.png"><span>Hebergement</span>
+                <button onclick="OpenDashboard(2)"><span class="material-symbols-outlined">filter_drama</span><span>Hebergement</span>
                 </button>
             </li>
             <li>
-                <button onclick="OpenDashboard(3)"><img src="./src/Icons/InterogationIcon.png"><span>Support</span>
+                <button onclick="OpenDashboard(3)"><span class="material-symbols-outlined">help</span><span>Support</span>
                 </button>
             </li>
         </ul>
@@ -46,10 +55,10 @@
     </div>
     <ul class="commandlist">
         <li>
-            <button onclick="window.location.href='index.html';"><img src="./src/Icons/HomeIcon.png"><span>Acceuil</span></button>
+            <button onclick="window.location.href='index.html';"><span class="material-symbols-outlined">home</span><span>Acceuil</span></button>
         </li>
         <li id="logOutButton">
-            <button onclick=""><img src="./src/Icons/LogOutIcon.png"><span>Se deconnecter</span></button>
+            <button onclick=""><span class="material-symbols-outlined">logout</span><span>Se deconnecter</span></button>
         </li>
     </ul>
 </div>
@@ -140,7 +149,7 @@
             <h1>Hebergement</h1>
             <div class="columns">
                 <div class="card">
-                    <p>Hebergement</p>
+                    <h2>Hebergement</h2>
                     <img alt="" src="./src/Images/HebergementImage.png">
                     <p class="price">50 CHF/an</p>
                     <p>actif depuis le ---</p>
@@ -148,9 +157,9 @@
                 <div class="infos">
                     <h1>Informations</h1>
                     <p class="name">Statut</p>
-                    <p id="statusHeberg"></p>
+                    <p id="statusHeberg" class="infoHeberg"></p>
                     <p class="name">Adresse</p>
-                    <p id="adresseHeberg"></p>
+                    <p id="adresseHeberg" class="infoHeberg"></p>
                     <p class="name">Moyen de paiement</p>
                     <p class="value">---</p>
                     <a href="">Modifier</a>
@@ -168,14 +177,14 @@
                 </div>
                 <div id="hostingDiv1">
                     <h2>Hebergement</h2>
-                    <p class="text">L’hebergement ? Il sert à pouvoir avoir accès à son site web
+                    <p class="text">L’hébergement ? Il sert à pouvoir avoir accès à son site web
                         sur internet. Il est donc indispensable et est mis en place
-                        pour 100% des site internet
+                        pour 100% des sites internet
                         <br><br>
                         Nos services d'hébergement de site web sont conçus pour offrir
                         une plateforme de haute qualité et fiable pour votre site web.
                         <br><br>
-                        Nous proposons un plans d'hébergement adaptés à tout les types
+                        Nous proposons un plan d'hébergement adaptés à tout les types
                         de sites web, que vous soyez un blogueur débutant, une petite
                         entreprise ou une entreprise de grande envergure. Votre site
                         internet sera en ligne 24/24.</p>
@@ -186,19 +195,19 @@
                     </div>
                 </div>
             </div>
-            <p class="noHostP">Vous n’avez pas encore d’hebergeur</p>
+            <p class="noHostP">Vous n’avez pas encore d’hébergeur</p>
         </div>
     </div>
     <div class="support" style="display: none;">
         <div class="banner">
             <div>
                 <h1>Support et aide</h1>
-                <p>Nous sommes à l'ecoute de toutes vos questions cela fait partie de nos valeurs</p>
+                <p style="max-width: 500px">Nous sommes à l'écoute de toutes vos questions, cela fait partie de nos valeurs</p>
             </div>
             <img alt="" src="./src/Images/SupportImage.png">
         </div>
-        <p>N'hésitez pas à nous demander de l'aide si vous avez le moindre doute et nous vous réponderons au plus vite.
-            <br><br>Vous verrez nos réponses ici ainsi via un mail qui vous sera envoyé</p>
+        <p>N'hésitez pas à nous demander de l'aide si vous avez le moindre doute et nous vous répondrons au plus vite.
+            <br><br>Vous verrez nos réponses ici ainsi via un mail qui vous sera envoyé.</p>
         <div class="h2p"><h2>Vos questions</h2>
             <p id="tickets-list-answers">Vous avez - réponse en attente</p></div>
         <div class="columns">
@@ -207,7 +216,7 @@
 
                 </div>
             </div>
-            <button onclick="OpenPopup('new-ticket')" class="new-ticket">Nouvelle question</button>
+            <button onclick="OpenPopup('new-ticket')" class="new-ticket"><span class="material-symbols-outlined">add</span>Nouvelle question</button>
         </div>
     </div>
 </div>
@@ -223,23 +232,23 @@
     <div class="textHebergPopup">
         <div>
             <h2>c’est quoi ?</h2>
-            <p>C’est le procedé qui permet à n’importe quel ordinateur d’acceder à votre site.
-                Il est donc indispensable et est mis en place pour 100% des site internet
+            <p>C’est le procédé qui permet à n’importe quel ordinateur d’accéder à votre site.
+                Il est donc indispensable et est mis en place pour 100% des sites internet
                 <br><br>
-                Chaque sites à besoin d’être hebergé pour fonctionner.
+                Chaque sites a besoin d’être hébergé pour fonctionner.
                 <br><br>
-                Mais n’ayez crainte. nous pouvons le faire à votre place et vous n’aurez rien à faire.</p>
+                Mais n’ayez crainte, nous pouvons le faire à votre place et vous n’aurez rien à faire.</p>
         </div>
         <div>
-            <h2>Pourquoi le faison nous ?</h2>
-            <p>C’est tout simplement compliqué. Il est facile de se perde pour ne plus s’y
+            <h2>Pourquoi le faisons-nous ?</h2>
+            <p>C’est tout simplement compliqué. Il est facile de se perdre pour ne plus s’y
                 retrouver et finir avec un site mal organisé et mal optimisé.
                 <br><br>
-                En tant qu’informaticiens nous vous assurons que votre site sera bien hebergé.
-                de plus, nous ne faisons pratiquement aucune marge sur le prix que çela nous coute.
+                En tant qu’informaticiens, nous vous assurons que votre site sera bien hébergé.
+                De plus, nous ne faisons pratiquement aucune marge sur le prix que cela nous coute.
                 <br><br>
-                Mais si aimez le défi, vous avez aussi biensur la possibilité de gerer ça tout
-                seul, nous vous fournissons le code de site et à vous de vous débrouiller pour l’hebergement.</p>
+                Mais si aimez le défi, vous avez aussi bien sur la possibilité de gérer ça tout
+                seul, nous vous fournissons le code de site et à vous de vous débrouiller pour l’hébergement.</p>
         </div>
     </div>
 </div>
@@ -260,7 +269,7 @@
         <button id="ticket-close-button">Fermer la question</button>
     </div>
     <div class="popup new-ticket" style="display: none">
-        <button class="close" onclick="test()"><img src="./src/Icons/CloseIcon.png"></button>
+        <button class="close" onclick="ClosePopups()"><img src="./src/Icons/CloseIcon.png"></button>
         <h1>Nouvelle question</h1>
 
         <h2>Titre de la question</h2>
@@ -309,10 +318,8 @@
             <input id="modifButton" type="submit" value="modifier">
             <input id="cancelButton" type="submit" value="annuler">
         </div>
-
     </div>
     <script>
-
         function modifPopup(type, titre) {
 
             document.getElementById('type').innerHTML = type;
@@ -332,11 +339,8 @@
             document.getElementById('popup-blur').style.display = 'block';
             document.getElementById('popupmodif').style.display = 'block';
         }
-
     </script>
-
 </div>
-
 <script>
     var height = document.getElementById("panellist").children[0].clientHeight;
 

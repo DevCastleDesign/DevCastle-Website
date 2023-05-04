@@ -18,7 +18,7 @@ function ShowTicket(title, content, answer, id) {
     document.getElementById("ticket-close-button").innerHTML = "Fermer cette question";
     if (answer === "") {
         document.getElementById("ticket-close-button").innerHTML = "Supprimer cette question";
-        document.getElementById("ticket-answer").innerHTML = "Notre equipe n'a pas encore eu le temps de répondre.";
+        document.getElementById("ticket-answer").innerHTML = "Notre équipe n'a pas encore eu le temps de répondre.";
         document.getElementById("ticket-answer").style.color = "grey";
     }
     OpenPopup("ticket");

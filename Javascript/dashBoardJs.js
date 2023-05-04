@@ -216,9 +216,12 @@ function verifAccount() {
                                 document.getElementById('dateAttenteDiv').innerHTML = "";
                             }
                         } else if (status == 'termine') {
+
                             const codeSourceButton = document.getElementById('codeSourceButton');
                             codeSourceButton.style.opacity = '100%';
                             codeSourceButton.disabled = false;
+                            document.getElementById('noStatus').style.display = 'block';
+                            document.getElementById('onStatus').style.display = 'none';
                         } else {
                             document.getElementById('noStatus').style.display = 'block';
                             document.getElementById('onStatus').style.display = 'none';
@@ -366,7 +369,7 @@ document.getElementById('codeSourceButton').addEventListener('click', (e) => {
         const status = (snapshot.val().status);
 
         if(status == 'termine') {
-            getDownloadURL(sRef(storage, "users/" + user.uid + "/source.rar"))
+            getDownloadURL(sRef(storage, "users/" + user.uid + "/source.zip"))
                 .then((url) => {
                     var a = document.createElement('a');
                     a.href = a.download = url;
@@ -376,7 +379,7 @@ document.getElementById('codeSourceButton').addEventListener('click', (e) => {
                     window.URL.revokeObjectURL(url)
                 })
                 .catch((error) => {
-                    alert("no image")
+                    alert("Une erreur s'est produite. Veuillez nous contacter si le problème persiste")
                 });
         }
     }, {

@@ -84,7 +84,7 @@ function refreshTicketsList() {
         }
         document.getElementById("tickets-list-answers").innerHTML = "Vous avez " + answers + " réponse en attente";
         if (document.getElementById("tickets-list").innerHTML === "") {
-            document.getElementById("tickets-list").innerHTML = "Vous n'avez pas de questions en attente.";
+            document.getElementById("tickets-list").innerHTML = "<div style='opacity: 50%; margin-top: 20px'>Vous n'avez pas de questions en attente.</div>";
         }
     });
 }
