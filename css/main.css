@@ -1265,6 +1265,11 @@ main nav ul li a {
     cursor: pointer;
 }
 
+#resiliationButton {
+    width: 300px;
+    height: 40px;
+}
+
 #hostingSub p{
     font-size: 22px;
 }
@@ -1284,6 +1289,12 @@ main nav ul li a {
     cursor: pointer;
     user-select: none;
 }
+
+#hostingSub hr {
+    opacity: 20%;
+    margin: 0 50px 0 140px;
+}
+
 
 #popup-hebergement {
     background: linear-gradient(252.04deg, #2C3973 8.82%, #51779C 99.46%);

@@ -261,14 +261,14 @@ function verifAccount() {
 
             let imageListe = [];
 
-            listAll(sRef(storage, "users/" + user.uid)).then((res) => {
+            listAll(sRef(storage, "users/" + user.uid + "/images/")).then((res) => {
                 res.items.forEach((itemRef) => {
                     imageListe.push(itemRef.name)
                 });
 
                 const random = Math.floor(Math.random() * imageListe.length);
 
-                getDownloadURL(sRef(storage, "users/" + user.uid + "/" + (random, imageListe[random])))
+                getDownloadURL(sRef(storage, "users/" + user.uid + "/images/" + (random, imageListe[random])))
                     .then((url) => {
                         const img = document.getElementById("imgSrc");
 
@@ -338,14 +338,14 @@ let test = [];
 reloadImageIcon.addEventListener('click', (e) => {
     const user = auth.currentUser;
 
-    listAll(sRef(storage, "users/" + user.uid)).then((res) => {
+    listAll(sRef(storage, "users/" + user.uid + "/images/")).then((res) => {
         res.items.forEach((itemRef) => {
             test.push(itemRef.name)
         });
 
         const random = Math.floor(Math.random() * test.length);
 
-        getDownloadURL(sRef(storage, "users/" + user.uid + "/" +(random, test[random])))
+        getDownloadURL(sRef(storage, "users/" + user.uid + "/images/" +(random, test[random])))
             .then((url) => {
                 const img = document.getElementById("imgSrc");
 

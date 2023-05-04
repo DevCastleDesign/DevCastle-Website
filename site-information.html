@@ -6,6 +6,7 @@
   <link href="css/main.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
 
@@ -54,7 +55,6 @@
         <h2>Couleurs principales</h2>
         <div id="palette">
             <button onclick="addColor()" class="addColor"></button>
-
         </div>
         <script>
             var palette = document.getElementById("palette")
@@ -62,9 +62,11 @@
                 var newColor = document.createElement("input");
                 newColor.type = "color";
                 newColor.value = "#ffffff";
+                var array = [];
                 palette.insertBefore(newColor, palette.children[palette.childElementCount - 1]);
                 if (palette.childElementCount >= 6) {
                     palette.children[palette.childElementCount - 1].style.display = "none";
+
                 }
             }
             </script>

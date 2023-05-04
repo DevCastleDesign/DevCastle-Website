@@ -32,7 +32,7 @@ input.addEventListener("change", (event) => {
     const selectedfile = event.target.files;
     for (let i = 0; i < selectedfile.length; i++) {
         const imageFile = selectedfile[i];
-        uploadBytes(ref(storage, "users/" + user.uid + "/" + imageFile.name), imageFile).then(() => {
+        uploadBytes(ref(storage, "users/" + user.uid + "/images/" + imageFile.name), imageFile).then(() => {
             if (i >= selectedfile.length - 1) {
                 updateSiteImages();
             }
@@ -43,7 +43,7 @@ input.addEventListener("change", (event) => {
 function updateSiteImages() {
     const user = auth.currentUser;
     document.getElementById("site-images-cont").innerHTML = "";
-    listAll(ref(storage, "users/" + user.uid)).then((res) => {
+    listAll(ref(storage, "users/" + user.uid + "/images")).then((res) => {
         res.items.forEach((itemRef) => {
             getDownloadURL(itemRef).then((url) => {
                 getMetadata(itemRef).then((metadata) => {
