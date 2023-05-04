@@ -53,6 +53,7 @@
         </div>
         <hr>
         <h2>Couleurs principales</h2>
+        <p><span id="nomberColor">0</span> sur 5</p>
         <div id="palette">
             <button onclick="addColor()" class="addColor"></button>
         </div>
@@ -68,6 +69,7 @@
                     palette.children[palette.childElementCount - 1].style.display = "none";
 
                 }
+                document.getElementById('nomberColor').innerHTML = palette.children.length - 1;
             }
             </script>
         <hr>
@@ -79,8 +81,18 @@
         </div>
         <hr>
         <h2>Commentaires</h2>
+        <p>Donnez-nous des informations sur votre site tel que les
+            textes à afficher sur votre site
+            spécifications sur les images
+            vos contacts à afficher sur le site
+
+        </p>
         <textarea id="commSite"></textarea>
-        <p>Si vous désirez encore modifier une des informations présentes après cette étape notez que chaque modification vous sera facturée pour un montant de 29.99 CHF. Nous vous conseillons donc fortement tout relire avant de passer à la suite.</p>
+        <p>Si vous désirez encore modifier une des informations présentes après cette
+            étape notez que chaque modification vous sera facturée pour un montant de
+            29.99 CHF. Nous vous conseillons donc fortement de tout relire avant de
+            passer à la suite.
+        </p>
     </div>
 </div>
 
