@@ -552,7 +552,9 @@ main nav ul li a {
 ******************************************/
 
 .pLogInSignIn body {
-    background: linear-gradient(180deg, #79C3FF 0%, #367CBF 100%) no-repeat fixed;
+    background-image: url("../src/Images/Group 14 (2).png");
+    background-size: 100%;
+    background-repeat: no-repeat;
     height: 100%;
     margin: 0;
 }

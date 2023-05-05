@@ -12,6 +12,7 @@
 
 <!--<button id="confirmButton">Continuer</button>-->
 
+<button id="confirmButton"></button>
 <div id="tabs">
     <button onclick="OpenTab('informations', 0)" class="active">Informations</button>
     <button onclick="OpenTab('design', 1)">Design</button>
@@ -137,7 +138,7 @@
         })
         
         set(ref(database, 'users/' + user.uid + "/" + "site/hebergement" ), {
-            status: "attente",
+            status: "",
             adresse: "",
             date_actif: "",
         })

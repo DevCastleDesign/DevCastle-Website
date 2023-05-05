@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="pPaiement">
+<html class="pPaiement" lang="fr">
 <head>
     <!-- Metadonnées -->
     <meta charset="UTF-8">
@@ -41,26 +41,6 @@
     </div>
 
     <script>
-
-        var stripe = Stripe(
-            "pk_test_51MnPY1AsyBISG9sIg93Bj2eFdhGwPElL1L2tSgcWDQscnM69Ri2Dt5a8pI6nzfHX7eS0jiGJjsmj0z48a7eH5SzZ00YzXQoWHJ"
-        )
-
-        button.addEventListener('click', (e) => {
-            stripe.redirectToCheckout({
-                lineItems: [
-                    {
-                        price: "price_1MxushAsyBISG9sIlOEIBlXd",
-                        quantity: 1,
-                    },
-                ],
-                mode: "subscription",
-                successUrl: "https://google.com/",
-                cancelUrl: "https://twitter.com/",
-            })
-                .then(function (result) {
-                });
-        })
 
         var moyenPaiementSelect = "";
 
@@ -246,6 +226,9 @@
                                 document.getElementById('firstCommande').style.display = 'flex';
                                 firstCommandePrix = 10;
                             }
+                            if (nbrFacture != 0 && pays != "CH") {
+                                document.getElementById('remiseSeparation').style.display = 'none';
+                            }
 
                             document.getElementById('sitePrix').innerHTML = sitePrix;
                             document.getElementById('hebergPrix').innerHTML = hebergPrix;
@@ -296,8 +279,27 @@
         document.getElementById('payerButton').disabled = true;
         document.getElementById('payerButton').classList.toggle('inscriptionButton-loading')
 
-        const user = auth.currentUser;
+        const stripe = require('stripe')('pk_test_51MnPY1AsyBISG9sIg93Bj2eFdhGwPElL1L2tSgcWDQscnM69Ri2Dt5a8pI6nzfHX7eS0jiGJjsmj0z48a7eH5SzZ00YzXQoWHJ');
+        const express = require('express');
+            stripe.redirectToCheckout({
+                lineItems: [
+                    {
+                        price: "price_1N4XYtAsyBISG9sIKrPFmOwG",
+                        quantity: 1,
+                    },
+                    {
+                        price: 'price_1N4XhvAsyBISG9sIhNsBSmCD',
+                        quantity: 1,
+                    },
+                ],
+                mode: "payment",
+                successUrl: 'https://devcastledesign.github.io/DevCastle-Website/remerciement.html',
+                cancelUrl: 'https://devcastledesign.github.io/DevCastle-Website/paiement.html',
+            })
+                .then(function (result) {
+                });
 
+        const user = auth.currentUser;
         var numFacture = 6;
 
         var now = new Date();
@@ -309,18 +311,19 @@
 
             var total = document.getElementById('total').innerHTML;
 
-            setTimeout(test,1000)
+            setTimeout(test, 1000)
+
             function test() {
-                set(ref(database, 'users/' + user.uid + "/facturation/facture_" + numFacture ), {
+                set(ref(database, 'users/' + user.uid + "/facturation/facture_" + numFacture), {
                     date: date,
                     prix: total,
                 });
             }
 
         });
-            update(ref(database, 'users/' + user.uid + "/facturation"), {
-                nombre_facture: (numFacture + 1),
-            });
+        update(ref(database, 'users/' + user.uid + "/facturation"), {
+            nombre_facture: (numFacture + 1),
+        });
     });
 
 </script>

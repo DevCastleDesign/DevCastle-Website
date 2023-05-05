@@ -11,12 +11,47 @@
 
 <input type="submit" id="payButton" value="Paiement">
 
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {
+        getDatabase,
+        ref,
+        onValue,
+        get,
+        update,
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {
+        getAuth,
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
-<script>
-    payButton.addEventListener('click', (e) => {
-        window.location.href = "paiement.html";
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+    document.getElementById("payButton").addEventListener('click', (e) => {
+        const user = auth.currentUser;
+        update(ref(database, 'users/' + user.uid + "/achat"), {
+            hebergement: "50",
+        });
+        setTimeout(redirect, 1000)
+
+        function redirect(){
+            window.location.href = "paiement.html";
+        };
     });
+
 </script>
+
 
 </body>
 </html>
