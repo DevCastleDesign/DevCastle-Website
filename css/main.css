@@ -137,7 +137,7 @@ main nav ul li a {
 }
 
 .pAccueil .blueBackground {
-    background: linear-gradient(180deg, #79C3FF 0%, #0B4E95 100%);
+    background: transparent;
     height: 600px;
 }
 
@@ -244,7 +244,6 @@ main nav ul li a {
     max-width: 490px;
     position: relative;
     margin-bottom: 100px;
-    z-index: 2;
 }
 
 .pAccueil .presentation a {
@@ -263,6 +262,7 @@ main nav ul li a {
     transform: translateX(-52%) translateY(-100%);
     animation: apparitionCastle 0.5s ease-in-out forwards;
     opacity: 0;
+    z-index: -1;
 }
 
 .pAccueil .textHaut {
@@ -301,11 +301,6 @@ main nav ul li a {
     z-index: 4;
 }
 
-.pAccueil .fonctionnement .para {
-    font-size: 20px;
-    margin-bottom: 40px;
-}
-
 .pAccueil .fonctionnement .titre {
     font-style: normal;
     font-weight: 700;
@@ -330,6 +325,7 @@ main nav ul li a {
     display: flex;
     justify-content: space-between;
     text-align: center;
+    z-index: 4;
 }
 
 .pAccueil .rectanglesection p {
@@ -338,11 +334,13 @@ main nav ul li a {
 
 .pAccueil .r1 {
     transition: 0.2s;
+    z-index: 10;
 }
 
 .pAccueil .r2 {
     transform: translateY(7px);
     transition: 0.2s;
+    z-index: 10;
 }
 
 .pAccueil .rectanglesection img {
@@ -352,6 +350,7 @@ main nav ul li a {
 .pAccueil .r3 {
     transform: translateY(-60px);
     transition: 0.2s;
+    z-index: 10;
 }
 
 .pAccueil .r3 img {
@@ -362,6 +361,7 @@ main nav ul li a {
 .pAccueil .r4 {
     transform: translateY(0);
     transition: 0.2s;
+    z-index: 10;
 }
 
 .pAccueil .r1:hover {
@@ -427,9 +427,6 @@ main nav ul li a {
     display: flex;
     justify-content: space-between;
     transition: 0.1s;
-}
-
-.pAccueil #etoiles:hover {
     filter: contrast(150%);
 }
 
@@ -463,13 +460,21 @@ main nav ul li a {
     position: absolute;
     width: 100%;
     top: -10px;
+    z-index: 0;
+}
+
+.fondCielImage {
+    position: absolute;
+    z-index: -2;
+    transform: translateY(-570px);
+    top: 0;
 }
 
 .pAccueil .border {
     width: 100%;
     top: 310px;
     position: absolute;
-    z-index: 4;
+    z-index: 3;
 }
 
 .landscape * {
