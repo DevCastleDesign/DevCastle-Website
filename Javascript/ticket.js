@@ -29,33 +29,39 @@ const auth = getAuth();
 document.getElementById("new-ticket-send").addEventListener('click', () => {
     const user = auth.currentUser;
 
-    get(child(ref(database), "tickets")).then((tickets_snapshot) => {
-        var ticket_id = 0;
-        if (tickets_snapshot.exists()) {
-            ticket_id = Object.values(tickets_snapshot.val())[Object.values(tickets_snapshot.val()).length - 1].id + 1;
-        }
-        get(child(ref(database), `users/${user.uid}`)).then((snapshot) => {
-            if (snapshot.exists()) {
-                var name = snapshot.val().prenom;
-                var lastname = snapshot.val().nom;
-                set(ref(database, "tickets/ticket_" + ticket_id), {
-                    id: ticket_id,
-                    author_id: user.uid,
-                    nom: name,
-                    prenom: lastname,
-                    title: document.getElementById("new-ticket-title").value,
-                    content: document.getElementById("new-ticket-content").value.replace(/\r?\n/g, '<br>'),
-                    answer: ""
-                });
-            } else {
-                console.log("No data available");
+    if (document.getElementById('new-ticket-title').value != "" && document.getElementById('new-ticket-content').value != "") {
+        get(child(ref(database), "tickets")).then((tickets_snapshot) => {
+            var ticket_id = 0;
+            if (tickets_snapshot.exists()) {
+                ticket_id = Object.values(tickets_snapshot.val())[Object.values(tickets_snapshot.val()).length - 1].id + 1;
             }
-        }).catch((error) => {
-            console.error(error);
+            get(child(ref(database), `users/${user.uid}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    var name = snapshot.val().prenom;
+                    var lastname = snapshot.val().nom;
+                    set(ref(database, "tickets/ticket_" + ticket_id), {
+                        id: ticket_id,
+                        author_id: user.uid,
+                        nom: name,
+                        prenom: lastname,
+                        title: document.getElementById("new-ticket-title").value,
+                        content: document.getElementById("new-ticket-content").value.replace(/\r?\n/g, '<br>'),
+                        answer: ""
+                    });
+                } else {
+                    console.log("No data available");
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
         });
-    });
-    ClosePopups();
-    setTimeout(refreshTicketsList, 500);
+        ClosePopups();
+        setTimeout(refreshTicketsList, 500);
+    } else {
+        document.getElementById('errorTicket').innerHTML = "Information(s) incomplète(s)"
+    }
+
+
 });
 
 document.getElementById("ticket-close-button").addEventListener('click', () => {

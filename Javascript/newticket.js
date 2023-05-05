@@ -32,5 +32,4 @@ function sendMail() {
             window.location.href = "remerciRendezvous.html";
         });
     }
-
 }
