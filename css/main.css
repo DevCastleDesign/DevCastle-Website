@@ -101,7 +101,6 @@
 
 .pLogInSignIn .passwordDiv {
     position: relative;
-    display: flex;
 }
 
 .pLogInSignIn .passwordDiv img {
