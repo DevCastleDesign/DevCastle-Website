@@ -11,8 +11,11 @@
 <body>
 
 <!--<button id="confirmButton">Continuer</button>-->
+<center>
+    <button id="continue-button">Passer a l'etape suivante</button>
+</center>
 
-<button id="confirmButton"></button>
+
 <div id="tabs">
     <button onclick="OpenTab('informations', 0)" class="active">Informations</button>
     <button onclick="OpenTab('design', 1)">Design</button>
@@ -54,24 +57,38 @@
         </div>
         <hr>
         <h2>Couleurs principales</h2>
-        <p><span id="nomberColor">0</span> sur 5</p>
+        <p><span id="nomberColor">0</span> sur 5 <button id="delete-colors" onclick="deleteColors()" style="display: none;">Supprimer</button></p>
         <div id="palette">
             <button onclick="addColor()" class="addColor"></button>
         </div>
         <script>
-            var palette = document.getElementById("palette")
+            var palette = document.getElementById("palette");
+            let colors = [];
             function addColor() {
                 var newColor = document.createElement("input");
                 newColor.type = "color";
                 newColor.value = "#ffffff";
-                var array = [];
                 palette.insertBefore(newColor, palette.children[palette.childElementCount - 1]);
+                document.getElementById("delete-colors").style.display = "inline";
                 if (palette.childElementCount >= 6) {
                     palette.children[palette.childElementCount - 1].style.display = "none";
 
                 }
                 document.getElementById('nomberColor').innerHTML = palette.children.length - 1;
             }
+            function deleteColors() {
+                document.getElementById("delete-colors").style.display = "none";
+                palette.innerHTML = '<button onclick="addColor()" class="addColor"></button>';
+                document.getElementById('nomberColor').innerHTML = "0";
+            }
+            function colorsLoop() {
+                colors = [];
+                for (let i = 0; i < palette.childElementCount - 1; i++) {
+                    colors.push(palette.children[i].value);
+                }
+                requestAnimationFrame(colorsLoop);
+            }
+            requestAnimationFrame(colorsLoop);
             </script>
         <hr>
         <h2>Images</h2>
@@ -82,10 +99,10 @@
         </div>
         <hr>
         <h2>Commentaires</h2>
-        <p>Donnez-nous des informations sur votre site tel que les
-            textes à afficher sur votre site
-            spécifications sur les images
-            vos contacts à afficher sur le site
+        <p>Donnez-nous des informations sur votre site par exemple les
+            textes à afficher sur votre site,
+            des spécifications sur les images,
+            vos contacts à afficher sur le site, etc...
 
         </p>
         <textarea id="commSite"></textarea>
@@ -118,7 +135,7 @@
     const database = getDatabase(app);
     
     
-    confirmButton.addEventListener('click', (e) => {
+    document.getElementById("continue-button").addEventListener('click', (e) => {
         
         const user = auth.currentUser;
         
@@ -128,7 +145,8 @@
         })
         
         set(ref(database, 'users/' + user.uid + "/" + "site/design" ), {
-            design_commentaire: document.getElementById('commSite').value
+            design_commentaire: document.getElementById('commSite').value,
+            design_couleurs: colors
         })
         
         set(ref(database, 'users/' + user.uid + "/" + "site/maquette" ), {
@@ -167,5 +185,6 @@
 </script>
 <script src="Javascript/deleteImages.js"></script>
 <script src="Javascript/images.js" type="module"></script>
+<script src="Javascript/siteInformations.js" type="module"></script>
 </body>
 </html>
