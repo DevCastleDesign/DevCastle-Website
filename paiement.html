@@ -279,17 +279,22 @@
         document.getElementById('payerButton').disabled = true;
         document.getElementById('payerButton').classList.toggle('inscriptionButton-loading')
 
-        const stripe = require('stripe')('pk_test_51MnPY1AsyBISG9sIg93Bj2eFdhGwPElL1L2tSgcWDQscnM69Ri2Dt5a8pI6nzfHX7eS0jiGJjsmj0z48a7eH5SzZ00YzXQoWHJ');
-        const express = require('express');
+        const stripe = Stripe('pk_test_51MnPY1AsyBISG9sIg93Bj2eFdhGwPElL1L2tSgcWDQscnM69Ri2Dt5a8pI6nzfHX7eS0jiGJjsmj0z48a7eH5SzZ00YzXQoWHJ');
             stripe.redirectToCheckout({
                 lineItems: [
                     {
-                        price: "price_1N4XYtAsyBISG9sIKrPFmOwG",
+                        price: "price_1N4gy3AsyBISG9sIKNc2riP6",
                         quantity: 1,
                     },
+                ],
+                custom_fields: [
                     {
-                        price: 'price_1N4XhvAsyBISG9sIhNsBSmCD',
-                        quantity: 1,
+                        key: 'engraving',
+                        label: {
+                            type: 'custom',
+                            custom: 'Personalized engraving',
+                        },
+                        type: 'text',
                     },
                 ],
                 mode: "payment",
