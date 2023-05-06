@@ -551,7 +551,7 @@ main nav ul li a {
 }
 
 .imageDBSec {
-    height: 1130px;
+    height: 1150px;
     background: linear-gradient(90deg, #4086C8 3.23%, rgba(64, 134, 200, 0) 120.73%);
     text-align: center;
     position: relative;
@@ -586,6 +586,12 @@ main nav ul li a {
     font-size: 40px;
     transform: translateX(185px) translateY(-65px);
     opacity: 50%;
+}
+
+.textDb {
+    font-size: 20px;
+    opacity: 70%;
+    margin-bottom: 30px;
 }
 
 /* #endregion */
