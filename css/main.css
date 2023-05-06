@@ -2073,6 +2073,15 @@ main nav ul li a {
     margin: 10px;
 }
 
+.pSite-information #delete-colors {
+    border: 0;
+    border-radius: 2px;
+    padding: 0 5px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
 .pSite-information input[type="text"], .pSite-information textarea {
     margin-bottom: 20px;
     background-color: transparent;

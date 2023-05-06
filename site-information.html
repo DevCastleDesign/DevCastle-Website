@@ -57,7 +57,7 @@
         </div>
         <hr>
         <h2>Couleurs principales</h2>
-        <p><span id="nomberColor">0</span> sur 5</p>
+        <p><span id="nomberColor">0</span> sur 5 <button id="delete-colors" onclick="deleteColors()" style="display: none;">Supprimer</button></p>
         <div id="palette">
             <button onclick="addColor()" class="addColor"></button>
         </div>
@@ -69,11 +69,17 @@
                 newColor.type = "color";
                 newColor.value = "#ffffff";
                 palette.insertBefore(newColor, palette.children[palette.childElementCount - 1]);
+                document.getElementById("delete-colors").style.display = "inline";
                 if (palette.childElementCount >= 6) {
                     palette.children[palette.childElementCount - 1].style.display = "none";
 
                 }
                 document.getElementById('nomberColor').innerHTML = palette.children.length - 1;
+            }
+            function deleteColors() {
+                document.getElementById("delete-colors").style.display = "none";
+                palette.innerHTML = '<button onclick="addColor()" class="addColor"></button>';
+                document.getElementById('nomberColor').innerHTML = "0";
             }
             function colorsLoop() {
                 colors = [];
