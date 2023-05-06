@@ -10,6 +10,7 @@ function ClosePopups() {
     document.getElementById('popup-blur').style.display = 'none';
 }
 var openedTicket = null;
+
 function ShowTicket(title, content, answer, id) {
     document.getElementById("ticket-title").innerHTML = title;
     document.getElementById("ticket-content").innerHTML = content;

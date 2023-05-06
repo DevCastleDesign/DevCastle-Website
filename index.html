@@ -15,6 +15,9 @@
     <!-- CSS -->
     <link href="../css/fonts/fonts.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="Javascript/accueil.js" type="module"></script>
 </head>
 
 <body class="pAccueil" id="body">
@@ -39,11 +42,11 @@
         <section class="sectionHaut">
             <div class="textHaut">
                 <div>
-                    <div id="etoiles" >
+                    <div id="etoiles">
                         <p>Noté</p>
                         <div id="ratting" style="visibility: hidden">
                             <div class="outer">
-                                <div id="inner" class="inner"></div>
+                                <div class="inner" id="inner"></div>
                             </div>
                         </div>
                     </div>
@@ -55,7 +58,6 @@
                     nous créons / modifions vos sites internets
                     pour <strong>vraiment</strong> les faire sortire du lot.<br><br>
                 </p>
-
             </div>
 
             <div class="offreDiv" id="offre">
@@ -63,7 +65,7 @@
                 <p class="p1">Peut diminuer ou augmenter en fonction de la demande</p>
                 <hr class="separateur"></hr>
                 <p>Hebergement compris</p>
-                <p>$ 49.99 / an</p>
+                <p>CHF 49.99 / an</p>
                 <input class="commandButton" id="commandeButton" type="submit" value="Passer commande">
             </div>
 
@@ -72,138 +74,29 @@
         <img class="castle" height="500" id="castle" src="src/Images/Logo.png" width="290"/>
 
         <div class="fond">
-            <img class="fondCielImage" style="width: 100%" src="src/Images/paysageImage.png" height="632" />
+            <img class="fondCielImage" height="632" src="src/Images/paysageImage.png" style="width: 100%"/>
             <img class="submountain" height="399" id="moutain2" src="src/Images/submountain.png" width="1440"/>
             <img class="moutain" height="325" id="moutain" src="src/Images/Mountain.png" width="1440"/>
             <div>
-            <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
-            <div class="landscape">
-                <div class="water"></div>
-                <div class="splash"></div>
-                <div class="splash delay-1"></div>
-                <div class="splash delay-2"></div>
-                <div class="splash splash-4 delay-2"></div>
-                <div class="splash splash-4 delay-3"></div>
-                <div class="splash splash-4 delay-4"></div>
-                <div class="splash splash-stone delay-3"></div>
-                <div class="splash splash-stone splash-4"></div>
-                <div class="splash splash-stone splash-5"></div>
-            </div>
+                <img class="lac" height="381" id="lac" src="src/Images/lac.png" width="1440"/>
+                <div class="landscape">
+                    <div class="water"></div>
+                    <div class="splash"></div>
+                    <div class="splash delay-1"></div>
+                    <div class="splash delay-2"></div>
+                    <div class="splash splash-4 delay-2"></div>
+                    <div class="splash splash-4 delay-3"></div>
+                    <div class="splash splash-4 delay-4"></div>
+                    <div class="splash splash-stone delay-3"></div>
+                    <div class="splash splash-stone splash-4"></div>
+                    <div class="splash splash-stone splash-5"></div>
+                </div>
 
-        </div>
-        <img class="border" height="799" id="border" src="src/Images/border.png" width="1440"/>
+            </div>
+            <img class="border" height="799" id="border" src="src/Images/border.png" width="1440"/>
 
         </div>
     </section>
-
-    <script type="module">
-        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-        import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-        import {getDatabase, ref, onValue} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
-            authDomain: "webcastle-website.firebaseapp.com",
-            databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "webcastle-website",
-            storageBucket: "webcastle-website.appspot.com",
-            messagingSenderId: "274339465548",
-            appId: "1:274339465548:web:927dd550601c84dffce7e9"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth();
-        const database = getDatabase(app);
-
-
-        window.addEventListener('load', function () {
-            setTimeout(verifAccount, onAuthStateChanged)
-        });
-
-        function verifAccount() {
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    document.getElementById('navAccount').style.display = "flex";
-                    document.getElementById('commandeButton').value = "continuer";
-
-                    onValue(ref(database, '/review'), (snapshot) => {
-                        const nbrRat = (snapshot.val().nombre_ratting);
-                        const totalNum = (snapshot.val().total_ratting);
-
-                        function round(value, step) {
-                            step || (step = 1.0);
-                            var inv = 1.0 / step;
-                            return Math.round(value * inv) / inv;
-                        }
-
-                        document.getElementById('ratting').style.visibility = "visible";
-
-                        let ratePercentage = (round((totalNum/nbrRat) , 0.5) / 5) * 100;
-                        const inner = document.getElementById(`inner`)
-                        inner.style.width = `${ratePercentage}%`
-                    });
-                } else {
-                    document.getElementById('navNoAccount').style.display = "flex";
-                    onValue(ref(database, '/review'), (snapshot) => {
-                        const nbrRat = (snapshot.val().nombre_ratting);
-                        const totalNum = (snapshot.val().total_ratting);
-
-                        function round(value, step) {
-                            step || (step = 1.0);
-                            var inv = 1.0 / step;
-                            return Math.round(value * inv) / inv;
-                        }
-
-                        document.getElementById('ratting').style.visibility = "visible";
-
-                        let ratePercentage = (round((totalNum/nbrRat) , 0.5) / 5) * 100;
-                        const inner = document.getElementById(`inner`)
-                        inner.style.width = `${ratePercentage}%`
-                    });
-                }
-            });
-        };
-
-        logOutButton.addEventListener('click', (e) => {
-            const auth = getAuth();
-            signOut(auth).then(() => {
-                document.getElementById('navAccount').style.display = "none";
-                window.location.reload();
-            }).catch((error) => {
-                alert("non")
-            });
-        });
-
-        commandeButton.addEventListener('click', (e) => {
-
-            const user = auth.currentUser;
-
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    onValue(ref(database, '/users/' + user.uid), (snapshot) => {
-                        const status = (snapshot.val().status);
-                        if (status == "inscrit") {
-                            window.location.href = "options.html";
-                        } else if (status == "rdv") {
-                            window.location.href = "rendezvous.html";
-                        } else if (status == "design") {
-                            window.location.href = "site-information.html";
-                        } else if (status == "maquette") {
-                            window.location.href = "maquette.html";
-                        } else {
-                            window.location.href = "dashboard.html";
-                        }
-                    }, {
-                        onlyOnce: true
-                    });
-                } else {
-                    window.location.href = "site-welcome.html";
-                }
-            });
-        });
-
-    </script>
 
     <script>
         let mountain1 = document.getElementById('moutain');
@@ -225,14 +118,20 @@
         });
     </script>
 
-    <div class="fonctionnement">
+    <div class="fonctionnement" data-aos="fade-up">
         <p class="titre">Comment sa fonctionne</p>
+        <p class="textFonctionnement">Tout est très simple, les seules choses que vous avez à faire est de nous donner
+            les informations que vous souhaitez voir apparaitre sur votre site internet et on se charge du reste</p>
     </div>
 
+    <script>
+        AOS.init();
+    </script>
     <div class="rectanglesection">
         <div class="r1">
             <img height="116" src="src/Images/CrayonImage.png" width="116"/>
             <div class="rectangle">
+                <p class="nbrStep">1</p>
                 <p class="titre">Requetes</p>
                 <p>Prenons rendez-vous pour parler de vos envies, vos idée, vos ambitions et nous choisirons ensemble
                     comment creer votre site.
@@ -242,7 +141,7 @@
         <div class="r2">
             <img height="109" src="src/Images/RequetesImage.png" width="109"/>
             <div class="rectangle">
-
+                <p class="nbrStep">2</p>
                 <p class="titre">Maquette</p>
                 <p>Une fois cela fait, nous commencerons a créer une maquette et c'est là que vous
                     pourrez voir clairement à quoi cela ressemblera et pourquoi pas nous demander quelques
@@ -253,6 +152,7 @@
         <div class="r3">
             <img height="176" src="src/Images/EcranImage.png" width="176"/>
             <div class="rectangle">
+                <p class="nbrStep">3</p>
                 <p class="titre">Developpement</p>
                 <p>Ensuite, nous allons creer votre site de A à Z en se basant sur la maquette.
                 </p>
@@ -261,23 +161,35 @@
         <div class="r4">
             <img height="120" src="src/Images/HebergementImage.png" width="120"/>
             <div class="rectangle">
-
+                <p class="nbrStep">4</p>
                 <p class="titre">Hebergement</p>
                 <p>Une fois le site terminé, nous allons le mettre en ligne pour
-                    que la planete entière puisse voir ce chef-d'oeuvre.
+                    que la planete entière puisse voir le voir.
                 </p>
             </div>
         </div>
     </div>
 
-    <div class="securePaiement">
+    <section class="imageDBSec">
+        <img class="dbSecBorder" height="207" src="src/Images/reverseBorder.png" width="100%"/>
+
+        <h2>Tableau de bord</h2>
+        <p>Restez au courant de tout ce qui se passe grâce à notre tableau de bord</p>
+
+        <img class="imageDB" height="902" src="src/Images/dashboardImage.PNG" width="1680"/>
+
+        <img class="reverseBorder" height="207" src="src/Images/reverseBorder.png" width="100%"/>
+    </section>
+
+    <div class="securePaiement" data-aos="fade-up">
         <div>
             <h1>PAIEMENTS SÉCURISÉS</h1>
-            <p>Nos paiements sont sécurisés et se font grâce à l’une des plus grandes entreprises de paiement en ligne du monde, Stripe</p>
-            <input type="submit" value="Stripe" onclick="window.open('https://stripe.com/')">
+            <p>Nos paiements sont sécurisés et se font grâce à l’une des plus grandes entreprises de paiement en ligne
+                du monde, Stripe</p>
+            <input onclick="window.open('https://stripe.com/')" type="submit" value="Stripe">
         </div>
         <div class="securePaiementText">
-            <img src="src/Images/securePaiementIlluImage.png" height="483" width="627"/>
+            <img src="src/Images/securePaiementIlluImage.png"/>
         </div>
     </div>
 

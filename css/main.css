@@ -277,7 +277,6 @@ main nav ul li a {
     }
 }
 
-
 @keyframes apparitionCastle {
     100% {
         opacity: 1;
@@ -294,16 +293,23 @@ main nav ul li a {
 
 .pAccueil .fonctionnement {
     position: relative;
-    margin-top: 400px;
-    margin-bottom: 100px;
-    text-align: center;
+    margin-top: 300px;
+    margin-bottom: 50px;
     z-index: 4;
+    text-align: center;
 }
 
 .pAccueil .fonctionnement .titre {
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
+}
+
+.pAccueil .fonctionnement .textFonctionnement {
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 50%;
+    font-size: 20px;
 }
 
 .pAccueil .rectangle {
@@ -388,7 +394,7 @@ main nav ul li a {
     display: flex;
     padding-left: 60px;
     padding-top: 50px;
-    margin: 90px auto 200px auto;
+    margin: 20px auto 200px auto;
 }
 
 .pAccueil .securePaiement h1 {
@@ -542,6 +548,44 @@ main nav ul li a {
 
 .pAccueil .delay-6 {
     animation-delay: 6s;
+}
+
+.imageDBSec {
+    height: 1130px;
+    background: linear-gradient(90deg, #4086C8 3.23%, rgba(64, 134, 200, 0) 120.73%);
+    text-align: center;
+    position: relative;
+}
+
+.imageDB {
+    height: 500px;
+    margin-top: 30px;
+    width: 900px;
+    border-radius: 20px;
+    box-shadow: 0px 19px 14px 10px rgba(0, 0, 0, 0.25);
+}
+
+.dbSecBorder {
+   transform: translateX(-2px);
+}
+
+.reverseBorder {
+    transform: scaleY(-1)  translateX(-2px) translateY(-2px);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.imageDBSec h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.nbrStep {
+    position: absolute;
+    font-size: 40px;
+    transform: translateX(185px) translateY(-65px);
+    opacity: 50%;
 }
 
 /* #endregion */
@@ -1098,6 +1142,7 @@ main nav ul li a {
     background-color: #171717;
     border-radius: 10px;
     border-radius: 10px;
+    position: relative;
 }
 
 .pDashboard .attenteDiv #onStatus {
@@ -1153,8 +1198,15 @@ main nav ul li a {
     cursor: pointer;
 }
 
-.pDashboard .content .site button i {
-    margin-right: 7px;
+.pDashboard .content .site #statusGoButton  {
+    position: absolute;
+    top: 120px;
+    right: 50px;
+    width: 150px;
+}
+
+.pDashboard .content .site #statusGoButton .material-symbols-outlined  {
+    margin: 0;
 }
 
 .pDashboard .content .site .infoDiv p {
@@ -2373,6 +2425,7 @@ main nav ul li a {
     border-radius: 9px;
     font-size: 20px;
     background-color: #D9D9D9;
+    cursor: pointer;
 }
 
 .pValidPaiement .retourAccueil {

@@ -74,7 +74,6 @@ function confirmPasswordWalid() {
     }
 };
 
-
 function checkEmailLogin() {
     if (document.getElementById('emailLogin').value.match(emailPatern)) {
         document.getElementById('errorEmailLogin').style.display = "none";

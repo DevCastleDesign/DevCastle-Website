@@ -30,18 +30,30 @@ var baseDisHours = [
 
 function monthToString(month) {
     switch (month) {
-        case 0: return "Janvier";
-        case 1: return "Février";
-        case 2: return "Mars";
-        case 3: return "Avril";
-        case 4: return "Mai";
-        case 5: return "Juin";
-        case 6: return "Juillet";
-        case 7: return "Août";
-        case 8: return "Septembre";
-        case 9: return "Octobre";
-        case 10: return "Novembre";
-        case 11: return "Décembre";
+        case 0:
+            return "Janvier";
+        case 1:
+            return "Février";
+        case 2:
+            return "Mars";
+        case 3:
+            return "Avril";
+        case 4:
+            return "Mai";
+        case 5:
+            return "Juin";
+        case 6:
+            return "Juillet";
+        case 7:
+            return "Août";
+        case 8:
+            return "Septembre";
+        case 9:
+            return "Octobre";
+        case 10:
+            return "Novembre";
+        case 11:
+            return "Décembre";
     }
 }
 
@@ -54,7 +66,9 @@ function createCalendar() {
     calandar.children[0].children[2].innerHTML = monthToString(selectedMonth) + " " + selectedYear;
     // calculate start day and month lenght
     var startDay = new Date(`${selectedYear}-${selectedMonth + 1}-01`).getDay();
-    if (startDay === 0) { startDay = 7; }
+    if (startDay === 0) {
+        startDay = 7;
+    }
     var monthLenght = new Date(selectedYear, selectedMonth + 1, 0).getDate();
     // delete old child
     days.innerHTML = "";
@@ -84,26 +98,30 @@ function createHours(weekday) {
 }
 
 function calendarForward() {
-    selectedMonth ++;
+    selectedMonth++;
     if (selectedMonth >= 12) {
         selectedMonth = 0;
-        selectedYear ++;
+        selectedYear++;
     }
     createCalendar();
 }
 
 function calendarBackward() {
-    if (selectedMonth === today.getMonth() && selectedYear === today.getFullYear()) { return; }
-    selectedMonth --;
+    if (selectedMonth === today.getMonth() && selectedYear === today.getFullYear()) {
+        return;
+    }
+    selectedMonth--;
     if (selectedMonth < 0) {
         selectedMonth = 11;
-        selectedYear --;
+        selectedYear--;
     }
     createCalendar();
 }
 
 function selectDay(day) {
-    if (selectedMonth === today.getMonth() && selectedYear === today.getFullYear() && day < today.getDay() + 2) { return; }
+    if (selectedMonth === today.getMonth() && selectedYear === today.getFullYear() && day < today.getDay() + 2) {
+        return;
+    }
     selectedDay = day;
     selectedDayMonth = selectedMonth;
     selectedDayYear = selectedYear;
@@ -161,41 +179,37 @@ function setVideo(newvideomode) {
 }
 
 function sendMail() {
+    if (mode === 0) {
+        var templateParams = {
+            datetime: dname.innerHTML,
+            adress: adressFields.children[4].value,
+            npa: adressFields.children[1].value,
+            loc: adressFields.children[2].value,
+            name: document.getElementById("infos-name").value,
+            email: document.getElementById("infos-email").value,
+            tel: document.getElementById("infos-tel").value,
+            more: document.getElementById("infos-more").value,
+        };
 
+        emailjs.send('service_gtw1i4t', 'template_vo11f77', templateParams).then(function (response) {
+            window.location.href = "remerciRendezvous.html";
+        });
 
-
-        if (mode === 0) {
-            var templateParams = {
-                datetime: dname.innerHTML,
-                adress: adressFields.children[4].value,
-                npa: adressFields.children[1].value,
-                loc: adressFields.children[2].value,
-                name: document.getElementById("infos-name").value,
-                email: document.getElementById("infos-email").value,
-                tel: document.getElementById("infos-tel").value,
-                more: document.getElementById("infos-more").value,
-            };
-
-            emailjs.send('service_gtw1i4t', 'template_vo11f77', templateParams).then(function(response) {
-                window.location.href = "remerciRendezvous.html";
-            });
-
-        }
-        if (mode === 1) {
-            var templateParams = {
-                datetime: dname.innerHTML,
-                plateform: videoModeString,
-                username: videoFields.children[2].value,
-                name: document.getElementById("infos-name").value,
-                email: document.getElementById("infos-email").value,
-                tel: document.getElementById("infos-tel").value,
-                more: document.getElementById("infos-more").value,
-            };
-            emailjs.send('service_gtw1i4t', 'template_ht3k4w7', templateParams).then(function(response) {
-                window.location.href = "remerciRendezvous.html";
-            });
-        }
-
+    }
+    if (mode === 1) {
+        var templateParams = {
+            datetime: dname.innerHTML,
+            plateform: videoModeString,
+            username: videoFields.children[2].value,
+            name: document.getElementById("infos-name").value,
+            email: document.getElementById("infos-email").value,
+            tel: document.getElementById("infos-tel").value,
+            more: document.getElementById("infos-more").value,
+        };
+        emailjs.send('service_gtw1i4t', 'template_ht3k4w7', templateParams).then(function (response) {
+            window.location.href = "remerciRendezvous.html";
+        });
+    }
 }
 
 setMode(0);
