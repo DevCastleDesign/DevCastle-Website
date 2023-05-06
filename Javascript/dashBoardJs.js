@@ -189,6 +189,11 @@ function verifAccount() {
                             document.getElementById('noStatus').style.display = 'none';
                             document.getElementById('titreAttenteDiv').innerHTML = "Maquette"
 
+                            document.getElementById('statusGoButton').addEventListener('click', (e) => {
+                                window.location.href = "https://devcastledesign.github.io/DevCastle-Website/maquette.html";
+                            });
+
+
                             if (statusMaquette == "dev") {
                                 document.getElementById('statusAttenteDiv').innerHTML = "En développement";
                                 document.getElementById('dateAttenteDiv').innerHTML = "Commencé le " + date_debut_Maq;
@@ -204,6 +209,10 @@ function verifAccount() {
                             document.getElementById('onStatus').style.display = 'block';
                             document.getElementById('noStatus').style.display = 'none';
                             document.getElementById('titreAttenteDiv').innerHTML = "Développement"
+
+                            document.getElementById('statusGoButton').addEventListener('click', (e) => {
+                                window.location.href = "https://devcastledesign.github.io/DevCastle-Website/developpement.html";
+                            });
 
                             if (statusDev == "dev") {
                                 document.getElementById('statusAttenteDiv').innerHTML = "En développement";

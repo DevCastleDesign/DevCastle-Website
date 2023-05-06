@@ -72,7 +72,7 @@
   onAuthStateChanged(auth, (user) => {
 
     if (user) {
-      onValue(ref(database, 'users/' + user.uid + "/site/maquette"), (snapshot) => {
+      onValue(ref(database, 'users/' + user.uid + "/site/developpement"), (snapshot) => {
         const status = (snapshot.val().status);
         const dateDebut = (snapshot.val().date_debut);
         const dateFin = (snapshot.val().date_fin);

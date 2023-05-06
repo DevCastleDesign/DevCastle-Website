@@ -20,107 +20,7 @@
 <body>
 <div class="Paiement">
     <div id="choixPaiement">
-        <h2>Moyen de paiement</h2>
-        <p>Séléctionnez un moyen de paiement</p>
-        <div class="moyenPaiement">
-            <div class="paypal" id="paypal">
-                <div class="alignCard">
-                    <img height="54" src="src/Icons/PaypalIcon.png" width="54"/>
-                    <p>Paypal</p>
-                </div>
-            </div>
-            <div class="bankCard" id="bankCard">
-                <div class="alignCard">
-                    <img height="32.31" src="src/Icons/MastercardIcon.png" width="52.14"/>
-                    <p>Carte bancaire</p>
-                </div>
-            </div>
-        </div>
-        <input id="continueButton" type="submit" value="12321">
-        <input id="button" type="submit" value="checkout">
-    </div>
-
-    <script>
-
-        var moyenPaiementSelect = "";
-
-        paypal.addEventListener('click', (e) => {
-            document.getElementById('paypal').style.backgroundColor = '#9AC7FF';
-            document.getElementById('paypal').style.borderColor = '#57A2FF';
-            moyenPaiementSelect = "paypal";
-            document.getElementById('bankCard').style.backgroundColor = 'white';
-            document.getElementById('bankCard').style.borderColor = '#cccccc';
-        });
-
-        bankCard.addEventListener('click', (e) => {
-            document.getElementById('bankCard').style.backgroundColor = '#9AC7FF';
-            document.getElementById('bankCard').style.borderColor = '#57A2FF';
-            moyenPaiementSelect = "card";
-            document.getElementById('paypal').style.backgroundColor = 'white';
-            document.getElementById('paypal').style.borderColor = '#cccccc';
-        });
-
-        continueButton.addEventListener('click', (e) => {
-            if (moyenPaiementSelect == "") {
-                alert("alert")
-            } else {
-                document.getElementById('choixPaiement').style.display = 'none';
-                document.getElementById('cartePaiement').style.display = 'block';
-            }
-        });
-
-    </script>
-
-    <div class="cartePaiement" id="cartePaiement">
-        <h2>Paiement</h2>
-
-        <div class="retour" id="retour">
-            <img src="src/Icons/retourIcon.png"/>
-            <p>Retour</p>
-        </div>
-
-        <script>
-            retour.addEventListener('click', (e) => {
-                document.getElementById('choixPaiement').style.display = 'block';
-                document.getElementById('cartePaiement').style.display = 'none';
-            });
-        </script>
-
-        <div class="infoPers">
-            <div class="nom">
-                <p>Nom</p>
-                <input type="text">
-            </div>
-            <div class="prenom">
-                <p>Prénom</p>
-                <input type="text">
-            </div>
-        </div>
-        <div>
-            <p>Numéro de carte</p>
-            <input class="numCarte" id="number" maxlength="19" onkeypress="isInputNumber(event)"
-                   placeholder="1234 1234 1234 1234"
-                   type="text">
-        </div>
-        <div class="expirationCVV">
-            <div class="expiration">
-                <p>Expiration</p>
-                <input id="date" maxlength="5" onkeypress="isInputNumber(event)" placeholder=" MM/AA" type="text">
-            </div>
-            <div class="CVV">
-                <p>CVV</p>
-                <input id="cvv" maxlength="3" onkeypress="isInputNumber(event)" placeholder=" 123" type="text">
-            </div>
-        </div>
-        <script>
-            function isInputNumber(evt) {
-                var ch = String.fromCharCode(evt.which);
-                if (!(/[0-9]/.test(ch))) {
-                    evt.preventDefault();
-                }
-            };
-        </script>
-        <button class="inscriptionButton " id="payerButton"><span>PAYER</span></button>
+        <button id="payerButton">eqf</button>
     </div>
 
     <div class="achatList">
@@ -163,10 +63,8 @@
     import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     import {
         getDatabase,
-        set,
         ref,
         onValue,
-        update
     } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
     const firebaseConfig = {
@@ -210,7 +108,6 @@
                             document.getElementById('paiementModif').style.display = 'flex';
                         }
 
-
                         var suisseRemisePrix = 0;
                         var firstCommandePrix = 0;
 
@@ -245,86 +142,27 @@
 
     };
 
+</script>
 
-    let cNumber = document.getElementById('number');
-    cNumber.addEventListener('keyup', function (e) {
+<script>
 
-        let num = cNumber.value;
-
-        let newValue = '';
-        num = num.replace(/\s/g, '');
-        for (var i = 0; i < num.length; i++) {
-            if (i % 4 == 0 && i > 0) newValue = newValue.concat(' ');
-            newValue = newValue.concat(num[i]);
-            cNumber.value = newValue;
-        }
-    });
-
-    let date = document.getElementById('date');
-    date.addEventListener('keyup', function (e) {
-
-        if (e.which !== 8) {
-            var numChars = e.target.value.length;
-            if (numChars == 2) {
-                var thisVal = e.target.value;
-                thisVal += '/';
-                e.target.value = thisVal;
-                console.log(thisVal.length)
-            }
-        }
-    });
-
+    var stripe = Stripe("pk_test_51MnPY1AsyBISG9sIg93Bj2eFdhGwPElL1L2tSgcWDQscnM69Ri2Dt5a8pI6nzfHX7eS0jiGJjsmj0z48a7eH5SzZ00YzXQoWHJ");
     payerButton.addEventListener('click', (e) => {
 
-        document.getElementById('payerButton').disabled = true;
-        document.getElementById('payerButton').classList.toggle('inscriptionButton-loading')
-
-        const stripe = Stripe('pk_test_51MnPY1AsyBISG9sIg93Bj2eFdhGwPElL1L2tSgcWDQscnM69Ri2Dt5a8pI6nzfHX7eS0jiGJjsmj0z48a7eH5SzZ00YzXQoWHJ');
-            stripe.redirectToCheckout({
-                lineItems: [
-                    {
-                        price: "price_1N4XYtAsyBISG9sIKrPFmOwG",
-                        quantity: 1,
-                    },
-                    {
-                        price: 'price_1N4XhvAsyBISG9sIhNsBSmCD',
-                        quantity: 1,
-                    },
-                ],
-                mode: "payment",
-                successUrl: 'https://devcastledesign.github.io/DevCastle-Website/remerciement.html',
-                cancelUrl: 'https://devcastledesign.github.io/DevCastle-Website/paiement.html',
-            })
-                .then(function (result) {
-                });
-
-        const user = auth.currentUser;
-        var numFacture = 6;
-
-        var now = new Date();
-        var date = now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear();
-
-
-        onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
-            numFacture = (snapshot.val().nombre_facture);
-
-            var total = document.getElementById('total').innerHTML;
-
-            setTimeout(test, 1000)
-
-            function test() {
-                set(ref(database, 'users/' + user.uid + "/facturation/facture_" + numFacture), {
-                    date: date,
-                    prix: total,
-                });
-            }
-
-        });
-        update(ref(database, 'users/' + user.uid + "/facturation"), {
-            nombre_facture: (numFacture + 1),
-        });
+        stripe.redirectToCheckout({
+            lineItems: [
+                {
+                    price: "price_1N4gy3AsyBISG9sIKNc2riP6",
+                    quantity: 1,
+                },
+            ],
+            mode: "payment",
+            successUrl: 'https://devcastledesign.github.io/DevCastle-Website/remerciement.html',
+            cancelUrl: 'https://devcastledesign.github.io/DevCastle-Website/paiement.html',
+        })
+            .then(function (result) {
+            });
     });
-
 </script>
 
 <footer>
