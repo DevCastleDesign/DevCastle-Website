@@ -2062,6 +2062,17 @@ main nav ul li a {
     border-bottom: 5px solid white;
 }
 
+.pSite-information #continue-button {
+    background-color: white;
+    border: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px 50px;
+    cursor: pointer;
+    margin: 10px;
+}
+
 .pSite-information input[type="text"], .pSite-information textarea {
     margin-bottom: 20px;
     background-color: transparent;

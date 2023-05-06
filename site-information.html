@@ -96,6 +96,10 @@
     </div>
 </div>
 
+<center>
+    <button id="continue-button">Passer a l'etape suivante</button>
+</center>
+
 <script type="module">
     
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
@@ -117,7 +121,7 @@
     const database = getDatabase(app);
     
     
-    confirmButton.addEventListener('click', (e) => {
+    document.getElementById("continue-button").addEventListener('click', (e) => {
         
         const user = auth.currentUser;
         
@@ -166,5 +170,6 @@
 </script>
 <script src="Javascript/deleteImages.js"></script>
 <script src="Javascript/images.js" type="module"></script>
+<script src="Javascript/siteInformations.js" type="module"></script>
 </body>
 </html>
