@@ -58,12 +58,12 @@
             <button onclick="addColor()" class="addColor"></button>
         </div>
         <script>
-            var palette = document.getElementById("palette")
+            var palette = document.getElementById("palette");
+            let colors = [];
             function addColor() {
                 var newColor = document.createElement("input");
                 newColor.type = "color";
                 newColor.value = "#ffffff";
-                var array = [];
                 palette.insertBefore(newColor, palette.children[palette.childElementCount - 1]);
                 if (palette.childElementCount >= 6) {
                     palette.children[palette.childElementCount - 1].style.display = "none";
@@ -71,6 +71,14 @@
                 }
                 document.getElementById('nomberColor').innerHTML = palette.children.length - 1;
             }
+            function colorsLoop() {
+                colors = [];
+                for (let i = 0; i < palette.childElementCount - 1; i++) {
+                    colors.push(palette.children[i].value);
+                }
+                requestAnimationFrame(colorsLoop);
+            }
+            requestAnimationFrame(colorsLoop);
             </script>
         <hr>
         <h2>Images</h2>
