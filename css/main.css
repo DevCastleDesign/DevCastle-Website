@@ -2062,6 +2062,15 @@ main nav ul li a {
     border-bottom: 5px solid white;
 }
 
+.pSite-information input[type="text"], .pSite-information textarea {
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    font-size: 1rem;
+}
+
 .pSite-information .page {
     background-color: #202020;
     padding: 60px;
