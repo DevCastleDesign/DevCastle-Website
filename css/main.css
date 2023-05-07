@@ -1131,10 +1131,8 @@ main nav ul li a {
     cursor: pointer;
     user-select: none;
     transition: 0.2s;
-}
-
-.pDashboard .siteImage #reloadImageIcon:hover {
-    scale: 110%;
+    scale: 120%;
+    font-weight: 300;
 }
 
 #noUrlSite {
@@ -1230,6 +1228,10 @@ main nav ul li a {
 .codeSource {
     margin-top: 30px;
     margin-bottom: 10px;
+}
+
+.downloadCodeIcon {
+    margin-right: 5px;
 }
 
 /* Hebergement */

@@ -378,7 +378,7 @@ document.getElementById('codeSourceButton').addEventListener('click', (e) => {
         const status = (snapshot.val().status);
 
         if(status == 'termine') {
-            getDownloadURL(sRef(storage, "users/" + user.uid + "/source.zip"))
+            getDownloadURL(sRef(storage, "users/" + user.uid + "/source.rar"))
                 .then((url) => {
                     var a = document.createElement('a');
                     a.href = a.download = url;

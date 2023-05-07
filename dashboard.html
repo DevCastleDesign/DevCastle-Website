@@ -15,15 +15,15 @@
     <!-- CSS -->
     <link href="./css/fonts/fonts.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../css/hint.css">
 
     <script type="module" src="Javascript/dashBoardJs.js"></script>
     <script type="module" src="Javascript/ticket.js"></script>
     <script src="Javascript/popup.js"></script>
 
     <style>
-        .material-symbols-outlined {
+        .panels .material-symbols-outlined {
             font-weight: 200;
             scale: 150%;
             margin-left: 30px;
@@ -105,7 +105,7 @@
                     <p id="siteNom"></p>
                     <p id="siteUrl"></p>
                 </div>
-                <i id="reloadImageIcon" class="material-icons">sync</i>
+                <i id="reloadImageIcon" class="material-symbols-outlined hint--top" data-hint="Changer l'image">autorenew</i>
                 <img src="src/Images/filtreSiteImage.png"/>
             </div>
             <div class="attenteDiv">
@@ -137,7 +137,7 @@
         </div>
         </table>
         <p class="codeSource">Récuperer le code source</p>
-        <button id="codeSourceButton" disabled style="opacity: 50%"><i class="material-icons" style="font-size:28px">file_download</i>Télécharger</button>
+        <button id="codeSourceButton" disabled style="opacity: 50%"><i class="material-symbols-outlined downloadCodeIcon" style="font-size:28px">download</i>Télécharger</button>
         <a href=""></a>
     </div>
     <div class="hosting" style="display: none">
