@@ -304,7 +304,6 @@ suppAccount.addEventListener('click', (e) => {
 
 
 suppAccountButton.addEventListener('click', (e) => {
-
     signInWithEmailAndPassword(auth, user.email, document.getElementById('supAccountMdp').value)
         .then((userCredential) => {
             deleteUser(user).then(() => {

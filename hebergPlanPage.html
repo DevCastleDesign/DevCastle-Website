@@ -28,7 +28,13 @@
 
 <script type="module">
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import {getDatabase,ref, onValue, update, set} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {
+        getDatabase,
+        ref,
+        onValue,
+        update,
+        set
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
     import {getAuth,} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
     const firebaseConfig = {
@@ -48,21 +54,26 @@
 
     document.getElementById('noHebergButton').addEventListener('click', (e) => {
         const user = auth.currentUser;
-        update(ref(database, 'users/' + user.uid + "/achat" ), {
+        update(ref(database, 'users/' + user.uid + "/achat"), {
             site: 499,
+            hebergement: 0,
         })
         window.location.href = "paiement.html";
     });
 
     document.getElementById('hebergButton').addEventListener('click', (e) => {
+
         const user = auth.currentUser;
-        update(ref(database, 'users/' + user.uid + "/achat" ), {
+
+        update(ref(database, 'users/' + user.uid + "/achat"), {
             site: 499,
-            hebergement: 50,
         })
-        window.location.href = "paiement.html"
+        setTimeout(changePage, 1000)
     });
 
+    function changePage() {
+        window.location.href = "hebergementInfo.html"
+    }
 
 </script>
 
