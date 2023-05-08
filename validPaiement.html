@@ -15,6 +15,7 @@
     <!-- CSS -->
     <link href="../css/fonts/fonts.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <script src="Javascript/headerLoading.js" type="module"></script>
 </head>
@@ -49,6 +50,24 @@
             <p class="reponse">18.03.2023</p>
         </div>
     </div>
+    <div class="avisDiv">
+        <div>
+            <p>Votre avis compte</p>
+            <div id="imdb">
+                <div class="star">
+                    <div class="star-fill"></div>
+                    <div class="star-fill"></div>
+                    <div class="star-fill"></div>
+                    <div class="star-fill"></div>
+                    <div class="star-fill"></div>
+                </div>
+            </div>
+            <textarea id="avisText" placeholder="Ajouter un commentaire"></textarea>
+        </div>
+        <input id="envoyerButton" type="submit" value="Envoyer">
+    </div>
+    <button id="downloadButton"><span class="material-symbols-outlined">download</span>Download</button>
+
     <input onclick="window.location.href = 'dashboard.html'" class="dashButton" type="submit" value="Accéder au tableau de bord">
     <a class="retourAccueil" href="index.html">Retourner à l’accueil</a>
 </main>
@@ -62,6 +81,106 @@
         <a href="termesUtilisation.html">Termes d’utilisation</a>
     </div>
 </footer>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {
+        getDatabase,
+        set,
+        ref,
+        update,
+        onValue
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {
+        getStorage,
+        ref as sRef,
+        getDownloadURL,
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+    import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    const storage = getStorage(app);
+
+    var stars = document.querySelectorAll('.star div');
+
+    var nombre_etoile = 0;
+
+    stars.forEach((item, index1) => {
+        item.addEventListener('click', () => {
+            stars.forEach((star, index2) => {
+                index1 >= index2 ? star.classList.add('active') : star.classList.remove('active')
+            });
+            nombre_etoile = index1 + 1;
+        })
+    });
+
+    document.getElementById('downloadButton').addEventListener('click', (e) => {
+        const user = auth.currentUser;
+        getDownloadURL(sRef(storage, "users/" + user.uid + "/source.rar"))
+            .then((url) => {
+                var a = document.createElement('a');
+                a.href = a.download = url;
+                document.body.append(a);
+                a.click();
+                a.remove()
+                window.URL.revokeObjectURL(url)
+            })
+            .catch((error) => {
+                alert("Une erreur s'est produite. Veuillez nous contacter si le problème persiste")
+            });
+    });
+
+
+    envoyerButton.addEventListener('click', (e) => {
+
+        if (nombre_etoile == 0 && document.getElementById('avisText').value == "") {
+
+        } else {
+
+            const user = auth.currentUser;
+
+            onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+                const nom = (snapshot.val().nom);
+                const prenom = (snapshot.val().prenom);
+
+                onValue(ref(database, '/review'), (snapshot) => {
+                    const nombre_avis = (snapshot.val().nombre_avis);
+                    const total_ratting = (snapshot.val().total_ratting);
+                    const nombre_ratting = (snapshot.val().nombre_ratting);
+
+                    set(ref(database, '/review/avis/avis_' + prenom + "_" + nom), {
+                        commentaire: document.getElementById('avisText').value,
+                        etoile: nombre_etoile,
+                    });
+
+                    update(ref(database, '/review'), {
+                        nombre_avis: (nombre_avis + 1),
+                        nombre_ratting: (nombre_ratting + 1),
+                        total_ratting: nombre_etoile + total_ratting,
+                    });
+
+                }, {
+                    onlyOnce: true
+                });
+            }, {
+                onlyOnce: true
+            });
+        }
+    });
+
+</script>
 
 </body>
 </html>

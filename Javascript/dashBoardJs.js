@@ -18,11 +18,8 @@ import {
 import {
     getStorage,
     ref as sRef,
-    uploadBytesResumable,
     getDownloadURL,
-    uploadBytes,
     listAll,
-    getMetadata
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
@@ -40,12 +37,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const database = getDatabase(app);
 const storage = getStorage(app);
+const user = auth.currentUser;
 
 modifButton.addEventListener('click', (e) => {
 
     var type = document.getElementById('type').innerHTML;
-
-    const user = auth.currentUser;
 
     const oldPassword = document.getElementById('oldMdp').value;
 
@@ -74,7 +70,6 @@ modifButton.addEventListener('click', (e) => {
             });
 
     } else if (type == "email") {
-        const user = auth.currentUser;
 
         const password = document.getElementById('emailMdp').value;
 
@@ -107,7 +102,6 @@ modifButton.addEventListener('click', (e) => {
                 document.getElementById('emailAlerte').innerHTML = "mot de passe incorrect";
             });
     } else {
-        const user = auth.currentUser;
 
         var change = document.getElementById('inputModif').value
 
@@ -157,7 +151,6 @@ window.addEventListener('load', function () {
 function verifAccount() {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            const user = auth.currentUser;
             onValue(ref(database, '/users/' + user.uid), (snapshot) => {
                 document.getElementById('nomCompte').innerHTML = (snapshot.val().nom);
                 document.getElementById('prenomCompte').innerHTML = (snapshot.val().prenom);
@@ -312,7 +305,6 @@ suppAccount.addEventListener('click', (e) => {
 
 suppAccountButton.addEventListener('click', (e) => {
 
-    const user = auth.currentUser;
     signInWithEmailAndPassword(auth, user.email, document.getElementById('supAccountMdp').value)
         .then((userCredential) => {
             deleteUser(user).then(() => {
@@ -345,7 +337,6 @@ siteUrl.addEventListener('click', (e) => {
 let test = [];
 
 reloadImageIcon.addEventListener('click', (e) => {
-    const user = auth.currentUser;
 
     listAll(sRef(storage, "users/" + user.uid + "/images/")).then((res) => {
         res.items.forEach((itemRef) => {
@@ -372,7 +363,6 @@ infoSupp.addEventListener('click', (e) => {
 });
 
 document.getElementById('codeSourceButton').addEventListener('click', (e) => {
-    const user = auth.currentUser;
 
     onValue(ref(database, '/users/' + user.uid), (snapshot) => {
         const status = (snapshot.val().status);
