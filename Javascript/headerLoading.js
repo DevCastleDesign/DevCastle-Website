@@ -17,8 +17,10 @@ const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
     if (user) {
         document.getElementById('navAccount').style.display = "flex";
+        document.getElementById('navNoAccount').style.display = "none";
     } else {
         document.getElementById('navNoAccount').style.display = "flex";
+        document.getElementById('navAccount').style.display = "none";
     }
 });
 

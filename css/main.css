@@ -3065,3 +3065,21 @@ input#phone {
     border: 1px solid #ececec !important;
     width: 270px !important;
 }
+
+.pConfirmResiliation main {
+text-align: center;
+}
+
+
+.pConfirmResiliation main {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.pConfirmResiliation main a {
+    color: black;
+}
+
+.pConfirmResiliation main .blueButton {
+    color: white;
+}
