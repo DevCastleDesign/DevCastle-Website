@@ -38,7 +38,7 @@
     <div class="page">
         <h1>Maquette</h1>
         <p>Votre maquette est actuellement en cours de création</p>
-        <p class="mailEnvoyeP">Un mail vous sera envoyé quand tout sera près !</p>
+        <p class="mailEnvoyeP" id="mailEnvoye">Un mail vous sera envoyé quand tout sera près !</p>
         <p class="statusP">Statut</p>
         <div id="divStatus">
             <p id="statusText"></p>
@@ -56,7 +56,7 @@
         <div style="width: fit-content; display: flex; flex-direction: column; margin: 60px auto 200px;">
             <input id="modifDemandeButton" type="submit" value="Demander une modification">
 
-            <input id="nextStepButton" type="submit" value="Continuer">
+            <input id="nextStepButton" type="submit" value="Passer à la suite">
         </div>
 
     </div>
@@ -100,6 +100,7 @@
                 } else if (status == "termine") {
                     divStatus.style.backgroundColor = '#2A9E20';
                     document.getElementById('statusText').innerHTML = "terminé";
+                    document.getElementById('mailEnvoye').innerHTML = "Un mail vous a été envoyé !";
                     document.getElementById('maquetteDate').innerHTML = "Fini le " + dateFin;
                     document.getElementById('nextStepButton').style.opacity = '100%';
 
