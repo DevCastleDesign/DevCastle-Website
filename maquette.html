@@ -37,7 +37,7 @@
 
     <div class="page">
         <h1>Maquette</h1>
-        <p>Votre maquette est actuellement en cours de création</p>
+        <p id="titleText">Votre maquette est actuellement en cours de création</p>
         <p class="mailEnvoyeP" id="mailEnvoye">Un mail vous sera envoyé quand tout sera près !</p>
         <p class="statusP">Statut</p>
         <div id="divStatus">
@@ -53,7 +53,8 @@
 
         </div>
 
-        <div style="width: fit-content; display: flex; flex-direction: column; margin: 60px auto 200px;">
+        <div id="buttons" style="width: fit-content; display: flex; flex-direction: column; margin: 60px auto 200px;">
+            <textarea id="modifDemande" placeholder="Qu'es-ce qu'il ne va pas ?"></textarea>
             <input id="modifDemandeButton" type="submit" value="Demander une modification">
 
             <input id="nextStepButton" type="submit" value="Passer à la suite">
@@ -67,6 +68,8 @@
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {getAuth, onAuthStateChanged,} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
     import {getDatabase, ref, onValue, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+    let modif = false;
 
     const firebaseConfig = {
         apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -97,6 +100,9 @@
                     divStatus.style.backgroundColor = '#20629E';
                     document.getElementById('statusText').innerHTML = "En développement";
                     document.getElementById('maquetteDate').innerHTML = "Débuté le " + dateDebut;
+                    if (snapshot.val().modif != null) {
+                        document.getElementById('titleText').innerHTML = "Vos modifications sont actuellement en cours de création";
+                    }
                 } else if (status == "termine") {
                     divStatus.style.backgroundColor = '#2A9E20';
                     document.getElementById('statusText').innerHTML = "terminé";
@@ -129,6 +135,24 @@
         update(ref(database, 'users/' + user.uid), {
             status: "dev",
         });
+    });
+
+    document.getElementById('modifDemandeButton').addEventListener('click', (e) => {
+
+        if (modif) {
+            const user = auth.currentUser;
+
+            update(ref(database, 'users/' + user.uid + '/site/maquette'), {
+                status: "dev",
+                modif: document.getElementById('modifDemande').value
+            });
+
+            setTimeout(() => {location.reload()}, 500);
+        } else {
+            document.getElementById('modifDemande').style.display = "block";
+            modif = true;
+            document.getElementById('modifDemandeButton').value = "Envoyer";
+        }
     });
 
 </script>

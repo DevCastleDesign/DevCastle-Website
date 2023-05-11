@@ -3024,6 +3024,14 @@ main nav ul li a {
     color: white;
 }
 
+.pMaquette-Developpement #buttons textarea {
+    min-height: 75px;
+    min-width: 400px;
+    resize: both;
+    padding: 10px;
+    display: none;;
+}
+
 @keyframes apparition2 {
 
     100% {
