@@ -2394,7 +2394,7 @@ main nav ul li a {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 .pValidPaiement .validDiv {
@@ -2440,6 +2440,55 @@ main nav ul li a {
     display: block;
     text-align: center;
     margin-bottom: 100px;
+}
+
+
+.pValidPaiement  div #imdb img {
+    width: 25px;
+    margin: 5px;
+}
+
+.pValidPaiement textarea {
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: transparent;
+    color: black;
+    resize: none;
+    width: 40vw;
+    height: 100px;
+    margin: 10px 0;
+}
+
+.pValidPaiement #envoyerButton {
+    border: none;
+    background-color: #2C3973;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 25px;
+    border-radius: 5px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.pValidPaiement .star {
+    display: flex;
+    justify-content: center;
+}
+
+.pValidPaiement .star .star-fill {
+    background-image: url(../src/Icons/EtoileGrisIcon.png);
+    height: 25px;
+    width: 30px;
+    background-size: 30px;
+}
+
+.pValidPaiement .star .star-fill.active {
+    background-image: url(../src/Icons/EtoileIco.png);
+}
+
+.pValidPaiement .avisDiv {
+    text-align: center;
 }
 
 /* #endregion */

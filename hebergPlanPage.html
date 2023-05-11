@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Sohan Anampalli & Arsène Brosy" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
+
+    <!-- Titre -->
+    <title>Devcastle - Création de site webs a mini-prix</title>
+
+    <!-- CSS -->
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div>
+    <button id="hebergButton">Prendre l'option hébergement en plus</button>
+</div>
+<div>
+    <p>Non merci, le souhaite payer mon site et récupérer le code source</p>
+    <button id="noHebergButton">test</button>
+</div>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {
+        getDatabase,
+        ref,
+        onValue,
+        update,
+        set
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {getAuth,} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+
+    document.getElementById('noHebergButton').addEventListener('click', (e) => {
+        const user = auth.currentUser;
+        update(ref(database, 'users/' + user.uid + "/achat"), {
+            site: 499,
+            hebergement: 0,
+        })
+        window.location.href = "paiement.html";
+    });
+
+    document.getElementById('hebergButton').addEventListener('click', (e) => {
+
+        const user = auth.currentUser;
+
+        update(ref(database, 'users/' + user.uid + "/achat"), {
+            site: 499,
+        })
+        setTimeout(changePage, 1000)
+    });
+
+    function changePage() {
+        window.location.href = "hebergementInfo.html"
+    }
+
+</script>
+
+</body>
+</html>

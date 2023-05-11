@@ -16,8 +16,6 @@
     import {
         getDatabase,
         ref,
-        onValue,
-        get,
         update,
     } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
     import {
@@ -34,10 +32,10 @@
         appId: "1:274339465548:web:927dd550601c84dffce7e9"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth();
     const database = getDatabase(app);
+
     document.getElementById("payButton").addEventListener('click', (e) => {
         const user = auth.currentUser;
         update(ref(database, 'users/' + user.uid + "/achat"), {
