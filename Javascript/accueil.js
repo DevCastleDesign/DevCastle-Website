@@ -25,6 +25,7 @@ function verifAccount() {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             document.getElementById('navAccount').style.display = "flex";
+            document.getElementById('navNoAccount').style.display = "none";
             document.getElementById('commandeButton').value = "continuer";
 
             onValue(ref(database, '/review'), (snapshot) => {
@@ -45,6 +46,8 @@ function verifAccount() {
             });
         } else {
             document.getElementById('navNoAccount').style.display = "flex";
+            document.getElementById('navAccount').style.display = "none";
+
             onValue(ref(database, '/review'), (snapshot) => {
                 const nbrRat = (snapshot.val().nombre_ratting);
                 const totalNum = (snapshot.val().total_ratting);
@@ -63,7 +66,7 @@ function verifAccount() {
             });
         }
     });
-};
+}
 
 logOutButton.addEventListener('click', (e) => {
     const auth = getAuth();

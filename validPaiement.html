@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="pValidPaiement">
+<html class="pValidPaiement" lang="en">
 <head>
     <!-- Metadonnées -->
     <meta charset="UTF-8">
@@ -21,24 +21,24 @@
 <body>
 
 <main>
-<nav class="header">
-    <a href=""><img height="83" src="src/Icons/DevCastleIcon.png" width="148"/></a>
-    <ul id="navNoAccount">
-        <li><a href="./contact.html">Contact</a></li>
-        <li id="loginButton"><a class="blueButton" href="connexion.html">Connexion</a></li>
-    </ul>
-    <ul id="navAccount">
-        <li><a href="./contact.html">Contact</a></li>
-        <li id="logOutButton"><a href="">Se deconnecter</a></li>
-        <li id="dashboardNav"><a href="dashboard.html">
-            <div class="blueButton">Tableau de bord</div>
-        </a></li>
-    </ul>
-</nav>
+    <nav class="header">
+        <a href=""><img height="83" src="src/Icons/DevCastleIcon.png" width="148"/></a>
+        <ul id="navNoAccount">
+            <li><a href="./contact.html">Contact</a></li>
+            <li id="loginButton"><a class="blueButton" href="connexion.html">Connexion</a></li>
+        </ul>
+        <ul id="navAccount">
+            <li><a href="./contact.html">Contact</a></li>
+            <li id="logOutButton"><a href="">Se deconnecter</a></li>
+            <li id="dashboardNav"><a href="dashboard.html">
+                <div class="blueButton">Tableau de bord</div>
+            </a></li>
+        </ul>
+    </nav>
     <h1>Merci de nous avoir fait confiance</h1>
     <div class="validDiv">
         <div class="greenRec">
-            <img src="src/Icons/checkIcon.png" height="42" width="42"/>
+            <img height="42" src="src/Icons/checkIcon.png" width="42"/>
             <p>Le paiement de votre commande à bien été pris en compte</p>
         </div>
         <div class="infoPrix">
@@ -49,7 +49,8 @@
             <p class="reponse">18.03.2023</p>
         </div>
     </div>
-    <input onclick="window.location.href = 'dashboard.html'" class="dashButton" type="submit" value="Accéder au tableau de bord">
+    <input class="dashButton" onclick="window.location.href = 'dashboard.html'" type="submit"
+           value="Accéder au tableau de bord">
     <a class="retourAccueil" href="index.html">Retourner à l’accueil</a>
 </main>
 

@@ -395,3 +395,8 @@ document.getElementById('codeSourceButton').addEventListener('click', (e) => {
         onlyOnce: true
     });
 });
+
+
+document.getElementById('resiliationButton').addEventListener('click', (e) => {
+    window.location.href = "../resilitation.html"
+});
