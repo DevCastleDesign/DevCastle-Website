@@ -2965,6 +2965,11 @@ main nav ul li a {
     padding: 40px;
 }
 
+.pageViewer a {
+    display: block;
+    height: fit-content;
+}
+
 .pMaquette-Developpement .page #divStatus {
     width: 208px;
     height: 40px;
