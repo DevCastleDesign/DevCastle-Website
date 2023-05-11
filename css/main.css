@@ -16,6 +16,10 @@
 
 }
 
+button, a {
+    cursor: pointer;
+}
+
 body {
     min-height: 100vh;
 }
