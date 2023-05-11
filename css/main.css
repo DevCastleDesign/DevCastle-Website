@@ -2959,10 +2959,12 @@ main nav ul li a {
     display: flex;
     margin-top: 20px;
     justify-content: center;
+    flex-wrap: wrap;
+    background-color: #0B4E95;
+    border-radius: 10px;
 }
 .pageViewer {
-    background-color: #0B4E95;
-    padding: 40px;
+    padding: 30px;
 }
 
 .pageViewer a {
