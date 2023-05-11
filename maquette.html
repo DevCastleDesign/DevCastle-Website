@@ -50,16 +50,6 @@
                 
             </div>
             <script src="./Javascript/pagesViewer.js" type="module"></script>
-            <!--
-                <div class="pageViewer">
-                    <h2>Accueil</h2>
-                    <img src="src/Images/Accueil.png"/>
-                </div>
-                <div class="pageViewer">
-                    <h2>Contact</h2>
-                    <img src="src/Images/Contact.png"/>
-                </div>
-            -->
 
         </div>
 
@@ -93,6 +83,7 @@
     const database = getDatabase(app);
 
     document.getElementById('nextStepButton').disabled = true;
+    document.getElementById('modifDemandeButton').style.display = "none";
 
     onAuthStateChanged(auth, (user) => {
 
@@ -115,6 +106,7 @@
                     document.getElementById('nextStepButton').disabled = false;
 
                     document.getElementById('maquetteViewer').style.display = "block"
+                    document.getElementById('modifDemandeButton').style.display = "block";
 
                 } else {
                     document.getElementById('statusText').innerHTML = "En attente";
@@ -134,7 +126,7 @@
         window.location.href = "developpement.html";
 
         update(ref(database, 'users/' + user.uid), {
-            status: "maquette",
+            status: "dev",
         });
     });
 

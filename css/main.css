@@ -2957,11 +2957,12 @@ main nav ul li a {
 
 .pagevi {
     display: flex;
-    margin-top: 20px;
     justify-content: center;
     flex-wrap: wrap;
     background-color: #0B4E95;
     border-radius: 10px;
+    width: fit-content;
+    margin: 20px auto;
 }
 .pageViewer {
     padding: 30px;
