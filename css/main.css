@@ -2995,15 +2995,15 @@ main nav ul li a {
 
 
 .pMaquette-Developpement .page input {
-    width: 303px;
+    width: 100%;
+    padding: 0 20px;
     height: 49px;
     background-color: #2C3973;
     border: none;
     color: white;
     font-size: 25px;
     cursor: pointer;
-    margin-top: 60px;
-    margin-bottom: 200px;
+    margin: 10px 0;
 }
 
 .pMaquette-Developpement .page #nextStepButton {
