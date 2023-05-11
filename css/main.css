@@ -2957,6 +2957,8 @@ main nav ul li a {
 
 .pagevi {
     display: flex;
+    margin-top: 20px;
+    justify-content: center;
 }
 .pageViewer {
     background-color: #0B4E95;
