@@ -302,7 +302,6 @@ suppAccount.addEventListener('click', (e) => {
     document.getElementById('suppAccountPopup').style.display = 'block';
 });
 
-
 suppAccountButton.addEventListener('click', (e) => {
     signInWithEmailAndPassword(auth, user.email, document.getElementById('supAccountMdp').value)
         .then((userCredential) => {

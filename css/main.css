@@ -31,7 +31,6 @@ img {
     user-select: none;
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
-    pointer-events: none;
 }
 
 .footer {
@@ -2951,26 +2950,36 @@ main nav ul li a {
     margin-bottom: 40px;
 }
 
-.pMaquette-Developpement .page img {
-    width: 300px;
+
+#imageView {
+    width: 250px;
 }
 
 .pagevi {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #0B4E95;
     border-radius: 10px;
     width: fit-content;
     margin: 20px auto;
+    background-color: #0C1436;
 }
 .pageViewer {
     padding: 30px;
 }
 
+.pageViewer h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
 .pageViewer a {
     display: block;
     height: fit-content;
+}
+
+.pageViewer{
+    transition: 0.3s;
 }
 
 .pMaquette-Developpement .page #divStatus {

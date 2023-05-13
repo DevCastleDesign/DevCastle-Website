@@ -26,7 +26,7 @@ function updateMaquettePages() {
                     document.getElementById("maquettes-pages-viewer").innerHTML += `
                     <div class="pageViewer">
                         <h2>` + metadata.name.replace(/\.[^/.]+$/, "") + `</h2>
-                        <a href="` + url + `" target="_blank"><img src="` + url + `"/></a>
+                        <a href="` + url + `" target="_blank"><img id="imageView" src="` + url + `"/></a>
                     </div>
                     `;
                 });
@@ -34,5 +34,6 @@ function updateMaquettePages() {
         });
     });
 }
+
 
 onAuthStateChanged(auth, updateMaquettePages);
