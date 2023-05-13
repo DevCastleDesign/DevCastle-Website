@@ -1584,7 +1584,7 @@ main nav ul li a {
 .pDashboard .popup button:last-child {
     position: absolute;
     left: 50%;
-    bottom: 1vw;
+    bottom: 1.2vw;
     transform: translateX(-50%);
     font-weight: bold;
     font-size: 1rem;
@@ -1592,6 +1592,7 @@ main nav ul li a {
     border-radius: 0.5vw;
     cursor: pointer;
     outline: none;
+    border: none;
 }
 
 .pDashboard .popupmodif {
@@ -2962,7 +2963,6 @@ main nav ul li a {
     border-radius: 10px;
     width: fit-content;
     margin: 20px auto;
-    background-color: #0C1436;
 }
 .pageViewer {
     padding: 30px;
@@ -2971,6 +2971,9 @@ main nav ul li a {
 .pageViewer h2 {
     font-size: 20px;
     margin-bottom: 10px;
+    opacity: 100%;
+    font-weight: normal;
+    transition: 0.4s;
 }
 
 .pageViewer a {
@@ -2982,11 +2985,48 @@ main nav ul li a {
     transition: 0.3s;
 }
 
+.pagevi:hover .pageViewer{
+    opacity: .5;
+    filter: blur(4px);
+}
+
+.pagevi .pageViewer:hover{
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1.1);
+}
+
+.pMaquette-Developpement .separateur {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    opacity: 20%;
+}
+
 .pMaquette-Developpement .page #divStatus {
     width: 208px;
     height: 40px;
     background-color: #4F4F4F;
     margin: 10px auto;
+}
+
+#modifDemande #modifButtonText {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    color: #0C1436;
+}
+
+#modifDemande h2 {
+    margin-bottom: 30px;
+}
+
+#modifDemande p:nth-child(3) {
+    margin-bottom: 30px;
+}
+
+#modifDemande p {
+    font-size: 20px;
+    font-weight: 100;
 }
 
 .pMaquette-Developpement .page #divStatus p  {
@@ -3003,9 +3043,7 @@ main nav ul li a {
     margin-bottom: 40px;
 }
 
-
 .pMaquette-Developpement .page input {
-    width: 100%;
     padding: 0 20px;
     height: 49px;
     background-color: #2C3973;
@@ -3013,7 +3051,8 @@ main nav ul li a {
     color: white;
     font-size: 25px;
     cursor: pointer;
-    margin: 10px 0;
+    margin: 40px auto 0 auto;
+    width: 400px;
 }
 
 .pMaquette-Developpement .page #nextStepButton {
@@ -3033,12 +3072,14 @@ main nav ul li a {
     color: white;
 }
 
-.pMaquette-Developpement #buttons textarea {
-    min-height: 75px;
-    min-width: 400px;
+#modifDemandeText {
+    min-height: 300px;
+    min-width: 800px;
     resize: both;
     padding: 10px;
-    display: none;;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
 }
 
 @keyframes apparition2 {
@@ -3057,19 +3098,6 @@ main nav ul li a {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
     color: white;
 }
-
-.pHebergementInfo {
-
-}
-
-.pHebergementInfo {
-
-}
-
-.pHebergementInfo {
-
-}
-
 
 .iti__selected-flag {
     top: 6px;

@@ -37,9 +37,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const database = getDatabase(app);
 const storage = getStorage(app);
-const user = auth.currentUser;
+
 
 modifButton.addEventListener('click', (e) => {
+    const user = auth.currentUser;
 
     var type = document.getElementById('type').innerHTML;
 
@@ -59,7 +60,7 @@ modifButton.addEventListener('click', (e) => {
                         document.getElementById('emailDiv').style.display = 'none';
                         document.getElementById('classicModif').style.display = 'none';
                     }).catch((error) => {
-                        alert(error)
+                        alert("une erreur c'est produite")
                     });
                 } else {
                     document.getElementById('oldMdpAlerte').innerHTML = "Mot de passe trop court";
@@ -197,7 +198,7 @@ function verifAccount() {
                                 document.getElementById('statusAttenteDiv').innerHTML = "En Attente";
                                 document.getElementById('dateAttenteDiv').innerHTML = "";
                             }
-                        } else if (status == 'developpement') {
+                        } else if (status == 'dev') {
 
                             document.getElementById('onStatus').style.display = 'block';
                             document.getElementById('noStatus').style.display = 'none';
@@ -220,6 +221,7 @@ function verifAccount() {
                         } else if (status == 'termine') {
 
                             const codeSourceButton = document.getElementById('codeSourceButton');
+                            document.getElementById('divSource').className = "";
                             codeSourceButton.style.opacity = '100%';
                             codeSourceButton.disabled = false;
                             document.getElementById('noStatus').style.display = 'block';
@@ -303,6 +305,7 @@ suppAccount.addEventListener('click', (e) => {
 });
 
 suppAccountButton.addEventListener('click', (e) => {
+    const user = auth.currentUser;
     signInWithEmailAndPassword(auth, user.email, document.getElementById('supAccountMdp').value)
         .then((userCredential) => {
             deleteUser(user).then(() => {
@@ -324,9 +327,18 @@ cancelSuppAccountButton.addEventListener('click', (e) => {
 
 
 hostButton.addEventListener('click', (e) => {
-    window.location.href = "hebergementInfo.html";
-});
+    const user = auth.currentUser
 
+    onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
+        if (snapshot.val().nombre_facture == 0) {
+            window.location.href = "hebergementInfo.html";
+        } else {
+            document.getElementById('hostButton').style.opacity = '50%';
+        }
+    }, {
+        onlyOnce: true
+    });
+});
 
 siteUrl.addEventListener('click', (e) => {
     window.open('https://' + siteUrl.value);
@@ -335,6 +347,7 @@ siteUrl.addEventListener('click', (e) => {
 let test = [];
 
 reloadImageIcon.addEventListener('click', (e) => {
+    const user = auth.currentUser;
 
     listAll(sRef(storage, "users/" + user.uid + "/images/")).then((res) => {
         res.items.forEach((itemRef) => {
@@ -343,7 +356,7 @@ reloadImageIcon.addEventListener('click', (e) => {
 
         const random = Math.floor(Math.random() * test.length);
 
-        getDownloadURL(sRef(storage, "users/" + user.uid + "/images/" +(random, test[random])))
+        getDownloadURL(sRef(storage, "users/" + user.uid + "/images/" + (random, test[random])))
             .then((url) => {
                 const img = document.getElementById("imgSrc");
 
@@ -361,11 +374,12 @@ infoSupp.addEventListener('click', (e) => {
 });
 
 document.getElementById('codeSourceButton').addEventListener('click', (e) => {
+    const user = auth.currentUser;
 
     onValue(ref(database, '/users/' + user.uid), (snapshot) => {
         const status = (snapshot.val().status);
 
-        if(status == 'termine') {
+        if (status == 'termine') {
             getDownloadURL(sRef(storage, "users/" + user.uid + "/source.rar"))
                 .then((url) => {
                     var a = document.createElement('a');
@@ -383,7 +397,6 @@ document.getElementById('codeSourceButton').addEventListener('click', (e) => {
         onlyOnce: true
     });
 });
-
 
 document.getElementById('resiliationButton').addEventListener('click', (e) => {
     window.location.href = "../resilitation.html"

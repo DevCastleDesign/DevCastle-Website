@@ -15,6 +15,7 @@
     <!-- CSS -->
     <link href="../css/fonts/fonts.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <script src="Javascript/headerLoading.js" type="module"></script>
     <script src="Javascript/maquette.js" type="module"></script>
@@ -46,36 +47,24 @@
         </div>
         <p id="maquetteDate"></p>
 
+        <hr class="separateur" id="sep1" style="display: none">
+
         <div id="maquetteViewer" style="display:none">
             <div class="pagevi" id="maquettes-pages-viewer">
             </div>
             <script src="./Javascript/pagesViewer.js" type="module"></script>
-
-            <style>
-
-
-                .pagevi:hover .pageViewer{
-                    opacity: .5;
-                    filter: blur(4px);
-                }
-
-                .pagevi .pageViewer:hover{
-                    opacity: 1;
-                    filter: blur(0px);
-                    transform: scale(1.1);
-                }
-
-
-            </style>
-
-            <script>
-                document.getElementById('withblur').style.display = 'none';
-            </script>
-
         </div>
 
+        <hr class="separateur" id="sep2" style="display: none">
+
         <div id="buttons" style="width: fit-content; display: flex; flex-direction: column; margin: 60px auto 200px;">
-            <textarea id="modifDemande" placeholder="Qu'es-ce qu'il ne va pas ?"></textarea>
+            <div id="modifDemande" style="display: none">
+                <h2>Demander une modification</h2>
+                <p>Ecrivez-nous les modifications que vous souhaitez apporter à votre maquette avant que nous commencions à coder votre site internet</p>
+                <p>Le prix d'un modification peut varier entre 10.- à 50.- selon l'importance des modifications</p>
+                <textarea id="modifDemandeText" placeholder="Qu'es-ce qu'il ne va pas ?"></textarea>
+            </div>
+
             <input id="modifDemandeButton" type="submit" value="Demander une modification">
 
             <input id="nextStepButton" type="submit" value="Passer à la suite">

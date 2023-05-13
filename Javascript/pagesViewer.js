@@ -35,5 +35,4 @@ function updateMaquettePages() {
     });
 }
 
-
 onAuthStateChanged(auth, updateMaquettePages);

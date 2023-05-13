@@ -137,7 +137,10 @@
         </div>
         </table>
         <p class="codeSource">Récuperer le code source</p>
-        <button id="codeSourceButton" disabled style="opacity: 50%"><i class="material-symbols-outlined downloadCodeIcon" style="font-size:28px">download</i>Télécharger</button>
+        <div id="divSource" class="hint--bottom hint--medium"  data-hint="Votre site doit être finit d'être développé por pouvoir télécharger son code source">
+            <button id="codeSourceButton" disabled style="opacity: 50%"><i class="material-symbols-outlined downloadCodeIcon" style="font-size:28px">download</i>Télécharger</button>
+        </div>
+
         <a href=""></a>
     </div>
     <div class="hosting" style="display: none">
@@ -264,13 +267,9 @@
         <h1 id="ticket-title">Titre de la question</h1>
 
         <h2>Votre question</h2>
-        <p id="ticket-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, alias sunt! Rem perferendis temporibus
-            eligendi, iure magnam sunt nemo aspernatur assumenda provident facilis nam, vero odit, unde maiores. Magnam,
-            quis?</p>
-
+        <p id="ticket-content"></p>
         <h2>Notre réponse</h2>
-        <p id="ticket-answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, harum? Odit similique autem, molestiae fugit
-            optio vel dicta, assumenda placeat error blanditiis quis eos eum fugiat totam quo eveniet quas.</p>
+        <p id="ticket-answer"></p>
 
         <button id="ticket-close-button">Fermer la question</button>
     </div>

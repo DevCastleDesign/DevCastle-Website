@@ -47,6 +47,8 @@ onAuthStateChanged(auth, (user) => {
 
                 document.getElementById('maquetteViewer').style.display = "block"
                 document.getElementById('modifDemandeButton').style.display = "block";
+                document.getElementById('sep1').style.display = "block";
+                document.getElementById('sep2').style.display = "block";
 
             } else {
                 document.getElementById('statusText').innerHTML = "En attente";
@@ -77,7 +79,7 @@ document.getElementById('modifDemandeButton').addEventListener('click', (e) => {
 
         update(ref(database, 'users/' + user.uid + '/site/maquette'), {
             status: "dev",
-            modif: document.getElementById('modifDemande').value
+            modif: document.getElementById('modifDemandeText').value
         });
 
         setTimeout(() => {location.reload()}, 500);
