@@ -27,6 +27,7 @@ onAuthStateChanged(auth, (user) => {
             const status = (snapshot.val().status);
             const dateDebut = (snapshot.val().date_debut);
             const dateFin = (snapshot.val().date_fin);
+            const modif = (snapshot.val().modif);
 
             if (status == "dev") {
                 divStatus.style.backgroundColor = '#20629E';
@@ -52,6 +53,10 @@ onAuthStateChanged(auth, (user) => {
 
             } else {
                 document.getElementById('statusText').innerHTML = "En attente";
+            }
+
+            if (modif != "") {
+                document.getElementById('modifText').innerHTML = modif;
             }
         }, {
             onlyOnce: true

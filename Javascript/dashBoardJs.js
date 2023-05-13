@@ -32,12 +32,10 @@ const firebaseConfig = {
     appId: "1:274339465548:web:927dd550601c84dffce7e9"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const database = getDatabase(app);
 const storage = getStorage(app);
-
 
 modifButton.addEventListener('click', (e) => {
     const user = auth.currentUser;
