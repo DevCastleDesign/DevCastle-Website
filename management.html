@@ -126,26 +126,17 @@
 
                             document.getElementById('users').innerHTML += `
                                 <div>
-                                    <p>` + childSnapshot.key +`</p>
+                                    <input type="submit" id=" ` + childSnapshot.key +` " value="` + childSnapshot.key + `">
                                     <p>` + "Status: " + status +  ` </p>
                                 </div>
                                 `;
-                            if (status == "maquette") {
-                                document.getElementById('users').innerHTML += `
-                                <div>
-                                    <select name="cars" >
-                                        <option value="volvo">Volvo</option>
-                                          <option value="saab" >Saab</option>
-                                          <option value="mercedes">Mercedes</option>
-                                          <option value="audi">Autre raison</option>
-                                    </select>
-                                </div>
-                                `;
-                            }
+
                         });
 
                     });
-
+                    document.querySelector('input').addEventListener('click', (e) => {
+                        alert(e.target.value)
+                    });
 
                     onValue(ref(database, 'users'), (snapshot) => {
                         onValue(ref(database, 'users'), (snapshot) => {
@@ -169,6 +160,8 @@
         }, {
             onlyOnce: true
         });
+
+
 
 
 </script>
