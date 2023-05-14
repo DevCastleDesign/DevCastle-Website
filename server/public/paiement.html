@@ -13,14 +13,17 @@
     <title>Devcastle - Création de site webs a mini-prix</title>
 
     <!-- CSS -->
-    <link href="../css/fonts/fonts.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <script src="https://js.stripe.com/v3"></script>
+    <link href="../../css/fonts/fonts.css" rel="stylesheet">
+    <link href="../../css/main.css" rel="stylesheet">
 </head>
 <body>
 <div class="Paiement">
     <div id="choixPaiement">
-        <button id="payerButton">eqf</button>
+        <h1>Paiement</h1>
+        <p>Nos paiement passent par la société Stripe qui permet de faire des paiements en ligne en toute sécurité</p>
+        <p>Nous préférons utiliser ce service au lieu que de le faire nous même pour garantir la sécurité de vos données</p>
+        <p>N'hésiter pas à aller faire un tour sur le site de stripe si vous avez le moindre doute</p>
+        <button id="payerButton">Payer</button>
     </div>
 
     <div class="achatList">
@@ -145,28 +148,16 @@
 
 <script>
 
-    var stripe = Stripe("pk_test_51MnPY1AsyBISG9sIg93Bj2eFdhGwPElL1L2tSgcWDQscnM69Ri2Dt5a8pI6nzfHX7eS0jiGJjsmj0z48a7eH5SzZ00YzXQoWHJ");
+    // pk_test_51MnPY1AsyBISG9sIg93Bj2eFdhGwPElL1L2tSgcWDQscnM69Ri2Dt5a8pI6nzfHX7eS0jiGJjsmj0z48a7eH5SzZ00YzXQoWHJ
     payerButton.addEventListener('click', (e) => {
 
-        stripe.redirectToCheckout({
-            lineItems: [
-                {
-                    price: "price_1N4gy3AsyBISG9sIKNc2riP6",
-                    quantity: 1,
-                },
-            ],
-            mode: "payment",
-            successUrl: 'https://devcastledesign.github.io/DevCastle-Website/remerciement.html',
-            cancelUrl: 'https://devcastledesign.github.io/DevCastle-Website/validPaiement.html',
-        })
-            .then(function (result) {
-            });
+
     });
 </script>
 
 <footer>
     <div class="center">
-        <p>En effectuant votre commande, vous acceptez nos <a href="termesUtilisation.html">Termes d’utilisation</a></p>
+        <p>En effectuant votre commande, vous acceptez nos <a href="../../termesUtilisation.html">Termes d’utilisation</a></p>
         <p class="paiementSecureFooter">Paiements sécurisés avec <strong>Stripe</strong></p>
     </div>
 </footer>

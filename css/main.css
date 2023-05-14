@@ -2788,6 +2788,17 @@ main nav ul li a {
     margin-top: 30px;
 }
 
+
+#payerButton {
+    width: 200px;
+    height: 50px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #0B4E95;
+}
+
+
 /* #endregion */
 
 /* #region REMERCIEMENT */
