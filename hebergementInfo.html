@@ -39,7 +39,7 @@
     document.getElementById("payButton").addEventListener('click', (e) => {
         const user = auth.currentUser;
         update(ref(database, 'users/' + user.uid + "/achat"), {
-            hebergement: "50",
+            hebergement: 50,
         });
         setTimeout(redirect, 1000)
 
