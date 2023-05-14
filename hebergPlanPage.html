@@ -33,6 +33,47 @@
     </div>
 </div>
 
+<button class="help" onclick="openHebergPopup()">Aide</button>
+
+<div id="popup-blur" style="display: none;"></div>
+<div id="popup-hebergement" style="display: none">
+    <button class="close" onclick="closeHebergPopup()"><img src="./src/Icons/CloseIcon.png"></button>
+    <h1>L’hebergement</h1>
+    <div class="textHebergPopup">
+        <div>
+            <h2>c’est quoi ?</h2>
+            <p>C’est le procédé qui permet à n’importe quel ordinateur d’accéder à votre site.
+                Il est donc indispensable et est mis en place pour 100% des sites internet
+                <br><br>
+                Chaque sites a besoin d’être hébergé pour fonctionner.
+                <br><br>
+                Mais n’ayez crainte, nous pouvons le faire à votre place et vous n’aurez rien à faire.</p>
+        </div>
+        <div>
+            <h2>Pourquoi le faisons-nous ?</h2>
+            <p>C’est tout simplement compliqué. Il est facile de se perdre pour ne plus s’y
+                retrouver et finir avec un site mal organisé et mal optimisé.
+                <br><br>
+                En tant qu’informaticiens, nous vous assurons que votre site sera bien hébergé.
+                De plus, nous ne faisons pratiquement aucune marge sur le prix que cela nous coute.
+                <br><br>
+                Mais si aimez le défi, vous avez aussi bien sur la possibilité de gérer ça tout
+                seul, nous vous fournissons le code de site et à vous de vous débrouiller pour l’hébergement.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openHebergPopup() {
+        document.getElementById('popup-blur').style.display = 'block';
+        document.getElementById('popup-hebergement').style.display = 'block';
+    }
+    function closeHebergPopup() {
+        document.getElementById('popup-blur').style.display = 'none';
+        document.getElementById('popup-hebergement').style.display = 'none';
+    }
+</script>
+
 <script type="module">
     import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
     import {
