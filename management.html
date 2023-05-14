@@ -1,181 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devcastle Admin</title>
+
+    <link rel="stylesheet" href="./css/management.css">
 </head>
 <body>
-
-<button id="buttest">test</button>
-
-<div id="infoUser">
-    <p>review: <span id="reviewInfo"></span></p>
-    <div id="etoiles">
-        <p>Noté</p>
-        <div id="ratting" style="visibility: hidden">
-            <div class="outer">
-                <div class="inner" id="inner"></div>
-            </div>
+    <div class="panels">
+        <p class="title">Devcastle Admin</p>
+        <div class="list">
+            <ul id="panellist">
+                <li>
+                    <button class="active" onclick="OpenDashboard(0)">Utilisateurs</button>
+                </li>
+                <li>
+                    <button onclick="OpenDashboard(1)">Tickets</button>
+                </li>
+                <li>
+                    <button onclick="OpenDashboard(2)">Avis</button>
+                </li>
+            </ul>
+            <div id="selector"></div>
         </div>
     </div>
-    <p>status: <span id="statusInfo"></span></p>
-    <div id="avisList"></div>
 
-    <div id="users">
-
+    <div id="pagecontainer">
+        <div class="users" style="display: block;">
+            <h1>Utilisateurs</h1>
+            <input type="text" class="topsearch" placeholder="Rechercher">
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Etape</th>
+                </tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+                <tr><td>Brosy</td><td>Arsène</td><td>arsene.brosy@gmail.com</td><td>Maquette</td></tr>
+                <tr><td>Anampalli</td><td>Sohan</td><td>sohan.anampalli@gmail.com</td><td>Developpement</td></tr>
+            </table>
+        </div>
+        <div class="tickets" style="display: none;">
+            <h1>Tickets</h1>
+        </div>
+        <div class="ratings" style="display: none;">
+            <h1>Avis</h1>
+        </div>
     </div>
-</div>
-
-<style>
-    .outer {
-        background-image: url(../src/Icons/EtoileGrisIcon.png);
-        height: 25px;
-        width: 150px;
-        background-size: 30px;
-    }
-
-    .inner {
-        background-image: url(../src/Icons/EtoileIco.png);
-        height: 25px;
-        width: 90px;
-        background-size: 30px;
-    }
 
 
-    #etoiles {
-        width: 220px;
-        display: flex;
-        justify-content: space-between;
-        transition: 0.1s;
-        filter: contrast(150%);
-    }
-
-    #etoiles p {
-        font-family: 'Inter', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        transform: translateY(20%);
-    }
-</style>
-
-<script type="module">
-    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-    import {
-        getDatabase,
-        ref,
-        onValue,
-    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-    import {
-        getAuth,
-    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
-        authDomain: "webcastle-website.firebaseapp.com",
-        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "webcastle-website",
-        storageBucket: "webcastle-website.appspot.com",
-        messagingSenderId: "274339465548",
-        appId: "1:274339465548:web:927dd550601c84dffce7e9"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const auth = getAuth();
-
-
-
-        const user = auth.currentUser;
-        onValue(ref(database, 'review'), (snapshot) => {
-
-            const nbrRat = (snapshot.val().nombre_ratting);
-            const totalNum = (snapshot.val().total_ratting);
-
-            function round(value, step) {
-                step || (step = 1.0);
-                var inv = 1.0 / step;
-                return Math.round(value * inv) / inv;
+    <script>
+        var height = document.getElementById("panellist").children[0].clientHeight - 40;
+    
+        function OpenDashboard(index) {
+            for (var i = 0; i < document.getElementById("panellist").childElementCount; i++) {
+                document.getElementById("panellist").children[i].children[0].classList.remove("active");
+                document.getElementById("pagecontainer").children[i].style.display = "none";
             }
-
-            document.getElementById('reviewInfo').innerHTML = (snapshot.val().nombre_ratting)
-            document.getElementById('ratting').style.visibility = "visible";
-            let ratePercentage = (round((totalNum/nbrRat) , 0.5) / 5) * 100;
-            const inner = document.getElementById(`inner`)
-            inner.style.width = `${ratePercentage}%`
-
-            onValue(ref(database, 'review/avis'), (snapshot) => {
-
-                snapshot.forEach((childSnapshot) => {
-                    onValue(ref(database, 'review/avis/' + childSnapshot.key), (snapshot) => {
-                        const totalNum = (snapshot.val().commentaire);
-
-                        document.getElementById('avisList').innerHTML += ` <p> ` + childSnapshot.key + ":" + totalNum + ` </p>`;
-                    }, {
-                        onlyOnce: true
-                    });
-
-                });
-
-                onValue(ref(database, 'users'), (snapshot) => {
-                    snapshot.forEach((childSnapshot) => {
-
-                        onValue(ref(database, 'users/' + childSnapshot.key), (snapshot) => {
-
-                            const status = (snapshot.val().status);
-
-                            document.getElementById('users').innerHTML += `
-                                <div>
-                                    <p>` + childSnapshot.key +`</p>
-                                    <p>` + "Status: " + status +  ` </p>
-                                </div>
-                                `;
-                            if (status == "maquette") {
-                                document.getElementById('users').innerHTML += `
-                                <div>
-                                    <select name="cars" >
-                                        <option value="volvo">Volvo</option>
-                                          <option value="saab" >Saab</option>
-                                          <option value="mercedes">Mercedes</option>
-                                          <option value="audi">Autre raison</option>
-                                    </select>
-                                </div>
-                                `;
-                            }
-                        });
-
-                    });
-
-
-                    onValue(ref(database, 'users'), (snapshot) => {
-                        onValue(ref(database, 'users'), (snapshot) => {
-                            onValue(ref(database, 'users'), (snapshot) => {
-
-                            }, {
-                                onlyOnce: true
-                            });
-                        }, {
-                            onlyOnce: true
-                        });
-                    }, {
-                        onlyOnce: true
-                    });
-                }, {
-                    onlyOnce: true
-                });
-            }, {
-                onlyOnce: true
-            });
-        }, {
-            onlyOnce: true
-        });
-
-
-</script>
-
-<script>
-
-</script>
-
+            document.getElementById("panellist").children[index].children[0].classList.add("active");
+            document.getElementById("pagecontainer").children[index].style.display = "block";
+            document.getElementById("selector").style.transform = "translateY(" + (70 * index + 20) + "px)";
+        }
+    
+        document.getElementById("selector").style.height = height + "px";
+    </script>
 </body>
 </html>
