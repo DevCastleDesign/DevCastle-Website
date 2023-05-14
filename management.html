@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="buttest">test</button>
+
+<div id="infoUser">
+    <p>review: <span id="reviewInfo"></span></p>
+    <div id="etoiles">
+        <p>Noté</p>
+        <div id="ratting" style="visibility: hidden">
+            <div class="outer">
+                <div class="inner" id="inner"></div>
+            </div>
+        </div>
+    </div>
+    <p>status: <span id="statusInfo"></span></p>
+    <div id="avisList"></div>
+
+    <div id="users">
+
+    </div>
+</div>
+
+<style>
+    .outer {
+        background-image: url(../src/Icons/EtoileGrisIcon.png);
+        height: 25px;
+        width: 150px;
+        background-size: 30px;
+    }
+
+    .inner {
+        background-image: url(../src/Icons/EtoileIco.png);
+        height: 25px;
+        width: 90px;
+        background-size: 30px;
+    }
+
+
+    #etoiles {
+        width: 220px;
+        display: flex;
+        justify-content: space-between;
+        transition: 0.1s;
+        filter: contrast(150%);
+    }
+
+    #etoiles p {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        transform: translateY(20%);
+    }
+</style>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {
+        getDatabase,
+        ref,
+        onValue,
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {
+        getAuth,
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+
+
+        const user = auth.currentUser;
+        onValue(ref(database, 'review'), (snapshot) => {
+
+            const nbrRat = (snapshot.val().nombre_ratting);
+            const totalNum = (snapshot.val().total_ratting);
+
+            function round(value, step) {
+                step || (step = 1.0);
+                var inv = 1.0 / step;
+                return Math.round(value * inv) / inv;
+            }
+
+            document.getElementById('reviewInfo').innerHTML = (snapshot.val().nombre_ratting)
+            document.getElementById('ratting').style.visibility = "visible";
+            let ratePercentage = (round((totalNum/nbrRat) , 0.5) / 5) * 100;
+            const inner = document.getElementById(`inner`)
+            inner.style.width = `${ratePercentage}%`
+
+            onValue(ref(database, 'review/avis'), (snapshot) => {
+
+                snapshot.forEach((childSnapshot) => {
+                    onValue(ref(database, 'review/avis/' + childSnapshot.key), (snapshot) => {
+                        const totalNum = (snapshot.val().commentaire);
+
+                        document.getElementById('avisList').innerHTML += ` <p> ` + childSnapshot.key + ":" + totalNum + ` </p>`;
+                    }, {
+                        onlyOnce: true
+                    });
+
+                });
+
+                onValue(ref(database, 'users'), (snapshot) => {
+                    snapshot.forEach((childSnapshot) => {
+
+                        onValue(ref(database, 'users/' + childSnapshot.key), (snapshot) => {
+
+                            const status = (snapshot.val().status);
+
+                            document.getElementById('users').innerHTML += `
+                                <div>
+                                    <p>` + childSnapshot.key +`</p>
+                                    <p>` + "Status: " + status +  ` </p>
+                                </div>
+                                `;
+                            if (status == "maquette") {
+                                document.getElementById('users').innerHTML += `
+                                <div>
+                                    <select name="cars" >
+                                        <option value="volvo">Volvo</option>
+                                          <option value="saab" >Saab</option>
+                                          <option value="mercedes">Mercedes</option>
+                                          <option value="audi">Autre raison</option>
+                                    </select>
+                                </div>
+                                `;
+                            }
+                        });
+
+                    });
+
+
+                    onValue(ref(database, 'users'), (snapshot) => {
+                        onValue(ref(database, 'users'), (snapshot) => {
+                            onValue(ref(database, 'users'), (snapshot) => {
+
+                            }, {
+                                onlyOnce: true
+                            });
+                        }, {
+                            onlyOnce: true
+                        });
+                    }, {
+                        onlyOnce: true
+                    });
+                }, {
+                    onlyOnce: true
+                });
+            }, {
+                onlyOnce: true
+            });
+        }, {
+            onlyOnce: true
+        });
+
+
+</script>
+
+<script>
+
+</script>
+
+</body>
+</html>
