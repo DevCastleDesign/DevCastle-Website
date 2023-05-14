@@ -3153,3 +3153,44 @@ text-align: center;
 .pConfirmResiliation main .blueButton {
     color: white;
 }
+
+.pHebergPlan {
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pHebergPlan .card-cont {
+    display: flex;
+}
+
+.pHebergPlan .card-cont div {
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pHebergPlan .card-cont div p {
+    margin-top: 30px;
+}
+
+.pHebergPlan .card-cont div img {
+    width: 50%;
+}
+
+.pHebergPlan .card-cont div button {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: 0;
+    opacity: 1;
+    width: 100%;
+    margin-top: 20px;
+}
