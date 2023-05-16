@@ -151,25 +151,41 @@
                     <h2>Hebergement</h2>
                     <img alt="" src="./src/Images/HebergementImage.png">
                     <p class="price">50 CHF/an</p>
-                    <p>actif depuis le ---</p>
                 </div>
                 <div class="infos">
                     <h1>Informations</h1>
+
                     <p class="name">Statut</p>
-                    <p id="statusHeberg" class="infoHeberg"></p>
+                    <div class="hebergStatus">
+                        <p id="statusHeberg" class="infoHeberg"></p>
+                        <div id="statusColorPoint"></div>
+                    </div>
                     <p class="name">Adresse</p>
                     <p id="adresseHeberg" class="infoHeberg"></p>
-                    <p class="name">Moyen de paiement</p>
-                    <p class="value">---</p>
-                    <a href="">Modifier</a>
+                    <p class="name">Date d'activation</p>
+                    <p id="hebergDate" class="infoHeberg" >---</p>
                 </div>
                 <hr>
-                <div>
-                    <h2>Résilier mon abonnement</h2>
+                <div class="resilDiv">
+                    <h1>Résilier mon abonnement</h1>
                     <p>Résilier votre abonnement à tout moment</p>
                     <p>La résiliation n'est malheureusement pas remboursable</p>
                     <button id="resiliationButton"> Résilier mon abonnement</button>
                 </div>
+            </div>
+            <div>
+                <div class="tableDiv">
+                    <h2>Facturation</h2>
+                    <table id="tableFactureListe">
+                        <tr class="tableHeader">
+                            <th>N°</th>
+                            <th>Date</th>
+                            <th>Prix</th>
+                            <th>Produit</th>
+                        </tr>
+                    </table>
+                </div>
+
             </div>
         </div>
         <div id="hostingNoSub" style="display: none">

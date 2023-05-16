@@ -1339,7 +1339,16 @@ main  ul li a {
 
 #resiliationButton {
     width: 300px;
-    height: 40px;
+    height: 45px;
+}
+
+.resilDiv button {
+    margin-top: 50px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: var(--dashboardseparator);
+    color: white;
 }
 
 #hostingSub p{
@@ -1367,6 +1376,25 @@ main  ul li a {
     margin: 0 50px 0 140px;
 }
 
+.pDashboard .hosting .tableDiv {
+    transform: translateY(100px);
+}
+
+.pDashboard .hosting .tableDiv h2 {
+   font-weight: 400;
+}
+
+.pDashboard .hosting table {
+    font-weight: 100;
+}
+
+.pDashboard .hosting .tableHeader th {
+    opacity: 50%;
+}
+
+.pDashboard .hosting th {
+    font-weight: normal;
+}
 
 #popup-hebergement {
     background: linear-gradient(252.04deg, #2C3973 8.82%, #51779C 99.46%);
@@ -1380,6 +1408,19 @@ main  ul li a {
     transform: translate(-50%,-50%);
     z-index: 2;
 }
+
+.hebergStatus {
+    display: flex;
+}
+
+#statusColorPoint {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    margin-top: 9px;
+    border-radius: 100%;
+}
+
 
 #popup-hebergement .textHebergPopup {
     display: flex;
@@ -1501,7 +1542,6 @@ main  ul li a {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 
 .pDashboard .content .support .tickets .list button .reddot {
     background-color: #DB6262;
@@ -3168,9 +3208,49 @@ text-align: center;
 
 .pResilisation textarea {
     max-width: 800px;
-   min-width: 800px;
+    min-width: 800px;
     min-height: 300px;
+    padding: 10px;
+    font-size: 16px;
 }
+
+.pResilisation .dashButton {
+    display: block;
+    margin: 100px auto 60px auto;
+    width: 429px;
+    height: 62px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 9px;
+    font-size: 20px;
+    background-color: #D9D9D9;
+    cursor: pointer;
+}
+
+.pResilisation .retourAccueil {
+    display: block;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.pResilisation h1 {
+    margin-top: 40px;
+}
+
+.pResilisation p {
+    margin: 20px 0;
+}
+
+.pResilisation #sendResilisationButton {
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0B4E95;
+    color: white;
+}
+
 
 
 

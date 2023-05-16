@@ -185,7 +185,6 @@ function verifAccount() {
                                 window.location.href = "https://devcastledesign.github.io/DevCastle-Website/maquette.html";
                             });
 
-
                             if (statusMaquette == "dev") {
                                 document.getElementById('statusAttenteDiv').innerHTML = "En développement";
                                 document.getElementById('dateAttenteDiv').innerHTML = "Commencé le " + date_debut_Maq;
@@ -254,8 +253,36 @@ function verifAccount() {
                     document.getElementById('hostingSub').style.display = 'block';
                     document.getElementById('urlSite').innerHTML = (snapshot.val().adresse);
                     document.getElementById('siteUrl').innerHTML = (snapshot.val().adresse);
+                    if ((snapshot.val().status) == "En ligne") {
+                        document.getElementById('statusColorPoint').style.backgroundColor = 'lawngreen';
+                    } else if ((snapshot.val().status) == "En attente") {
+                        document.getElementById('statusColorPoint').style.backgroundColor = 'orange';
+                    } else {
+                        document.getElementById('statusColorPoint').style.backgroundColor = '#cf0000';
+                    }
+
+                    document.getElementById('statusHeberg').innerHTML = (snapshot.val().status);
                     document.getElementById('statusHeberg').innerHTML = (snapshot.val().status);
                     document.getElementById('adresseHeberg').innerHTML = (snapshot.val().adresse);
+                    document.getElementById('hebergDate').innerHTML = (snapshot.val().date_actif);
+
+
+                    onValue(ref(database, '/users/' + user.uid + "/facturation/factures"), (snapshot) => {
+                        snapshot.forEach((childSnapshot) => {
+                            onValue(ref(database, '/users/' + user.uid + "/facturation/factures/" + childSnapshot.key), (snapshot) => {
+                                document.getElementById('tableFactureListe').innerHTML +=
+                                    `<tr> 
+                                    <th>` + (snapshot.val().number_facture) + `</th>
+                                    <th>` + (snapshot.val().date_facture) + `</th>
+                                    <th>` + (snapshot.val().prix_facture) + `</th>
+                                    <th>` + (snapshot.val().produit_facture) + `</th></tr>`
+                            }, {
+                                onlyOnce: true
+                            });
+                        });
+                    }, {
+                        onlyOnce: true
+                    });
                 }
             }, {
                 onlyOnce: true

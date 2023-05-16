@@ -28,16 +28,31 @@ const database = getDatabase(app);
 document.getElementById('sendResilisationButton').addEventListener('click', (e) => {
     const user = auth.currentUser;
     if (document.getElementById('textarea').value == "") {
-        document.getElementById('errorResilisation').innerHTML = "Remplissez";
+        document.getElementById('errorResilisation').innerHTML = "Veuillez écrire quelque chose";
     } else {
-        document.getElementById('errorResilisation').innerHTML = "";
 
-        document.getElementById('resiliationDiv').style.display = 'none';
-        document.getElementById('confirmResiliationDiv').style.display = 'block';
+        set(ref(database, 'resiliation/' + user.uid), {
+             demande: document.getElementById('textarea').value
+        });
+
+        setTimeout(changeInterface, 500)
+
+        function changeInterface() {
+            document.getElementById('errorResilisation').innerHTML = "";
+
+            document.getElementById('resiliationDiv').style.display = 'none';
+            document.getElementById('confirmResiliationDiv').style.display = 'block';
+        }
 
 
-      //  set(ref(database, 'resiliation/' + user.uid), {
-      //      demande: document.getElementById('textarea').value
-      //  });
+
+
+
     }
 });
+
+document.getElementById('textarea').addEventListener("keyup",function () {
+    if (document.getElementById('textarea').value != "") {
+        document.getElementById('errorResilisation').innerHTML = "";
+    }
+})
