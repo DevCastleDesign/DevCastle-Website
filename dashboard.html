@@ -168,24 +168,17 @@
                 <hr>
                 <div class="resilDiv">
                     <h1>Résilier mon abonnement</h1>
-                    <p>Résilier votre abonnement à tout moment</p>
-                    <p>La résiliation n'est malheureusement pas remboursable</p>
-                    <button id="resiliationButton"> Résilier mon abonnement</button>
+                    <div id="noInResilDiv" style="display: none">
+                        <p>Résilier votre abonnement à tout moment</p>
+                        <p>La résiliation n'est malheureusement pas remboursable</p>
+                        <button id="resiliationButton"> Résilier mon abonnement</button>
+                    </div>
+                    <div id="inResilDiv" style="display: none">
+                        <p>Votre demande de résiliation est en cours de traitement</p>
+                    </div>
                 </div>
             </div>
             <div>
-                <div class="tableDiv">
-                    <h2>Facturation</h2>
-                    <table id="tableFactureListe">
-                        <tr class="tableHeader">
-                            <th>N°</th>
-                            <th>Date</th>
-                            <th>Prix</th>
-                            <th>Produit</th>
-                        </tr>
-                    </table>
-                </div>
-
             </div>
         </div>
         <div id="hostingNoSub" style="display: none">
@@ -221,6 +214,17 @@
                 </div>
             </div>
             <p class="noHostP">Vous n’avez pas encore d’hébergeur</p>
+        </div>
+        <div id="tableDiv" style="display: none">
+            <h2>Facturation</h2>
+            <table id="tableFactureListe">
+                <tr class="tableHeader">
+                    <th>N°</th>
+                    <th>Date</th>
+                    <th>Prix</th>
+                    <th>Produit</th>
+                </tr>
+            </table>
         </div>
     </div>
     <div class="support" style="display: none;">

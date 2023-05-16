@@ -4,7 +4,7 @@ import {
     ref,
     onValue,
     update,
-    remove
+    remove,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import {
     getAuth,
@@ -266,16 +266,26 @@ function verifAccount() {
                     document.getElementById('adresseHeberg').innerHTML = (snapshot.val().adresse);
                     document.getElementById('hebergDate').innerHTML = (snapshot.val().date_actif);
 
+                }
 
                     onValue(ref(database, '/users/' + user.uid + "/facturation/factures"), (snapshot) => {
+
                         snapshot.forEach((childSnapshot) => {
                             onValue(ref(database, '/users/' + user.uid + "/facturation/factures/" + childSnapshot.key), (snapshot) => {
-                                document.getElementById('tableFactureListe').innerHTML +=
-                                    `<tr> 
+
+                                if ((snapshot.val().produit_facture) == "hebergement 1an") {
+                                    document.getElementById('tableDiv').style.display = 'block'
+                                    document.getElementById('tableFactureListe').innerHTML +=
+                                        `<tr> 
                                     <th>` + (snapshot.val().number_facture) + `</th>
                                     <th>` + (snapshot.val().date_facture) + `</th>
                                     <th>` + (snapshot.val().prix_facture) + `</th>
                                     <th>` + (snapshot.val().produit_facture) + `</th></tr>`
+
+                                } else {
+                                    document.getElementById('tableDiv').style.display = 'none'
+                                }
+
                             }, {
                                 onlyOnce: true
                             });
@@ -283,7 +293,19 @@ function verifAccount() {
                     }, {
                         onlyOnce: true
                     });
-                }
+
+            }, {
+                onlyOnce: true
+            });
+
+            onValue(ref(database, '/resiliation/' + user.uid), (snapshot) => {
+                    if (snapshot.exists()) {
+                        document.getElementById('inResilDiv').style.display = 'block';
+                        document.getElementById('noInResilDiv').style.display = 'none';
+                    } else {
+                        document.getElementById('noInResilDiv').style.display = 'block';
+                        document.getElementById('inResilDiv').style.display = 'none';
+                    }
             }, {
                 onlyOnce: true
             });
@@ -424,5 +446,5 @@ document.getElementById('codeSourceButton').addEventListener('click', (e) => {
 });
 
 document.getElementById('resiliationButton').addEventListener('click', (e) => {
-    window.location.href = "../resilitation.html"
+    window.location.href = "resiliation.html"
 });

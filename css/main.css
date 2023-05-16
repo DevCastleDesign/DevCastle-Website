@@ -1337,6 +1337,14 @@ main  ul li a {
     cursor: pointer;
 }
 
+#inResilDiv {
+    opacity: 50%;
+}
+
+#resilDiv div {
+    opacity: 50%;
+}
+
 #resiliationButton {
     width: 300px;
     height: 45px;
@@ -1376,11 +1384,11 @@ main  ul li a {
     margin: 0 50px 0 140px;
 }
 
-.pDashboard .hosting .tableDiv {
+.pDashboard .hosting #tableDiv {
     transform: translateY(100px);
 }
 
-.pDashboard .hosting .tableDiv h2 {
+.pDashboard .hosting #tableDiv h2 {
    font-weight: 400;
 }
 
