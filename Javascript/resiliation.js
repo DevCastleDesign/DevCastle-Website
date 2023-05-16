@@ -5,7 +5,6 @@ import {
     set,
     onValue,
     update,
-    exists
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import {
     getAuth,
@@ -31,23 +30,14 @@ document.getElementById('sendResilisationButton').addEventListener('click', (e) 
     if (document.getElementById('textarea').value == "") {
         document.getElementById('errorResilisation').innerHTML = "Remplissez";
     } else {
+        document.getElementById('errorResilisation').innerHTML = "";
 
-
-        exists(ref(database, 'resiliation/' + user.uid), {
-            alert(message) {
-            }
-        });
+        document.getElementById('resiliationDiv').style.display = 'none';
+        document.getElementById('confirmResiliationDiv').style.display = 'block';
 
 
       //  set(ref(database, 'resiliation/' + user.uid), {
       //      demande: document.getElementById('textarea').value
       //  });
-
-        setTimeout(changePage, 1000)
-        function changePage() {
-            window.location.href = "confirmResiliation.html"
-        }
-
-
     }
 });

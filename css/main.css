@@ -124,7 +124,7 @@ main nav ul li .blueButton {
     border-width: 40px;
 }
 
-main nav ul li a {
+main  ul li a {
     text-decoration: none;
     color: white;
 }
@@ -3146,23 +3146,34 @@ input#phone {
     width: 270px !important;
 }
 
-.pConfirmResiliation main {
+
+
+
+.pResilisation main {
 text-align: center;
 }
 
-
-.pConfirmResiliation main {
+.pResilisation main {
     padding-left: 60px;
     padding-right: 60px;
 }
 
-.pConfirmResiliation main a {
+.pResilisation main a {
     color: black;
 }
 
-.pConfirmResiliation main .blueButton {
+.pResilisation main .blueButton {
     color: white;
 }
+
+.pResilisation textarea {
+    max-width: 800px;
+   min-width: 800px;
+    min-height: 300px;
+}
+
+
+
 
 .pHebergPlan {
     background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
