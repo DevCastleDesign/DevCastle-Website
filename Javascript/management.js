@@ -23,7 +23,7 @@ const auth = getAuth();
 
 onValue(ref(database, 'users'), (snapshot) => {
     const users = Object.values(snapshot.val());
-    document.getElementById("users-table").innerHTML = `
+    let html = `
     <tr>
         <th>Nom</th>
         <th>Prenom</th>
@@ -32,7 +32,7 @@ onValue(ref(database, 'users'), (snapshot) => {
     </tr>
     `;
     for (let i = 0; i < users.length; i++) {
-        document.getElementById("users-table").innerHTML += `
+        html += `
         <tr>
             <td>` + users[i].nom + `</td>
             <td>` + users[i].prenom + `</td>
@@ -41,41 +41,44 @@ onValue(ref(database, 'users'), (snapshot) => {
         </tr>
         `;
     }
+    document.getElementById("users-table").innerHTML = html;
 });
 
 onValue(ref(database, 'tickets'), (snapshot) => {
     const tickets = Object.values(snapshot.val());
-    document.getElementById("tickets-table").innerHTML = `
+    let html = `
     <tr>
         <th>Titre</th>
         <th>Statut</th>
     </tr>
     `;
     for (let i = 0; i < tickets.length; i++) {
-        document.getElementById("tickets-table").innerHTML += `
+        html += `
         <tr>
             <td>` + tickets[i].title + `</td>
             <td>` + (tickets[i].answer === "" ? "non résolu" : "résolu") + `</td>
         </tr>
         `;
     }
+    document.getElementById("tickets-table").innerHTML = html;
 });
 
 onValue(ref(database, 'review/avis'), (snapshot) => {
     const ratings = Object.values(snapshot.val());
     const ratings_keys = Object.keys(snapshot.val());
-    document.getElementById("ratings-table").innerHTML = `
+    let html = `
     <tr>
         <th>Client</th>
         <th>Etoiles</th>
     </tr>
     `;
     for (let i = 0; i < ratings.length; i++) {
-        document.getElementById("ratings-table").innerHTML += `
+        html += `
         <tr>
             <td>` + (ratings_keys[i].slice(5).replace("_"," ")) + `</td>
             <td>` + ratings[i].etoile + `</td>
         </tr>
         `;
     }
+    document.getElementById("ratings-table").innerHTML = html;
 });
