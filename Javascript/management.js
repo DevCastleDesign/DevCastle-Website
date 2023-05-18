@@ -42,3 +42,40 @@ onValue(ref(database, 'users'), (snapshot) => {
         `;
     }
 });
+
+onValue(ref(database, 'tickets'), (snapshot) => {
+    const tickets = Object.values(snapshot.val());
+    document.getElementById("tickets-table").innerHTML = `
+    <tr>
+        <th>Titre</th>
+        <th>Statut</th>
+    </tr>
+    `;
+    for (let i = 0; i < tickets.length; i++) {
+        document.getElementById("tickets-table").innerHTML += `
+        <tr>
+            <td>` + tickets[i].title + `</td>
+            <td>` + (tickets[i].answer === "" ? "non résolu" : "résolu") + `</td>
+        </tr>
+        `;
+    }
+});
+
+onValue(ref(database, 'review/avis'), (snapshot) => {
+    const ratings = Object.values(snapshot.val());
+    const ratings_keys = Object.keys(snapshot.val());
+    document.getElementById("ratings-table").innerHTML = `
+    <tr>
+        <th>Client</th>
+        <th>Etoiles</th>
+    </tr>
+    `;
+    for (let i = 0; i < ratings.length; i++) {
+        document.getElementById("ratings-table").innerHTML += `
+        <tr>
+            <td>` + (ratings_keys[i].slice(5).replace("_"," ")) + `</td>
+            <td>` + ratings[i].etoile + `</td>
+        </tr>
+        `;
+    }
+});

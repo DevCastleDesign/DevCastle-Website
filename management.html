@@ -30,7 +30,7 @@
     <div id="pagecontainer">
         <div class="users" style="display: block;">
             <h1>Utilisateurs</h1>
-            <input type="text" class="topsearch" placeholder="Rechercher">
+            <input id="users-search" type="text" class="topsearch" placeholder="Rechercher">
             <table id="users-table">
                 <tr>
                     <th>Nom</th>
@@ -42,9 +42,23 @@
         </div>
         <div class="tickets" style="display: none;">
             <h1>Tickets</h1>
+            <input id="tickets-search" type="text" class="topsearch" placeholder="Rechercher">
+            <table id="tickets-table">
+                <tr>
+                    <th>Titre</th>
+                    <th>Statut</th>
+                </tr>
+            </table>
         </div>
         <div class="ratings" style="display: none;">
             <h1>Avis</h1>
+            <input id="ratings-search" type="text" class="topsearch" placeholder="Rechercher">
+            <table id="ratings-table">
+                <tr>
+                    <th>Etoiles</th>
+                    <th>Evaluation</th>
+                </tr>
+            </table>
         </div>
     </div>
 
