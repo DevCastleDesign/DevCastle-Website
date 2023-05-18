@@ -2,7 +2,7 @@ import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-
 import {
     getDatabase,
     onValue,
-    set,
+    update,
     ref,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
@@ -19,7 +19,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-const auth = getAuth();
 
 onValue(ref(database, 'users'), (snapshot) => {
     const users = Object.values(snapshot.val());
@@ -62,7 +61,7 @@ onValue(ref(database, 'tickets'), (snapshot) => {
     `;
     for (let i = 0; i < tickets.length; i++) {
         html += `
-        <tr>
+        <tr onclick='ShowTicket("` + (JSON.stringify(tickets[i]).replaceAll("\"", "\\\"")) + `")'>
             <td>` + tickets[i].title + `</td>
             <td>` + (tickets[i].answer === "" ? "non résolu" : "résolu") + `</td>
         </tr>
@@ -89,4 +88,12 @@ onValue(ref(database, 'review/avis'), (snapshot) => {
         `;
     }
     document.getElementById("ratings-table").innerHTML = html;
+});
+
+document.getElementById("ticket-pageSend").addEventListener('click', (e) => {
+    update(ref(database, 'tickets/ticket_' + openedTicketId), {
+        answer: document.getElementById("ticket-pageAnswer").value.replace(/\r?\n/g, '<br>')
+    });
+    openedPage -= 3;
+    OpenDashboard(openedPage);
 });
