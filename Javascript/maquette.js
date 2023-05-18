@@ -29,6 +29,15 @@ onAuthStateChanged(auth, (user) => {
             const dateFin = (snapshot.val().date_fin);
             const modif = (snapshot.val().modif);
 
+
+            onValue(ref(database, 'users/' + user.uid + "/site/maquette/modif"), (snapshot) => {
+                if (snapshot.exists()){
+                    document.getElementById('modifDiv').style.display = 'block';
+                }
+            }, {
+                onlyOnce: true
+            });
+
             if (status == "dev") {
                 divStatus.style.backgroundColor = '#20629E';
                 document.getElementById('statusText').innerHTML = "En développement";

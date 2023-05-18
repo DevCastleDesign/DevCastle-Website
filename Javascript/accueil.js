@@ -79,9 +79,6 @@ logOutButton.addEventListener('click', (e) => {
 });
 
 commandeButton.addEventListener('click', (e) => {
-
-    const user = auth.currentUser;
-
     onAuthStateChanged(auth, (user) => {
         if (user) {
             onValue(ref(database, '/users/' + user.uid), (snapshot) => {
@@ -90,6 +87,8 @@ commandeButton.addEventListener('click', (e) => {
                     window.location.href = "options.html";
                 } else if (status == "rdv") {
                     window.location.href = "rendezvous.html";
+                } else if (status == "AttenteRdv") {
+                    window.location.href = "remerciRendezvous.html";
                 } else if (status == "design") {
                     window.location.href = "site-information.html";
                 } else if (status == "maquette") {

@@ -15,9 +15,6 @@
     --dashboardseparator: #232323;
 }
 
-main {
-    min-height: 100vh;
-}
 
 button, a {
     cursor: pointer;
@@ -1201,6 +1198,12 @@ main  ul li a {
     justify-content: space-between;
 }
 
+.pDashboard .content .site #noAccessSitePageDiv p {
+    font-size: 22px;
+    max-width: 700px;
+    margin-bottom: 50px;
+}
+
 .pDashboard .content .site button {
     background-color: var(--dashboardseparator);
     height: 50px;
@@ -1221,6 +1224,13 @@ main  ul li a {
     top: 120px;
     right: 50px;
     width: 150px;
+}
+
+.pDashboard .content .site #statusPaiementButton  {
+    position: absolute;
+    top: 120px;
+    left: 30px;
+    width: 200px;
 }
 
 .pDashboard .content .site #statusGoButton .material-symbols-outlined  {
@@ -2182,7 +2192,7 @@ main  ul li a {
 }
 
 .pSite-information #tabs button.active {
-    border-bottom: 5px solid white;
+    border-bottom: 3px solid white;
 }
 
 .pSite-information #continue-button {
@@ -2191,9 +2201,10 @@ main  ul li a {
     color: black;
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 20px 50px;
+    padding: 10px 50px;
     cursor: pointer;
-    margin: 10px;
+    margin: 50px 0 50px 0;
+    border-radius: 2px;
 }
 
 .pSite-information #delete-colors {

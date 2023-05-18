@@ -96,8 +96,20 @@
         <p>actif depuis le <span id="actifDateAccount">---</span></p>
         <input id="suppAccount" type="submit" value="Supprimer mon compte">
     </div>
-    <div class="site" style="display: none;">
+    <div class="site" style="display: none">
         <h1>Mon site</h1>
+
+        <div id="noAccessSitePageDiv">
+            <div id="rdvAccessSitePage" style="display: none">
+                <p>Vous avez un rendez-vous en attente, attendez la fin de celui-ci pour avoir accès à cette page</p>
+            </div>
+            <div id="designAccessSitePage" style="display: none">
+                <p>Terminez de nous donner les informations nécessaires sur votre site pour avoir accès à cette page</p>
+                <button id="continueDesignButton">Continuer</button>
+            </div>
+        </div>
+
+        <div id="sitePage">
 
         <div class="hautPageSite">
             <div id="imgSrc" class="siteImage">
@@ -111,10 +123,15 @@
             <div class="attenteDiv">
                 <div id="onStatus" style="display: none">
                     <p id="titreAttenteDiv"></p>
-                    <p class="statusText">status</p>
-                    <p id="statusAttenteDiv">En développement</p>
-                    <p id="dateAttenteDiv"></p>
-                    <button id="statusGoButton">Aller<span class="material-symbols-outlined">chevron_right</span></span></button>
+                    <div id="statusAvance">
+                        <p class="statusText">status</p>
+                        <p id="statusAttenteDiv">En développement</p>
+                        <p id="dateAttenteDiv"></p>
+                        <button id="statusGoButton">Aller<span class="material-symbols-outlined">chevron_right</span></span></button>
+                    </div>
+                    <div id="statusPaiement" style="display: none">
+                        <button id="statusPaiementButton">Payer<span class="material-symbols-outlined">chevron_right</span></span></button>
+                    </div>
                 </div>
                 <div id="noStatus" style="display: none">
                     <p class="textAttenteDiv">Rien en attente</p>
@@ -137,11 +154,13 @@
         </div>
         </table>
         <p class="codeSource">Récuperer le code source</p>
-        <div id="divSource" class="hint--bottom hint--medium"  data-hint="Votre site doit être finit d'être développé por pouvoir télécharger son code source">
+        <div id="divSource" class="hint--bottom hint--medium"  data-hint="Votre site doit être finit d'être développé pour pouvoir télécharger son code source">
             <button id="codeSourceButton" disabled style="opacity: 50%"><i class="material-symbols-outlined downloadCodeIcon" style="font-size:28px">download</i>Télécharger</button>
         </div>
 
         <a href=""></a>
+
+        </div>
     </div>
     <div class="hosting" style="display: none">
         <div id="hostingSub" style="display: none">

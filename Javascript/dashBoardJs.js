@@ -13,7 +13,8 @@ import {
     updatePassword,
     signInWithEmailAndPassword,
     updateEmail,
-    deleteUser
+    deleteUser,
+    reauthenticateWithCredential
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 import {
     getStorage,
@@ -175,6 +176,24 @@ function verifAccount() {
                             onlyOnce: true
                         });
 
+                        if(status == "design" || status == "AttenteRdv") {
+                            document.getElementById('sitePage').style.display = "none";
+                           if(status == "design") {
+                               document.getElementById('designAccessSitePage').style.display = "block";
+                           } else {
+                               document.getElementById('rdvAccessSitePage').style.display = "block";
+                           }
+
+                            document.getElementById('continueDesignButton').addEventListener('click', () => {
+                               if (status == "design") {
+                                   window.location.href = "site-information.html";
+                               }
+                            });
+
+                        } else {
+                            document.getElementById('noAccessSitePageDiv').style.display == "none";
+                        }
+
                         if (status == 'maquette') {
 
                             document.getElementById('onStatus').style.display = 'block';
@@ -223,6 +242,18 @@ function verifAccount() {
                             codeSourceButton.disabled = false;
                             document.getElementById('noStatus').style.display = 'block';
                             document.getElementById('onStatus').style.display = 'none';
+                        } else if (status == 'paiement') {
+
+                            document.getElementById('onStatus').style.display = 'block';
+                            document.getElementById('noStatus').style.display = 'none';
+                            document.getElementById('statusAvance').style.display = 'none';
+                            document.getElementById('statusPaiement').style.display = 'block';
+
+                            document.getElementById('titreAttenteDiv').innerHTML = "Attente de paiement"
+
+                            document.getElementById('statusPaiementButton').addEventListener('click', (e) => {
+                                window.location.href = "https://devcastledesign.github.io/DevCastle-Website/server/public/paiement.html";
+                            });
                         } else {
                             document.getElementById('noStatus').style.display = 'block';
                             document.getElementById('onStatus').style.display = 'none';
@@ -265,7 +296,6 @@ function verifAccount() {
                     document.getElementById('statusHeberg').innerHTML = (snapshot.val().status);
                     document.getElementById('adresseHeberg').innerHTML = (snapshot.val().adresse);
                     document.getElementById('hebergDate').innerHTML = (snapshot.val().date_actif);
-
                 }
 
                     onValue(ref(database, '/users/' + user.uid + "/facturation/factures"), (snapshot) => {
@@ -352,7 +382,9 @@ suppAccount.addEventListener('click', (e) => {
 });
 
 suppAccountButton.addEventListener('click', (e) => {
-    const user = auth.currentUser;
+
+    const user = auth.currentUser
+
     signInWithEmailAndPassword(auth, user.email, document.getElementById('supAccountMdp').value)
         .then((userCredential) => {
             deleteUser(user).then(() => {
@@ -376,15 +408,24 @@ cancelSuppAccountButton.addEventListener('click', (e) => {
 hostButton.addEventListener('click', (e) => {
     const user = auth.currentUser
 
-    onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
-        if (snapshot.val().nombre_facture == 0) {
-            window.location.href = "hebergementInfo.html";
-        } else {
-            document.getElementById('hostButton').style.opacity = '50%';
-        }
+    onValue(ref(database, '/users/' + user.uid), (snapshot) => {
+
+        const status = (snapshot.val().status);
+
+        onValue(ref(database, '/users/' + user.uid + "/facturation"), (snapshot) => {
+            if (snapshot.val().nombre_facture == 0 && status == "termine") {
+                window.location.href = "hebergementInfo.html";
+            } else {
+                document.getElementById('hostButton').style.opacity = '50%';
+            }
+        }, {
+            onlyOnce: true
+        });
     }, {
         onlyOnce: true
     });
+
+
 });
 
 siteUrl.addEventListener('click', (e) => {

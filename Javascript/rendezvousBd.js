@@ -3,6 +3,7 @@ import {
     getDatabase,
     set,
     ref,
+    update
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
@@ -66,6 +67,15 @@ submitButton.addEventListener('click', (e) => {
             });
 
 
+        }
+
+        update(ref(database, 'users/' + user.uid), {
+            status: "AttenteRdv",
+        });
+
+        setTimeout(changePage, 500)
+        function changePage() {
+            window.location.href = "remerciRendezvous.html";
         }
 
         sendMail()
