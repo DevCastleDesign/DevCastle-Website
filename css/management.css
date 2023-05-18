@@ -80,13 +80,24 @@ table {
     padding: 0 30px;
 }
 
-tr:not(:first-child) {
+table.content-page {
+    margin-top: 30px;
+    width: fit-content;
+}
+
+table.content-page tr td:first-child {
+    opacity: 0.5;
+    padding-right: 20px;
+    user-select: none;
+}
+
+table:not(.content-page) tr:not(:first-child) {
     position: relative;
     cursor: pointer;
     user-select: none;
 }
 
-tr:not(:first-child):not(:last-child):after {
+table:not(.content-page) tr:not(:first-child):not(:last-child):after {
     content: "";
     position: absolute;
     left: 0;
@@ -100,4 +111,10 @@ tr:not(:first-child):not(:last-child):after {
 th, td {
     text-align: left;
     padding: 10px 0;
+}
+
+h1 button {
+    background-color: transparent;
+    font-size: 2rem;
+    margin-right: 1rem;
 }

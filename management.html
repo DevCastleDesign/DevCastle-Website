@@ -28,7 +28,7 @@
     </div>
 
     <div id="pagecontainer">
-        <div class="users" style="display: none;">
+        <div class="users" style="display: block;">
             <h1>Utilisateurs</h1>
             <input id="users-search" type="text" class="topsearch" placeholder="Rechercher">
             <table id="users-table">
@@ -60,14 +60,15 @@
                 </tr>
             </table>
         </div>
-        <div class="user-page" style="display: block;">
-            <h1><button onclick="OpenDashboard(0)">&#129044;</button>Arsène Brosy</h1>
-            <input id="ratings-search" type="text" class="topsearch" placeholder="Rechercher">
-            <table id="ratings-table">
-                <tr>
-                    <th>Etoiles</th>
-                    <th>Evaluation</th>
-                </tr>
+        <div class="user-page" style="display: none;">
+            <h1 id="user-page-title"><button onclick="OpenDashboard(0)">&#129044;</button>Arsène Brosy</h1>
+            <table class="content-page">
+                <tr><td>Nom</td><td id="user-page-nom">Brosy</td></tr>
+                <tr><td>Prénom</td><td id="user-page-prenom">Arsène</td></tr>
+                <tr><td>Email</td><td id="user-page-email">arsene.brosy@gmail.com</td></tr>
+                <tr><td>N° de télephone</td><td id="user-page-tel">079 761 21 52</td></tr>
+                <tr><td>Pays</td><td id="user-page-pays">CH</td></tr>
+                <tr><td>Status</td><td id="user-page-status">dev</td></tr>
             </table>
         </div>
     </div>
@@ -82,9 +83,11 @@
             for (var i = 0; i < document.getElementById("panellist").childElementCount; i++) {
                 document.getElementById("panellist").children[i].children[0].classList.remove("active");
             }
-            document.getElementById("panellist").children[index].children[0].classList.add("active");
             document.getElementById("pagecontainer").children[index].style.display = "block";
-            document.getElementById("selector").style.transform = "translateY(" + (70 * index + 20) + "px)";
+            if (index < document.getElementById("panellist").childElementCount) {
+                document.getElementById("panellist").children[index].children[0].classList.add("active");
+                document.getElementById("selector").style.transform = "translateY(" + (70 * index + 20) + "px)";
+            }
         }
     
         document.getElementById("selector").style.height = height + "px";

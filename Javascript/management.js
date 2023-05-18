@@ -41,7 +41,7 @@ onValue(ref(database, 'users'), (snapshot) => {
             tel: users[i].tel,
         };
         html += `
-        <tr onclick='showUser("` + (JSON.stringify(shortUser).replaceAll("\"", "\\\"")) + `")'>
+        <tr onclick='ShowUser("` + (JSON.stringify(shortUser).replaceAll("\"", "\\\"")) + `")'>
             <td>` + users[i].nom + `</td>
             <td>` + users[i].prenom + `</td>
             <td>` + users[i].email + `</td>
