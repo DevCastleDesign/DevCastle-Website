@@ -28,7 +28,7 @@
     </div>
 
     <div id="pagecontainer">
-        <div class="users" style="display: block;">
+        <div class="users" style="display: none;">
             <h1>Utilisateurs</h1>
             <input id="users-search" type="text" class="topsearch" placeholder="Rechercher">
             <table id="users-table">
@@ -60,15 +60,27 @@
                 </tr>
             </table>
         </div>
+        <div class="user-page" style="display: block;">
+            <h1><button onclick="OpenDashboard(0)">&#129044;</button>Arsène Brosy</h1>
+            <input id="ratings-search" type="text" class="topsearch" placeholder="Rechercher">
+            <table id="ratings-table">
+                <tr>
+                    <th>Etoiles</th>
+                    <th>Evaluation</th>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <script>
         var height = document.getElementById("panellist").children[0].clientHeight - 40;
     
         function OpenDashboard(index) {
+            for (var i = 0; i < document.getElementById("pagecontainer").childElementCount; i++) {
+                document.getElementById("pagecontainer").children[i].style.display = "none";
+            }
             for (var i = 0; i < document.getElementById("panellist").childElementCount; i++) {
                 document.getElementById("panellist").children[i].children[0].classList.remove("active");
-                document.getElementById("pagecontainer").children[i].style.display = "none";
             }
             document.getElementById("panellist").children[index].children[0].classList.add("active");
             document.getElementById("pagecontainer").children[index].style.display = "block";
@@ -78,6 +90,7 @@
         document.getElementById("selector").style.height = height + "px";
     </script>
 
+    <script src="./Javascript/managementPages.js"></script>
     <script src="./Javascript/management.js" type="module"></script>
 </body>
 </html>

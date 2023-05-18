@@ -32,8 +32,16 @@ onValue(ref(database, 'users'), (snapshot) => {
     </tr>
     `;
     for (let i = 0; i < users.length; i++) {
+        let shortUser = {
+            email: users[i].email,
+            nom: users[i].nom,
+            prenom: users[i].prenom,
+            pays: users[i].pays,
+            status: users[i].status,
+            tel: users[i].tel,
+        };
         html += `
-        <tr>
+        <tr onclick='showUser("` + (JSON.stringify(shortUser).replaceAll("\"", "\\\"")) + `")'>
             <td>` + users[i].nom + `</td>
             <td>` + users[i].prenom + `</td>
             <td>` + users[i].email + `</td>
@@ -75,7 +83,7 @@ onValue(ref(database, 'review/avis'), (snapshot) => {
     for (let i = 0; i < ratings.length; i++) {
         html += `
         <tr>
-            <td>` + (ratings_keys[i].slice(5).replace("_"," ")) + `</td>
+            <td>` + (ratings_keys[i].slice(5).replaceAll("_"," ")) + `</td>
             <td>` + ratings[i].etoile + `</td>
         </tr>
         `;
