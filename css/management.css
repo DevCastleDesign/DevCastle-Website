@@ -136,7 +136,7 @@ textarea {
     min-height: 200px;
 }
 
-button {
+button#ticket-pageSend {
     background-color: #0009EB;
     color: white;
     font-size: 1rem;
