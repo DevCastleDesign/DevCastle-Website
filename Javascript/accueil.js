@@ -78,6 +78,8 @@ logOutButton.addEventListener('click', (e) => {
     });
 });
 
+
+
 commandeButton.addEventListener('click', (e) => {
     onAuthStateChanged(auth, (user) => {
         if (user) {

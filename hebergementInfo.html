@@ -6,8 +6,30 @@
     <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
-<input type="text">
-<input type="text">
+<div class="inputDomainTextDiv">
+    <p>www.</p>
+    <input  type="text">
+</div>
+
+
+<style>
+    .inputDomainTextDiv {
+        background-color: white;
+        color: black;
+        width: 300px;
+        padding: 10px 5px;
+        display: flex;
+        border-radius: 5px;
+    }
+
+    .inputDomainTextDiv input {
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        font-size: 16px;
+    }
+</style>
 
 <input type="submit" id="payButton" value="Paiement">
 
@@ -37,6 +59,19 @@
     const database = getDatabase(app);
 
     document.getElementById("payButton").addEventListener('click', (e) => {
+
+        var request = new XMLHttpRequest();
+        request.open('GET', 'http://www.eeeeeeeeeeeeeeeeeeeeeeeewfa.org', true);
+        request.onreadystatechange = function(){
+            if (request.readyState === 4){
+                if (request.status === 404) {
+                    alert("Oh no, it does not exist!");
+                }
+            }
+        };
+        request.send();
+
+
         const user = auth.currentUser;
         update(ref(database, 'users/' + user.uid + "/achat"), {
             hebergement: 50,
