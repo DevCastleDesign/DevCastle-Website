@@ -136,12 +136,15 @@ textarea {
     min-height: 200px;
 }
 
-button#ticket-pageSend {
+button:not(.backArrow) {
     background-color: #0009EB;
     color: white;
     font-size: 1rem;
     font-weight: bold;
     padding: 5px 20px;
     border-radius: 5px;
+}
+
+button#ticket-pageSend {
     display: block;
 }

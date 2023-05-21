@@ -82,7 +82,7 @@
     </div>
 
     <script>
-        var height = document.getElementById("panellist").children[0].clientHeight;
+        var height = document.getElementById("panellist").children[0].clientHeight - 40;
 
         let openedPage = 0;
     
@@ -96,7 +96,7 @@
             document.getElementById("pagecontainer").children[index].style.display = "block";
             if (index < document.getElementById("panellist").childElementCount) {
                 document.getElementById("panellist").children[index].children[0].classList.add("active");
-                document.getElementById("selector").style.transform = "translateY(" + (60 * index + 20) + "px)";
+                document.getElementById("selector").style.transform = "translateY(" + (70 * index + 20) + "px)";
             }
 
             openedPage = index;
