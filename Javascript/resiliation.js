@@ -43,11 +43,6 @@ document.getElementById('sendResilisationButton').addEventListener('click', (e) 
             document.getElementById('resiliationDiv').style.display = 'none';
             document.getElementById('confirmResiliationDiv').style.display = 'block';
         }
-
-
-
-
-
     }
 });
 
