@@ -31,3 +31,14 @@ function ShowTicket(jsonValues) {
 
     OpenDashboard(4);
 }
+
+function NextStatus(status) {
+    switch (status) {
+        case "design":
+            return "maquette";
+        case "maquette":
+            return "dev";
+        case "dev":
+            return "ERROR";
+    }
+}
