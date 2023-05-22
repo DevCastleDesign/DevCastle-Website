@@ -79,6 +79,15 @@
             <textarea id="ticket-pageAnswer"></textarea>
             <button id="ticket-pageSend">Envoyer</button>
         </div>
+        <div class="rating-page" style="display: none;">
+            <h1 id="rating-pageTitle"><button onclick="OpenDashboard(0)">&#129044;</button>Avis</h1>
+        </div>
+        <div class="maquette-end" style="display: none;">
+            <h1 id="maquette-endTitle"><button class="backArrow" onclick="OpenDashboard(3)">&#129044;</button>Finir la maquette</h1>
+            <input type="file" multiple id="maquette-endImages" style="display: none;">
+            <input type="button" class="file-input" value="Ajouter des images" onclick="document.getElementById('maquette-endImages').click();"/>
+            <button id="maquette-endSend">Envoyer</button>
+        </div>
     </div>
 
     <script>

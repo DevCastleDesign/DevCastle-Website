@@ -6,7 +6,7 @@
     border: 0;
 }
 
-button, a {
+button, a, input {
     cursor: pointer;
 }
 

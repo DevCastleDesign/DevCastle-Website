@@ -1,5 +1,8 @@
-function ShowUser(jsonValues) {
+let showedUserUID;
+
+function ShowUser(jsonValues, userUID) {
     const user = JSON.parse(jsonValues);
+    showedUserUID = userUID;
 
     document.getElementById("user-pageTitle").innerHTML = "<button class='backArrow' onclick='OpenDashboard(0)'>&#129044;</button>" + user.prenom + " " + user.nom;
     for (let i = 0; i < Object.keys(user).length; i++) {
@@ -8,8 +11,13 @@ function ShowUser(jsonValues) {
         }
     }
 
-    document.getElementById("user-page-status").innerHTML += "<button style='margin-left: 50px'>Passer à la suite</button>"
-
+    if (user.status === "maquette") {
+        document.getElementById("user-page-status").innerHTML += "<button onclick='OpenDashboard(6);' style='margin-left: 50px'>Passer à la suite</button>"
+    }
+    if (user.status === "dev") {
+        document.getElementById("user-page-status").innerHTML += "<button style='margin-left: 50px'>Terminer le projet</button>"
+    }
+    
     OpenDashboard(3);
 }
 
@@ -30,15 +38,4 @@ function ShowTicket(jsonValues) {
     }
 
     OpenDashboard(4);
-}
-
-function NextStatus(status) {
-    switch (status) {
-        case "design":
-            return "maquette";
-        case "maquette":
-            return "dev";
-        case "dev":
-            return "ERROR";
-    }
 }

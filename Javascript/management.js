@@ -5,7 +5,7 @@ import {
     update,
     ref,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+import { getStorage, ref as sRef, uploadBytes } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -19,6 +19,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const storage = getStorage();
 
 onValue(ref(database, 'users'), (snapshot) => {
     const users = Object.values(snapshot.val());
@@ -40,7 +41,7 @@ onValue(ref(database, 'users'), (snapshot) => {
             tel: users[i].tel,
         };
         html += `
-        <tr onclick='ShowUser("` + (JSON.stringify(shortUser).replaceAll("\"", "\\\"")) + `")'>
+        <tr onclick='ShowUser("` + (JSON.stringify(shortUser).replaceAll("\"", "\\\"")) + `", "` + (Object.keys(snapshot.val())[i]) + `")'>
             <td>` + users[i].nom + `</td>
             <td>` + users[i].prenom + `</td>
             <td>` + users[i].email + `</td>
@@ -96,4 +97,12 @@ document.getElementById("ticket-pageSend").addEventListener('click', (e) => {
     });
     openedPage -= 3;
     OpenDashboard(openedPage);
+});
+
+document.getElementById("maquette-endImages").addEventListener("change", (event) => {
+    const selectedfile = event.target.files;
+    for (let i = 0; i < selectedfile.length; i++) {
+        const imageFile = selectedfile[i];
+        uploadBytes(sRef(storage, "users/" + showedUserUID + "/maquettes/" + imageFile.name), imageFile);
+    };
 });
