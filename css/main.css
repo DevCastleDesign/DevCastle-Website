@@ -2513,7 +2513,7 @@ main  ul li a {
 }
 
 
-.pValidPaiement  div #imdb img {
+.pValidPaiement div #imdb img {
     width: 25px;
     margin: 5px;
 }
@@ -2526,7 +2526,7 @@ main  ul li a {
     color: black;
     resize: none;
     width: 40vw;
-    height: 100px;
+    height: 200px;
     margin: 10px 0;
 }
 
@@ -2537,8 +2537,34 @@ main  ul li a {
     font-size: 1rem;
     padding: 5px 25px;
     border-radius: 5px;
-    width: fit-content;
+    width: 200px;
+    height: 50px;
     cursor: pointer;
+}
+
+#downloadButton {
+    width: 200px;
+    height: 50px;
+    border: none;
+    background-color: #D9D9D9;
+    color: black;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.colorPoint {
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+    margin-top: 9px;
+    border-radius: 100%;
+    background-color: orange;
+}
+
+.statusDiv {
+    display: flex;
+    position: relative;
 }
 
 .pValidPaiement .star {
@@ -3207,12 +3233,10 @@ input#phone {
 
 .pResilisation main {
     text-align: center;
-}
-
-.pResilisation main {
     padding-left: 60px;
     padding-right: 60px;
 }
+
 
 .pResilisation main a {
     color: black;
@@ -3228,6 +3252,7 @@ input#phone {
     min-height: 300px;
     padding: 10px;
     font-size: 16px;
+    outline: none;
 }
 
 .pResilisation .dashButton {
@@ -3247,11 +3272,11 @@ input#phone {
 .pResilisation .retourAccueil {
     display: block;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
 }
 
 .pResilisation h1 {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .pResilisation p {
@@ -3263,8 +3288,10 @@ input#phone {
     height: 50px;
     border: none;
     border-radius: 10px;
-    background-color: #0B4E95;
+    background-color: #006DF0;
     color: white;
+    font-size: 16px;
+    margin-bottom: 70px;
 }
 
 .pHebergPlan {
