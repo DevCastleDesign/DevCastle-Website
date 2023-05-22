@@ -99,9 +99,20 @@ document.getElementById("ticket-pageSend").addEventListener('click', () => {
     OpenDashboard(openedPage);
 });
 
+function getTodayDate() {
+    let dArr = new Date().toISOString().split("T")[0].split("-");
+    return dArr[2] + "." + dArr[1]+ "." + dArr[0];
+}
+
 document.getElementById("maquette-endSend").addEventListener('click', () => {
     update(ref(database, 'users/' + showedUserUID), {
         status: "dev"
+    });
+    update(ref(database, 'users/' + showedUserUID + '/site/maquette'), {
+        date_fin: getTodayDate()
+    });
+    update(ref(database, 'users/' + showedUserUID + '/site/developpement'), {
+        date_debut: getTodayDate()
     });
     openedPage -= 3;
     OpenDashboard(openedPage);
@@ -112,6 +123,9 @@ function htep_loop() {
         hasToEndProject = false;
         update(ref(database, 'users/' + showedUserUID), {
             status: "termine"
+        });
+        update(ref(database, 'users/' + showedUserUID + '/site/developpement'), {
+            date_fin: getTodayDate()
         });
         openedPage -= 3;
         OpenDashboard(openedPage);
