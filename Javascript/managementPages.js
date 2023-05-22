@@ -1,4 +1,5 @@
 let showedUserUID;
+let hasToEndProject = false;
 
 function ShowUser(jsonValues, userUID) {
     const user = JSON.parse(jsonValues);
@@ -15,9 +16,9 @@ function ShowUser(jsonValues, userUID) {
         document.getElementById("user-page-status").innerHTML += "<button onclick='OpenDashboard(6);' style='margin-left: 50px'>Passer à la suite</button>"
     }
     if (user.status === "dev") {
-        document.getElementById("user-page-status").innerHTML += "<button style='margin-left: 50px'>Terminer le projet</button>"
+        document.getElementById("user-page-status").innerHTML += "<button onclick='hasToEndProject = true;' style='margin-left: 50px'>Terminer le projet</button>"
     }
-    
+
     OpenDashboard(3);
 }
 

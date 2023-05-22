@@ -91,13 +91,34 @@ onValue(ref(database, 'review/avis'), (snapshot) => {
     document.getElementById("ratings-table").innerHTML = html;
 });
 
-document.getElementById("ticket-pageSend").addEventListener('click', (e) => {
+document.getElementById("ticket-pageSend").addEventListener('click', () => {
     update(ref(database, 'tickets/ticket_' + openedTicketId), {
         answer: document.getElementById("ticket-pageAnswer").value.replace(/\r?\n/g, '<br>')
     });
     openedPage -= 3;
     OpenDashboard(openedPage);
 });
+
+document.getElementById("maquette-endSend").addEventListener('click', () => {
+    update(ref(database, 'users/' + showedUserUID), {
+        status: "dev"
+    });
+    openedPage -= 3;
+    OpenDashboard(openedPage);
+});
+
+function htep_loop() {
+    if (hasToEndProject) {
+        hasToEndProject = false;
+        update(ref(database, 'users/' + showedUserUID), {
+            status: "termine"
+        });
+        openedPage -= 3;
+        OpenDashboard(openedPage);
+    }
+    requestAnimationFrame(htep_loop);
+}
+requestAnimationFrame(htep_loop);
 
 document.getElementById("maquette-endImages").addEventListener("change", (event) => {
     const selectedfile = event.target.files;
