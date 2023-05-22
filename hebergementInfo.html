@@ -7,7 +7,9 @@
 </head>
 <body>
 <main>
-    <div class="container">
+    <h1>Choisissez votre nom de domain</h1>
+    <p>Si vous souhaitez utiliser le même nom de domaine que votre site actuel, il est
+        <strong>important</strong> que vous enleviez votre ancien nom de domaine pour pouvoir l'utiliser.</p>
         <div class="inputDomainTextDiv">
             <p>www.</p>
             <input id="domainName" placeholder="votre-domaine" type="text">
@@ -19,29 +21,54 @@
                 <option value=".net">.net</option>
             </select>
         </div>
+    <p id="erreurDomain"></p>
+    <button class="inscriptionButton" id="payButton"><span>Vérifier</span></button>
 
-        <p id="erreurDomain"></p>
-        <button class="inscriptionButton" id="payButton"><span>Vérifier</span></button>
-    </div>
+    <p class="questionAsk">Si vous avez une question, dirigez-vous dans la section <strong>support</strong> dans votre tableau de bord</p>
+    <p class="accesDash" onclick="window.location.href = 'dashboard.html'">Accéder au tableau de bord</p>
 
 </main>
 
 <style>
-    .container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+
+    main {
         text-align: center;
     }
 
+    .accesDash {
+        text-decoration: underline;
+        cursor: pointer;
+        opacity: 70%;
+    }
+
+    h1 {
+        margin: 100px 0 30px 0;
+    }
+
+    p {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .questionAsk {
+        margin: 50px auto 30px auto;
+    }
+
+    #erreurDomain {
+        margin-top: 25px;
+        font-size: 20px;
+    }
+
     .inputDomainTextDiv {
+        display: block;
         background-color: white;
         color: black;
-        width: 450px;
         display: flex;
         border-radius: 5px;
         font-size: 22px;
+        max-width: 500px;
+        margin: 40px auto 0 auto;
+        border: 1px black solid;
     }
 
     .inputDomainTextDiv input {
@@ -54,7 +81,7 @@
     }
 
     .inputDomainTextDiv p {
-        margin: 17px 5px;
+        margin: 17px 17px;
     }
 
     .inputDomainTextDiv select {
@@ -72,10 +99,10 @@
         border: none;
         background-color: #007aff;
         border-radius: 20px;
+        position: relative;
         color: white;
         height: 50px;
         width: 200px;
-        position: relative;
         font-size: 16px;
         margin-top: 30px;
     }
@@ -153,7 +180,7 @@
                 .then(response => {
                     document.getElementById('payButton').disabled = false;
                     document.getElementById('payButton').className = 'inscriptionButton';
-                    document.getElementById('erreurDomain').innerHTML = 'Nom de domain indisponible';
+                    document.getElementById('erreurDomain').innerHTML = 'Nom de domain déjà utilisé';
                 })
                 .catch(error => {
                     const user = auth.currentUser;

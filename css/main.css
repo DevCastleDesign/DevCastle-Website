@@ -20,10 +20,6 @@ button, a {
     cursor: pointer;
 }
 
-body {
-    min-height: 100vh;
-}
-
 img {
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -3184,11 +3180,6 @@ main  ul li a {
 #forgetMdp{
     cursor: pointer;
     user-select: none;
-}
-
-.pHebergementInfo body {
-    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
-    color: white;
 }
 
 .iti__selected-flag {
