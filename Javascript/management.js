@@ -39,6 +39,8 @@ onValue(ref(database, 'users'), (snapshot) => {
             pays: users[i].pays,
             status: users[i].status,
             tel: users[i].tel,
+            maquette_status: users[i].site.maquette.status,
+            dev_status: users[i].site.developpement.status
         };
         html += `
         <tr onclick='ShowUser("` + (JSON.stringify(shortUser).replaceAll("\"", "\\\"")) + `", "` + (Object.keys(snapshot.val())[i]) + `")'>
@@ -109,16 +111,27 @@ document.getElementById("maquette-endSend").addEventListener('click', () => {
         status: "dev"
     });
     update(ref(database, 'users/' + showedUserUID + '/site/maquette'), {
+        status: "termine",
         date_fin: getTodayDate()
     });
     update(ref(database, 'users/' + showedUserUID + '/site/developpement'), {
-        date_debut: getTodayDate()
+        status: "attente"
     });
     openedPage -= 3;
     OpenDashboard(openedPage);
 });
 
 function htep_loop() {
+    if (hasToStartDev) {
+        hasToStartDev = false;
+        update(ref(database, 'users/' + showedUserUID + '/site/developpement'), {
+            status: "dev",
+            date_debut: getTodayDate()
+        });
+        openedPage -= 3;
+        OpenDashboard(openedPage);
+    }
+
     if (hasToEndProject) {
         hasToEndProject = false;
         update(ref(database, 'users/' + showedUserUID), {
@@ -126,6 +139,16 @@ function htep_loop() {
         });
         update(ref(database, 'users/' + showedUserUID + '/site/developpement'), {
             date_fin: getTodayDate()
+        });
+        openedPage -= 3;
+        OpenDashboard(openedPage);
+    }
+
+    if (hasToStartMaquette) {
+        hasToStartMaquette = false;
+        update(ref(database, 'users/' + showedUserUID + '/site/maquette'), {
+            status: "dev",
+            date_debut: getTodayDate()
         });
         openedPage -= 3;
         OpenDashboard(openedPage);

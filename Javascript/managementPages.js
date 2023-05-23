@@ -1,4 +1,6 @@
 let showedUserUID;
+let hasToStartMaquette = false;
+let hasToStartDev = false;
 let hasToEndProject = false;
 
 function ShowUser(jsonValues, userUID) {
@@ -13,10 +15,22 @@ function ShowUser(jsonValues, userUID) {
     }
 
     if (user.status === "maquette") {
-        document.getElementById("user-page-status").innerHTML += "<button onclick='OpenDashboard(6);' style='margin-left: 50px'>Passer à la suite</button>"
+        document.getElementById("user-page-status").innerHTML += " - " + user.maquette_status;
+        if (user.maquette_status === "attente") {
+            document.getElementById("user-page-status").innerHTML += "<button onclick='hasToStartMaquette = true;' style='margin-left: 50px'>Commencer la maquette</button>"
+        }
+        else {
+            document.getElementById("user-page-status").innerHTML += "<button onclick='OpenDashboard(6);' style='margin-left: 50px'>Finir la maquette</button>"
+        }
     }
     if (user.status === "dev") {
-        document.getElementById("user-page-status").innerHTML += "<button onclick='hasToEndProject = true;' style='margin-left: 50px'>Terminer le projet</button>"
+        document.getElementById("user-page-status").innerHTML += " - " + user.dev_status;
+        if (user.dev_status === "attente") {
+            document.getElementById("user-page-status").innerHTML += "<button onclick='hasToStartDev = true;' style='margin-left: 50px'>Commencer le developpement</button>"
+        }
+        else {
+            document.getElementById("user-page-status").innerHTML += "<button onclick='hasToEndProject = true;' style='margin-left: 50px'>Finir le projet</button>"
+        }
     }
 
     OpenDashboard(3);
