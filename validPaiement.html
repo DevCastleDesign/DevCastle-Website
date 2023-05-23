@@ -141,7 +141,7 @@
         ref as sRef,
         getDownloadURL,
     } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
-    import {getAuth} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import {getAuth, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -161,6 +161,23 @@
     var stars = document.querySelectorAll('.star div');
 
     var nombre_etoile = 0;
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            onValue(ref(database,  "users/" + user.uid + "/facturation"), (snapshot) => {
+                const nombre_avis = (snapshot.val().nombre_facture);
+                alert(nombre_avis)
+            }, {
+                onlyOnce: true
+            });
+
+        } else {
+            document.getElementById('navNoAccount').style.display = "flex";
+            document.getElementById('navAccount').style.display = "none";
+        }
+    });
+
+
 
     stars.forEach((item, index1) => {
         item.addEventListener('click', () => {

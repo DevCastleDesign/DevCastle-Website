@@ -187,6 +187,10 @@
                     update(ref(database, 'users/' + user.uid + "/achat"), {
                         hebergement: 50,
                     });
+
+                    update(ref(database, 'users/' + user.uid + "/site/hebergement"), {
+                        adresse: 'www.' +  domaineName
+                    });
                     setTimeout(redirect, 1000)
 
                     function redirect() {
