@@ -5,7 +5,7 @@ import {
     update,
     ref,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-import { getStorage, ref as sRef, uploadBytes } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
+import { getStorage, ref as sRef, uploadBytes, listAll, getDownloadURL, getMetadata, deleteObject } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-storage.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
@@ -121,6 +121,7 @@ document.getElementById("maquette-endSend").addEventListener('click', () => {
     OpenDashboard(openedPage);
 });
 
+let updatedImages
 function htep_loop() {
     if (hasToStartDev) {
         hasToStartDev = false;
@@ -153,6 +154,19 @@ function htep_loop() {
         openedPage -= 3;
         OpenDashboard(openedPage);
     }
+
+    if (openedPage === 6 && !updatedImages) {
+        updatedImages = true;
+        updateMaquetteImages();
+    }
+    if (openedPage != 6) {
+        updatedImages = false;
+    }
+
+    if (urlOfImageToBeDeleted != "") {
+        deleteObject(sRef(storage, urlOfImageToBeDeleted)).then(updateMaquetteImages);
+        urlOfImageToBeDeleted = "";
+    }
     requestAnimationFrame(htep_loop);
 }
 requestAnimationFrame(htep_loop);
@@ -163,4 +177,26 @@ document.getElementById("maquette-endImages").addEventListener("change", (event)
         const imageFile = selectedfile[i];
         uploadBytes(sRef(storage, "users/" + showedUserUID + "/maquettes/" + imageFile.name), imageFile);
     };
+    setTimeout(updateMaquetteImages, 500);
 });
+
+function updateMaquetteImages() {
+    document.getElementById("maquette-endImagesCont").innerHTML = "";
+    listAll(sRef(storage, "users/" + showedUserUID + "/maquettes")).then((res) => {
+        res.items.forEach((itemRef) => {
+            getDownloadURL(itemRef).then((url) => {
+                getMetadata(itemRef).then((metadata) => {
+                    document.getElementById("maquette-endImagesCont").innerHTML += `
+                    <div class="maquette-endImageElem">
+                        <img src="` + url + `">
+                        <div>
+                            <p>` + metadata.name + `</p>
+                            <button class="trash" onclick="urlOfImageToBeDeleted='` + url + `'"><img src="src/Icons/TrashIconBlack.png"></button>
+                        </div>
+                    </div>
+                    `;
+                });
+            })
+        });
+    });
+}

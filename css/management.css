@@ -136,7 +136,7 @@ textarea {
     min-height: 200px;
 }
 
-button:not(.backArrow) {
+button:not(.backArrow), input {
     background-color: #0009EB;
     color: white;
     font-size: 1rem;
@@ -145,6 +145,42 @@ button:not(.backArrow) {
     border-radius: 5px;
 }
 
-button#ticket-pageSend {
+button#ticket-pageSend, input {
     display: block;
+}
+
+#maquette-endImagesCont {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.maquette-endImageElem {
+    width: 100%;
+}
+
+.maquette-endImageElem img {
+    width: 100%;
+}
+
+.maquette-endImageElem div {
+    font-size: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.maquette-endImageElem button {
+    width: 30px;
+    aspect-ratio: 1;
+    display: inline;
+    background-color: transparent;
+    padding: 0;
+}
+
+.maquette-endImageElem button img {
+    width: 30px;
+    aspect-ratio: 1;
+    padding: 0;
 }

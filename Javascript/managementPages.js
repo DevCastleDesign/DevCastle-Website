@@ -2,6 +2,7 @@ let showedUserUID;
 let hasToStartMaquette = false;
 let hasToStartDev = false;
 let hasToEndProject = false;
+let urlOfImageToBeDeleted = "";
 
 function ShowUser(jsonValues, userUID) {
     const user = JSON.parse(jsonValues);
