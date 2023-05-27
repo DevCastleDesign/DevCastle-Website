@@ -8,6 +8,10 @@ function ShowUser(jsonValues, userUID) {
     const user = JSON.parse(jsonValues);
     showedUserUID = userUID;
 
+    document.getElementById("user-pageModifsContent").innerHTML = "";
+
+    document.getElementById("user-pageModifs").style.display = (user.maquette_modifs === undefined ? "none" : "block");
+
     document.getElementById("user-pageTitle").innerHTML = "<button class='backArrow' onclick='OpenDashboard(0)'>&#129044;</button>" + user.prenom + " " + user.nom;
     for (let i = 0; i < Object.keys(user).length; i++) {
         if (document.getElementById("user-page-" + Object.keys(user)[i]) != null) {
@@ -20,9 +24,10 @@ function ShowUser(jsonValues, userUID) {
         if (user.maquette_status === "attente") {
             document.getElementById("user-page-status").innerHTML += "<button onclick='hasToStartMaquette = true;' style='margin-left: 50px'>Commencer la maquette</button>"
         }
-        else {
-            document.getElementById("user-page-status").innerHTML += "<button onclick='OpenDashboard(7);' style='margin-left: 50px'>Finir la maquette</button>"
+        else if (user.maquette_status === "dev") {
+            document.getElementById("user-page-status").innerHTML += "<button onclick='OpenDashboard(8);' style='margin-left: 50px'>Finir la maquette</button>"
         }
+        document.getElementById("user-pageModifsContent").innerHTML = user.maquette_modifs;
     }
     if (user.status === "dev") {
         document.getElementById("user-page-status").innerHTML += " - " + user.dev_status;

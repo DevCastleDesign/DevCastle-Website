@@ -93,7 +93,7 @@ document.getElementById('modifDemandeButton').addEventListener('click', (e) => {
 
         update(ref(database, 'users/' + user.uid + '/site/maquette'), {
             status: "dev",
-            modif: document.getElementById('modifDemandeText').value
+            modif: document.getElementById('modifDemandeText').value.replace(/\r?\n/g, '<br>')
         });
 
         setTimeout(() => {location.reload()}, 500);

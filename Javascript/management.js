@@ -40,7 +40,8 @@ onValue(ref(database, 'users'), (snapshot) => {
             status: users[i].status,
             tel: users[i].tel,
             maquette_status: users[i].site.maquette.status,
-            dev_status: users[i].site.developpement.status
+            dev_status: users[i].site.developpement.status,
+            maquette_modifs: users[i].site.maquette.modif
         };
         html += `
         <tr onclick='ShowUser("` + (JSON.stringify(shortUser).replaceAll("\"", "\\\"")) + `", "` + (Object.keys(snapshot.val())[i]) + `")'>
@@ -107,9 +108,6 @@ function getTodayDate() {
 }
 
 document.getElementById("maquette-endSend").addEventListener('click', () => {
-    update(ref(database, 'users/' + showedUserUID), {
-        status: "dev"
-    });
     update(ref(database, 'users/' + showedUserUID + '/site/maquette'), {
         status: "termine",
         date_fin: getTodayDate()
@@ -117,7 +115,7 @@ document.getElementById("maquette-endSend").addEventListener('click', () => {
     update(ref(database, 'users/' + showedUserUID + '/site/developpement'), {
         status: "attente"
     });
-    openedPage -= 3;
+    openedPage -= 4;
     OpenDashboard(openedPage);
 });
 
@@ -155,11 +153,11 @@ function htep_loop() {
         OpenDashboard(openedPage);
     }
 
-    if (openedPage === 7 && !updatedImages) {
+    if (openedPage === 8 && !updatedImages) {
         updatedImages = true;
         updateMaquetteImages();
     }
-    if (openedPage != 7) {
+    if (openedPage != 8) {
         updatedImages = false;
     }
 
