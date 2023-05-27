@@ -21,7 +21,7 @@ function ShowUser(jsonValues, userUID) {
             document.getElementById("user-page-status").innerHTML += "<button onclick='hasToStartMaquette = true;' style='margin-left: 50px'>Commencer la maquette</button>"
         }
         else {
-            document.getElementById("user-page-status").innerHTML += "<button onclick='OpenDashboard(6);' style='margin-left: 50px'>Finir la maquette</button>"
+            document.getElementById("user-page-status").innerHTML += "<button onclick='OpenDashboard(7);' style='margin-left: 50px'>Finir la maquette</button>"
         }
     }
     if (user.status === "dev") {
@@ -34,7 +34,7 @@ function ShowUser(jsonValues, userUID) {
         }
     }
 
-    OpenDashboard(3);
+    OpenDashboard(4);
 }
 
 let openedTicketId = null;
@@ -53,5 +53,5 @@ function ShowTicket(jsonValues) {
         document.getElementById("ticket-pageAnswer").value = ticket.answer.replaceAll('<br>', '\n');
     }
 
-    OpenDashboard(4);
+    OpenDashboard(5);
 }

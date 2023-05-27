@@ -97,7 +97,7 @@ document.getElementById("ticket-pageSend").addEventListener('click', () => {
     update(ref(database, 'tickets/ticket_' + openedTicketId), {
         answer: document.getElementById("ticket-pageAnswer").value.replace(/\r?\n/g, '<br>')
     });
-    openedPage -= 3;
+    openedPage -= 4;
     OpenDashboard(openedPage);
 });
 
@@ -129,7 +129,7 @@ function htep_loop() {
             status: "dev",
             date_debut: getTodayDate()
         });
-        openedPage -= 3;
+        openedPage -= 4;
         OpenDashboard(openedPage);
     }
 
@@ -141,7 +141,7 @@ function htep_loop() {
         update(ref(database, 'users/' + showedUserUID + '/site/developpement'), {
             date_fin: getTodayDate()
         });
-        openedPage -= 3;
+        openedPage -= 4;
         OpenDashboard(openedPage);
     }
 
@@ -151,15 +151,15 @@ function htep_loop() {
             status: "dev",
             date_debut: getTodayDate()
         });
-        openedPage -= 3;
+        openedPage -= 4;
         OpenDashboard(openedPage);
     }
 
-    if (openedPage === 6 && !updatedImages) {
+    if (openedPage === 7 && !updatedImages) {
         updatedImages = true;
         updateMaquetteImages();
     }
-    if (openedPage != 6) {
+    if (openedPage != 7) {
         updatedImages = false;
     }
 

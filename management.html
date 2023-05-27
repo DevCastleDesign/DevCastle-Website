@@ -22,6 +22,9 @@
                 <li>
                     <button onclick="OpenDashboard(2)">Avis</button>
                 </li>
+                <li>
+                    <button onclick="OpenDashboard(3)">Résilliation</button>
+                </li>
             </ul>
             <div id="selector"></div>
         </div>
@@ -60,6 +63,8 @@
                 </tr>
             </table>
         </div>
+        <div class="resiliation" style="display: none;">
+        </div>
         <div class="user-page" style="display: none;">
             <h1 id="user-pageTitle"><button onclick="OpenDashboard(0)">&#129044;</button></h1>
             <table class="content-page">
@@ -81,6 +86,8 @@
         </div>
         <div class="rating-page" style="display: none;">
             <h1 id="rating-pageTitle"><button onclick="OpenDashboard(0)">&#129044;</button>Avis</h1>
+        </div>
+        <div class="resilliation-page" style="display: none;">
         </div>
         <div class="maquette-end" style="display: none;">
             <h1 id="maquette-endTitle"><button class="backArrow" onclick="OpenDashboard(3)">&#129044;</button>Finir la maquette</h1>
@@ -113,8 +120,8 @@
         }
 
         document.addEventListener("keydown", (e) => {
-            if (e.keyCode === 27 && openedPage > 2) {
-                openedPage -= 3;
+            if (e.keyCode === 27 && openedPage > 3) {
+                openedPage -= 4;
                 OpenDashboard(openedPage);
             }
         });
