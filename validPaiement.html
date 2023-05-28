@@ -47,8 +47,6 @@
         </div>
         <div class="infoPrix">
             <p class="prix">CHF 511.99</p>
-            <p class="info">Moyen de paiement</p>
-            <p class="reponse">Visa 9745 **** **** ****</p>
             <p class="info">Date de transaction</p>
             <p class="reponse">18.03.2023</p>
         </div>
@@ -62,7 +60,7 @@
             <p>Vous pouvez télécharger le code source de votre site à tout moment dans le tableau de bord</p>
         </div>
         <div class="container">
-            <h2>Hebergement</h2>
+            <h2>Hébergement</h2>
             <p>Un mail vous sera envoyé lorsque votre site sera en ligne</p>
             <p class="statusTxt">Status</p>
             <div class="statusDiv">
@@ -161,6 +159,20 @@
     const auth = getAuth();
     const storage = getStorage(app);
 
+    window.onload = () => {
+        setTimeout(test, 50)
+
+    }
+
+    function test() {
+        const user = auth.currentUser;
+        onValue(ref(database, "users/" + user.uid + "/achat"), (snapshot) => {
+            alert(snapshot.val().hebergement)
+        }, {
+            onlyOnce: true
+        });
+    }
+
     var stars = document.querySelectorAll('.star div');
 
     var nombre_etoile = 0;
@@ -178,8 +190,6 @@
             document.getElementById('navAccount').style.display = "none";
         }
     });
-
-
 
     stars.forEach((item, index1) => {
         item.addEventListener('click', () => {

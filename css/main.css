@@ -2647,6 +2647,10 @@ main  ul li a {
     margin-bottom: 10px;
 }
 
+.pValidPaiement .container {
+    margin: 0 auto ;
+}
+
 /* #endregion */
 
 /* #region pOPTIONS */
@@ -2790,6 +2794,11 @@ main  ul li a {
     font-weight: 500;
 }
 
+.pPaiement h1 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
 .pPaiement h2 {
     margin-bottom: 30px;
     font-size: 40px;
@@ -2819,42 +2828,7 @@ main  ul li a {
     transform: translateY(-20px);
 }
 
-.pPaiement .paypal, .bankCard {
-    height: 170px;
-    width: 142px;
-    border-radius: 15px;
-    border: 3px solid #cccccc;
-    position: relative;
-}
-
-.pPaiement .paypal .alignCard {
-    text-align: center;
-    padding-top: 25px;
-}
-
-.pPaiement .bankCard .alignCard {
-    text-align: center;
-    padding-top: 25px;
-}
-
 .pPaiement .Paiement {
-    display: flex;
-    justify-content: space-between;
-}
-
-.pPaiement .moyenPaiement {
-    display: flex;
-    justify-content: space-between;
-    width: 320px;
-    user-select: none;
-}
-
-.pPaiement .infoPers {
-    display: flex;
-    justify-content: space-between;
-}
-
-.pPaiement .expirationCVV {
     display: flex;
     justify-content: space-between;
 }
@@ -2870,10 +2844,6 @@ main  ul li a {
     margin-bottom: 20px;
     border: 1px solid #cccccc ;
     padding-left: 5px;
-}
-
-.pPaiement .numCarte {
-    width: 455px;
 }
 
 .pPaiement footer {
@@ -2909,45 +2879,18 @@ main  ul li a {
     animation: inscriptionButton-loading 1s ease infinite;
 }
 
-.pPaiement .inscriptionButton {
-    border: none;
-    background-color: #294876;
-    color: white;
-    height: 50px;
-    width: 98%;
-    position: relative;
-    margin-top: 50px;
-    border-radius: 5px;
-    font-size: 18px;
-}
-
-.pPaiement .retour {
-    display: flex;
-    font-size: 25px;
-    user-select: none;
-}
-
-.pPaiement .retour img {
-    width: 26px;
-    height: 26px;
-    opacity: 80%;
-}
-
-.pPaiement .retour p {
-    transform: translateX(10px) translateY(-3px);
-}
-
 .pPaiement .paiementSecureFooter {
     margin-top: 30px;
 }
 
 .pPaiement #payerButton {
-    width: 200px;
+    width: 300px;
     height: 50px;
     color: white;
     border: none;
     border-radius: 5px;
     background-color: #0B4E95;
+    margin-top: 50px;
 }
 
 /* #endregion */
