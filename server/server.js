@@ -7,8 +7,6 @@ app.use(express.static('public'))
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
-const YOUR_DOMAIN = 'http://localhost:4242';
-
 const storeItems = new Map([
     [1, { priceInCents: 49999, name: "Site internet" }],
     [2, { priceInCents: 5999, name: "Hegergement" }],
@@ -19,6 +17,7 @@ app.post("/create-checkout-session", async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             mode: "payment",
+           customer_email: `devcastedesign@gmail.com`,
             line_items: req.body.items.map(item => {
                 const storeItem = storeItems.get(item.id)
                 return {
