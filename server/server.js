@@ -7,9 +7,11 @@ app.use(express.static('public'))
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
+const YOUR_DOMAIN = 'http://localhost:4242';
+
 const storeItems = new Map([
-    [1, { priceInCents: 10000, name: "Learn React Today" }],
-    [2, { priceInCents: 20000, name: "Learn CSS Today" }],
+    [1, { priceInCents: 49999, name: "Site internet" }],
+    [2, { priceInCents: 5999, name: "Hegergement" }],
 ])
 
 app.post("/create-checkout-session", async (req, res) => {
@@ -21,7 +23,7 @@ app.post("/create-checkout-session", async (req, res) => {
                 const storeItem = storeItems.get(item.id)
                 return {
                     price_data: {
-                        currency: "usd",
+                        currency: "chf",
                         product_data: {
                             name: storeItem.name,
                         },
@@ -30,8 +32,8 @@ app.post("/create-checkout-session", async (req, res) => {
                     quantity: item.quantity,
                 }
             }),
-            success_url: `cancel.html`,
-            cancel_url: `https://dashboard.stripe.com/test/apikeys`,
+            success_url: `${process.env.SERVER_URL}/success.html`,
+            cancel_url: `${process.env.SERVER_URL}/cancel.html`,
         })
         res.json({ url: session.url })
     } catch (e) {
@@ -39,4 +41,4 @@ app.post("/create-checkout-session", async (req, res) => {
     }
 })
 
-app.listen(3000)
+app.listen(4242, () => console.log('Running on port 4242'));
