@@ -95,7 +95,7 @@ commandeButton.addEventListener('click', (e) => {
                     window.location.href = "site-information.html";
                 } else if (status == "maquette") {
                     window.location.href = "maquette.html";
-                } else if (status == "developpement"){
+                } else if (status == "dev"){
                     window.location.href = "developpement.html";
                 } else {
                     window.location.href = "dashboard.html";

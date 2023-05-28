@@ -23,7 +23,7 @@
                     <button onclick="OpenDashboard(2)">Avis</button>
                 </li>
                 <li>
-                    <button onclick="OpenDashboard(3)">Résilliation</button>
+                    <button onclick="OpenDashboard(3)">Résiliation</button>
                 </li>
             </ul>
             <div id="selector"></div>
@@ -65,6 +65,13 @@
         </div>
         <div class="resiliation" style="display: none;">
             <h1>Résilliations</h1>
+            <input id="resilation-search" type="text" class="topsearch" placeholder="Rechercher">
+            <table id="resiliation-table">
+                <tr>
+                    <th>Nom</th>
+                    <th>Statut</th>
+                </tr>
+            </table>
         </div>
         <div class="user-page" style="display: none;">
             <h1 id="user-pageTitle"><button onclick="OpenDashboard(0)">&#129044;</button></h1>
@@ -83,7 +90,7 @@
         </div>
         <div class="ticket-page" style="display: none;">
             <h1 id="ticket-pageTitle"><button onclick="OpenDashboard(0)">&#129044;</button>Titre</h1>
-            <p class="title">Descrition</p>
+            <p class="title">Description</p>
             <p id="ticket-page-content">testtesttest</p>
             <p class="title">Réponse</p>
             <textarea id="ticket-pageAnswer"></textarea>

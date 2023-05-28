@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="Arsène Brosy & Maltered" name="author">
+    <meta content="Arsène Brosy & Sohan Anampalli" name="author">
     <meta content="Création, site, internet, web, design" name="keywords">
     <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
 
@@ -52,11 +52,9 @@
             <input class="email" id="emailForgotMdp" type="email">
             <p id="errorResetMail"></p>
             <input class="connectionButton" id="forgotMdpButton" type="submit" value="Se connecter">
-
         </div>
         <p id="retourButton">retour</p>
     </div>
-
 </div>
 
 <script>
@@ -97,8 +95,7 @@
     const database = getDatabase(app);
     const auth = getAuth();
 
-    logIn.addEventListener('click', (e) => {
-
+    document.getElementById('logIn').addEventListener('click', (e) => {
         var email = document.getElementById('emailLogin').value
         var password = document.getElementById('passwordLogin').value
 
@@ -112,7 +109,6 @@
                     document.getElementById('errorLogin').style.display = "none";
                     window.location.href = "index.html";
                 })
-
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
@@ -124,11 +120,9 @@
     document.getElementById('forgetMdp').addEventListener('click', (e) => {
         document.getElementById('loginDivcontain').style.display = 'none';
         document.getElementById('emailResetMdpDiv').style.display = 'block';
-
     });
 
     document.getElementById('forgotMdpButton').addEventListener('click', (e) => {
-
         const email = document.getElementById('emailForgotMdp').value;
 
         const emailPatern = /^[^@]+@\w+(\.\w+)+\w$/;
@@ -136,7 +130,7 @@
         if (email.match(emailPatern)) {
             sendPasswordResetEmail(auth, email)
                 .then(() => {
-                    alert("ok")
+                    alert("Un mail de réinitialisation vous a été envoyé")
                 })
                 .catch((error) => {
                     if (error.code == "auth/user-not-found") {
@@ -146,7 +140,6 @@
         } else {
             document.getElementById('errorResetMail').innerHTML = "email invalide";
         }
-
     });
 
     document.getElementById('retourButton').addEventListener('click', (e) => {
@@ -154,9 +147,7 @@
         document.getElementById('emailResetMdpDiv').style.display = 'none';
     });
 
-
 </script>
-
 </body>
 </html>
 
