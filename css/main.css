@@ -1018,6 +1018,7 @@ main  ul li a {
     width: 17vw;
     border-right: var(--dashboardseparator) solid 2px;
     padding: 10px 0;
+    position: fixed;
 }
 
 
@@ -1073,6 +1074,7 @@ main  ul li a {
     width: 80vw;
     color: var(--white);
     padding: 30px;
+    margin-left: 17vw;
 }
 
 .pDashboard .content h1 {
