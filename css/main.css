@@ -223,7 +223,6 @@ main  ul li a {
     width: 100%;
     font-weight: bold;
     font-size: 24px;
-    text-decoration: none;
     cursor: pointer;
 }
 
@@ -470,7 +469,7 @@ main  ul li a {
     z-index: 0;
 }
 
-.fondCielImage {
+.pAccueil .fondCielImage {
     position: absolute;
     z-index: -2;
     transform: translateY(-570px);
@@ -484,7 +483,7 @@ main  ul li a {
     z-index: 3;
 }
 
-.landscape * {
+.pAccueil .landscape * {
     position: absolute;
 }
 
@@ -552,14 +551,14 @@ main  ul li a {
     animation-delay: 6s;
 }
 
-.imageDBSec {
+.pAccueil .imageDBSec {
     height: 1150px;
     background: linear-gradient(90deg, #4086C8 3.23%, rgba(64, 134, 200, 0) 120.73%);
     text-align: center;
     position: relative;
 }
 
-.imageDB {
+.pAccueil .imageDB {
     height: 500px;
     margin-top: 30px;
     width: 900px;
@@ -567,30 +566,30 @@ main  ul li a {
     box-shadow: 0px 19px 14px 10px rgba(0, 0, 0, 0.25);
 }
 
-.dbSecBorder {
+.pAccueil .dbSecBorder {
    transform: translateX(-2px);
 }
 
-.reverseBorder {
+.pAccueil .reverseBorder {
     transform: scaleY(-1)  translateX(-2px) translateY(-2px);
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
-.imageDBSec h2 {
+.pAccueil .imageDBSec h2 {
     margin-top: 40px;
     margin-bottom: 10px;
 }
 
-.nbrStep {
+.pAccueil .nbrStep {
     position: absolute;
     font-size: 40px;
     transform: translateX(185px) translateY(-65px);
     opacity: 50%;
 }
 
-.textDb {
+.pAccueil .textDb {
     font-size: 20px;
     opacity: 70%;
     margin-bottom: 10px;
@@ -638,7 +637,6 @@ main  ul li a {
     text-align: center;
     display: none;
 }
-
 
 .pLogInSignIn header  {
     text-align: center;
@@ -700,24 +698,24 @@ main  ul li a {
     text-align: center;
 }
 
-.resetMdpDiv input {
+.pLogInSignIn .resetMdpDiv input {
     margin-bottom: 30px;
 }
 
-.resetMdpDiv p {
+.pLogInSignIn .resetMdpDiv p {
     margin-top: 20px;
 }
 
-.resetMdpDiv label {
+.pLogInSignIn .resetMdpDiv label {
     font-size: 25px;
 }
 
-.resetMdpDiv .error {
+.pLogInSignIn .resetMdpDiv .error {
     max-width: 300px;
     margin-bottom: 10px;
 }
 
-.resetMdpDiv button {
+.pLogInSignIn .resetMdpDiv button {
     margin-top: 50px;
 }
 
@@ -809,7 +807,6 @@ main  ul li a {
     margin: 0 auto;
     padding: 30px 44px 50px 44px;
 }
-
 
 .pLogInSignIn .SignIn input {
     margin-top: 5px;
@@ -919,26 +916,6 @@ main  ul li a {
 
 /* #endregion */
 
-/* #region Dashboard */
-/*****************************************
-	 Dashboard
-******************************************/
-
-.pDashboard ::-webkit-scrollbar {
-    width: 10px;
-}
-
-/* Track */
-.pDashboard ::-webkit-scrollbar-track {
-    background: var(--dashboardseparator);
-}
-
-/* Handle */
-.pDashboard ::-webkit-scrollbar-thumb {
-    background: var(--white);
-}
-/* #endregion */
-
 /* #region CONTACT */
 /*****************************************
 	 CONTACT
@@ -1007,6 +984,20 @@ main  ul li a {
 	 DASHBOARD
 ******************************************/
 
+.pDashboard ::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.pDashboard ::-webkit-scrollbar-track {
+    background: var(--dashboardseparator);
+}
+
+/* Handle */
+.pDashboard ::-webkit-scrollbar-thumb {
+    background: var(--white);
+}
+
 .pDashboard {
     background-color: var(--dashboarddark);
     display: flex;
@@ -1020,7 +1011,6 @@ main  ul li a {
     padding: 10px 0;
     position: fixed;
 }
-
 
 .pDashboard .panels .list {
     display: flex;
@@ -1174,7 +1164,7 @@ main  ul li a {
     font-weight: 300;
 }
 
-#noUrlSite {
+.pDashboard #noUrlSite {
     opacity: 50%;
     cursor: pointer;
 }
@@ -1184,7 +1174,6 @@ main  ul li a {
     width: 500px;
     background-color: #171717;
     border-radius: 10px;
-    border-radius: 10px;
     position: relative;
 }
 
@@ -1192,7 +1181,6 @@ main  ul li a {
     padding-left: 30px;
     padding-top: 30px;
 }
-
 
 .pDashboard .attenteDiv #titreAttenteDiv {
     font-size: 35px;
@@ -1291,37 +1279,36 @@ main  ul li a {
     display: flex;
 }
 
-.card :first-child {
+.pDashboard .card :first-child {
     font-size: 1.5rem;
     text-align: center;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-
-.card .price {
+.pDashboard .card .price {
     margin: 30px 0;
     font-weight: 600;
 }
 
-.card :last-child {
+.pDashboard .card :last-child {
     opacity: 0.5;
 }
 
-.hosting .infos {
+.pDashboard .hosting .infos {
     margin-left: 50px;
 }
 
-.hosting #hostingNoSub .container {
+.pDashboard .hosting #hostingNoSub .container {
     display: flex;
 }
 
-.hosting #hostingNoSub .buttonContainer {
+.pDashboard .hosting #hostingNoSub .buttonContainer {
     display: flex;
     margin-top: 50px;
 }
 
-.card {
+.pDashboard .card {
     background-color: #2C3973;
     width: 258px;
     min-width: 258px;
@@ -1331,26 +1318,26 @@ main  ul li a {
     padding-right: 20px;
 }
 
-#hostingNoSub .card {
+.pDashboard #hostingNoSub .card {
     height: 400px;
 }
 
-#hostingSub .card {
+.pDashboard #hostingSub .card {
     height: 360px;
 }
 
-.card .price {
+.pDashboard .card .price {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 30px;
 }
 
-.card img {
+.pDashboard .card img {
     margin-bottom: 30px;
     margin-top: 30px;
 }
 
-#hostingNoSub .noHostP {
+.pDashboard #hostingNoSub .noHostP {
     position: absolute;
     right: 40%;
     left: 40%;
@@ -1358,21 +1345,21 @@ main  ul li a {
     opacity: 40%;
 }
 
-#hostingNoSub #hostingDiv1, .hostingDiv2 {
+.pDashboard #hostingNoSub #hostingDiv1, .hostingDiv2 {
     max-width: 600px;
     margin-left: 60px;
 }
 
-#hostingNoSub #hostingDiv1 .text {
+.pDashboard #hostingNoSub #hostingDiv1 .text {
     font-size: 18px;
 }
 
-#hostingNoSub #hostingDiv1 h2, .hostingDiv2 h2 {
+.pDashboard #hostingNoSub #hostingDiv1 h2, .hostingDiv2 h2 {
     margin-top: 0;
     margin-bottom: 20px;
 }
 
-#hostingNoSub #hostButton {
+.pDashboard #hostingNoSub #hostButton {
     border: none;
     width: 232px;
     height: 45px;
@@ -1383,20 +1370,20 @@ main  ul li a {
     cursor: pointer;
 }
 
-#inResilDiv {
+.pDashboard #inResilDiv {
     opacity: 50%;
 }
 
-#resilDiv div {
+.pDashboard #resilDiv div {
     opacity: 50%;
 }
 
-#resiliationButton {
+.pDashboard #resiliationButton {
     width: 300px;
     height: 45px;
 }
 
-.resilDiv button {
+.pDashboard .resilDiv button {
     margin-top: 50px;
     border: none;
     border-radius: 4px;
@@ -1405,19 +1392,19 @@ main  ul li a {
     color: white;
 }
 
-#hostingSub p{
+.pDashboard #hostingSub p{
     font-size: 22px;
 }
 
-#hostingSub .infoHeberg{
+.pDashboard #hostingSub .infoHeberg{
     margin-bottom: 20px;
 }
 
-#hostingSub .name {
+.pDashboard #hostingSub .name {
     opacity: 40%;
 }
 
-#infoSupp {
+.pDashboard #infoSupp {
     color: #A0CFFF;
     font-size: 18px;
     transform: translateX(20px) translateY(10px);
@@ -1425,7 +1412,7 @@ main  ul li a {
     user-select: none;
 }
 
-#hostingSub hr {
+.pDashboard #hostingSub hr {
     opacity: 20%;
     margin: 0 50px 0 140px;
 }
@@ -1450,7 +1437,7 @@ main  ul li a {
     font-weight: normal;
 }
 
-#popup-hebergement {
+.pDashboard #popup-hebergement {
     background: linear-gradient(252.04deg, #2C3973 8.82%, #51779C 99.46%);
     border-radius: 14px;
     max-width: 891px;
@@ -1463,11 +1450,11 @@ main  ul li a {
     z-index: 2;
 }
 
-.hebergStatus {
+.pDashboard .hebergStatus {
     display: flex;
 }
 
-#statusColorPoint {
+.pDashboard #statusColorPoint {
     width: 10px;
     height: 10px;
     margin-left: 10px;
@@ -1475,22 +1462,21 @@ main  ul li a {
     border-radius: 100%;
 }
 
-
-#popup-hebergement .textHebergPopup {
+.pDashboard #popup-hebergement .textHebergPopup {
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
 }
 
-#popup-hebergement h1 {
+.pDashboard #popup-hebergement h1 {
     margin: 50px 0;
 }
 
-#popup-hebergement h2 {
+.pDashboard #popup-hebergement h2 {
     margin-bottom: 20px;
 }
 
-#popup-hebergement button {
+.pDashboard #popup-hebergement button {
     width: 40px;
     height: 20px;
 }
@@ -1564,7 +1550,7 @@ main  ul li a {
     transform: translateX(50%);
 }
 
-.freePik {
+.pDashboard .freePik {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -1573,7 +1559,7 @@ main  ul li a {
     margin: 20px 40px;
 }
 
-.freePik a {
+.pDashboard .freePik a {
     text-decoration: none;
     color: white;
 }
@@ -1582,7 +1568,6 @@ main  ul li a {
     margin-right: 10px;
     margin-left: 0;
 }
-
 
 .pDashboard .content .support .tickets {
     display: flex;
@@ -1877,7 +1862,6 @@ main  ul li a {
 }
 
 .pRDV #methods button {
-    border: 0;
     font-size: 1rem;
     padding: 10px 30px;
     border-radius: 5px;
@@ -2575,7 +2559,6 @@ main  ul li a {
     margin-bottom: 100px;
 }
 
-
 .pValidPaiement div #imdb img {
     width: 25px;
     margin: 5px;
@@ -2605,7 +2588,7 @@ main  ul li a {
     cursor: pointer;
 }
 
-#downloadButton {
+.pValidPaiement #downloadButton {
     width: 200px;
     height: 50px;
     border: none;
@@ -2617,7 +2600,7 @@ main  ul li a {
     margin: 10px 0 30px 0;
 }
 
-.colorPoint {
+.pValidPaiement .colorPoint {
     width: 15px;
     height: 15px;
     margin-left: 10px;
@@ -2958,8 +2941,7 @@ main  ul li a {
     margin-top: 30px;
 }
 
-
-#payerButton {
+.pPaiement #payerButton {
     width: 200px;
     height: 50px;
     color: white;
@@ -2967,7 +2949,6 @@ main  ul li a {
     border-radius: 5px;
     background-color: #0B4E95;
 }
-
 
 /* #endregion */
 
@@ -3136,11 +3117,11 @@ main  ul li a {
     margin-bottom: 40px;
 }
 
-#imageView {
+.pMaquette-Developpement #imageView {
     width: 250px;
 }
 
-.pagevi {
+.pMaquette-Developpement .pagevi {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -3148,11 +3129,12 @@ main  ul li a {
     width: fit-content;
     margin: 20px auto;
 }
-.pageViewer {
+
+.pMaquette-Developpement .pageViewer {
     padding: 30px;
 }
 
-.pageViewer h2 {
+.pMaquette-Developpement .pageViewer h2 {
     font-size: 20px;
     margin-bottom: 10px;
     opacity: 100%;
@@ -3160,21 +3142,21 @@ main  ul li a {
     transition: 0.4s;
 }
 
-.pageViewer a {
+.pMaquette-Developpement .pageViewer a {
     display: block;
     height: fit-content;
 }
 
-.pageViewer{
+.pMaquette-Developpement .pageViewer{
     transition: 0.3s;
 }
 
-.pagevi:hover .pageViewer{
+.pMaquette-Developpement .pagevi:hover .pageViewer{
     opacity: .5;
     filter: blur(4px);
 }
 
-.pagevi .pageViewer:hover{
+.pMaquette-Developpement .pagevi .pageViewer:hover{
     opacity: 1;
     filter: blur(0px);
     transform: scale(1.1);
@@ -3193,31 +3175,31 @@ main  ul li a {
     margin: 10px auto;
 }
 
-#modifDemande #modifButtonText {
+.pMaquette-Developpement #modifDemande #modifButtonText {
     width: 300px;
     height: 200px;
     background-color: white;
     color: #0C1436;
 }
 
-#modifDemande h2 {
+.pMaquette-Developpement #modifDemande h2 {
     margin-bottom: 30px;
 }
 
-#modifDemande p:nth-child(3) {
+.pMaquette-Developpement #modifDemande p:nth-child(3) {
     margin-bottom: 30px;
 }
 
-#modifDemande p {
+.pMaquette-Developpement #modifDemande p {
     font-size: 20px;
     font-weight: 100;
 }
 
-.modifTitre {
+.pMaquette-Developpement .modifTitre {
     margin: 60px 0 20px 0;
 }
 
-#modifText {
+.pMaquette-Developpement #modifText {
     opacity: 50%;
     max-width: 600px;
     margin: 0 auto 0 auto;
@@ -3268,7 +3250,7 @@ main  ul li a {
     color: white;
 }
 
-#modifDemandeText {
+.pMaquette-Developpement #modifDemandeText {
     min-height: 300px;
     min-width: 800px;
     resize: both;
