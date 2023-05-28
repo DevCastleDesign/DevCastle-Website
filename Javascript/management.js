@@ -157,7 +157,8 @@ function htep_loop() {
             status: "termine"
         });
         update(ref(database, 'users/' + showedUserUID + '/site/developpement'), {
-            date_fin: getTodayDate()
+            date_fin: getTodayDate(),
+            status: "termine"
         });
         openedPage -= 4;
         OpenDashboard(openedPage);
