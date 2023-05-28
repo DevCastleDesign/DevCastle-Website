@@ -62,7 +62,7 @@
         <div class="container">
             <h2>Hebergement</h2>
             <p>Un mail vous sera envoyé lorsque votre site sera en ligne</p>
-            <p>Status</p>
+            <p class="statusTxt">Status</p>
             <div class="statusDiv">
                 <p>En attente </p>
                 <div class="colorPoint"></div>
@@ -70,9 +70,10 @@
         </div>
     </div>
 
-    <div class="avisDiv">
+    <div id="avisDiv">
         <div>
-            <p>Votre avis compte</p>
+            <h2>Votre avis compte</h2>
+            <p>Cliquez sur une des étoiles pour pouvoir nous évaluer</p>
             <div id="imdb">
                 <div class="star">
                     <div class="star-fill"></div>
@@ -166,7 +167,6 @@
         if (user) {
             onValue(ref(database,  "users/" + user.uid + "/facturation"), (snapshot) => {
                 const nombre_avis = (snapshot.val().nombre_facture);
-                alert(nombre_avis)
             }, {
                 onlyOnce: true
             });
@@ -204,13 +204,14 @@
             });
     });
 
-    envoyerButton.addEventListener('click', (e) => {
+    document.getElementById('envoyerButton').addEventListener('click', (e) => {
 
         if (nombre_etoile == 0 && document.getElementById('avisText').value == "") {
 
         } else {
-
             const user = auth.currentUser;
+
+            document.getElementById('envoyerButton').disabled = 'true';
 
             onValue(ref(database, '/users/' + user.uid), (snapshot) => {
                 const nom = (snapshot.val().nom);
@@ -238,6 +239,10 @@
             }, {
                 onlyOnce: true
             });
+
+            setTimeout(' document.getElementById(\'avisDiv\').innerHTML = `<h2>Merci !</h2>`;', 500)
+
+
         }
     });
 

@@ -40,6 +40,9 @@ img {
     width: 100%;
     top: 100%;
 }
+body {
+    min-height: 100vh;
+}
 
 .footer label {
     font-size: 48px;
@@ -601,10 +604,9 @@ main  ul li a {
 ******************************************/
 
 .pLogInSignIn body {
-    background-image: url("../src/Images/Group 14 (2).png");
+    background-image: url("../src/Images/SkyBackground.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 100%;
     margin: 0;
 }
 
@@ -632,7 +634,11 @@ main  ul li a {
 .pLogInSignIn #retourButton {
     user-select: none;
     cursor: pointer;
+    transform: translateY(30px);
+    text-align: center;
+    display: none;
 }
+
 
 .pLogInSignIn header  {
     text-align: center;
@@ -673,7 +679,6 @@ main  ul li a {
     margin-top: 30px;
 }
 
-
 .pLogInSignIn .resetMdpContainer {
     padding-top: 20px;
 }
@@ -689,6 +694,31 @@ main  ul li a {
 .pLogInSignIn a {
     text-decoration: none;
     color: #006DF0;
+}
+
+.resetMdpDiv {
+    text-align: center;
+}
+
+.resetMdpDiv input {
+    margin-bottom: 30px;
+}
+
+.resetMdpDiv p {
+    margin-top: 20px;
+}
+
+.resetMdpDiv label {
+    font-size: 25px;
+}
+
+.resetMdpDiv .error {
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+.resetMdpDiv button {
+    margin-top: 50px;
 }
 
 .pLogInSignIn .noAccountLogin {
@@ -1465,17 +1495,28 @@ main  ul li a {
 
     /* Support */
 .pDashboard .content .support .banner {
-    background-color: #1D1C21;
-    padding: 30px 20px;
+    background-color: #86B3DC;
+    padding: 30px 150px 30px 40px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .pDashboard .content .support .banner img {
-    width: 25%;
+    width: 27%;
 }
+
+.pDashboard .content .support .banner h1 {
+    font-size: 40px;
+    margin: 30px 0 20px 0;
+}
+
+.pDashboard .content .support .banner p {
+    font-size: 20px;
+}
+
 
 .pDashboard .content .support .h2p {
     display: flex;
@@ -1486,6 +1527,11 @@ main  ul li a {
 .pDashboard .content .support .h2p h2 {
     margin: 0;
 }
+
+.pDashboard .content .support #tickets-list-answers {
+    font-size: 16px;
+}
+
 
 .pDashboard .content .support .h2p p {
     margin-left: 15px;
@@ -1501,7 +1547,7 @@ main  ul li a {
 }
 
 .pDashboard .content .support .new-ticket{
-    background-color: var(--dashboardseparator);
+    background-color: #86B3DC;
     height: 50px;
     width: 250px;
     display: flex;
@@ -1514,6 +1560,20 @@ main  ul li a {
     font-size: 16px;
     cursor: pointer;
     transform: translateX(50%);
+}
+
+.freePik {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 12px;
+    opacity: 50%;
+    margin: 20px 40px;
+}
+
+.freePik a {
+    text-decoration: none;
+    color: white;
 }
 
 .pDashboard .content .support .new-ticket span {
@@ -2127,12 +2187,13 @@ main  ul li a {
 }
 
 .pSite-welcome  {
-    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%), #FFFFFF;
+    background: linear-gradient(119.18deg, #0C1436 1.78%, #000000 105.13%);
     color: white;
     font-size: 20px;
     padding: 100px;
     overflow: hidden;
 }
+
 
 .pSite-welcome p {
     max-width: 1400px;
@@ -2525,8 +2586,8 @@ main  ul li a {
     background-color: transparent;
     color: black;
     resize: none;
-    width: 40vw;
-    height: 200px;
+    width: 50vw;
+    height: 300px;
     margin: 10px 0;
 }
 
@@ -2551,40 +2612,54 @@ main  ul li a {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    margin: 10px 0 30px 0;
 }
 
 .colorPoint {
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     margin-left: 10px;
-    margin-top: 9px;
+    margin-top: 5px;
     border-radius: 100%;
     background-color: orange;
+}
+
+.statusTxt {
+    font-size: 25px;
+    margin-top: 40px;
 }
 
 .statusDiv {
     display: flex;
     position: relative;
+    transform: translateX(37%);
+    margin-top: 5px;
+    font-size: 20px;
 }
 
 .pValidPaiement .star {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .pValidPaiement .star .star-fill {
     background-image: url(../src/Icons/EtoileGrisIcon.png);
-    height: 25px;
-    width: 30px;
-    background-size: 30px;
+    height: 30px;
+    width: 35px;
+    background-size: 35px;
 }
 
 .pValidPaiement .star .star-fill.active {
     background-image: url(../src/Icons/EtoileIco.png);
 }
 
-.pValidPaiement .avisDiv {
+.pValidPaiement #avisDiv {
     text-align: center;
+}
+
+#avisDiv h2 {
+    margin-bottom: 10px;
 }
 
 /* #endregion */
@@ -2599,19 +2674,18 @@ main  ul li a {
     color: white;
 }
 
-
 .pOptions .cartes {
     display: flex;
     justify-content: space-between;
     max-width: 800px;
     margin: 0 auto;
-    transform: translateY(20%);
-    height: fit-content;
+    transform: translateY(10%);
+    height: 650px;
     padding-bottom: 50px;
 }
 
 .pOptions .rdvDiv {
-    background-color: #2C3973;
+    background-color: #618EC5;
     width: 350px;
     border-radius: 10px;
     text-align: center;
@@ -2628,19 +2702,25 @@ main  ul li a {
     height: fit-content;
     display: flex;
     flex-direction: column;
+    min-height: 100%;
 }
 
 .pOptions h2 {
-    font-size: 38px;
-    width: 350px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    font-size: 30px;
+    margin: 30px auto 0 auto;
+    max-width: 350px;
+}
+
+.pOptions label {
+    margin-top: 10px;
+    font-size: 16px;
 }
 
 .pOptions .avantage1 {
     text-align: center;
     font-size: 16px;
     margin-bottom: 5px;
+    margin-top: 30px;
     font-weight: bold;
 }
 
@@ -2671,7 +2751,7 @@ main  ul li a {
 .pOptions p {
     text-align: center;
     margin: 0 30px 30px 30px;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .pOptions ul {
@@ -3054,7 +3134,6 @@ main  ul li a {
     margin-bottom: 40px;
 }
 
-
 #imageView {
     width: 250px;
 }
@@ -3171,6 +3250,7 @@ main  ul li a {
 
 .pMaquette-Developpement .page #nextStepButton {
     opacity: 50%;
+    margin-bottom: 350px;
 }
 
 .pMaquette-Developpement main {

@@ -94,6 +94,26 @@ onValue(ref(database, 'review/avis'), (snapshot) => {
     document.getElementById("ratings-table").innerHTML = html;
 });
 
+onValue(ref(database, 'resiliation'), (snapshot) => {
+    const ratings = Object.values(snapshot.val());
+    const ratings_keys = Object.keys(snapshot.val());
+    let html = `
+    <tr>
+        <th>Client</th>
+        <th>Etoiles</th>
+    </tr>
+    `;
+    for (let i = 0; i < ratings.length; i++) {
+        html += `
+        <tr>
+            <td>test</td>
+            <td>test</td>
+        </tr>
+        `;
+    }
+    document.getElementById("resiliation-table").innerHTML = html;
+});
+
 document.getElementById("ticket-pageSend").addEventListener('click', () => {
     update(ref(database, 'tickets/ticket_' + openedTicketId), {
         answer: document.getElementById("ticket-pageAnswer").value.replace(/\r?\n/g, '<br>')
