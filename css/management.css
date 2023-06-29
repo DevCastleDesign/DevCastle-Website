@@ -75,6 +75,7 @@ input.topsearch {
     width: 100%;
     margin: 0 0 30px;
     font-size: 1rem;
+    color: black;
 }
 
 table {
@@ -100,7 +101,7 @@ table:not(.content-page) tr:not(:first-child) {
     user-select: none;
 }
 
-table:not(.content-page) tr:not(:first-child):not(:last-child):after {
+table:not(.content-page) tr:not(:first-child):not(:last-child)::after {
     content: "";
     position: absolute;
     left: 0;
