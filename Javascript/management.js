@@ -100,7 +100,7 @@ onValue(ref(database, 'resiliation'), (snapshot) => {
     let html = `
     <tr>
         <th>Client</th>
-        <th>Etoiles</th>
+        <th>--</th>
     </tr>
     `;
     for (let i = 0; i < ratings.length; i++) {
@@ -219,3 +219,35 @@ function updateMaquetteImages() {
         });
     });
 }
+
+function normaliseString(entry) {
+    return entry.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+// SEARCHS
+document.getElementById("users-search").addEventListener("change", (event) => {
+    const usersTable = document.getElementById("users-table").children[0];
+    let nextKeyword = "";
+    let keywords = [];
+    for (let i = 0; i < event.target.value.length; i++) {
+        if (event.target.value[i] === " ") {
+            keywords.push(nextKeyword);
+            nextKeyword = "";
+        } else {
+            nextKeyword += event.target.value[i];
+        }
+    }
+    keywords.push(nextKeyword);
+    console.log(keywords);
+    for (let i = 1; i < usersTable.childElementCount; i++) {
+        let keywordOK = true;
+        for (let j = 0; j < keywords.length; j++) {
+            if (!normaliseString(usersTable.children[i].children[0].innerHTML).includes(normaliseString(keywords[j])) &&
+            !normaliseString(usersTable.children[i].children[1].innerHTML).includes(normaliseString(keywords[j])) &&
+            !normaliseString(usersTable.children[i].children[2].innerHTML).includes(normaliseString(keywords[j]))) {
+                keywordOK = false;
+            }
+        }
+        usersTable.children[i].style.display = keywordOK ? "table-row" : "none";
+    }
+});
