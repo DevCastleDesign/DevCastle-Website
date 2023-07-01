@@ -1,29 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="pLogInSignIn" lang="fr">
 <head>
+    <!-- Metadonnées -->
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Arsène Brosy & Sohan Anampalli" name="author">
+    <meta content="Création, site, internet, web, design" name="keywords">
+    <meta content="Creez vos sites web avec des pros a mini-prix" name="description">
+
+    <link href="/src/Images/favicon.ico" rel="icon" type="image/x-icon">
+
+    <!-- Titre -->
+    <title>Devcastle - Connexion</title>
+
+    <!-- CSS -->
+    <link href="../css/fonts/fonts.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <script crossorigin="anonymous"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css"
+          rel="stylesheet"/>
 </head>
 <body>
-<div>
-  <h1>DevCastle est uniquement disponible sur ordinateur</h1>
-  <p>Veuillez utiliser un ordinateur ou une grande tablette</p>
+
+<header>
+    <img class="devCastleIcon" height="83" src="src/Icons/DevCastleIcon.png" width="148"/>
+</header>
+
+<div class="login" id="logInDiv">
+    <div id="loginDivcontain">
+        <label class="connexionTitle">Connexion</label>
+        <div class="loginContainer">
+            <p>Email</p>
+            <input class="email" id="emailLogin" type="email">
+            <p class="error" id="errorEmailLogin">email invalide</p>
+
+            <p>Password</p>
+            <input class="password" id="passwordLogin" type="password">
+            <p class="errorMdp" id="errorLogin">email ou mot de passe incorrect</p>
+
+            <input class="connectionButton" id="logIn" type="submit" value="Se connecter">
+            <hr>
+            <p class="noAccountLogin">pas encore de compte ? <a href="site-welcome.html">S'inscrire</a></p>
+            <p id="forgetMdp">mot de passe oublié</p>
+        </div>
+    </div>
+
+    <div id="emailResetMdpDiv" style="display: none">
+        <label class="connexionTitle">Mot de passe oublié</label>
+        <div class="resetMdpContainer">
+            <p class="textReset">Entrez l'adresse email utilisée par votre compte, nous vous enverrons un lien pour
+                modifier votre mot de passe.</p>
+            <p>Email</p>
+            <input class="email" id="emailForgotMdp" type="email">
+            <p id="errorResetMail"></p>
+            <input class="connectionButton" id="forgotMdpButton" type="submit" value="Se connecter">
+        </div>
+        <p id="retourButton">retour</p>
+    </div>
 </div>
+
+<script src="Javascript/LogInSignIn.js"></script>
+
+<script type="module">
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import {getDatabase} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+    import {
+        getAuth,
+        signInWithEmailAndPassword,
+        sendPasswordResetEmail,
+        setPersistence,
+        browserLocalPersistence
+    } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+        authDomain: "webcastle-website.firebaseapp.com",
+        databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "webcastle-website",
+        storageBucket: "webcastle-website.appspot.com",
+        messagingSenderId: "274339465548",
+        appId: "1:274339465548:web:927dd550601c84dffce7e9"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    document.getElementById('logIn').addEventListener('click', (e) => {
+        var email = document.getElementById('emailLogin').value
+        var password = document.getElementById('passwordLogin').value
+
+        checkEmailLogin()
+
+        if (checkEmailLogin() == true) {
+            setPersistence(auth, browserLocalPersistence)
+                .then(() => {
+                    signInWithEmailAndPassword(auth, email, password)
+                        .then((userCredential) => {
+
+
+                            const user = userCredential.user;
+                            document.getElementById('errorLogin').style.display = "none";
+                            window.location.href = "index.html";
+
+
+                        })
+                        .catch((error) => {
+                            const errorCode = error.code;
+                            const errorMessage = error.message;
+                            document.getElementById('errorLogin').style.display = "block";
+                        });
+
+                })
+                .catch((error) => {
+                    alert(error.message)
+                });
+
+
+        }
+    });
+
+    document.getElementById('forgetMdp').addEventListener('click', (e) => {
+        document.getElementById('loginDivcontain').style.display = 'none';
+        document.getElementById('emailResetMdpDiv').style.display = 'block';
+    });
+
+    document.getElementById('forgotMdpButton').addEventListener('click', (e) => {
+        const email = document.getElementById('emailForgotMdp').value;
+
+        const emailPatern = /^[^@]+@\w+(\.\w+)+\w$/;
+
+        if (email.match(emailPatern)) {
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    alert("Un mail de réinitialisation vous a été envoyé")
+                })
+                .catch((error) => {
+                    if (error.code == "auth/user-not-found") {
+                        document.getElementById('errorResetMail').innerHTML = "email attribuée à aucun compte";
+                    }
+                });
+        } else {
+            document.getElementById('errorResetMail').innerHTML = "email invalide";
+        }
+    });
+
+    document.getElementById('retourButton').addEventListener('click', (e) => {
+        document.getElementById('loginDivcontain').style.display = 'block';
+        document.getElementById('emailResetMdpDiv').style.display = 'none';
+    });
+
+</script>
 </body>
-
-<style>
-
-  html {
-    height: 100%;
-  }
-
-  body {
-    background-image: url("src/images/Group 14 (2).png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    text-align: center;
-  }
-</style>
 </html>
+

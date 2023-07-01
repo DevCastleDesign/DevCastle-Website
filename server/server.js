@@ -9,6 +9,6 @@ app.get('/', (req, res) => {
 // Définissez les autres routes si nécessaire
 
 // Lancement du serveur Express
-app.listen(3000, () => {
+app.listen(4242, () => {
     console.log('Le serveur est en cours d\'exécution sur le port 3000');
 });

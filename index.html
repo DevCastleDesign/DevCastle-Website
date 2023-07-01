@@ -24,6 +24,14 @@
 </head>
 
 <body class="pAccueil" id="body">
+<script>
+    window.addEventListener('load', function () {
+        require("dotenv").config();
+
+        alert(process.env.FIREBASEAPIKEY)
+    });
+
+</script>
 
 <main>
     <section class="blueBackground">

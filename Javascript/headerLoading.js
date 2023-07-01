@@ -1,8 +1,11 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+import dotenv from 'dotenv';
+dotenv.config();
+const apiKey = process.env.API_KEY;
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDpxXNFrji99t8a6QTcKhCmgIdA0ibs_lk",
+    apiKey: apiKey,
     authDomain: "webcastle-website.firebaseapp.com",
     databaseURL: "https://webcastle-website-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "webcastle-website",
